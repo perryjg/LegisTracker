@@ -7,7 +7,7 @@ group :development, :test do
   gem 'cucumber-rails'
   gem 'rspec-rails'
   gem 'webrat'
-  gem 'factory_girl'
+  gem 'factory_girl_rails'
 end
 
 # Use unicorn as the web server
