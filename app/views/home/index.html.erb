@@ -1,11 +1,19 @@
 <h1>Home#index</h1>
 <% @events.each do |event| %>
+<<<<<<< HEAD
 	<p class="event"><%= event.bill.number %> <%= event.statusDate.to_s %> <%= event.statusCode %></p>
 <% end %>
 
 <% @votes.each do |vote| %>
 	<p class="vote">
 	   <%= vote.bill.number %> <%= vote.date.to_s %> <%= vote.description %><br />
+=======
+	<p><%= event.bill.number %> <%= event.statusDate.to_s %> <%= event.statusCode %></p>
+<% end %>
+
+<% @votes.each do |vote| %>
+	<p><%= vote.bill.number %> <%= vote.date.to_s %> <%= vote.description %><br />
+>>>>>>> c09e07584dd1af5a30c11b42eb356e1366535379
 	   Yea: <%= vote.yea %><br />
 	   Nay: <%= vote.nay %>
 	</p>
