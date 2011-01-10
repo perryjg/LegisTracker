@@ -1,2 +1,11 @@
 <h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
+<% @events.each do |event| %>
+	<p><%= event.bill.number %> <%= event.statusDate.to_s %> <%= event.statusCode %></p>
+<% end %>
+
+<% @votes.each do |vote| %>
+	<p><%= vote.bill.number %> <%= vote.date.to_s %> <%= vote.description %><br />
+	   Yea: <%= vote.yea %><br />
+	   Nay: <%= vote.nay %>
+	</p>
+<% end %>

@@ -10,93 +10,47 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 0) do
+ActiveRecord::Schema.define(:version => 20110110210951) do
 
-  create_table "bills", :id => false, :force => true do |t|
-    t.integer "id",                                                     :null => false
-    t.string  "Btype",            :limit => 2,          :default => "", :null => false
-    t.integer "Num",                                                    :null => false
-    t.string  "Suffix",           :limit => 25
-    t.integer "Carryover",                                              :null => false
-    t.integer "YearID",                                                 :null => false
-    t.date    "StatusDate",                                             :null => false
-    t.string  "Number",           :limit => 8,                          :null => false
-    t.string  "Short_Title",                                            :null => false
-    t.string  "CompositeCaption",                                       :null => false
-    t.text    "Title",            :limit => 2147483647,                 :null => false
-    t.integer "HCommittee"
-    t.integer "SCommittee"
+  create_table "bills", :force => true do |t|
+    t.string  "btype"
+    t.integer "num"
+    t.string  "suffix"
+    t.integer "carryover"
+    t.integer "yearID"
+    t.date    "statusDate"
+    t.string  "number"
+    t.string  "short_title"
+    t.string  "compositeCaption"
+    t.text    "title"
+    t.integer "hCommittee"
+    t.integer "sCommittee"
     t.date    "EffDate"
-    t.string  "BStatus"
-    t.string  "statusCode",       :limit => 10
-    t.text    "Footnote",         :limit => 16777215
+    t.string  "bStatus"
+    t.string  "statusCode"
+    t.text    "Footnote"
     t.integer "codeTitle"
     t.integer "codeChapter"
   end
 
-  create_table "committee_member_assignments_10", :force => true do |t|
-    t.integer "committee_id"
-    t.integer "member_id"
-    t.string  "name"
-    t.integer "district"
-    t.string  "house",        :limit => 1
-    t.string  "office"
+  create_table "statuses", :force => true do |t|
+    t.integer  "bill_id"
+    t.datetime "statusDate"
+    t.string   "statusCode"
+    t.string   "AmSubDesc"
   end
 
-  create_table "committees", :id => false, :force => true do |t|
-    t.integer "id",                       :null => false
-    t.string  "name"
-    t.string  "short_name", :limit => 10
-    t.string  "house",      :limit => 1,  :null => false
-  end
-
-  create_table "members", :force => true do |t|
-    t.string  "name",     :limit => 35, :null => false
-    t.integer "district",               :null => false
-    t.string  "lname",    :limit => 35
-  end
-
-  create_table "sponsor", :id => false, :force => true do |t|
-    t.integer "bill_id", :null => false
-    t.integer "Seq",     :null => false
-    t.integer "Type",    :null => false
-    t.integer "Id",      :null => false
-  end
-
-  create_table "status", :id => false, :force => true do |t|
-    t.integer  "id",                                       :null => false
-    t.integer  "bill_id",                                  :null => false
-    t.datetime "StatusDate",                               :null => false
-    t.string   "StatusCode", :limit => 10, :default => "", :null => false
-    t.string   "AmSubDesc",  :limit => 10
-  end
-
-  create_table "versions", :id => false, :force => true do |t|
-    t.integer "bill_id",                                   :null => false
-    t.integer "number",                                    :null => false
-    t.integer "version_id",                                :null => false
-    t.string  "description", :limit => 50,                 :null => false
-    t.string  "fileID",      :limit => 50, :default => "", :null => false
-  end
-
-  create_table "votes_detail", :id => false, :force => true do |t|
-    t.integer "vote_id",                               :null => false
-    t.string  "house",    :limit => 1, :default => "", :null => false
-    t.integer "district",                              :null => false
-    t.string  "vote",     :limit => 1, :default => "", :null => false
-  end
-
-  create_table "votes_master", :id => false, :force => true do |t|
-    t.integer  "vote_id",                                   :null => false
-    t.string   "house",       :limit => 1,  :default => "", :null => false
-    t.datetime "date",                                      :null => false
-    t.string   "type",        :limit => 2,  :default => ""
+  create_table "votes", :force => true do |t|
+    t.string   "house",       :limit => 1
+    t.datetime "date"
+    t.string   "type",        :limit => 2
     t.integer  "num"
-    t.string   "description", :limit => 60, :default => ""
-    t.integer  "yea",                                       :null => false
-    t.integer  "nay",                                       :null => false
-    t.integer  "not_voting",                                :null => false
-    t.integer  "excused",                                   :null => false
+    t.string   "description"
+    t.integer  "yea"
+    t.integer  "nay"
+    t.integer  "not_voting"
+    t.integer  "excused"
+    t.integer  "bill_id"
   end
 
 end
