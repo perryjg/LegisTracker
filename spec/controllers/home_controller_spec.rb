@@ -18,11 +18,7 @@ describe HomeController do
       b = Bill.create!( :number => "HB1" )
       b.statuses.create!( :statusDate => "2011-01-10", :statusCode => 'HPF' )
       get 'index'
-<<<<<<< HEAD
       response.should have_selector( "p", :class => 'event', :content => "2011-01-10" )
-=======
-      response.should have_selector( "p", :content => "HB1" )
->>>>>>> c09e07584dd1af5a30c11b42eb356e1366535379
     end
     
     it "shold have most recent vote" do
@@ -35,11 +31,17 @@ describe HomeController do
                        :yea => 100,
                        :nay => 80 )
       get 'index'
-<<<<<<< HEAD
       response.should have_selector( "p", :class => 'vote', :content => "2011-01-10" )
-=======
-      response.should have_selector( "p", :content => "2011-01-10 00:00:00 UTC PASS" )
->>>>>>> c09e07584dd1af5a30c11b42eb356e1366535379
+    end
+    
+    it "should have house rss items" do
+      get 'index'
+      response.should have_selector( "a", :class => "rss house" )
+    end
+    
+    it "should have senate rss items" do
+      get 'index'
+      response.should have_selector( "a", :class => "rss senate" )
     end
   end
 end
