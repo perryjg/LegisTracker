@@ -1,9 +1,28 @@
-Factory.define :bill do |bill|
-    bill.btype 'HB'
-    bill.num '1'
-    bill.number 'HB1'
-    bill.short_title 'A Makebelieve Bill'
-    bill.title 'A BILL to be entitled A Make Beleive Bill which does absolutely nothing'
-    bill.bStatus 'House Passed/Adopted'
-    bill.statusCode 'HPA'
+FactoryGirl.define do
+  factory :bill do
+    btype 'HB'
+    num '1'
+    number 'HB1'
+    short_title 'A Makebelieve Bill'
+    title 'A BILL to be entitled A Make Beleive Bill which does absolutely nothing'
+    bStatus 'House Passed/Adopted'
+    statusCode 'HPA'
+  end
+
+  factory :vote do
+    house 'H'
+    date Date.parse( '2011-01-10' )
+    bill_type 'HB'
+    num 1
+    description 'PASS'
+    yea 100
+    nay 80
+    association :bill
+  end
+  
+  factory :status do
+    statusDate Date.parse( '2011-01-10' )
+    statusCode 'HPF'
+    association :bill
+  end
 end

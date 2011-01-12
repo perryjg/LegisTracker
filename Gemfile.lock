@@ -1,3 +1,11 @@
+GIT
+  remote: http://github.com/CodeMonkeySteve/factory_girl_rails.git
+  revision: de20675bef9fb6d71281c61a59fa63991301d8c4
+  specs:
+    factory_girl_rails (1.0)
+      factory_girl (~> 2.0.0.beta)
+      railties (~> 3.0.0)
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -41,10 +49,7 @@ GEM
     diff-lcs (1.1.2)
     erubis (2.6.6)
       abstract (>= 1.0.0)
-    factory_girl (1.3.2)
-    factory_girl_rails (1.0.1)
-      factory_girl (~> 1.3)
-      railties (>= 3.0.0)
+    factory_girl (2.0.0.beta1)
     gherkin (2.3.3)
       json (~> 1.4.6)
     i18n (0.5.0)
@@ -106,7 +111,7 @@ PLATFORMS
 
 DEPENDENCIES
   cucumber-rails
-  factory_girl_rails
+  factory_girl_rails!
   mysql2
   rails (= 3.0.3)
   rspec-rails
