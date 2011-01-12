@@ -2,18 +2,13 @@ require 'spec_helper'
 
 describe Vote do
   before(:each) do
-    bill = Bill.create!( :number => "HB1" )
-    bill.votes.create!( :house => 'H',
-                        :date => '2011-01-10',
-                        :type => 'HB',
-                        :num => 1,
-                        :description => 'PASS',
-                        :yea => 100,
-                        :nay => 80 )
+    @bill = Factory.create( :bill )
+    Factory.create( :vote, :bill => @bill )
   end
   
   it "should provide most recent" do
+    last_date = Vote.last_date
     vote = Vote.most_recent.first
-    vote.date.to_s.should == '2011-01-10 00:00:00 UTC'
+    vote.date.to_s.should match( /2011-01-10/ )
   end
 end

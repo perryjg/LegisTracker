@@ -11,7 +11,7 @@ FactoryGirl.define do
 
   factory :vote do
     house 'H'
-    date Date.parse( '2011-01-10' )
+    date Date.parse( '2011-01-10 12:00:00' )
     bill_type 'HB'
     num 1
     description 'PASS'
@@ -21,7 +21,7 @@ FactoryGirl.define do
   end
   
   factory :status do
-    statusDate Date.parse( '2011-01-10' )
+    statusDate Date.parse( '2011-01-10 12:00:00' )
     statusCode 'HPF'
     association :bill
   end
