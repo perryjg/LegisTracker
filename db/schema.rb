@@ -10,27 +10,27 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110112205258) do
+ActiveRecord::Schema.define(:version => 20110114162207) do
 
   create_table "bills", :force => true do |t|
     t.string  "btype"
     t.integer "num"
     t.string  "suffix"
     t.integer "carryover"
-    t.integer "yearID"
-    t.date    "statusDate"
+    t.integer "year_id"
+    t.date    "status_date"
     t.string  "number"
     t.string  "short_title"
-    t.string  "compositeCaption"
+    t.string  "composite_caption"
     t.text    "title"
-    t.integer "hCommittee"
-    t.integer "sCommittee"
-    t.date    "EffDate"
-    t.string  "bStatus"
-    t.string  "statusCode"
-    t.text    "Footnote"
-    t.integer "codeTitle"
-    t.integer "codeChapter"
+    t.integer "h_committee"
+    t.integer "s_committee"
+    t.date    "eff_date"
+    t.string  "b_status"
+    t.string  "status_code_id"
+    t.text    "footnote"
+    t.integer "code_title"
+    t.integer "code_chapter"
   end
 
   create_table "status_codes", :force => true do |t|
@@ -41,9 +41,9 @@ ActiveRecord::Schema.define(:version => 20110112205258) do
 
   create_table "statuses", :force => true do |t|
     t.integer  "bill_id"
-    t.datetime "statusDate"
+    t.datetime "status_date"
     t.string   "status_code_id", :limit => 10
-    t.string   "AmSubDesc"
+    t.string   "am_sub_desc"
   end
 
   create_table "votes", :force => true do |t|
