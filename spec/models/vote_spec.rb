@@ -6,6 +6,19 @@ describe Vote do
     Factory.create( :vote, :bill => @bill )
   end
   
+  it "should create new vote record" do
+    previous_record_count = Vote.count
+    vote = @bill.votes.new( Factory.attributes_for( :vote ) )
+    vote.save.should be true
+    Vote.count.should == previous_record_count + 1
+  end
+
+  it "should have correct bill id" do
+    vote = @bill.votes.new( Factory.attributes_for( :vote ) )
+    vote.save.should be true
+    vote.bill_id.should == @bill.id
+  end
+
   it "should provide most recent" do
     last_date = Vote.last_date
     vote = Vote.most_recent.first

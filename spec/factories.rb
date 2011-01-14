@@ -5,8 +5,8 @@ FactoryGirl.define do
     number 'HB1'
     short_title 'A Makebelieve Bill'
     title 'A BILL to be entitled A Make Beleive Bill which does absolutely nothing'
-    bStatus 'House Passed/Adopted'
-    statusCode 'HPA'
+    b_status 'House Passed/Adopted'
+    status_code_id 'HPA'
   end
 
   factory :vote do
@@ -21,7 +21,7 @@ FactoryGirl.define do
   end
   
   factory :status do
-    statusDate '2011-01-10 12:00:00'
+    status_date '2011-01-10 12:00:00'
     status_code_id 'HPF'
     association :bill
     association :status_code
