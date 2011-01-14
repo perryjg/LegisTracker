@@ -1,23 +1,44 @@
-<h2>Bill Status</h2>
-<% @events.each do |event| %>
-	<p class="event"><%= event.bill.number %> <%= event.statusDate.to_s %> <%= event.statusCode %></p>
-<% end %>
+<div id="votes" class="span-6 border">
+	<h2>Votes</h2>
+	<ul>
+	<% @votes.each do |vote| %>
+		<li class="vote">
+		   <%= vote.bill.number %> <%= vote.date.to_s %> <%= vote.description %><br />
+		   Yea: <%= vote.yea %> Nay: <%= vote.nay %>
+		</li>
+	<% end %>
+	</li>
+</div>
 
-<h2>Votes</h2>
-<% @votes.each do |vote| %>
-	<p class="vote">
-	   <%= vote.bill.number %> <%= vote.date.to_s %> <%= vote.description %><br />
-	   Yea: <%= vote.yea %> Nay: <%= vote.nay %>
-	</p>
-<% end %>
+<div id="status" class="span-10 prepend-1">
+	<h2>Bill Status</h2>
+	<ul>
+	<% @events.each do |event| %>
+		<li class="event">
+			<%= event.bill.number %>
+			<%= event.bill.title %>: <%= event.status_code.description %><br />
+			(<%= event.statusDate.to_s %>)
+		</li>
+	<% end %>
+	</ul>
+</div>
 
-<h2>House Press Releases</h2>
-<% @house_rss[0..4].each do |item| %>
-	<p><a class="rss house" href="<%= item.link %>"><%= item.title %></a></p>
-<% end %>
+<div class="span-6 last box">
+	<div id="senate_rss">
+		<h3>Senate Press Releases</h3>
+		<ul>
+		<% @senate_rss[0..4].each do |item| %>
+			<li class="rss senate"><a href="<%= item.link %>"><%= item.title %></a><br />(<%= item.pubDate %>)</li>
+		<% end %>
+		</ul>
+	</div>
 
-<h2>Senate Press Releases</h2>
-<% @senate_rss[0..4].each do |item| %>
-	<p><a class="rss senate" href="<%= item.link %>"><%= item.title %></a></p>
-<% end %>
-	
+	<div id="house_rss">
+		<h3>House Press Releases</h3>
+		<ul>
+		<% @house_rss[0..4].each do |item| %>
+			<li class="rss house"><a class="rss house" href="<%= item.link %>"><%= item.title %></a><br />(<%= item.pubDate %>)</li>
+		<% end %>
+		</ul>
+	</div>
+</div>

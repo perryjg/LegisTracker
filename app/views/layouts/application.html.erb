@@ -15,12 +15,15 @@
   <%= stylesheet_link_tag 'custom', :media => 'screen' %>
 </head>
 <body>
-  <header>
-  </header>
-  <section>
-    <%= yield %>
-  </section>
-  <footer>
-  </footer>
+	<div class="container">
+	  <header class="span-24 box last">
+			<h1>AJC LegiTracker</h1>
+	  </header>
+	  <section>
+	    <%= yield %>
+	  </section>
+	  <footer class="span-24 last">
+	  </footer>
+	</div>
 </body>
 </html>

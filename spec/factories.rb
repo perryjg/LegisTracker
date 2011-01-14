@@ -22,7 +22,14 @@ FactoryGirl.define do
   
   factory :status do
     statusDate '2011-01-10 12:00:00'
-    statusCode 'HPF'
+    status_code_id 'HPF'
     association :bill
+    association :status_code
+  end
+  
+  factory :status_code do
+    description 'House Prefiled'
+    house 'H'
+    seq 1
   end
 end

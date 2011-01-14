@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110112042513) do
+ActiveRecord::Schema.define(:version => 20110112205258) do
 
   create_table "bills", :force => true do |t|
     t.string  "btype"
@@ -33,10 +33,16 @@ ActiveRecord::Schema.define(:version => 20110112042513) do
     t.integer "codeChapter"
   end
 
+  create_table "status_codes", :force => true do |t|
+    t.string  "description"
+    t.string  "house",       :limit => 1
+    t.integer "seq"
+  end
+
   create_table "statuses", :force => true do |t|
     t.integer  "bill_id"
     t.datetime "statusDate"
-    t.string   "statusCode"
+    t.string   "status_code_id", :limit => 10
     t.string   "AmSubDesc"
   end
 

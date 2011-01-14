@@ -2,10 +2,9 @@ require 'open-uri'
 require 'simple-rss'
 require 'simple_rss_patch'
 
-class SenateFeed
-  def initialize
-    @rss = SimpleRSS.parse open( 'http://senatepress.net/feed' )
-  end
+module SenateFeed
+  @rss = SimpleRSS.parse open( 'http://senatepress.net/feed' )
+
   def items
     @rss.items
   end

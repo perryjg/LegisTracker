@@ -2,10 +2,8 @@ require 'open-uri'
 require 'simple-rss'
 require 'simple_rss_patch'
 
-class HouseFeed
-  def initialize
-    @rss = SimpleRSS.parse open( 'http://www.house-press.com/?feed=rss2' )
-  end
+module HouseFeed
+  @rss = SimpleRSS.parse open( 'http://www.house-press.com/?feed=rss2' )
   
   def items
     @rss.items

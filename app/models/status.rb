@@ -1,5 +1,6 @@
 class Status < ActiveRecord::Base
   belongs_to :bill
+  belongs_to :status_code
   
   def self.most_recent
     where( "DATE(statusDate) = ?", last_date )
