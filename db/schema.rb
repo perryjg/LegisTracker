@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110114162207) do
+ActiveRecord::Schema.define(:version => 20110115190400) do
 
   create_table "bills", :force => true do |t|
     t.string  "btype"
@@ -31,6 +31,28 @@ ActiveRecord::Schema.define(:version => 20110114162207) do
     t.text    "footnote"
     t.integer "code_title"
     t.integer "code_chapter"
+  end
+
+  create_table "house_feeds", :force => true do |t|
+    t.string   "title"
+    t.string   "summary"
+    t.string   "author"
+    t.string   "url"
+    t.datetime "published_at"
+    t.string   "guid"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "senate_feeds", :force => true do |t|
+    t.string   "title"
+    t.string   "summary"
+    t.string   "author"
+    t.string   "url"
+    t.datetime "published_at"
+    t.string   "guid"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "status_codes", :force => true do |t|

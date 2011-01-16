@@ -27,8 +27,8 @@
 	<div id="senate_rss">
 		<h3>Senate Press Releases</h3>
 		<ul>
-		<% @senate_rss[0..4].each do |item| %>
-			<li class="rss senate"><a href="<%= item.link %>"><%= item.title %></a><br />(<%= item.pubDate %>)</li>
+		<% @senate_rss.each do |item| %>
+			<li class="rss senate"><a href="<%= item.url %>"><%= item.title %></a><br />(<%= item.published_at %>)</li>
 		<% end %>
 		</ul>
 	</div>
@@ -36,8 +36,8 @@
 	<div id="house_rss">
 		<h3>House Press Releases</h3>
 		<ul>
-		<% @house_rss[0..4].each do |item| %>
-			<li class="rss house"><a class="rss house" href="<%= item.link %>"><%= item.title %></a><br />(<%= item.pubDate %>)</li>
+		<% @house_rss.each do |item| %>
+			<li class="rss house"><a class="rss house" href="<%= item.url %>"><%= item.title %></a><br />(<%= item.published_at %>)</li>
 		<% end %>
 		</ul>
 	</div>

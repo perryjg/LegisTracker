@@ -2,13 +2,14 @@ source 'http://rubygems.org'
 
 gem 'rails', '3.0.3'
 gem 'mysql2'
-gem 'simple-rss'
+gem 'feedzirra'
 
 group :development, :test do
   gem 'cucumber-rails'
   gem 'rspec-rails'
   gem 'webrat'
   gem 'factory_girl_rails' , :git => "http://github.com/CodeMonkeySteve/factory_girl_rails.git"
+  gem 'faker'
 end
 
 # Use unicorn as the web server

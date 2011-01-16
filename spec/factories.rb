@@ -32,4 +32,22 @@ FactoryGirl.define do
     house 'H'
     seq 1
   end
+  
+  factory :senate_feed do
+    title Faker::Lorem.sentence
+    summary Faker::Lorem.paragraph
+    author Faker::Name.name
+    url 'http://www.senate-press.com/?p=1789'
+    published_at '2011-01-15 19:07:15'
+    guid 'http://www.senate-press.com/?p=1789'
+  end
+  
+  factory :house_feed do
+    title Faker::Lorem.sentence
+    summary Faker::Lorem.paragraph
+    author Faker::Name.name
+    url 'http://www.house-press.com/?p=1789'
+    published_at '2011-01-15 19:07:15'
+    guid 'http://www.house-press.com/?p=1789'
+  end
 end

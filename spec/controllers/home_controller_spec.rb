@@ -34,11 +34,13 @@ describe HomeController do
     
     describe "Show RSS feeds" do
       it "should have house rss items" do
+        Factory.create( :house_feed )
         get 'index'
         response.should have_selector( "*", :class => "rss house" )
       end
     
       it "should have senate rss items" do
+        Factory.create( :senate_feed )
         get 'index'
         response.should have_selector( "*", :class => "rss senate" )
       end
