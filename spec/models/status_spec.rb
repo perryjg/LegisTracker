@@ -6,6 +6,9 @@ describe Status do
     Factory.create( :status, :bill => @bill )
   end
   
+  it { should belong_to(:bill) }
+  it { should belong_to(:status_code) }
+  
   it "should create new status record" do
     previous_record_count = Status.count
     status = @bill.statuses.new( Factory.attributes_for( :status ) )

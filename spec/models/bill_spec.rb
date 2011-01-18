@@ -4,6 +4,9 @@ describe Bill do
   before( :each ) do
     @attr = Factory.attributes_for( :bill )
   end
+  
+  it { should have_many(:statuses) }
+  it { should have_many(:votes) }
 
   it "should create new bill record" do
     previous_record_count = Bill.count

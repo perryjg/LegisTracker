@@ -6,6 +6,7 @@ gem 'feedzirra'
 
 group :development, :test do
   gem 'cucumber-rails'
+  gem 'shoulda'
   gem 'rspec-rails'
   gem 'webrat'
   gem 'factory_girl_rails' , :git => "http://github.com/CodeMonkeySteve/factory_girl_rails.git"

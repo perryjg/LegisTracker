@@ -6,6 +6,8 @@ describe Vote do
     Factory.create( :vote, :bill => @bill )
   end
   
+  it { should belong_to(:bill) }
+  
   it "should create new vote record" do
     previous_record_count = Vote.count
     vote = @bill.votes.new( Factory.attributes_for( :vote ) )
