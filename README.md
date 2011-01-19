@@ -6,19 +6,19 @@ This is a Ruby-on-Rails web applicqation which allows users to track legislation
 
 Ruby 1.9.2; Rails 3.0.3. To install gems:
 
-  bundle install
+    bundle install
 
 ### Setup
 
-1. Configure a 'config/database.yml' file to point to your database server.
+1. Configure a `config/database.yml` file to point to your database server.
 2. Create databases and tables:
-  rake db:create
-  rake db:migrate
-  rake db:test:prepare
+    rake db:create
+    rake db:migrate
+    rake db:test:prepare
 3. Load data from the legisture's online xml feed from the rails console: 'Bill.reload_from_xml'
 4. Load RSS feeds from the rails console:
-  HouseFeed.update_from_feed
-  SenateFeed.update_from_feed
+    HouseFeed.update_from_feed
+    SenateFeed.update_from_feed
 
 ### Resources
 
