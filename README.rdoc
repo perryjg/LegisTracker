@@ -4,11 +4,11 @@ This is a Ruby-on-Rails web applicqation which allows users to track legislation
 
 == Requirements
 
-Ruby 1.9.2; Rails 3.0.3. To install gems: `bundle install`
+Ruby 1.9.2; Rails 3.0.3. To install gems: <tt>bundle install</tt>.
 
 == Setup
 
-1. Configure a `config/database.yml` file to point to your database server.
+1. Configure a <tt>config/database.yml</tt> file to point to your database server.
 2. Create databases and tables:
 
     rake db:create
