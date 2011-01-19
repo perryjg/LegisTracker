@@ -1,4 +1,3 @@
-#!/usr/bin/env ruby
 #require 'nokogiri'
 
 class BillStatus
@@ -21,7 +20,8 @@ class BillStatus
   end
   
   def StatusDate
-    Date::parse( @node.attribute( 'StatusDate' ).to_s, comp = true ).to_s
+    m, d, y = @node.attribute( 'StatusDate' ).to_s.split /\//
+    return "20%02d-%02d-%02d" % [ y, m, d ]
   end
   
   def EffDate

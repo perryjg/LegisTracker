@@ -16,6 +16,14 @@ class BillStatusSummary
     @bill_count = @bill_nodes.size
     @bills = @bill_nodes.map { |bill| BillStatus.new( bill ) }
   end
+
+  def response_success?
+    if @response_code == '200'
+      return true
+    else
+      return false
+    end
+  end
   
   private
   
@@ -38,7 +46,7 @@ class BillStatusSummary
     end
     
     curl.http_get
-    @response_code = curl.response_code
+    @response_code = curl.response_code.to_s
     return response
   end
 end
