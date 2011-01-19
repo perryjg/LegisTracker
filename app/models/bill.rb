@@ -12,8 +12,8 @@ class Bill < ActiveRecord::Base
         self.connection.execute( 'DELETE from bills' )
 
         bills_summary.bills.each do |bill|
-          create!(
-            :id                => bill.Id,
+          bill_record = create!(
+            :bill_id          => bill.Id.to_i,
             :btype             => bill.Type,
             :num               => bill.Num,
             :suffix            => bill.Suffix,
@@ -32,6 +32,7 @@ class Bill < ActiveRecord::Base
             :code_title        => bill.Citation['codeTitle'],
             :code_chapter      => bill.Citation['codeChapter']
           )
+          connection.execute( "UPDATE bills SET id = bill_id WHERE bill_id = #{bill.Id}" )
         end
       end
      end
