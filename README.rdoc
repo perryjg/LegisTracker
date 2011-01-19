@@ -15,7 +15,10 @@ Ruby 1.9.2; Rails 3.0.3. To install gems: `bundle install`
     rake db:migrate
     rake db:test:prepare
 
-3. Load data from the legistures online xml feed from the rails console: `Bill.reload_from_xml`
+3. Load data from the legistures online xml feed from the rails console:
+
+    Bill.reload_from_xml
+
 4. Load RSS feeds from the rails console:
 
     HouseFeed.update_from_feed
