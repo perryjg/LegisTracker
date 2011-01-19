@@ -16,7 +16,7 @@
 	<% @events.each do |event| %>
 		<li class="event">
 			<%= event.bill.number %>
-			<%= event.bill.title %>: <%= event.status_code.description %><br />
+			<%= event.bill.short_title %>: <%= event.status_code.description %><br />
 			(<%= event.status_date.to_s %>)
 		</li>
 	<% end %>

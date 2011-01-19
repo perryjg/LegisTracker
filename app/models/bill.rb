@@ -10,9 +10,10 @@ class Bill < ActiveRecord::Base
 
       if bills_summary.response_success?
         self.connection.execute( 'DELETE from bills' )
+        self.connection.execute( 'DELETE from statuses' )
 
         bills_summary.bills.each do |bill|
-          bill_record = create!(
+          create!(
             :bill_id          => bill.Id.to_i,
             :btype             => bill.Type,
             :num               => bill.Num,
@@ -33,6 +34,14 @@ class Bill < ActiveRecord::Base
             :code_chapter      => bill.Citation['codeChapter']
           )
           connection.execute( "UPDATE bills SET id = bill_id WHERE bill_id = #{bill.Id}" )
+
+          bill.StatusHistory.each do |status|
+            parent = find( bill.Id.to_i )
+            parent.statuses.create!(
+              :status_date    => status['StatusDate'],
+              :status_code_id => status['StatusCode']
+            )
+          end
         end
       end
      end
