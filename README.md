@@ -12,16 +12,19 @@ Ruby 1.9.2; Rails 3.0.3. To install gems:
 
 1. Configure a `config/database.yml` file to point to your database server.
 2. Create databases and tables:
+
     rake db:create
     rake db:migrate
     rake db:test:prepare
+
 3. Load data from the legisture's online xml feed from the rails console: 'Bill.reload_from_xml'
 4. Load RSS feeds from the rails console:
+
     HouseFeed.update_from_feed
     SenateFeed.update_from_feed
 
 ### Resources
 
-The House bill status xml feed can be found at http://www1.legis.ga.gov/legis/2011_12/list/BillSummary.xml
-The House vote xml feed can be found at http://www1.legis.ga.gov/legis/2011_12/list/HouseVotes.xml
-The Senate vote xml feed can be found at http://www1.legis.ga.gov/legis/2011_12/list/SenateVotes.xml
+The House bill status xml feed can be found at [http://www1.legis.ga.gov/legis/2011_12/list/BillSummary.xml]
+The House vote xml feed can be found at [http://www1.legis.ga.gov/legis/2011_12/list/HouseVotes.xml
+The Senate vote xml feed can be found at [http://www1.legis.ga.gov/legis/2011_12/list/SenateVotes.xml]
