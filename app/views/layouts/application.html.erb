@@ -13,6 +13,7 @@
   <!--[if lt IE 8]><%= stylesheet_link_tag 'blueprint/ie' %><![endif]-->
   <%= javascript_include_tag :defaults %>
   <%= stylesheet_link_tag 'custom', :media => 'screen' %>
+  <%= stylesheet_link_tag 'http://fonts.googleapis.com/css?family=Orbitron', :media =>'screen'%>
 
 
 
@@ -20,6 +21,7 @@
 <body>
 	<div class="container">
 	  <header id="header"class="span-24 first last">
+		<h1>LegiTracker</h1>
 	  </header>
 	  <section>
 		<div id="content" class="span-24 first last ">
@@ -27,7 +29,7 @@
 	</div>
 	  </section>
 	  <footer id="footer" class="span-24 first last">
-		Copyright &copy; <%= Date.today.year %>
+		<p>Copyright &copy; <%= Date.today.year %></p>
 	  </footer>
 	</div>
 </body>
