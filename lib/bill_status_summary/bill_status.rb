@@ -137,7 +137,7 @@ class BillStatus
       text.gsub!( /"/, "'" )
       return text
     else
-      super.methopd_missing( name )
+      super.method_missing( name )
     end
   end
   

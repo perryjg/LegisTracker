@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110115190400) do
+ActiveRecord::Schema.define(:version => 20110120203318) do
 
   create_table "bills", :force => true do |t|
     t.string  "btype"
@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(:version => 20110115190400) do
     t.text    "footnote"
     t.integer "code_title"
     t.integer "code_chapter"
+    t.integer "xml_id"
   end
 
   create_table "house_feeds", :force => true do |t|
@@ -56,7 +57,7 @@ ActiveRecord::Schema.define(:version => 20110115190400) do
   end
 
   create_table "status_codes", :force => true do |t|
-    t.string  "description"
+    t.string  "description", :limit => 45, :null => false
     t.string  "house",       :limit => 1
     t.integer "seq"
   end
@@ -79,6 +80,7 @@ ActiveRecord::Schema.define(:version => 20110115190400) do
     t.integer  "not_voting"
     t.integer  "excused"
     t.integer  "bill_id"
+    t.integer  "xml_id"
   end
 
 end

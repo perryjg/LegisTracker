@@ -10,11 +10,11 @@ class Bill < ActiveRecord::Base
 
       if bills_summary.response_success?
         self.connection.execute( 'DELETE from bills' )
-        self.connection.execute( 'DELETE from statuses' )
+        self.connection.execute( 'ALTER TABLE bills AUTO_INCREMENT = 1' )
 
         bills_summary.bills.each do |bill|
           create!(
-            :bill_id          => bill.Id.to_i,
+            :xml_id            => bill.Id.to_i,
             :btype             => bill.Type,
             :num               => bill.Num,
             :suffix            => bill.Suffix,
@@ -33,7 +33,7 @@ class Bill < ActiveRecord::Base
             :code_title        => bill.Citation['codeTitle'],
             :code_chapter      => bill.Citation['codeChapter']
           )
-          connection.execute( "UPDATE bills SET id = bill_id WHERE bill_id = #{bill.Id}" )
+          connection.execute( "UPDATE bills SET id = xml_id WHERE xml_id = #{bill.Id}" )
 
           bill.StatusHistory.each do |status|
             parent = find( bill.Id.to_i )
