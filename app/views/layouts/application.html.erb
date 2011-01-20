@@ -13,16 +13,21 @@
   <!--[if lt IE 8]><%= stylesheet_link_tag 'blueprint/ie' %><![endif]-->
   <%= javascript_include_tag :defaults %>
   <%= stylesheet_link_tag 'custom', :media => 'screen' %>
+
+
+
 </head>
 <body>
 	<div class="container">
-	  <header class="span-24 box last">
-			<h1>AJC LegiTracker</h1>
+	  <header id="header"class="span-24 first last">
 	  </header>
 	  <section>
+		<div id="content" class="span-24 first last ">
 	    <%= yield %>
+	</div>
 	  </section>
-	  <footer class="span-24 last">
+	  <footer id="footer" class="span-24 first last">
+		Copyright &copy; <%= Date.today.year %>
 	  </footer>
 	</div>
 </body>

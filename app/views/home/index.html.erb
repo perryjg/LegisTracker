@@ -1,4 +1,6 @@
-<div id="votes" class="span-6 border">
+<div id="equalheight">
+	
+	<div id="votes" class="span-7 push-1 first border prepend-top">
 	<h2>Votes</h2>
 	<ul>
 	<% @votes.each do |vote| %>
@@ -8,9 +10,10 @@
 		</li>
 	<% end %>
 	</li>
+		<p> end </p>
 </div>
 
-<div id="status" class="span-10 prepend-1">
+<div id="status" class="span-7 push-2 prepend-top ">
 	<h2>Bill Status</h2>
 	<ul>
 	<% @events.each do |event| %>
@@ -19,26 +22,30 @@
 			<%= event.bill.short_title %>: <%= event.status_code.description %><br />
 			(<%= event.status_date.to_s %>)
 		</li>
+		
 	<% end %>
 	</ul>
+	<p> end </p>
 </div>
 
-<div class="span-6 last box">
-	<div id="senate_rss">
-		<h3>Senate Press Releases</h3>
-		<ul>
-		<% @senate_rss.each do |item| %>
-			<li class="rss senate"><a href="<%= item.url %>"><%= item.title %></a><br />(<%= item.published_at %>)</li>
-		<% end %>
-		</ul>
-	</div>
+<div id="feeds" class="span-6  last box push-3 prepend-top">
+		<div id="senate_rss">
+			<h3>Senate Press Releases</h3>
+			<ul>
+			<% @senate_rss.each do |item| %>
+				<li class="rss senate"><a href="<%= item.url %>"><%= item.title %></a><br />(<%= item.published_at %>)</li>
+			<% end %>
+			</ul>
+		</div>
 
-	<div id="house_rss">
-		<h3>House Press Releases</h3>
-		<ul>
-		<% @house_rss.each do |item| %>
-			<li class="rss house"><a class="rss house" href="<%= item.url %>"><%= item.title %></a><br />(<%= item.published_at %>)</li>
-		<% end %>
-		</ul>
-	</div>
+		<div id="house_rss">
+			<h3>House Press Releases</h3>
+			<ul>
+			<% @house_rss.each do |item| %>
+				<li class="rss house"><a class="rss house" href="<%= item.url %>"><%= item.title %></a><br />(<%= item.published_at %>)</li>
+			<% end %>
+			</ul>
+		</div>
+</div>
+
 </div>
