@@ -1,14 +1,20 @@
 body {background:#888;}
 
+/* customized class *//
 
+.box {background:#3774A2;}
+
+
+                       
 /* div css */
 
-#content {background:white;}
+#container {background:white;}
 #header {background:#3774A2;margin:0; padding-top:1em; height:50px; width:100%;}
 #header	h1 {font-family: 'Orbitron', arial, serif; padding-left:.5em; color:white;}
-#equalheight{margin:0;}
-#votes { height:100%; }
-#status { height:100%;}
-#feeds {}
+#content{background:white;}
+#main{}
+#votes { height:100%;  }
+#status { height:100%; ;}
+#feeds {padding:1.5em; padding-right:1.75em;/*background:#e5eCf9;*/ background:#e5e5e5; float-right; border-left:1px; border-style:solid; border-color:#d4d4d4;}
 #footer {background: #3774A2; margin:0; padding:0; height: 25px; width:100%;}
 #footer p{color:white; padding-top:.3em; text-align:center;}
