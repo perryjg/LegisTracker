@@ -4,7 +4,7 @@ require 'open-uri'
 require_relative 'votes_summary/vote_detail.rb'
 
 class VotesSummary
-  attr_reader :xml_string, :url, :house, :votes
+  attr_reader :xml_string, :url, :house, :vote_details, :response_code
 
   def initialize( house )
     @house = house
@@ -16,11 +16,29 @@ class VotesSummary
 
     doc = Nokogiri::XML( @xml_string )
     vote_nodes = doc.xpath( xp[@house.to_sym] ) 
-    @votes = vote_nodes.map { |node| VoteDetail.new( node ) }
+    @vote_details = vote_nodes.map { |node| VoteDetail.new( node ) }
   end
 
+  def response_success?
+    return @response_code == '200' ? true : false
+  end
+
+  private
+
   def fetch( url )
-    xml_string = open( url ).read
-    return xml_string
+    curl = Curl::Easy.new( url )
+
+    response = ''
+    curl.on_success do |c|
+      response = c.body_str
+    end
+
+    curl.on_failure do |c, err|
+      response = c.response_code
+    end
+
+    curl.http_get
+    @response_code = curl.response_code.to_s
+    return response
   end
 end
