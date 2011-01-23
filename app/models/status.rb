@@ -11,6 +11,6 @@ class Status < ActiveRecord::Base
   end
   
   def self.last_date
-    Date.parse( maximum( "DATE(status_date)" ) )
+    maximum( "DATE(status_date)" )
   end
 end

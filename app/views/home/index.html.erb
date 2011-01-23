@@ -27,7 +27,7 @@
 	<% end %>
 	</ul>
 	
-	<% if @status_date < Status.last_date.to_s(:db) %>
+	<% if @status_date < Status.last_date %>
 		<%= link_to "Next", root_path( :status_date => Date.parse( @status_date ).tomorrow.to_s(:db) ) %>
 	<% end %>
 	<%= link_to "Previous", root_path( :status_date => Date.parse( @status_date ).yesterday.to_s(:db) ) %>
