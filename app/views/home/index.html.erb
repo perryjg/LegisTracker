@@ -1,4 +1,6 @@
-<div id="votes" class="span-6 border">
+<div id="main" class="span-17 first ">
+	<%= debug params %>
+	<div id="votes" class="span-5 push-1 first border prepend-top">
 	<h2>Votes</h2>
 	<ul>
 	<% @votes.each do |vote| %>
@@ -8,37 +10,50 @@
 		</li>
 	<% end %>
 	</li>
+		<p class="endy"> >>> end feed <<< </class> </p>
 </div>
 
-<div id="status" class="span-10 prepend-1">
+<div id="status" class="span-9 push-2 prepend-top ">
 	<h2>Bill Status</h2>
+	<%= @status_date %>
 	<ul>
 	<% @events.each do |event| %>
 		<li class="event">
 			<%= event.bill.number %>
-			<%= event.bill.short_title %>: <%= event.status_code.description %><br />
+			<%= event.bill.short_title %> <%= event.status_code.description %><br />
 			(<%= event.status_date.to_s %>)
 		</li>
+		
 	<% end %>
 	</ul>
+	
+	<% if @status_date < Status.last_date.to_s(:db) %>
+		<%= link_to "Next", root_path( :status_date => Date.parse( @status_date ).tomorrow.to_s(:db) ) %>
+	<% end %>
+	<%= link_to "Previous", root_path( :status_date => Date.parse( @status_date ).yesterday.to_s(:db) ) %>
+	
+	<p class="endy"> >>> end feed <<< </class> </p>
+</div>
 </div>
 
-<div class="span-6 last box">
-	<div id="senate_rss">
-		<h3>Senate Press Releases</h3>
-		<ul>
-		<% @senate_rss.each do |item| %>
-			<li class="rss senate"><a href="<%= item.url %>"><%= item.title %></a><br />(<%= item.published_at %>)</li>
-		<% end %>
-		</ul>
-	</div>
+<div id="feeds" class=" span-6 last">
+		<div id="senate_rss">
+			<h3>Senate Press Releases</h3>
+			<ul>
+			<% @senate_rss.each do |item| %>
+				<li class="rss senate"><a href="<%= item.url %>"><%= item.title %></a><br />(<%= item.published_at %>)</li>
+			<% end %>
+			</ul>
+		</div>
 
-	<div id="house_rss">
-		<h3>House Press Releases</h3>
-		<ul>
-		<% @house_rss.each do |item| %>
-			<li class="rss house"><a class="rss house" href="<%= item.url %>"><%= item.title %></a><br />(<%= item.published_at %>)</li>
-		<% end %>
-		</ul>
-	</div>
+		<div id="house_rss">
+			<h3>House Press Releases</h3>
+			<ul>
+			<% @house_rss.each do |item| %>
+				<li class="rss house"><a class="rss house" href="<%= item.url %>"><%= item.title %></a><br />(<%= item.published_at %>)</li>
+			<% end %>
+			</ul>
+		</div>
 </div>
+
+

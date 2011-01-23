@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(:version => 20110121220501) do
     t.text    "footnote"
     t.integer "code_title"
     t.integer "code_chapter"
+    t.integer "bill_id"
     t.integer "xml_id"
   end
 
@@ -58,8 +59,8 @@ ActiveRecord::Schema.define(:version => 20110121220501) do
 
   create_table "status_codes", :force => true do |t|
     t.string  "description", :limit => 45, :null => false
-    t.string  "House",       :limit => 1
-    t.integer "Seq"
+    t.string  "house",       :limit => 1
+    t.integer "seq"
   end
 
   create_table "statuses", :force => true do |t|

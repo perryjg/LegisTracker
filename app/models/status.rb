@@ -6,8 +6,11 @@ class Status < ActiveRecord::Base
     where( "DATE(status_date) = ?", last_date )
   end
   
-  private
+  def self.find_for_date( date )
+    where( "DATE(status_date) = ?", date )
+  end
+  
   def self.last_date
-    maximum( "DATE(status_date)" )
+    Date.parse( maximum( "DATE(status_date)" ) )
   end
 end

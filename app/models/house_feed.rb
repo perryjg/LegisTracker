@@ -17,6 +17,6 @@ class HouseFeed < ActiveRecord::Base
   end
   
   def self.find_recent( count = 5 )
-    order(:published_at).limit( count )
+    order( 'published_at DESC' ).limit( count )
   end
 end
