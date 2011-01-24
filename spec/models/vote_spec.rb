@@ -59,4 +59,25 @@ describe Vote do
       end
     end
   end
+  
+  describe "find_for_date" do
+    before( :each ) do
+      Factory.create( :vote, :bill => @bill, :date => '2011-01-05 12:00:00' )
+      Factory.create( :vote, :bill => @bill, :date => '2011-01-05 12:00:00' )
+      Factory.create( :vote, :bill => @bill, :date => '2011-01-06 12:00:00' )
+    end
+
+    it "should find all votes on a given date" do
+      Vote.where( "DATE(date) = ?", '2011-01-05' ).should == Vote.find_for_date( '2011-01-05')
+    end
+    
+    it "should not find dates on on the given date" do
+      Vote.find_for_date( '2011-01-10' ).each do |on_date|
+        Vote.where( "DATE(date) != ?", '2011-01-10' ).each do |not_on_date|
+          on_date.should_not == not_on_date
+        end
+      end
+    end
+    
+  end
 end

@@ -1,21 +1,36 @@
 <div id="main" class="span-17 first ">
-	<%= debug params %>
 	<div id="votes" class="span-5 push-1 first border prepend-top">
 	<h2>Votes</h2>
-	<ul>
-	<% @votes.each do |vote| %>
-		<li class="vote">
-		   <%= vote.bill.number %> <%= vote.date.to_s %> <%= vote.description %><br />
-		   Yea: <%= vote.yea %> Nay: <%= vote.nay %>
-		</li>
+	
+	<% if @vote_date < Vote.last_date %>
+		<%= link_to "Next", root_path( :vote_date => Date.parse( @vote_date ).tomorrow.to_s(:db), :status_date => @status_date ) %>
 	<% end %>
-	</li>
+	<%= link_to "Previous", root_path( :vote_date => Date.parse( @vote_date ).yesterday.to_s(:db), :status_date => @status_date ) %>
+	
+	<p><%= @vote_date %></p>
+	<ul>
+		<% @votes.each do |vote| %>
+			<li class="vote">
+			  <% unless vote.bill.nil? %>
+					<%= vote.bill.number %>
+				<% end %>
+				<%= vote.date.to_s %> <%= vote.description %><br />
+			   Yea: <%= vote.yea %> Nay: <%= vote.nay %>
+			</li>
+		<% end %>
+	</ul>
 		<p class="endy"> >>> end feed <<< </class> </p>
 </div>
 
 <div id="status" class="span-9 push-2 prepend-top ">
 	<h2>Bill Status</h2>
-	<%= @status_date %>
+	
+	<% if @status_date < Status.last_date %>
+		<%= link_to "Next", root_path( :status_date => Date.parse( @status_date ).tomorrow.to_s(:db), :vote_date => @vote_date ) %>
+	<% end %>
+	<%= link_to "Previous", root_path( :status_date => Date.parse( @status_date ).yesterday.to_s(:db), :vote_date => @vote_date ) %>
+	
+	<p><%= @status_date %></p>
 	<ul>
 	<% @events.each do |event| %>
 		<li class="event">
@@ -26,12 +41,6 @@
 		
 	<% end %>
 	</ul>
-	
-	<% if @status_date < Status.last_date %>
-		<%= link_to "Next", root_path( :status_date => Date.parse( @status_date ).tomorrow.to_s(:db) ) %>
-	<% end %>
-	<%= link_to "Previous", root_path( :status_date => Date.parse( @status_date ).yesterday.to_s(:db) ) %>
-	
 	<p class="endy"> >>> end feed <<< </class> </p>
 </div>
 </div>

@@ -39,6 +39,10 @@ class Vote < ActiveRecord::Base
     where( "DATE(date) = ?", last_date )
   end
   
+  def self.find_for_date( date )
+    where( "DATE(date) = ?", date )
+  end
+  
   def self.last_date
     maximum( "DATE(date)" )
   end
