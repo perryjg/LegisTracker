@@ -1,5 +1,5 @@
 <div id="main" class="span-17 first ">
-	<div id="votes" class="span-5 push-1 first border prepend-top">
+	<div id="votes" class="span-6 push-1 first border prepend-top">
 	<h2>Votes</h2>
 	
 	<% if @vote_date < Vote.last_date %>
@@ -12,17 +12,17 @@
 		<% @votes.each do |vote| %>
 			<li class="vote">
 			  <% unless vote.bill.nil? %>
-					<%= vote.bill.number %>
+          <%= link_to "#{vote.bill.number}", bill_path( vote.bill ) %>
 				<% end %>
-				<%= vote.date.to_s %> <%= vote.description %><br />
-			   Yea: <%= vote.yea %> Nay: <%= vote.nay %>
+        <%= vote.description %> (<%= vote.date.strftime( '%l:%M %p' ) %>)<br />
+			   Yea:<%= vote.yea %> Nay:<%= vote.nay %>
 			</li>
 		<% end %>
 	</ul>
 		<p class="endy"> >>> end feed <<< </class> </p>
 </div>
 
-<div id="status" class="span-9 push-2 prepend-top ">
+<div id="status" class="span-8 push-2 prepend-top ">
 	<h2>Bill Status</h2>
 	
 	<% if @status_date < Status.last_date %>
@@ -34,9 +34,10 @@
 	<ul>
 	<% @events.each do |event| %>
 		<li class="event">
-			<%= event.bill.number %>
-			<%= event.bill.short_title %> <%= event.status_code.description %><br />
-			(<%= event.status_date.to_s %>)
+    <%= link_to "#{event.bill.number}", bill_path( event.bill ) %>
+      <%= event.bill.short_title %><br />
+      <%= event.status_code.description %>
+			(<%= event.status_date.strftime('%Y-%m-%d') %>)
 		</li>
 		
 	<% end %>

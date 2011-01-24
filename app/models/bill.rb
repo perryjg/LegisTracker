@@ -1,4 +1,5 @@
 require 'bill_status_summary'
+require 'shellwords'
 
 class Bill < ActiveRecord::Base
   has_many :statuses
@@ -45,5 +46,10 @@ class Bill < ActiveRecord::Base
         end
       end
      end
+  end
+
+  def self.search( params )
+    search_string = '%' + Shellwords.shellwords( params ).join( '%' ) + '%'
+    where( "concat_ws( ' ', concat( btype, num ), number, title, b_status) LIKE ?", search_string )
   end
 end

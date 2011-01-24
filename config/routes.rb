@@ -1,6 +1,12 @@
 Legitracker::Application.routes.draw do
+  resources :bills do
+    resources :votes
+    resources :statuses
+  end
+
+  get "bills/index"
+  get "bills/show"
   root :to => "home#index"
-  # get "home/index"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
