@@ -1,2 +1,21 @@
-<h1>Bills#show</h1>
-<p>Find me in app/views/bills/show.html.erb</p>
+<div id="title" class="span-22 push-1 first last">
+  <h2><%= @bill.number %>: <%= @bill.short_title %></h2>
+  <p><%= @bill.title %></p>
+</div>
+<div id="status" class="span-10 push-1 first">
+  <h3>Bill status</h3>
+    <% @bill.statuses.each do |status| %>
+      <li><%= status.status_date.strftime( '%Y-%m-%d' ) %> <%= status.status_code.description %></li>
+    <% end %>
+  </ul>
+  </p>
+</div>
+<div id="votes" class="span-10 push-1 top last">
+  <h3>Votes</h3>
+  <ul>
+    <% @bill.votes.each do |vote| %>
+      <li><%= vote.date.strftime( '%Y-%m-%d' ) %> <%= vote.description %> Yea:<%= vote.yea %> Nay:<%= vote.nay %></li>
+    <% end %>
+  </ul>
+</div>
+
