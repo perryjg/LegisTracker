@@ -6,4 +6,8 @@ class BillsController < ApplicationController
   def show
   end
 
+  def search
+    @bills = Bill.search(params[:search])
+    render :index
+  end
 end

@@ -21,7 +21,14 @@
 <body>
 	<div class="container">
 	  <header id="header"class="span-24 first last">
-		<h1>LegiTracker</h1>
+      <div id="logo" class="span-18 first">
+		    <h1>LegiTracker</h1>
+      </div>
+      <div id="search" class="span-6 last">
+        <% form_tag :action => 'search', :controller => :bills, :method => :get do %>
+          <%= text_field_tag :search %><%= submit_tag 'Go' %>
+        <% end %>
+      </div>
 	  </header>
 	  <section>
 		<div id="content" class="span-24 first last ">

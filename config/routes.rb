@@ -8,6 +8,8 @@ Legitracker::Application.routes.draw do
   get "bills/show"
   root :to => "home#index"
 
+  match 'search' => 'bills#search'
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
