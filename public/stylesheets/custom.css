@@ -8,17 +8,23 @@ body {background:#888;}
                        
 /* div css */
 
-#container {background:white;}
+#container {;background:white; height:100%; }
 #header {background:#3774A2;margin:0; padding-top:1em; height:50px; width:100%;}
 #header	h1 {font-family: 'Orbitron', arial, serif; padding-left:.5em; color:white; }
-#content{background:white;}
+
+
+#content{ position:relative;background:white;margin:0; padding:0; height:100%;}
 #content p.endy{font-family: 'Orbitron', arial, serif; text-align:center; size:0.75em; color:#777;}
-#main{}
-#votes { height:100%;  }
-#status { height:100%; ;}
-#feeds {padding:1.5em; padding-right:1.75em;/*background:#e5eCf9;*/ background:#e5e5e5; float-right; border-left:1px; border-style:solid; border-color:#d4d4d4;}
+
+#main { margin:0; padding:0; height:100%;}
+#votes { height:100%; }
+#status { height:100%;}
+
+#feeds {  position:absolute; bottom:0; top:0px; right:0px; padding:1.5em; padding-right:1em;  background:#e5e5e5;  border-left:1px; border-style:solid; border-color:#d4d4d4;}
 #feeds h3 {color:#333;margin-bottom:0.3em;}
 #feeds ul {color:#888; font-size:.8em;}
 #feeds  a {color:#333 ;text-decoration:underline;font-size:1.25em;}
+
+
 #footer {background: #3774A2; margin:0; padding:0; height: 25px; width:100%;}
 #footer p{color:white; padding-top:.3em; text-align:center;}

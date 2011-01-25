@@ -1,31 +1,76 @@
-<div id="main" class="span-17 first ">
+<div id="main">
 	<div id="votes" class="span-7 push-1 first border prepend-top">
-	<h2>Votes</h2>
-	<ul>
-	<% @votes.each do |vote| %>
-		<li class="vote">
-		   <%= vote.bill.number %> <%= vote.date.to_s %> <%= vote.description %><br />
-		   Yea: <%= vote.yea %> Nay: <%= vote.nay %>
+		<h2>Votes</h2>
+		<ul>
+		<% @votes.each do |vote| %>
+			<li class="vote">
+			   <%= vote.bill.number %> <%= vote.date.to_s %> <%= vote.description %><br />
+			   Yea: <%= vote.yea %> Nay: <%= vote.nay %>
+			</li>
+		<% end %>
 		</li>
-	<% end %>
-	</li>
-		<p class="endy"> >>> end feed <<< </class> </p>
-</div>
+		</ul>
+			<p class="endy"> >>> end feed <<< </class> </p>
+	</div>
 
-<div id="status" class="span-7 push-2 prepend-top ">
-	<h2>Bill Status</h2>
-	<ul>
-	<% @events.each do |event| %>
-		<li class="event">
-			<%= event.bill.number %>
-			<%= event.bill.short_title %>: <%= event.status_code.description %><br />
-			(<%= event.status_date.to_s %>)
-		</li>
+	<div id="status" class="span-7 push-2 prepend-top ">
+		<h2>Bill Status</h2>
+		<ul>
+		<% @events.each do |event| %>
+			<li class="event">
+				<%= event.bill.number %>
+				<%= event.bill.short_title %>: <%= event.status_code.description %><br />
+				(<%= event.status_date.to_s %>)
+			</li>
 		
-	<% end %>
-	</ul>
-	<p class="endy"> >>> end feed <<< </class> </p>
-</div>
+		<% end %>
+		</ul>
+		<br/> HB 1 Crimes and Offenses; prenatal murder unlawful; provide
+		House Second Readers (2011-01-24)
+		<br/> HB 2 Georgia Right to Grow Act; enact
+		House Second Readers (2011-01-24)
+		<br/> HB 3 Constitutional Tender Act; enact
+		House Second Readers (2011-01-24)
+		<br/> HB 4 Life, Liberty, and Property Restoration Act; enact
+		House Second Readers (2011-01-24)
+		<br/> HB 5 Freedom of Choice and Security Act; enact
+		House Second Readers (2011-01-24)
+		<br/> HB 6 Emergency Defense of the Home Act; enact
+		House Second Readers (2011-01-24)
+		<br/> HB 7 Right to Travel Act; enact
+		House Second Readers (2011-01-24)
+		<br/> HB 8 Due Process Restoration Act; enact
+		House Second Readers (2011-01-24)
+		<br/> HB 9 Kathryn Johnston's Law; enact
+		House Second Readers (2011-01-24)
+		<br/> HB 10 Child Protection Act; enact
+		House Second Readers (2011-01-24)
+		<br/> HB 11 Freedom from Compulsory Pandemic Act; enact
+		House Second Readers (2011-01-24)
+		<br/> HB 12 Georgia Food Freedom Act; enact
+		House Second Readers (2011-01-24)
+		<br/> HB 13 Income tax; levy or collection; prohibit
+		House Second Readers (2011-01-24)
+		<br/> HB 14 Criminal law and procedure; change term 'victim' to 'accuser,' provide
+		House Second Readers (2011-01-24)
+		<br/> HB 15 Lobbying; persons employed by this state; address General Assembly committees; prohibit
+		House Second Readers (2011-01-24)
+		<br/> HB 16 Georgia Nuclear Energy Financing Act; repeal
+		House Second Readers (2011-01-24)
+		<br/> HB 17 Human Services, Department of; Title 49; repeal
+		House Second Readers (2011-01-24)
+		<br/> HB 18 State Road and Tollway Authority; abolish
+		House Second Readers (2011-01-24)
+		<br/> HB 19 Income tax; federal reserve banks in Georgia not exempt; provide
+		House Second Readers (2011-01-24)
+		<br/> HB 20 State Authority and Federal Tax Fund Act; enact
+		House Second Readers (2011-01-24)
+		<br/> HB 21 State Authority and Anti-racketeering Act; enact
+		House Second Readers (2011-01-24)
+	
+		<p class="endy"> >>> end feed <<< </class> </p>
+	</div>
+
 </div>
 
 <div id="feeds" class=" span-6 last">
