@@ -11,7 +11,8 @@ describe BillsController do
 
   describe "GET 'show'" do
     it "should be successful" do
-      get 'show'
+      @bill = Factory.create( :bill )
+      get 'show', :id => @bill.id
       response.should be_success
     end
   end

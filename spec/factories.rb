@@ -10,13 +10,12 @@ FactoryGirl.define do
   end
 
   factory :vote do
-    house 'H'
     date '2011-01-10 12:00:00'
-    bill_type 'HB'
-    num 1
     description 'PASS'
     yea 100
     nay 80
+    branch 'House'
+    legislation 'HB 1'
     association :bill
   end
   

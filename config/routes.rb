@@ -4,6 +4,7 @@ Legitracker::Application.routes.draw do
     resources :statuses
   end
 
+  get "home/index"
   get "bills/index"
   get "bills/show"
   root :to => "home#index"

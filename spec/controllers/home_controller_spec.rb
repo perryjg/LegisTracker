@@ -7,6 +7,7 @@ describe HomeController do
     before( :each ) do
       @bill = Factory.create( :bill )
       @status = Factory.create( :status, :bill => @bill )
+      @votes = Factory.create( :vote, :bill => @bill )
     end
     
     it "should be successful" do
@@ -22,13 +23,13 @@ describe HomeController do
     describe "Show recent bill data" do
       it "should have most recent bill event" do
         get 'index'
-        response.should have_selector( "*", :class => 'event', :content => "2011-01-10" )
+        response.should have_selector( "*", :class => 'event' )
       end
     
       it "shold have most recent vote" do
         Factory.create( :vote, :bill => @bill )
         get 'index'
-        response.should have_selector( "*", :class => 'vote', :content => "2011-01-10" )
+        response.should have_selector( "*", :class => 'vote' )
       end
     end
     
