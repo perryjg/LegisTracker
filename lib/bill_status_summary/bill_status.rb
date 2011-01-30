@@ -95,6 +95,7 @@ class BillStatus
       end
       status_hash['StatusDate'].gsub!( /T/, ' ' )
       status_hash['AmSubDesc'] = '' unless status_hash.has_key?( 'AmSubDesc' )
+      status_hash['description'] = status.inner_text
       stats.push( status_hash )
     end
     return stats
