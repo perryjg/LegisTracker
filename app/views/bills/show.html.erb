@@ -2,7 +2,24 @@
   <h2><%= @bill.number %>: <%= @bill.short_title %></h2>
   <p><%= @bill.title %></p>
 </div>
+<div id="sponsors" class="span-22 push-1 first last">
+	<hr />
+	<h3>Sponsors</h3>
+	<ul>
+	<% @bill.sponsorships.each do |sponsor| %>
+		<li>
+			<%= sponsor.member.name %>
+			<%= sponsor.member.seat %>
+			(<%= sponsor.member.party %>)
+			<% if sponsor.seq == 1 %>
+				- primary
+			<% end %>
+		</li>
+	<% end %>
+	</ul>
+</div>
 <div id="status" class="span-10 push-1 first">
+	<hr />
   <h3>Bill status</h3>
     <% @bill.statuses.each do |status| %>
       <li><%= status.status_date.strftime( '%Y-%m-%d' ) %> <%= status.status_code.description %></li>
@@ -11,6 +28,7 @@
   </p>
 </div>
 <div id="votes" class="span-10 push-1 top last">
+	<hr />
   <h3>Votes</h3>
   <ul>
     <% @bill.votes.each do |vote| %>

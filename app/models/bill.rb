@@ -4,6 +4,8 @@ require 'shellwords'
 class Bill < ActiveRecord::Base
   has_many :statuses
   has_many :votes
+  has_many :sponsorships
+  has_many :members, :through => :sponsorships
 
   def self.reload_from_xml
     transaction do
@@ -12,6 +14,8 @@ class Bill < ActiveRecord::Base
       if bills_summary.response_success?
         self.connection.execute( 'DELETE from bills' )
         self.connection.execute( 'ALTER TABLE bills AUTO_INCREMENT = 1' )
+        self.connection.execute( 'DELETE from sponsorships' )
+        self.connection.execute( 'ALTER TABLE sponsorships AUTO_INCREMENT = 1' )
 
         bills_summary.bills.each do |bill|
           create!(
@@ -43,6 +47,14 @@ class Bill < ActiveRecord::Base
               :status_code_id => status['StatusCode']
             )
           end
+          
+          bill.Sponsors.each do |s|
+            Sponsorship.create!(
+              :bill_id   => bill.Id.to_i,
+              :member_id => s['Id'],
+              :seq       => s['Seq']
+            )
+          end
         end
       end
      end
@@ -50,6 +62,6 @@ class Bill < ActiveRecord::Base
 
   def self.search( params )
     search_string = '%' + Shellwords.shellwords( params ).join( '%' ) + '%'
-    where( "concat_ws( ' ', concat( btype, num ), number, title, b_status) LIKE ?", search_string )
+    where( "concat_ws( ' ', concat( btype, num ), number, short_title, title, b_status) LIKE ?", search_string )
   end
 end

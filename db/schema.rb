@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110121220501) do
+ActiveRecord::Schema.define(:version => 20110130180816) do
 
   create_table "bills", :force => true do |t|
     t.string  "btype"
@@ -46,6 +46,16 @@ ActiveRecord::Schema.define(:version => 20110121220501) do
     t.datetime "updated_at"
   end
 
+  create_table "members", :force => true do |t|
+    t.string  "last_name"
+    t.string  "first_name"
+    t.integer "district"
+    t.string  "house",          :limit => 1
+    t.string  "party",          :limit => 1
+    t.string  "seat",           :limit => 4
+    t.string  "vote_id_string"
+  end
+
   create_table "senate_feeds", :force => true do |t|
     t.string   "title"
     t.string   "summary"
@@ -55,6 +65,12 @@ ActiveRecord::Schema.define(:version => 20110121220501) do
     t.string   "guid"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "sponsorships", :force => true do |t|
+    t.integer "bill_id"
+    t.integer "member_id"
+    t.integer "seq"
   end
 
   create_table "status_codes", :force => true do |t|

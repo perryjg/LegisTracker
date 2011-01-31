@@ -49,4 +49,13 @@ FactoryGirl.define do
     published_at '2011-01-15 19:07:15'
     guid 'http://www.house-press.com/?p=1789'
   end
+  
+  factory :member do
+    last_name Faker::Name.last_name
+    first_name Faker::Name.first_name
+    district 1
+    house 'H'
+    party 'R'
+    seat 'H0001'
+  end
 end

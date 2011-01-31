@@ -7,6 +7,8 @@ describe Bill do
   
   it { should have_many(:statuses) }
   it { should have_many(:votes) }
+  it { should have_many( :sponsorships ) }
+  it { should have_many( :members ).through( :sponsorships ) }
 
   it "should create new bill record" do
     previous_record_count = Bill.count
