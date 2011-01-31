@@ -2,8 +2,15 @@ Legitracker::Application.routes.draw do
   resources :bills do
     resources :votes
     resources :statuses
+    resources :sponsorships
+  end
+  
+  resources :members do
+    resources :sponsorships
   end
 
+  get "members/index"
+  get "members/show"
   get "home/index"
   get "bills/index"
   get "bills/show"

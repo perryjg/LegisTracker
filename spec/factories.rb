@@ -58,4 +58,10 @@ FactoryGirl.define do
     party 'R'
     seat 'H0001'
   end
+  
+  factory :sponsorship do
+    bill_id 1
+    member_id 1
+    seq 1
+  end
 end

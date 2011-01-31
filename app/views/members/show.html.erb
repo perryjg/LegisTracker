@@ -1,0 +1,29 @@
+<div class="sapn-22 push-1 first last">
+	<h2><%= @member.name %> <%= @member.seat %></h2>
+</div>
+<div id="sponsorships" class="span-22 push-1 first last">
+	<h3>Bills sponsored</h3>
+	<% if @member.sponsorships.primary.count > 0 %>
+		<h4>Primary</h4>
+		<ul>
+			<% @member.sponsorships.primary.each do |primary| %>
+				<li>
+					<%= link_to primary.bill.number, bill_path( primary.bill.id ) %>
+					<%= primary.bill.short_title %>
+				</li>
+			<% end %>
+		</ul>
+		<% end %>
+	<% if @member.sponsorships.secondary.count > 0 %>
+		<h4>Secondary</h4>
+		<ul>
+			<% @member.sponsorships.secondary.each do |secondary| %>
+				<li>
+					<%= link_to secondary.bill.number, bill_path( secondary.bill.id ) %>
+					<%= secondary.bill.short_title %>
+				</li>
+			<% end %>
+		</ul>
+	<% end %>
+</div>
+
