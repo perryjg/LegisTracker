@@ -5,6 +5,7 @@ gem 'mysql2'
 gem 'feedzirra'
 gem 'heroku'
 gem 'taps'
+gem 'meta_search'
 
 group :development, :test do
   gem 'cucumber-rails'
