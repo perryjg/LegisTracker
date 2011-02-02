@@ -60,8 +60,8 @@ class Bill < ActiveRecord::Base
      end
   end
 
-  def self.search( params )
-    search_string = '%' + Shellwords.shellwords( params ).join( '%' ) + '%'
-    where( "concat_ws( ' ', concat( btype, num ), number, short_title, title, b_status) LIKE ?", search_string )
-  end
+#  def self.search( params )
+#    search_string = '%' + Shellwords.shellwords( params ).join( '%' ) + '%'
+#    where( "concat_ws( ' ', concat( btype, num ), number, short_title, title, b_status) LIKE ?", search_string )
+#  end
 end
