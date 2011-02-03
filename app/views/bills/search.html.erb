@@ -1,0 +1,23 @@
+<div id="search_form" class="span-24 push-1 first last">
+  <%= form_for @search, :url => bills_path do |f| %>
+    <%= f.label :btype_equals, "Bill type" %> <%= f.text_field :btype_equals, :size => 4 %>
+    <%= f.label :num_equals, "Bill number" %> <%= f.text_field :num_equals, :size => 4 %><br />
+
+    Citation: <%= f.label :code_title, "Title" %> <%= f.text_field :code_title_equals, :size => 4 %>
+    <%= f.label :code_chalter_equals, "Chapter" %> <%= f.text_field :code_chapter_equals, :size => 4 %><br />
+
+    <%= f.label :b_status_contains, "Current status contains" %> <%= f.text_field :b_status_contains %><br />
+
+    <%= f.label :short_title_contains %> <%= f.text_field :short_title_contains %><br />
+
+    <%= f.label :title_contains, "Long title contains" %> <%= f.text_field :title_contains %><br />
+
+    Primary Sponsor: <%= f.label :sponsor_name, "Name" %> <%= f.text_field :sponsor_name%>
+    <%= f.label :sponsor_district, "District" %> <%= f.text_field :sponsor_district, :size => 4 %>
+    <%= f.label :sponsor_party, "Party" %> <%= f.text_field :sponsor_party, :size => 4 %>
+    <br />
+
+    <%= f.submit "Search" %>
+  <% end %>
+</div>
+
