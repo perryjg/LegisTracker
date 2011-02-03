@@ -8,4 +8,8 @@ class BillsController < ApplicationController
     @bill = Bill.find(params[:id])
     @title = @bill.number
   end
+
+  def search
+    @title = "Advanced Search"
+  end
 end

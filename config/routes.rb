@@ -14,6 +14,7 @@ Legitracker::Application.routes.draw do
   get "home/index"
   get "bills/index"
   get "bills/show"
+  get 'bills/search'
   root :to => "home#index"
 
   match 'search' => 'bills#search'

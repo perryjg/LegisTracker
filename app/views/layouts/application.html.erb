@@ -21,13 +21,14 @@
 <body>
 	<div class="container">
 	  <header id="header"class="span-24 first last">
-      <div id="logo" class="span-17 first">
+      <div id="logo" class="span-16 first">
 		    <h1>LegiTracker</h1>
       </div>
-      <div id="search" class="span-7 last">
+      <div id="search" class="span-8 last">
         <%= form_for @search, :url => bills_path, :html => {:method => :get} do |f| %>
           <%= f.text_field :number_or_short_title_or_title_or_b_status_contains %><%= f.submit 'Go' %>
         <% end %>
+        <%= link_to "Advanced Search", search_path, :class => 'advanced_search' %>
       </div>
 	  </header>
 	  <section>
