@@ -22,10 +22,5 @@ describe BillsController do
       get 'search'
       response.should be_success
     end
-
-    it "should have the correct title" do
-      get 'search'
-      response.should have_selector( "title", :content => "Advanced Search" )
-    end
   end
 end
