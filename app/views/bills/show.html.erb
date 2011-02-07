@@ -8,9 +8,9 @@
 	<ul>
 	<% @bill.sponsorships.each do |sponsor| %>
 		<li>
-			<%= link_to sponsor.member.name, member_path( sponsor.member.id ) %>
-			<%= sponsor.member.seat %>
-			(<%= sponsor.member.party %>)
+			<%= link_to sponsor.display_name, member_path( sponsor.member_id ) %>
+			<%= sponsor.district_name %>
+			(<%= sponsor.party %>)
 			<% if sponsor.seq == 1 %>
 				- primary
 			<% end %>

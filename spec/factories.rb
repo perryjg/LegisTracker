@@ -63,5 +63,7 @@ FactoryGirl.define do
     bill_id 1
     member_id 1
     seq 1
+    association :bill
+    association :member
   end
 end

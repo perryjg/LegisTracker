@@ -6,7 +6,8 @@ class Bill < ActiveRecord::Base
   has_many :votes
   has_many :sponsorships
   has_many :members, :through => :sponsorships
-
+  search_methods :sponsor_name, :sponsor_district, :sponsor_party
+  
   scope :sponsor_name, lambda { |name|
     joins("join sponsorships on sponsorships.bill_id = bills.id join members on members.id = sponsorships.member_id").
     where( "sponsorships.seq = 1 and concat_ws( ' ', members.last_name, members.first_name ) like ?", "%#{name}%" )
@@ -22,8 +23,10 @@ class Bill < ActiveRecord::Base
     where( "sponsorships.seq = 1 and members.party = ?", party )
   }
 
-  search_methods :sponsor_name, :sponsor_district, :sponsor_party
-
+  
+  def sponsor_count
+    sponsorships.count
+  end
   def primary_sponsor
     sponsorships.primary.first
   end
@@ -94,9 +97,4 @@ class Bill < ActiveRecord::Base
       end
      end
   end
-
-#  def self.search( params )
-#    search_string = '%' + Shellwords.shellwords( params ).join( '%' ) + '%'
-#    where( "concat_ws( ' ', concat( btype, num ), number, short_title, title, b_status) LIKE ?", search_string )
-#  end
 end
