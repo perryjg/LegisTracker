@@ -3,9 +3,9 @@
 	<h2>Votes</h2>
 	
 	<% if @vote_date < Vote.last_date %>
-		<%= link_to "Next", root_path( :vote_date => Date.parse( @vote_date ).tomorrow.to_s(:db), :status_date => @status_date ) %>
+		<%= link_to "Next Day", root_path( :vote_date => Date.parse( @vote_date ).tomorrow.to_s(:db), :status_date => @status_date ) %>
 	<% end %>
-	<%= link_to "Previous", root_path( :vote_date => Date.parse( @vote_date ).yesterday.to_s(:db), :status_date => @status_date ) %>
+	<%= link_to "Previous Day", root_path( :vote_date => Date.parse( @vote_date ).yesterday.to_s(:db), :status_date => @status_date ) %>
 	
 	<p><%= @vote_date %></p>
 	<ul>
@@ -26,18 +26,20 @@
 	<h2>Bill Status</h2>
 	
 	<% if @status_date < Status.last_date %>
-		<%= link_to "Next", root_path( :status_date => Date.parse( @status_date ).tomorrow.to_s(:db), :vote_date => @vote_date ) %>
+		<%= link_to "Next Day", root_path( :status_date => Date.parse( @status_date ).tomorrow.to_s(:db), :vote_date => @vote_date ) %>
 	<% end %>
-	<%= link_to "Previous", root_path( :status_date => Date.parse( @status_date ).yesterday.to_s(:db), :vote_date => @vote_date ) %>
+	<%= link_to "Previous Day", root_path( :status_date => Date.parse( @status_date ).yesterday.to_s(:db), :vote_date => @vote_date ) %>
 	
 	<p><%= @status_date %></p>
 	<ul>
 	<% @events.each do |event| %>
 		<li class="event">
     <%= link_to "#{event.bill.number}", bill_path( event.bill ) %>
-      <%= event.bill.short_title %><br />
-      <%= event.status_code.description %>
-			(<%= event.status_date.strftime('%Y-%m-%d') %>)
+      <%= event.status_code.description %><br />
+      <%= event.bill.short_title %>
+			(<%= event.bill.primary_sponsor_name %>
+			 <%= event.bill.primary_sponsor_party %> -
+			 <%=event.bill.primary_sponsor_district %>)
 		</li>
 		
 	<% end %>

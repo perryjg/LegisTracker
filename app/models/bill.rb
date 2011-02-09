@@ -6,7 +6,7 @@ class Bill < ActiveRecord::Base
   has_many :votes
   has_many :sponsorships
   has_many :members, :through => :sponsorships
-  search_methods :sponsor_name, :sponsor_district, :sponsor_party
+  search_methods :sponsor_name, :sponsor_district, :sponsor_party, :default_order
   
   scope :sponsor_name, lambda { |name|
     joins("join sponsorships on sponsorships.bill_id = bills.id join members on members.id = sponsorships.member_id").
@@ -22,7 +22,6 @@ class Bill < ActiveRecord::Base
     joins("join sponsorships on sponsorships.bill_id = bills.id join members on members.id = sponsorships.member_id").
     where( "sponsorships.seq = 1 and members.party = ?", party )
   }
-
   
   def sponsor_count
     sponsorships.count

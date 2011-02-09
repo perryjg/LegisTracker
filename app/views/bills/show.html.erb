@@ -1,5 +1,7 @@
 <div id="title" class="span-22 push-1 first last">
   <h2><%= @bill.number %>: <%= @bill.short_title %></h2>
+<p>Citation: Title <%= @bill.code_title %> Chapter <%= @bill.code_chapter %></p>
+<p>Current status: <%= @bill.b_status %> (<%= @bill.status_date.strftime( '%Y-%m-%d' ) %>)
   <p><%= @bill.title %></p>
 </div>
 <div id="sponsors" class="span-22 push-1 first last">
