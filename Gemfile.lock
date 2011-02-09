@@ -159,6 +159,7 @@ DEPENDENCIES
   heroku
   meta_search
   mysql2
+  nokogiri
   rails (= 3.0.3)
   rspec-rails
   shoulda
