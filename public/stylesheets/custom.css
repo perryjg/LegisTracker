@@ -3,7 +3,10 @@ body {background:#888;}
 /* customized class *//
 
 .box {background:#3774A2;}
-
+.tstamp {font-size:.8em;}
+.vtitle {color:#000;}
+.vdesc {color:#777;}
+.fwdbk a {text-decoration:none;}
 
                        
 /* div css */
@@ -16,16 +19,27 @@ body {background:#888;}
 #content{ position:relative;background:white;margin:0; padding:0; height:100%;}
 #content p.endy{font-family: 'Orbitron', arial, serif; text-align:center; size:0.75em; color:#777;}
 
+
 #main { margin:0; padding:0; height:100%;}
-#votes { height:100%; }
-#status { height:100%;}
-
-#feeds { position:absolute; bottom:0; top:0px; right:0px; padding:1.5em; padding-right:1em; background:#e5e5e5; border-left:1px; border-style:solid; border-color:#d4d4d4;}
-#feeds h3 {color:#333;margin-bottom:0.3em;}
-#feeds ul {color:#888; font-size:.8em;}
-#feeds a {color:#333 ;text-decoration:underline;font-size:1.25em;}
+#main ul {list-style-type:none; margin-left:0; padding-left:0;}
+/* #main li {padding-bottom:.6em; } */
+#votes { }
+#status {}
+#feeds { z-index:2; position:absolute; height:100%; bottom:0; top:0px; right:0px; padding:2em; padding-bottom:0; padding-right:1em;  background:#e5e5e5; border-left:1px; border-style:solid; border-color:#d4d4d4;}
 
 
-#footer {background: #3774A2; margin:0; padding:0; height: 25px; width:100%;}
-#footer p{color:white; padding-top:.3em; text-align:center;}
+#feedbox {  z-index:3; position:relative; float:right; height:100%; bottom:0; top:0px; right:0px; padding:2em; padding-left:2em; padding-right:1em;height:100%; bottom:0; top:0px; right:0px; padding:2em; padding-right:1em;}
+#feedbox h3 {color:#333;margin-bottom:0.3em;}
+#feedbox ul {color:#888; font-size:.8em;}
+#feedbox a {color:#333 ;text-decoration:underline;font-size:1.25em;}
+#senate_rss {height:100%; }
+#house_rss {}
 
+
+
+
+#footer {z-index:4; position:relative;background: #3774A2; margin:0; padding:0; height: 25px; width:100%;}
+#footer p {color:white; padding-top:.3em; text-align:center;}
+
+/* Bills */
+#title h2 { padding-top:1em;}
