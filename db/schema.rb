@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110209015238) do
+ActiveRecord::Schema.define(:version => 20110211030216) do
 
   create_table "bills", :force => true do |t|
     t.string  "btype"
@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(:version => 20110209015238) do
     t.string  "suffix"
     t.integer "carryover"
     t.integer "year_id"
-    t.date    "status_date"
+    t.date    "current_status_date"
     t.string  "number"
     t.string  "short_title"
     t.string  "composite_caption"

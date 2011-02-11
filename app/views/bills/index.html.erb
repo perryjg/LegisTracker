@@ -3,7 +3,7 @@
   <p>
   <h4><%= link_to "#{bill.number}", bill_path( bill ) %> <%= bill.short_title %></h4>
     <p><%= bill.title %></p>
-    <p>Current status: <%= bill.b_status %> (<%= bill.status_date %>)</p>
+    <p>Current status: <%= bill.b_status %> (<%= bill.current_status_date %>)</p>
   </p>
 <% end %>
 </div>

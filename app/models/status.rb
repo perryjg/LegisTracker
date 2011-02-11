@@ -3,6 +3,9 @@ class Status < ActiveRecord::Base
   belongs_to :status_code
   delegate :hot_list, :to => :bill
   
+  scope :hot, joins( "JOIN bills ON statuses.bill_id = bills.id JOIN taggings ON taggings.taggable_id = bills.id" ).
+              where( "taggings.context = 'hot'" )
+  
   def self.most_recent
     where( "DATE(status_date) = ?", last_date )
   end

@@ -3,6 +3,7 @@ class HomeController < ApplicationController
     @title = 'Home'
     stdate = Status.last_date
     @status_date = params[:status_date] || Status.last_date.to_s
+    @hot_events = Status.hot.most_recent
     @events = Status.find_for_date( @status_date )
     
     vdate = Vote.last_date

@@ -23,14 +23,30 @@
 </div>
 
 <div id="status" class="span-8 push-2 prepend-top ">
-	<h2>Bill Status</h2>
+	<div id="hot">
+		<h2>Hot Bills</h2>
+		<ul>
+				<% @hot_events.each do |hot| %>
+				<li class="hot_event">
+			    <%= link_to "#{hot.bill.number}", bill_path( hot.bill ) %>
+			    <%= hot.status_code.description %><br />
+			    <%= hot.bill.short_title %>
+						(<%= hot.bill.primary_sponsor_name %>
+						 <%= hot.bill.primary_sponsor_party %> -
+						 <%= hot.bill.primary_sponsor_district %>)
+				</li>
+				<% end %>
+			</li>
+		</ul>
+		<hr />
+	</div>
+		
+	<h3>Bill Status <%= @status_date %></h3>
 	
 	<% if @status_date < Status.last_date %>
 		<%= link_to "Next Day", root_path( :status_date => Date.parse( @status_date ).tomorrow.to_s(:db), :vote_date => @vote_date ) %>
 	<% end %>
 	<%= link_to "Previous Day", root_path( :status_date => Date.parse( @status_date ).yesterday.to_s(:db), :vote_date => @vote_date ) %>
-	
-	<p><%= @status_date %></p>
 	<ul>
 	<% @events.each do |event| %>
 		<li class="event">
@@ -39,9 +55,8 @@
       <%= event.bill.short_title %>
 			(<%= event.bill.primary_sponsor_name %>
 			 <%= event.bill.primary_sponsor_party %> -
-			 <%=event.bill.primary_sponsor_district %>)
+			 <%= event.bill.primary_sponsor_district %>)
 		</li>
-		
 	<% end %>
 	</ul>
 	<p class="endy"> >>> end feed <<< </class> </p>

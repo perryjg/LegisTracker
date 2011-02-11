@@ -70,7 +70,7 @@ class Bill < ActiveRecord::Base
             :suffix            => bill.Suffix,
             :carryover         => bill.Carryover,
             :year_id           => bill.YearID,
-            :status_date       => bill.StatusDate,
+            :current_status_date  => bill.StatusDate,
             :number            => bill.Number,
             :short_title       => bill.Short_Title,
             :composite_caption => bill.CompositeCaption,
