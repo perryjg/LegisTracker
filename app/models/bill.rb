@@ -2,6 +2,9 @@ require 'bill_status_summary'
 require 'shellwords'
 
 class Bill < ActiveRecord::Base
+  acts_as_taggable
+  acts_as_taggable_on :hot, :topics
+  
   has_many :statuses
   has_many :votes
   has_many :sponsorships
@@ -26,6 +29,7 @@ class Bill < ActiveRecord::Base
   def sponsor_count
     sponsorships.count
   end
+  
   def primary_sponsor
     sponsorships.primary.first
   end
@@ -40,6 +44,10 @@ class Bill < ActiveRecord::Base
 
   def primary_sponsor_party
     primary_sponsor.member.party
+  end
+  
+  def self.hot
+    tagged_with( 'hot' )
   end
 
   def self.reload_from_xml

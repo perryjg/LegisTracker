@@ -6,6 +6,7 @@ gem 'feedzirra'
 gem 'heroku'
 gem 'taps'
 gem 'meta_search'
+gem 'acts-as-taggable-on'
 
 group :development, :test do
   gem 'cucumber-rails'
