@@ -1,5 +1,5 @@
 <div id="main" class="span-24 first last ">
-	<div id="votes" class="span-6 push-1 first border prepend-top">
+	<div id="votes" class="span-5 push-1 first border prepend-top">
 		
 	<h2>Votes</h2>
 	<p class="fwdbk" align="center"> 
@@ -26,16 +26,16 @@
 		<p class="endy"> >>> end feed <<< </class> </p>
 </div>
 
-<div id="status" class="span-8 push-2 prepend-top ">
+<div id="status" class="span-10 push-2 prepend-top ">
 	<h2>Bill Status</h2>
 	
 	<p class="fwdbk" align="center">
 	
 		<% if @status_date < Status.last_date %>
-			<%= link_to "Next >>", root_path( :status_date => Date.parse( @status_date ).tomorrow.to_s(:db), :vote_date => @vote_date ) %>
+			<%= link_to "Next >> | ", root_path( :status_date => Date.parse( @status_date ).tomorrow.to_s(:db), :vote_date => @vote_date ) %>
 		
 	
-		<% end %> |  
+		<% end %>
 	
 	
 		
