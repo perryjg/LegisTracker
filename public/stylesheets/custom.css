@@ -22,6 +22,7 @@ ul {list-style-type:none; margin-left:0; padding-left:0;}
 #header a {text-decoration:none;color:white;}
 #header a:link {}
 #header a:hover {}
+#logo { height:51px; background-image:url('images/legilogo.gif');}
 
 #content{ position:relative;background:white;margin:0; padding:0; height:100%;}
 #content p.endy{font-family: 'Orbitron', arial, serif; text-align:center; size:0.75em; color:#777;}
@@ -54,4 +55,5 @@ ul {list-style-type:none; margin-left:0; padding-left:0;}
 #title p {text-align:justify;}
 
 /* members SHOW */
-#sponsorships tr td {text-align:left; vertical-align:top; border:1px solid black; padding:0;}
+#sponsorships tbody tr:nth-child(even) td, tbody tr.even td {background:white;}
+#sponsorships tr td {text-align:left; vertical-align:top;  padding:0;}

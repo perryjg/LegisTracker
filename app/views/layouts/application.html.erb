@@ -22,7 +22,7 @@
 	<div class="container">
 	  <header id="header"class="span-24 first last">
       <div id="logo" class="span-16 first">
-		    <h1><%= link_to "LegiTracker", root_url %></h1>
+		    <h1> <%= link_to 'LegiTracker', root_url %></h1>
       </div>
       <div id="search" class="span-8 last">
         <%= form_for @search, :url => bills_path, :html => {:method => :get} do |f| %>

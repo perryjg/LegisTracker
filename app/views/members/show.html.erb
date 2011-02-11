@@ -4,14 +4,14 @@
 <div id="sponsorships" class="span-22 push-1 first last">
 	<% if @member.sponsorships.primary.count > 0 %>
 		<h3>Bills sponsored: Primary</h3>
-		<ul>
+		<table>
 			<% @member.sponsorships.primary.each do |primary| %>
-				<li>
+				<tr><td>
 					<%= link_to primary.bill.number, bill_path( primary.bill.id ) %>
-					<%= primary.bill.short_title %>
-				</li>
+					</td><td><%= primary.bill.short_title %>
+				</td></tr>
 			<% end %>
-		</ul>
+		</table>
 		<% end %>
 	<% if @member.sponsorships.secondary.count > 0 %>
 		<h3>Bills sponsored: Secondary</h3>
@@ -20,7 +20,7 @@
 			
 				
 					<tr>
-					<td width="45px"><%= link_to secondary.bill.number, bill_path( secondary.bill.id) %> </td><td><%= secondary.bill.short_title %></td>
+					<td width="45px"><%= link_to secondary.bill.number, bill_path( secondary.bill.id) %> </td><td> <%= secondary.bill.short_title %></td>
 					</tr>
 					
 			
