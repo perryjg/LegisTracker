@@ -6,7 +6,7 @@
 		<h3>Bills sponsored: Primary</h3>
 		<table>
 			<% @member.sponsorships.primary.each do |primary| %>
-				<tr><td>
+				<tr><td width="45px">
 					<%= link_to primary.bill.number, bill_path( primary.bill.id ) %>
 					</td><td><%= primary.bill.short_title %>
 				</td></tr>

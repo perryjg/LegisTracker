@@ -1,0 +1,175 @@
+<<<<<<< HEAD
+<div id="main" class="span-24 first last ">
+	<div id="votes" class="span-5 push-1 first border prepend-top">
+		
+	<h2>Votes</h2>
+	<p class="fwdbk" align="center"> 
+	<% if @vote_date < Vote.last_date %>
+		<%= link_to "Next >>", root_path( :vote_date => Date.parse( @vote_date ).tomorrow.to_s(:db), :status_date => @status_date ) %>
+		
+	<% end %> | 
+	
+	<%= link_to "<< Previous", root_path( :vote_date => Date.parse( @vote_date ).yesterday.to_s(:db), :status_date => @status_date ) %>
+<br/>	Date: <%= @vote_date %>
+	</p>
+	
+	<ul>
+		<% @votes.each do |vote| %>
+			<li class="vote">
+			  <% unless vote.bill.nil? %>
+          <%= link_to "#{vote.bill.number}", bill_path( vote.bill ) %>
+				<% end %> 
+        <%= vote.description %> &nbsp;<span class="tstamp">(<%= vote.date.strftime( '%l:%M %p' ) %>)</span><br/>
+			<strong>   Yea: <%= vote.yea %> Nay: <%= vote.nay %> </strong>
+			</li>
+		<% end %>
+	</ul>
+		<p class="endy"> >>> end feed <<< </class> </p>
+</div>
+
+<div id="status" class="span-10 push-2 prepend-top ">
+	<h2>Bill Status</h2>
+	
+	<p class="fwdbk" align="center">
+	
+		<% if @status_date < Status.last_date %>
+			<%= link_to "Next >> | ", root_path( :status_date => Date.parse( @status_date ).tomorrow.to_s(:db), :vote_date => @vote_date ) %>
+		
+	
+		<% end %>
+	
+	
+		
+		<%= link_to "<< Previous", root_path( :status_date => Date.parse( @status_date ).yesterday.to_s(:db), :vote_date => @vote_date ) %>
+		 <br/>Date: <%= @status_date %> 
+	</p>
+	
+	
+	<ul>
+	<% @events.each do |event| %>
+		<li class="event">
+    		<%= link_to "#{event.bill.number}", bill_path( event.bill ) %>
+     		<span class="vtitle"> <%= event.bill.short_title %></span> ...
+      		<span class="vdesc"><%= event.status_code.description %> </span>
+			<span class="tstamp">(<%= event.status_date.strftime('%Y-%m-%d') %>)</span>
+		</li>
+	<% end %>
+	</ul>
+	
+	<p class="endy"> >>> end feed <<< </class> </p>
+</div>
+
+
+<div id="feeds" class="span-6 last"></div>
+
+<div id="feedbox" class="span-6 last">
+	<div id="senate_rss">
+		<h3>Senate Press Releases</h3>
+=======
+<div id="main">
+	<div id="votes" class="span-7 push-1 first border prepend-top">
+		<h2>Votes</h2>
+>>>>>>> 874863440705bc5c6a0dd8a07591e266dd2ba2af
+		<ul>
+		<% @votes.each do |vote| %>
+			<li class="vote">
+			   <%= vote.bill.number %> <%= vote.date.to_s %> <%= vote.description %><br />
+			   Yea: <%= vote.yea %> Nay: <%= vote.nay %>
+			</li>
+		<% end %>
+		</li>
+		</ul>
+			<p class="endy"> >>> end feed <<< </class> </p>
+	</div>
+
+	<div id="status" class="span-7 push-2 prepend-top ">
+		<h2>Bill Status</h2>
+		<ul>
+		<% @events.each do |event| %>
+			<li class="event">
+				<%= event.bill.number %>
+				<%= event.bill.short_title %>: <%= event.status_code.description %><br />
+				(<%= event.status_date.to_s %>)
+			</li>
+		
+		<% end %>
+		</ul>
+		<br/> HB 1 Crimes and Offenses; prenatal murder unlawful; provide
+		House Second Readers (2011-01-24)
+		<br/> HB 2 Georgia Right to Grow Act; enact
+		House Second Readers (2011-01-24)
+		<br/> HB 3 Constitutional Tender Act; enact
+		House Second Readers (2011-01-24)
+		<br/> HB 4 Life, Liberty, and Property Restoration Act; enact
+		House Second Readers (2011-01-24)
+		<br/> HB 5 Freedom of Choice and Security Act; enact
+		House Second Readers (2011-01-24)
+		<br/> HB 6 Emergency Defense of the Home Act; enact
+		House Second Readers (2011-01-24)
+		<br/> HB 7 Right to Travel Act; enact
+		House Second Readers (2011-01-24)
+		<br/> HB 8 Due Process Restoration Act; enact
+		House Second Readers (2011-01-24)
+		<br/> HB 9 Kathryn Johnston's Law; enact
+		House Second Readers (2011-01-24)
+		<br/> HB 10 Child Protection Act; enact
+		House Second Readers (2011-01-24)
+		<br/> HB 11 Freedom from Compulsory Pandemic Act; enact
+		House Second Readers (2011-01-24)
+		<br/> HB 12 Georgia Food Freedom Act; enact
+		House Second Readers (2011-01-24)
+		<br/> HB 13 Income tax; levy or collection; prohibit
+		House Second Readers (2011-01-24)
+		<br/> HB 14 Criminal law and procedure; change term 'victim' to 'accuser,' provide
+		House Second Readers (2011-01-24)
+		<br/> HB 15 Lobbying; persons employed by this state; address General Assembly committees; prohibit
+		House Second Readers (2011-01-24)
+		<br/> HB 16 Georgia Nuclear Energy Financing Act; repeal
+		House Second Readers (2011-01-24)
+		<br/> HB 17 Human Services, Department of; Title 49; repeal
+		House Second Readers (2011-01-24)
+		<br/> HB 18 State Road and Tollway Authority; abolish
+		House Second Readers (2011-01-24)
+		<br/> HB 19 Income tax; federal reserve banks in Georgia not exempt; provide
+		House Second Readers (2011-01-24)
+		<br/> HB 20 State Authority and Federal Tax Fund Act; enact
+		House Second Readers (2011-01-24)
+		<br/> HB 21 State Authority and Anti-racketeering Act; enact
+		House Second Readers (2011-01-24)
+	
+		<p class="endy"> >>> end feed <<< </class> </p>
+	</div>
+
+</div>
+
+<div id="feeds" class=" span-6 last">
+		<div id="senate_rss">
+			<h3>Senate Press Releases</h3>
+			<ul>
+			<% @senate_rss.each do |item| %>
+				<li class="rss senate"><a href="<%= item.url %>"><%= item.title %></a><br />(<%= item.published_at %>)</li>
+			<% end %>
+			</ul>
+		</div>
+
+		<div id="house_rss">
+			<h3>House Press Releases</h3>
+			<ul>
+			<% @house_rss.each do |item| %>
+				<li class="rss house"><a class="rss house" href="<%= item.url %>"><%= item.title %></a><br />(<%= item.published_at %>)</li>
+			<% end %>
+			</ul>
+		</div>
+</div>
+
+
+<<<<<<< HEAD
+
+
+</div>
+
+
+
+
+=======
+>>>>>>> 874863440705bc5c6a0dd8a07591e266dd2ba2af

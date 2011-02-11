@@ -1,0 +1,10 @@
+body {background:#888;}
+
+
+
+
+#content {background:white;}
+#header {background:#3774A2;margin:0; padding:0; height:50px; width:100%;}
+#votes {background: #D4D4D4; height:100%; float:left;}
+#status {background: #D4D4D4; height:100%; float:left;}
+#footer {background: #3774A2; margin:0; padding:0; height: 25px; width:100%;float:left;}
