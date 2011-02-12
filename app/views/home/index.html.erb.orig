@@ -4,6 +4,11 @@
 	<h2>Votes</h2>
 	<p class="fwdbk" align="center"> 
 	<% if @vote_date < Vote.last_date %>
+<<<<<<< HEAD
+		<%= link_to "Next Day", root_path( :vote_date => Date.parse( @vote_date ).tomorrow.to_s(:db), :status_date => @status_date ) %>
+	<% end %>
+	<%= link_to "Previous Day", root_path( :vote_date => Date.parse( @vote_date ).yesterday.to_s(:db), :status_date => @status_date ) %>
+=======
 		<%= link_to "Next >>", root_path( :vote_date => Date.parse( @vote_date ).tomorrow.to_s(:db), :status_date => @status_date ) %>
 		
 	<% end %> | 
@@ -11,6 +16,7 @@
 	<%= link_to "<< Previous", root_path( :vote_date => Date.parse( @vote_date ).yesterday.to_s(:db), :status_date => @status_date ) %>
 <br/>	Date: <%= @vote_date %>
 	</p>
+>>>>>>> master
 	
 	<ul>
 		<% @votes.each do |vote| %>
@@ -47,6 +53,21 @@
 		
 	<h3>Bill Status <%= @status_date %></h3>
 	
+<<<<<<< HEAD
+	<% if @status_date < Status.last_date %>
+		<%= link_to "Next Day", root_path( :status_date => Date.parse( @status_date ).tomorrow.to_s(:db), :vote_date => @vote_date ) %>
+	<% end %>
+	<%= link_to "Previous Day", root_path( :status_date => Date.parse( @status_date ).yesterday.to_s(:db), :vote_date => @vote_date ) %>
+	<ul>
+	<% @events.each do |event| %>
+		<li class="event">
+    <%= link_to "#{event.bill.number}", bill_path( event.bill ) %>
+      <%= event.status_code.description %><br />
+      <%= event.bill.short_title %>
+			(<%= event.bill.primary_sponsor_name %>
+			 <%= event.bill.primary_sponsor_party %> -
+			 <%= event.bill.primary_sponsor_district %>)
+=======
 	<p class="fwdbk" align="center">
 	
 		<% if @status_date < Status.last_date %>
@@ -69,6 +90,7 @@
      		<span class="vtitle"> <%= event.bill.short_title %></span> ...
       		<span class="vdesc"><%= event.status_code.description %> </span>
 			<span class="tstamp">(<%= event.status_date.strftime('%Y-%m-%d') %>)</span>
+>>>>>>> master
 		</li>
 	<% end %>
 	</ul>
@@ -103,5 +125,7 @@
 
 
 </div>
+
+
 
 

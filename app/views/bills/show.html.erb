@@ -3,9 +3,11 @@
 <p>Citation: Title <%= @bill.code_title %> Chapter <%= @bill.code_chapter %></p>
 <p>Current status: <%= @bill.b_status %> (<%= @bill.current_status_date.strftime( '%Y-%m-%d' ) %>)
   <p><%= @bill.title %></p>
+
+<hr />
 </div>
-<div id="sponsors" class="span-22 push-1 first last">
-	<hr />
+<div id="sponsors" class="span-7 prepend-2 first">
+	
 	<h3>Sponsors</h3>
 	<ul>
 	<% @bill.sponsorships.each do |sponsor| %>
@@ -19,23 +21,27 @@
 		</li>
 	<% end %>
 	</ul>
+	<br/>
 </div>
-<div id="status" class="span-10 push-1 first">
-	<hr />
+<div id="status" class="span-6 prepend-1 ">
+
   <h3>Bill status</h3>
+	<ul>
     <% @bill.statuses.each do |status| %>
       <li><%= status.status_date.strftime( '%Y-%m-%d' ) %> <%= status.status_code.description %></li>
     <% end %>
   </ul>
   </p>
+<br/>
 </div>
-<div id="votes" class="span-10 push-1 top last">
-	<hr />
+<div id="votes" class="span-6 prepend-1 last">
+	
   <h3>Votes</h3>
   <ul>
     <% @bill.votes.each do |vote| %>
       <li><%= vote.date.strftime( '%Y-%m-%d' ) %> <%= vote.description %> Yea:<%= vote.yea %> Nay:<%= vote.nay %></li>
     <% end %>
   </ul>
+<br/>
 </div>
 

@@ -9,7 +9,7 @@ development:
   adapter: mysql2
   encoding: utf8
   reconnect: false
-  database: legislature_dev
+  database: legislature
   pool: 5
   username: john
   password: schuster
