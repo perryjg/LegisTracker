@@ -1,0 +1,14 @@
+class ApplicationController < ActionController::Base
+  protect_from_forgery
+<<<<<<< HEAD
+  before_filter :load_bill_search_object
+  
+  private
+  def load_bill_search_object
+    @search = Bill.search( params[:search] )
+  end
+=======
+  
+ 
+>>>>>>> 874863440705bc5c6a0dd8a07591e266dd2ba2af
+end

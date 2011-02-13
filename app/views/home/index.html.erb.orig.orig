@@ -26,8 +26,31 @@
 		<p class="endy"> >>> end feed <<< </class> </p>
 </div>
 
+<<<<<<< HEAD
+<div id="status" class="span-8 push-2 prepend-top ">
+	<div id="hot">
+		<h2>Hot Bills</h2>
+		<ul>
+				<% @hot_events.each do |hot| %>
+				<li class="hot_event">
+			    <%= link_to "#{hot.bill.number}", bill_path( hot.bill ) %>
+			    <%= hot.status_code.description %><br />
+			    <%= hot.bill.short_title %>
+						(<%= hot.bill.primary_sponsor_name %>
+						 <%= hot.bill.primary_sponsor_party %> -
+						 <%= hot.bill.primary_sponsor_district %>)
+				</li>
+				<% end %>
+			</li>
+		</ul>
+		<hr />
+	</div>
+		
+	<h3>Bill Status <%= @status_date %></h3>
+=======
 <div id="status" class="span-10 push-2 prepend-top ">
 	<h2>Bill Status</h2>
+>>>>>>> a327ae0dfa683a55274c6e7da2b66f6de7c3ae47
 	
 	<p class="fwdbk" align="center">
 	
@@ -85,7 +108,5 @@
 
 
 </div>
-
-
 
 

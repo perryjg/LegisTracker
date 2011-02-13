@@ -21,6 +21,7 @@
 <body>
 	<div class="container">
 	  <header id="header"class="span-24 first last">
+<<<<<<< HEAD
       <div id="logo" class="span-16 first">
 		    <h1> <%= link_to 'LegiTracker', root_url %></h1>
       </div>
@@ -30,6 +31,9 @@
         <% end %>
         <%= link_to "Advanced Search", search_path, :class => 'advanced_search' %>
       </div>
+=======
+		<h1>LegiTracker</h1>
+>>>>>>> 874863440705bc5c6a0dd8a07591e266dd2ba2af
 	  </header>
 	  <section>
 		<div id="content" class="span-24 first last ">

@@ -1,29 +1,31 @@
-<div class="sapn-22 push-1 first last">
-	<h2><%= @member.name %> <%= @member.seat %></h2>
+<div id="title" class="sapn-22 push-1 first last">
+	<h2><%= @member.name %> <span class="memid"><%= @member.seat %> </span></h2>
 </div>
 <div id="sponsorships" class="span-22 push-1 first last">
-	<h3>Bills sponsored</h3>
 	<% if @member.sponsorships.primary.count > 0 %>
-		<h4>Primary</h4>
-		<ul>
+		<h3>Bills sponsored: Primary</h3>
+		<table>
 			<% @member.sponsorships.primary.each do |primary| %>
-				<li>
+				<tr><td width="45px">
 					<%= link_to primary.bill.number, bill_path( primary.bill.id ) %>
-					<%= primary.bill.short_title %>
-				</li>
+					</td><td><%= primary.bill.short_title %>
+				</td></tr>
 			<% end %>
-		</ul>
+		</table>
 		<% end %>
 	<% if @member.sponsorships.secondary.count > 0 %>
-		<h4>Secondary</h4>
-		<ul>
+		<h3>Bills sponsored: Secondary</h3>
+		<table
 			<% @member.sponsorships.secondary.each do |secondary| %>
-				<li>
-					<%= link_to secondary.bill.number, bill_path( secondary.bill.id ) %>
-					<%= secondary.bill.short_title %>
-				</li>
+			
+				
+					<tr>
+					<td width="45px"><%= link_to secondary.bill.number, bill_path( secondary.bill.id) %> </td><td> <%= secondary.bill.short_title %></td>
+					</tr>
+					
+			
 			<% end %>
-		</ul>
+		</table>
 	<% end %>
 </div>
 

@@ -41,7 +41,7 @@
   <h3>Bill status</h3>
 	<ul>
     <% @bill.statuses.each do |status| %>
-      <li><%= status.status_date.strftime( '%Y-%m-%d' ) %> <%= status.status_code.description %></li>
+      <li><span class="tstamp"><%= status.status_date.strftime( '%Y-%m-%d' ) %> </span> <%= status.status_code.description %></li>
     <% end %>
   </ul>
   </p>
@@ -52,7 +52,7 @@
   <h3>Votes</h3>
   <ul>
     <% @bill.votes.each do |vote| %>
-      <li><%= vote.date.strftime( '%Y-%m-%d' ) %> <%= vote.description %> Yea:<%= vote.yea %> Nay:<%= vote.nay %></li>
+      <li><span class="tstamp"><%= vote.date.strftime( '%Y-%m-%d' ) %> </span><%= vote.description %> <strong> Yea: <%= vote.yea %> Nay: <%= vote.nay %> </strong></li>
     <% end %>
   </ul>
 <br/>

@@ -1,6 +1,7 @@
 body {background:#888;}
 ul {list-style-type:none; margin-left:0; padding-left:0;}
 
+
 /* customized class *//
 
 .box {background:#3774A2;}
@@ -9,6 +10,7 @@ ul {list-style-type:none; margin-left:0; padding-left:0;}
 .vdesc {color:#777;}
 .fwdbk a {text-decoration:none;}
 .memid {color:#888;}
+
 
                        
 /* div css */
@@ -48,13 +50,8 @@ ul {list-style-type:none; margin-left:0; padding-left:0;}
 #footer {z-index:4; position:relative;background: #3774A2; margin:0; padding:0; height: 25px; width:100%;}
 #footer p {color:white; padding-top:.3em; text-align:center;}
 
-/* Bills  SHOW */
-#title h2 { padding-top:1em;}
-#title p {text-align:justify;}
-
-/* members SHOW */
-#sponsorships tbody tr:nth-child(even) td, tbody tr.even td {background:white;}
-#sponsorships tr td {text-align:left; vertical-align:top;  padding:0;}/* Bills */
+<<<<<<< HEAD
+/* Bills */
 #title h2 { padding-top:1em;}
 
 /* Flash messages */
@@ -90,3 +87,12 @@ ul {list-style-type:none; margin-left:0; padding-left:0;}
     color:                              #f00;
     text-decoration:    none;
 }
+=======
+/* Bills  SHOW */
+#title h2 { padding-top:1em;}
+#title p {text-align:justify;}
+
+/* members SHOW */
+#sponsorships tbody tr:nth-child(even) td, tbody tr.even td {background:white;}
+#sponsorships tr td {text-align:left; vertical-align:top;  padding:0;}
+>>>>>>> a327ae0dfa683a55274c6e7da2b66f6de7c3ae47
