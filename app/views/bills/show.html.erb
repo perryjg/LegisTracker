@@ -1,5 +1,18 @@
 <div id="title" class="span-22 push-1 first last">
-  <h2><%= @bill.number %>: <%= @bill.short_title %></h2>
+	<% if flash[:notice] %>
+		<p class="flash notice"><%= flash[:notice] %></p>
+	<% end %>
+	<% if flash[:error] %>
+		<p class="flash error"><%= flash[:error] %></p>
+	<% end %>
+
+	<% if @bill.is_hot? %>
+		<%= link_to "Un-tag as hot", unhot_bill_path( @bill ) %>
+	<% else %>
+		<%= link_to "Tag as hot", hot_bill_path( @bill ) %>
+	<% end %>
+  
+	<h2><%= @bill.number %>: <%= @bill.short_title %></h2>
 <p>Citation: Title <%= @bill.code_title %> Chapter <%= @bill.code_chapter %></p>
 <p>Current status: <%= @bill.b_status %> (<%= @bill.current_status_date.strftime( '%Y-%m-%d' ) %>)
   <p><%= @bill.title %></p>

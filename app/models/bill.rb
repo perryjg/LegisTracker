@@ -2,7 +2,6 @@ require 'bill_status_summary'
 require 'shellwords'
 
 class Bill < ActiveRecord::Base
-  acts_as_taggable
   acts_as_taggable_on :hot, :topics
   
   has_many :statuses
@@ -48,6 +47,10 @@ class Bill < ActiveRecord::Base
   
   def self.hot
     tagged_with( 'hot' )
+  end
+  
+  def is_hot?
+    hot_list.include?( 'hot' )
   end
 
   scope :sponsor_name, lambda { |name|
@@ -99,22 +102,22 @@ class Bill < ActiveRecord::Base
           create!(
             :xml_id            => bill.Id.to_i,
             :btype             => bill.Type,
-            :num               => bill.Num,
+            :num               => bill.Num.to_i,
             :suffix            => bill.Suffix,
-            :carryover         => bill.Carryover,
-            :year_id           => bill.YearID,
+            :carryover         => bill.Carryover.to_i,
+            :year_id           => bill.YearID.to_i,
             :current_status_date  => bill.StatusDate,
             :number            => bill.Number,
             :short_title       => bill.Short_Title,
             :composite_caption => bill.CompositeCaption,
             :title             => bill.Title,
-            :h_committee       => bill.HCommittee,
-            :s_committee       => bill.SCommittee,
+            :h_committee       => bill.HCommittee.to_i,
+            :s_committee       => bill.SCommittee.to_i,
             :eff_date          => bill.EffDate,
             :b_status          => bill.BStatus,
             :footnote          => bill.Footnote,
-            :code_title        => bill.Citation['codeTitle'],
-            :code_chapter      => bill.Citation['codeChapter']
+            :code_title        => bill.Citation['codeTitle'].to_i,
+            :code_chapter      => bill.Citation['codeChapter'].to_i
           )
           connection.execute( "UPDATE bills SET id = xml_id WHERE xml_id = #{bill.Id}" )
 

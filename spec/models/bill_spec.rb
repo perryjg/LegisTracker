@@ -16,4 +16,34 @@ describe Bill do
     bill.save.should be true
     Bill.count.should == previous_record_count + 1
   end
+  
+  describe "taggable as hot bill" do
+    before( :each ) do
+      @bill = Factory.create( :bill )
+    end
+    
+    it "should take tag 'hot'" do
+      @bill.hot_list = 'hot'
+      @bill.save.should be true
+    end
+    
+    it "should find bills tagged as hot" do
+      hot_bill = Factory.create( :bill )
+      hot_bill.hot_list = 'hot'
+      hot_bill.save
+      
+      Bill.hot.all.should == Bill.tagged_with( 'hot' )
+      Bill.hot.count.should == 1
+      Bill.hot.first.should == hot_bill
+    end
+    
+    it "should return true from is_hot? if hot" do
+      @bill.hot_list = 'hot'
+      @bill.is_hot?.should == true
+    end
+    
+    it "should return false from is_hot? if not hot" do
+      @bill.is_hot?.should == false
+    end
+  end
 end

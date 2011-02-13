@@ -43,3 +43,37 @@ body {background:#888;}
 
 /* Bills */
 #title h2 { padding-top:1em;}
+
+/* Flash messages */
+.flash {
+    text-align: center;
+    padding:    .3em .4em;
+    margin:             0 auto .5em;
+    clear:              both;
+    max-width:  46.923em; /* 610/13 */  
+    *max-width: 45.750em; /* 610/13.3333 - for IE */
+}
+
+.flash.error {
+    border: thin solid #8b0000;
+    background: #ffc0cb;
+}
+
+.flash.notice, .flash.info {
+    border: thin solid #ff0;
+    background: #ffe;
+}
+
+.flash.warning {
+    border: thin solid #b8860b;
+    background: #ff0;
+}
+
+.flash .close {
+    float:      right;
+}
+
+.flash .close a {
+    color:                              #f00;
+    text-decoration:    none;
+}

@@ -18,6 +18,8 @@ Legitracker::Application.routes.draw do
   root :to => "home#index"
 
   match 'search' => 'bills#search'
+  match 'hot/:id' => 'bills#hot', :as => 'hot_bill'
+  match 'unhot/:id' => 'bills#unhot', :as => 'unhot_bill'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

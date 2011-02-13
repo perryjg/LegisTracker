@@ -20,7 +20,7 @@ class BillStatus
   end
   
   def StatusDate
-    m, d, y = @node.attribute( 'StatusDate' ).to_s.split /\//
+    m, d, y = @node.attribute( 'StatusDate' ).to_s.split( /\// ).map { |num| num.to_i }
     return "20%02d-%02d-%02d" % [ y, m, d ]
   end
   

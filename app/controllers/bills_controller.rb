@@ -12,4 +12,26 @@ class BillsController < ApplicationController
   def search
     @title = "Advanced Search"
   end
+  
+  def hot
+    @bill = Bill.find( params[:id] )
+    @bill.hot_list.add( 'hot' )
+    if @bill.save
+      flash[:notice] = "Bill successfully tagged as hot"
+    else
+      flas[:error] = "Tagging fails"
+    end
+    redirect_to( @bill )
+  end
+  
+  def unhot
+    @bill = Bill.find( params[:id] )
+    @bill.hot_list.remove( 'hot' )
+    if @bill.save
+      flash[:notice] = "Bill successfully untagged as hot"
+    else
+      flas[:error] = "Untagging fails"
+    end
+    redirect_to( @bill )
+  end
 end
