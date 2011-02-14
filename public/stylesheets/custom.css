@@ -1,12 +1,15 @@
 body {background:#888;}
 ul {list-style-type:none; margin-left:0; padding-left:0;}
-
+p {color:#222;}
+a {color:#3774A2;}
+a:hover {color:#274385;}
+a:focus {color:#274385;}
 /* customized class *//
 
 .box {background:#3774A2;}
 .tstamp {font-size:.8em;}
-.vtitle {color:#000;}
-.vdesc {color:#777;}
+.vtitle {color:#222;}
+.vdesc {color:#888;}
 .fwdbk a {text-decoration:none;}
 .memid {color:#888;}
 
@@ -39,7 +42,7 @@ ul {list-style-type:none; margin-left:0; padding-left:0;}
 #feedbox {  z-index:3; position:relative; float:right; height:100%; bottom:0; top:0px; right:0px; padding:2em; padding-left:2em; padding-right:1em;height:100%; bottom:0; top:0px; right:0px; padding:2em; padding-right:1em;}
 #feedbox h3 {color:#333;margin-bottom:0.3em;}
 #feedbox ul {color:#888; font-size:.8em;}
-#feedbox a {color:#333 ;text-decoration:underline;font-size:1.25em;}
+#feedbox a {color:#444 ;text-decoration:underline;font-size:1.25em;}
 #senate_rss {height:100%; }
 #house_rss {}
 

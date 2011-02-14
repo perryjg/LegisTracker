@@ -1,12 +1,12 @@
 body {background:#888;}
 ul {list-style-type:none; margin-left:0; padding-left:0;}
-
+p {color:#222;}
 
 /* customized class *//
 
 .box {background:#3774A2;}
 .tstamp {font-size:.8em;}
-.vtitle {color:#000;}
+.vtitle {color:#222;}
 .vdesc {color:#777;}
 .fwdbk a {text-decoration:none;}
 .memid {color:#888;}
