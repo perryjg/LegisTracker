@@ -80,4 +80,32 @@ describe Vote do
     end
     
   end
+  
+  describe "taggable as key vote" do
+    before( :each ) do
+      @vote = Factory.create( :vote )
+    end
+    
+    it "should take tag 'key'" do\
+      @vote.key_list.add( 'key' )
+      @vote.save.should == true
+    end
+    
+    it "should find votes tagged as key" do
+      key_vote = Factory( :vote )
+      key_vote.key_list.add( 'key' )
+      key_vote.save
+      
+      Vote.key.all.should == Vote.tagged_with( 'key' )
+      Vote.key.count.should == 1
+      Vote.key.first.should == key_vote
+    end
+    
+    it "should return true if is key vote" do
+      @vote.key_list.add( 'key' )
+      @vote.save
+      
+      @vote.is_key?.should == true
+    end
+  end
 end

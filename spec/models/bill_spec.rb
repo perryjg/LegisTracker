@@ -23,7 +23,7 @@ describe Bill do
     end
     
     it "should take tag 'hot'" do
-      @bill.hot_list = 'hot'
+      @bill.hot_list.add( 'hot' )
       @bill.save.should be true
     end
     

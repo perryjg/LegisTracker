@@ -2,18 +2,21 @@ require 'spec_helper'
 
 describe MembersController do
 
-  describe "GET 'index'" do
-    it "should be successful" do
-      get 'index'
-      response.should be_success
+  describe MembersController, '#index' do
+    before( :each ) do
+      get :index
     end
+    it { should respond_with( :success ) }
+    it { should assign_to( :title ).with( "Members" ) }
   end
 
-  describe "GET 'show'" do
-    it "should be successful" do
-      member = Factory.create( :member )
-      get 'show', :id => member.id
-      response.should be_success
+  describe MembersController, '#show' do
+    before( :each ) do
+      @member = Factory.create( :member )
+      get :show, :id => @member.id
     end
+    it { should respond_with( :success ) }
+    it { should assign_to( :title ).with( @member.name ) }
+    it { should assign_to( :member ).with( @member ) }
   end
 end

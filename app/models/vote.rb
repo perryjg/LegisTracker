@@ -2,6 +2,7 @@ require 'votes_summary'
 
 class Vote < ActiveRecord::Base
   belongs_to :bill
+  acts_as_taggable_on :key
   
   def self.reload_from_xml
     transaction do
@@ -45,5 +46,13 @@ class Vote < ActiveRecord::Base
   
   def self.last_date
     maximum( "DATE(date)" )
+  end
+  
+  def self.key
+    tagged_with( 'key' )
+  end
+  
+  def is_key?
+    key_list.include?( 'key' )
   end
 end

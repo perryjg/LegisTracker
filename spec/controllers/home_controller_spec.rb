@@ -1,50 +1,37 @@
 require 'spec_helper'
 
 describe HomeController do
-  render_views
-
-  describe "GET 'index'" do
+  describe HomeController, '#index' do
     before( :each ) do
       @bill = Factory.create( :bill )
       @status = Factory.create( :status, :bill => @bill )
       @votes = Factory.create( :vote, :bill => @bill )
+      @house_feed = Factory.create( :house_feed )
+      @senate_feed = Factory.create( :senate_feed )
+      get :index
     end
-    
-    it "should be successful" do
-      get 'index'
-      response.should be_success
-    end
+    it { should respond_with( :success ) }
+    it { should render_template :index }
+    it { should assign_to( :title ).with( 'Home' ) }
 
-    it "should have correct title" do
-      get 'index'
-      response.should have_selector("title", :content => "AJC LegiTracker | Home" )
-    end
-    
-    describe "Show recent bill data" do
-      it "should have most recent bill event" do
-        get 'index'
-        response.should have_selector( "*", :class => 'event' )
-      end
-    
-      it "shold have most recent vote" do
-        Factory.create( :vote, :bill => @bill )
-        get 'index'
-        response.should have_selector( "*", :class => 'vote' )
+    describe "Show recent bill events" do
+      it { should assign_to( :status_date ).with( Status.last_date.to_s ) }
+      it { should assign_to( :events ).with( Status.find_for_date( Status.last_date.to_s ) ) }
+      it { should assign_to( :vote_date ).with( Vote.last_date.to_s ) }
+      it { should assign_to( :votes ).with( Vote.find_for_date( Vote.last_date.to_s ) ) }
+      
+      it "should assign @hot_events" do
+        @hot_event = Factory( :bill )
+        @hot_event.hot_list.add( 'hot' )
+        @hot_event.save
+        
+        assigns[:hot_events].should == Status.hot.most_recent
       end
     end
     
-    describe "Show RSS feeds" do
-      it "should have house rss items" do
-        Factory.create( :house_feed )
-        get 'index'
-        response.should have_selector( "*", :class => "rss house" )
-      end
-    
-      it "should have senate rss items" do
-        Factory.create( :senate_feed )
-        get 'index'
-        response.should have_selector( "*", :class => "rss senate" )
-      end
+    describe "Show recent press releases" do
+      it { should assign_to( :house_rss  ).with( HouseFeed.find_recent  ) }
+      it { should assign_to( :senate_rss ).with( SenateFeed.find_recent ) }
     end
   end
 end

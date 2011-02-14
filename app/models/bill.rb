@@ -46,6 +46,7 @@ class Bill < ActiveRecord::Base
   end
   
   def self.hot
+    scoped
     tagged_with( 'hot' )
   end
   
