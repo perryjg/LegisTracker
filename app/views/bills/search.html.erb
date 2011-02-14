@@ -14,20 +14,17 @@
 </div>
 
  <div  class="span-10">
-    <fieldset>
-	<legend>Title</legend>
+   
+
     <%= f.label :short_title_contains , :class => ".label"%> <%= f.text_field :short_title_contains, :class =>".text" %><br />
 
     <%= f.label :title_contains, "Long title contains ", :class => ".label" %> <%= f.text_field :title_contains, :class =>".text" %><br />
-</fieldset>
-</div>
 
- <div  class="span-10">
 <%= f.label :b_status_contains, "Current status contains ", :class => ".label" %> <%= f.text_field :b_status_contains, :class =>".text" %><br /><br/>
 </div>
 
 <div  class=" span-14">
-	<fieldset> <legend>Primary Sponsor: </legend>
+	<fieldset> <legend>Primary Sponsor </legend>
 	<%= f.label :sponsor_name, "Name " , :class => ".label"%> <%= f.text_field :sponsor_name, :class =>".text"%>
     <%= f.label :sponsor_district, "District ", :class => ".label" %> <%= f.text_field :sponsor_district, :size => 4, :class =>".text" %>
     <%= f.label :sponsor_party, "Party ", :class => ".label" %> <%= f.text_field :sponsor_party, :size => 4, :class =>".text" %>

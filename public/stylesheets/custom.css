@@ -52,6 +52,9 @@ ul {list-style-type:none; margin-left:0; padding-left:0;}
 #title h2 { padding-top:1em;}
 #title p {text-align:justify;}
 
+/* BILLS INDEx */
+#bindex p {text-align:justify;}
+
 /* members SHOW */
 #sponsorships tbody tr:nth-child(even) td, tbody tr.even td {background:white;}
 #sponsorships tr td {text-align:left; vertical-align:top;  padding:0;}/* Bills */
