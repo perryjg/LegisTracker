@@ -30,7 +30,7 @@ ul {list-style-type:none; margin-left:0; padding-left:0;}
 /* #main li {padding-bottom:.6em; } */
 
 #votes { }
-
+#hot {margin-left:-20px; margin-right:10px; margin-bottom:20px; padding-left:20px; padding-top:10px;padding-bottom:5px; background:#99CAEE;}
 #status {}
 
 #feeds { z-index:2; position:absolute; height:100%; bottom:0; top:0px; right:0px; padding:2em; padding-bottom:0; padding-right:1em;  background:#e5e5e5; border-left:1px; border-style:solid; border-color:#d4d4d4;}

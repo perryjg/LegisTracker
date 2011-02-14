@@ -1,23 +1,42 @@
-<div id="search_form" class="span-24 push-1 first last">
+<div id="search_form" class="span-15 prepend-top push-1 first last">
   <%= form_for @search, :url => bills_path do |f| %>
-    <%= f.label :btype_equals, "Bill type" %> <%= f.text_field :btype_equals, :size => 4 %>
-    <%= f.label :num_equals, "Bill number" %> <%= f.text_field :num_equals, :size => 4 %><br />
 
-    Citation: <%= f.label :code_title, "Title" %> <%= f.text_field :code_title_equals, :size => 4 %>
-    <%= f.label :code_chalter_equals, "Chapter" %> <%= f.text_field :code_chapter_equals, :size => 4 %><br />
+<div  class=" span-4">
 
-    <%= f.label :b_status_contains, "Current status contains" %> <%= f.text_field :b_status_contains %><br />
+<%= f.label :btype_equals, "Bill type ", :class => ".label" %> <%= f.text_field :btype_equals, :size => 4, :class =>".text" %>
+<br/>
+<%= f.label :num_equals, "Bill number ", :class => ".label" %> <%= f.text_field :num_equals, :size => 4, :class =>".text" %>
+<br />
+		 <%= f.label :code_title, "Citation title ", :class => ".label" %> <%= f.text_field :code_title_equals, :size => 4, :class =>".text" %>
+<br/>
+    <%= f.label :code_chalter_equals, "Citation chapt. " , :class => ".label"%> <%= f.text_field :code_chapter_equals, :size => 4, :class =>".text" %><br />
+	
+</div>
 
-    <%= f.label :short_title_contains %> <%= f.text_field :short_title_contains %><br />
+ <div  class="span-10">
+    <fieldset>
+	<legend>Title</legend>
+    <%= f.label :short_title_contains , :class => ".label"%> <%= f.text_field :short_title_contains, :class =>".text" %><br />
 
-    <%= f.label :title_contains, "Long title contains" %> <%= f.text_field :title_contains %><br />
+    <%= f.label :title_contains, "Long title contains ", :class => ".label" %> <%= f.text_field :title_contains, :class =>".text" %><br />
+</fieldset>
+</div>
 
-    Primary Sponsor: <%= f.label :sponsor_name, "Name" %> <%= f.text_field :sponsor_name%>
-    <%= f.label :sponsor_district, "District" %> <%= f.text_field :sponsor_district, :size => 4 %>
-    <%= f.label :sponsor_party, "Party" %> <%= f.text_field :sponsor_party, :size => 4 %>
-    <br />
+ <div  class="span-10">
+<%= f.label :b_status_contains, "Current status contains ", :class => ".label" %> <%= f.text_field :b_status_contains, :class =>".text" %><br /><br/>
+</div>
 
+<div  class=" span-14">
+	<fieldset> <legend>Primary Sponsor: </legend>
+	<%= f.label :sponsor_name, "Name " , :class => ".label"%> <%= f.text_field :sponsor_name, :class =>".text"%>
+    <%= f.label :sponsor_district, "District ", :class => ".label" %> <%= f.text_field :sponsor_district, :size => 4, :class =>".text" %>
+    <%= f.label :sponsor_party, "Party ", :class => ".label" %> <%= f.text_field :sponsor_party, :size => 4, :class =>".text" %>
+</fieldset>
+</div>
+
+<div class="clear">
     <%= f.submit "Search" %>
   <% end %>
+
 </div>
 

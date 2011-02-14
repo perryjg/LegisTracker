@@ -13,8 +13,9 @@
 	<% end %>
   
 	<h2><%= @bill.number %>: <%= @bill.short_title %></h2>
-<p>Citation: Title <%= @bill.code_title %> Chapter <%= @bill.code_chapter %></p>
-<p>Current status: <%= @bill.b_status %> (<%= @bill.current_status_date.strftime( '%Y-%m-%d' ) %>)
+<p><strong>Citation: </strong> Title <%= @bill.code_title %> Chapter <%= @bill.code_chapter %>
+	<br/>
+<strong>Current status: </strong><%= @bill.b_status %> (<%= @bill.current_status_date.strftime( '%Y-%m-%d' ) %>)
   <p><%= @bill.title %></p>
 
 <hr />
