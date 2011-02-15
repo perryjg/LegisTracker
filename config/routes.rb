@@ -1,4 +1,6 @@
 Legitracker::Application.routes.draw do
+  get "votes/show"
+
   resources :bills do
     resources :votes
     resources :statuses
@@ -7,6 +9,10 @@ Legitracker::Application.routes.draw do
   
   resources :members do
     resources :sponsorships
+  end
+  
+  resources :votes do
+    resources :bills
   end
 
   get "members/index"
@@ -20,6 +26,8 @@ Legitracker::Application.routes.draw do
   match 'search' => 'bills#search'
   match 'hot/:id' => 'bills#hot', :as => 'hot_bill'
   match 'unhot/:id' => 'bills#unhot', :as => 'unhot_bill'
+  match 'key/:id' => 'votes#key', :as => 'key_vote'
+  match 'unkey/:id' => 'votes#unkey', :as => 'unkey_vote'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
