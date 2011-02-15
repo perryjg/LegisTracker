@@ -3,6 +3,26 @@ require 'votes_summary'
 class Vote < ActiveRecord::Base
   belongs_to :bill
   acts_as_taggable_on :key
+
+  def self.most_recent
+    where( "DATE(date) = ?", last_date )
+  end
+  
+  def self.find_for_date( date )
+    where( "DATE(date) = ?", date )
+  end
+  
+  def self.last_date
+    maximum( "DATE(date)" )
+  end
+  
+  def self.key
+    tagged_with( 'key' )
+  end
+  
+  def is_key?
+    key_list.include?( 'key' )
+  end
   
   def self.reload_from_xml
     transaction do
@@ -34,25 +54,5 @@ class Vote < ActiveRecord::Base
         end
       end
     end
-  end
-
-  def self.most_recent
-    where( "DATE(date) = ?", last_date )
-  end
-  
-  def self.find_for_date( date )
-    where( "DATE(date) = ?", date )
-  end
-  
-  def self.last_date
-    maximum( "DATE(date)" )
-  end
-  
-  def self.key
-    tagged_with( 'key' )
-  end
-  
-  def is_key?
-    key_list.include?( 'key' )
   end
 end

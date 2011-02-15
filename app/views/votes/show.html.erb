@@ -1,0 +1,32 @@
+<div class="span-22 push-1 first last">
+	<% if flash[:notice] %>
+		<p class="flash notice"><%= flash[:notice] %></p>
+	<% end %>
+	<% if flash[:error] %>
+		<p class="flash error"><%= flash[:error] %></p>
+	<% end %>
+
+	<% if @vote.is_key? %>
+		<%= link_to "Un-tag as key", unkey_vote_path( @vote ) %>
+	<% else %>
+		<%= link_to "Tag as key", key_vote_path( @vote ) %>
+	<% end %>
+
+	<h2><%= "#{@vote.legislation} #{@vote.description}" %></h2>
+	<h4>Vote on <%= @vote.date.strftime( '%Y-%m-%d' ) %></h4>
+</div>
+
+<% if @bill %>
+<div id="bill_info" class="span-22 push-1 first last">
+	<p><%= link_to "#{@bill.number}", bill_path( @bill ) %> <%= @bill.short_title %>
+	    <%= @bill.short_title %>
+	</p>
+</div>
+<% end %>
+
+<div id="vote_summary" class="span-24 push-1 first last">
+	<p>Yea: <%= @vote.yea %>
+		 No: <%= @vote.nay%>
+		 Not Voting: <%= @vote.not_voting %>
+		 Excused: <%= @vote.excused %>
+</div>

@@ -18,7 +18,7 @@
 			  <% unless vote.bill.nil? %>
           <%= link_to "#{vote.bill.number}", bill_path( vote.bill ) %>
 				<% end %> 
-        <%= vote.description %> &nbsp;<span class="tstamp">(<%= vote.date.strftime( '%l:%M %p' ) %>)</span><br/>
+        <%= link_to "#{vote.description}", vote_path( vote.id ) %> &nbsp;<span class="tstamp">(<%= vote.date.strftime( '%l:%M %p' ) %>)</span><br/>
 			<strong>   Yea: <%= vote.yea %> Nay: <%= vote.nay %> </strong>
 			</li>
 		<% end %>
@@ -48,19 +48,12 @@
 	<h3>Bill Status <%= @status_date %></h3>
 	
 	<p class="fwdbk" align="center">
-	
 		<% if @status_date < Status.last_date %>
 			<%= link_to "Next >> | ", root_path( :status_date => Date.parse( @status_date ).tomorrow.to_s(:db), :vote_date => @vote_date ) %>
-		
-	
 		<% end %>
-	
-	
-		
 		<%= link_to "<< Previous", root_path( :status_date => Date.parse( @status_date ).yesterday.to_s(:db), :vote_date => @vote_date ) %>
 		 <br/>Date: <%= @status_date %> 
 	</p>
-	
 	
 	<ul>
 	<% @events.each do |event| %>

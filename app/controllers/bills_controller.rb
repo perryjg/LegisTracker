@@ -19,7 +19,7 @@ class BillsController < ApplicationController
     if @bill.save
       flash[:notice] = "Bill successfully tagged as hot"
     else
-      flas[:error] = "Tagging fails"
+      flash[:error] = "Tagging failed"
     end
     redirect_to( @bill )
   end
