@@ -74,7 +74,7 @@ ActiveRecord::Schema.define(:version => 20110211030216) do
   end
 
   create_table "status_codes", :force => true do |t|
-    t.string  "description"
+    t.string  "description", :limit => 45, :null => false
     t.string  "house",       :limit => 1
     t.integer "seq"
   end

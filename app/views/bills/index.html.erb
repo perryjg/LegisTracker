@@ -1,9 +1,12 @@
-<div id="main" class="span-19 push-1 first last">
+<div id="main" class="span-24 first last">
+	<div id="bindex" class="span-20 push-2 prepend-top">
 <% @bills.each do |bill| %>
-  <p>
-  <h4><%= link_to "#{bill.number}", bill_path( bill ) %> <%= bill.short_title %></h4>
+  
+  <h3><%= link_to "#{bill.number}", bill_path( bill ) %> <%= bill.short_title %></h3>
     <p><%= bill.title %></p>
-    <p>Current status: <%= bill.b_status %> (<%= bill.current_status_date %>)</p>
-  </p>
+    <p><strong>Current status: </strong><%= bill.b_status %> <span class="tstamp">(<%= bill.current_status_date %>)</span></p>
+<hr>
+  
 <% end %>
+</div>
 </div>
