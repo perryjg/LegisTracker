@@ -13,6 +13,10 @@ describe HomeController do
     it { should respond_with( :success ) }
     it { should render_template :index }
     it { should assign_to( :title ).with( 'Home' ) }
+    
+    it "should respond to root route" do
+      fourte_for( :action => index ).should == "/"
+    end
 
     describe "Show recent bill events" do
       it { should assign_to( :status_date ).with( Status.last_date.to_s ) }
