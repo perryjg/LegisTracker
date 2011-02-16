@@ -6,6 +6,7 @@ class Bill < ActiveRecord::Base
   
   has_many :statuses
   has_many :votes
+  has_many :member_votes
   has_many :sponsorships
   has_many :members, :through => :sponsorships
   search_methods :sponsor_name, :sponsor_district, :sponsor_party, :default_order

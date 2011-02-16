@@ -1,5 +1,6 @@
 class Member < ActiveRecord::Base
   has_many :sponsorships
+  has_many :member_votes
   has_many :bills, :through => :sponsorships
   
   scope :democrats,   where( :party => 'D' )

@@ -2,6 +2,7 @@ require 'votes_summary'
 
 class Vote < ActiveRecord::Base
   belongs_to :bill
+  has_many :member_votes
   acts_as_taggable_on :key
 
   def self.most_recent
@@ -36,7 +37,7 @@ class Vote < ActiveRecord::Base
               bill = Bill.find_by_number( v.legislation )
               bill_id = bill.nil? ? nil : bill.id
 
-              create!(
+              new_vote = create!(
                 :branch      => v.branch,
                 :xml_id      => v.id,
                 :legislation => v.legislation,
@@ -49,6 +50,16 @@ class Vote < ActiveRecord::Base
                 :yea         => v.yeas,
                 :bill_id     => bill_id
               )
+              v.members.each do |m|
+                next if m['name'] == 'VACANT'
+                member = Member.find_by_vote_id_string( m['name'] )
+                MemberVote.create!(
+                  :member_id => member.id,
+                  :bill_id => bill_id,
+                  :vote_id => new_vote.id,
+                  :vote => m['vote']
+                )
+              end
             end
           end
         end

@@ -19,6 +19,13 @@ FactoryGirl.define do
     association :bill
   end
   
+  factory :member_vote do
+    vote 'Y'
+    association :vote
+    association :member
+    association :bill
+  end
+  
   factory :status do
     status_date '2011-01-10 12:00:00'
     status_code_id 'HPF'
