@@ -53,12 +53,13 @@ class Vote < ActiveRecord::Base
               v.members.each do |m|
                 next if m['name'] == 'VACANT'
                 member = Member.find_by_vote_id_string( m['name'] )
-                MemberVote.create!(
-                  :member_id => member.id,
-                  :bill_id => bill_id,
-                  :vote_id => new_vote.id,
-                  :vote => m['vote']
-                )
+                
+                member_vote = MemberVote.new
+                member_vote.member_id = member.id
+                member_vote.vote_id   = new_vote.id
+                member_vote.vote_cast = m['vote']
+                member_vote.bill_id = bill_id unless bill_id.blank?
+                member_vote.save
               end
             end
           end
