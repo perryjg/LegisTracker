@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110216033028) do
+ActiveRecord::Schema.define(:version => 20110216192215) do
 
   create_table "bills", :force => true do |t|
     t.string  "btype"
@@ -49,7 +49,7 @@ ActiveRecord::Schema.define(:version => 20110216033028) do
   create_table "member_votes", :force => true do |t|
     t.integer "member_id"
     t.integer "bill_id"
-    t.string  "vote",      :limit => 1
+    t.string  "vote_cast", :limit => 1
     t.integer "vote_id"
   end
 

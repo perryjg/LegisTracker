@@ -3,6 +3,8 @@ class VotesController < ApplicationController
     @vote = Vote.find( params[:id] )
     @title = "#{@vote.legislation}: #{@vote.description}"
     @bill = @vote.bill
+    @repub_votes = @vote.member_votes.republican.order_by_district
+    @demo_votes = @vote.member_votes.democrat.order_by_district
   end
   
   def key

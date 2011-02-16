@@ -18,6 +18,10 @@ class MemberVote < ActiveRecord::Base
     joins( "join members on member_votes.member_id = members.id" ).
     where( "members.party = ?", party )
   }
-  scope :yea, where( :vote => 'Y' )
-  scope :nay, where( :vote => 'N' )
+  scope :order_by_district, lambda {
+    joins( "join members on member_votes.member_id = members.id" ).
+    order( "members.district" )
+  }
+  scope :yea, where( :vote_cast => 'Y' )
+  scope :nay, where( :vote_cast => 'N' )
 end

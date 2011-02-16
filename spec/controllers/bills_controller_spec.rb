@@ -9,6 +9,9 @@ describe BillsController do
     it { should render_template( :index ) }
     it { should assign_to( :title ).with( "Search results" ) }
     it { should assign_to( :bills ) }
+    it "should route '/bills' to bills/index" do
+      { :get => bills_path }.should route_to( :controller => "bills", :action => "index" )
+    end
   end
 
   describe BillsController, '#show' do
@@ -20,6 +23,9 @@ describe BillsController do
     it { should render_template( :show ) }
     it { should assign_to( :bill ).with( @bill ) }
     it { should assign_to( :title ).with( @bill.number ) }
+    it "should route bill_path to bills/should" do
+      { :get => bill_path }.should route_to( :controller => "bills", :action => "show", :id => @bill.to_param )
+    end
   end
 
   describe BillsController, '#search' do
@@ -29,6 +35,9 @@ describe BillsController do
     it { should respond_with( :success ) }
     it { should render_template( :search ) }
     it { should assign_to( :title ).with( "Advanced Search" ) }
+    it "should route search_path to bills/search" do
+      { :get => search_path }.should route_to( :controller => "bills", :action => "search" )
+    end
   end
   
   describe BillsController, '#hot' do
@@ -38,6 +47,9 @@ describe BillsController do
     end
     it { should respond_with(:redirect) }
     it { should set_the_flash.to( "Bill successfully tagged as hot" ) }
+    it "should route hot_bill_path to bills/hot" do
+      { :get => hot_bill_path }.should route_to( :controller => "bills", :action => "hot", :id => @bill.to_param )
+    end
   end
   
   describe BillsController, '#unhot' do
@@ -49,5 +61,8 @@ describe BillsController do
     end
     it { should respond_with( :redirect ) }
     it { should set_the_flash.to( "Bill successfully untagged as hot" ) }
+    it "should route unhot_bill_path to bills/unhot" do
+      { :get => unhot_bill_path }.should route_to( :controller => "bills", :action => "unhot", :id => @bill.to_param )
+    end
   end
 end

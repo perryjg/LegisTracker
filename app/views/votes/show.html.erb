@@ -14,19 +14,48 @@
 
 	<h2><%= "#{@vote.legislation} #{@vote.description}" %></h2>
 	<h4>Vote on <%= @vote.date.strftime( '%Y-%m-%d' ) %></h4>
-</div>
 
-<% if @bill %>
-<div id="bill_info" class="span-22 push-1 first last">
-	<p><%= link_to "#{@bill.number}", bill_path( @bill ) %> <%= @bill.short_title %>
-	    <%= @bill.short_title %>
+	<% if @bill %>
+		<%= link_to "#{@bill.number}", bill_path( @bill ) %> <%= @bill.short_title %>
+		<%= @bill.short_title %>
+	<% end %>
+
+	<p>
+		<strong>Yea:</strong> <%= @vote.yea %>
+	  <strong>Nay:</strong> <%= @vote.nay%>
+		<strong>Not Voting:</strong> <%= @vote.not_voting %>
+		<strong>Excused:</strong> <%= @vote.excused %>
 	</p>
 </div>
-<% end %>
-
-<div id="vote_summary" class="span-24 push-1 first last">
-	<p>Yea: <%= @vote.yea %>
-		 No: <%= @vote.nay%>
-		 Not Voting: <%= @vote.not_voting %>
-		 Excused: <%= @vote.excused %>
+<div id="repub_votes" class="span-9 push-1 first">
+	<h3>Republicans</h3>
+	<strong>
+		Yea: <%= @repub_votes.yea.count %> |
+  	Nay: <%= @repub_votes.nay.count %>
+	</strong>
+	<ul>
+		<% @repub_votes.each do |vote| %>
+		<li>
+			<%= link_to vote.display_name, member_path( vote.member ) %>
+			( <%= vote.district_name %> )
+			<strong><%= vote.vote_cast %></strong>
+		</li>
+		<% end %>
+	</ul>
+</div>
+<div id="demo_votes" class="span-9 push-1 last">
+	<h3>Democrats</h3>
+	<strong>
+		Yea: <%= @demo_votes.yea.count %> |
+  	Nay: <%= @demo_votes.nay.count %>
+	</strong>
+	<ul>
+		<% @demo_votes.each do |vote| %>
+		<li>
+			<%= link_to vote.display_name, member_path( vote.member ) %>
+			( <%= vote.district_name %> )
+			<strong><%= vote.vote_cast %></strong>
+		</li>
+		<% end %>
+	</ul>
 </div>

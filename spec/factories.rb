@@ -20,7 +20,7 @@ FactoryGirl.define do
   end
   
   factory :member_vote do
-    vote 'Y'
+    vote_cast 'Y'
     association :vote
     association :member
     association :bill
