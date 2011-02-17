@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110217020315) do
+ActiveRecord::Schema.define(:version => 20110217021936) do
 
   create_table "bills", :force => true do |t|
     t.string  "btype"
@@ -23,8 +23,8 @@ ActiveRecord::Schema.define(:version => 20110217020315) do
     t.string  "short_title"
     t.string  "composite_caption"
     t.text    "title"
-    t.integer "h_committee"
-    t.integer "s_committee"
+    t.integer "house_committee_id"
+    t.integer "senate_committee_id"
     t.date    "eff_date"
     t.string  "b_status"
     t.string  "status_code_id"
@@ -36,8 +36,8 @@ ActiveRecord::Schema.define(:version => 20110217020315) do
   end
 
   create_table "house_committees", :force => true do |t|
-    t.string   "name"
-    t.string   "short_name", :limit => 10
+    t.string   "committee_name"
+    t.string   "committee_short_name", :limit => 10
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -71,8 +71,8 @@ ActiveRecord::Schema.define(:version => 20110217020315) do
   end
 
   create_table "senate_committees", :force => true do |t|
-    t.string   "name"
-    t.string   "short_name", :limit => 10
+    t.string   "committee_name"
+    t.string   "committee_short_name", :limit => 10
     t.datetime "created_at"
     t.datetime "updated_at"
   end

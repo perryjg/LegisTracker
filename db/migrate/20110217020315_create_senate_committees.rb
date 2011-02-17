@@ -1,8 +1,8 @@
 class CreateSenateCommittees < ActiveRecord::Migration
   def self.up
     create_table :senate_committees do |t|
-      t.string :name
-      t.string :short_name, :limit => 10
+      t.string :committee_name
+      t.string :committee_short_name, :limit => 10
 
       t.timestamps
     end
