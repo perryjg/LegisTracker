@@ -4,6 +4,8 @@ require 'shellwords'
 class Bill < ActiveRecord::Base
   acts_as_taggable_on :hot, :topics
   
+  belongs_to :house_committee
+  belongs_to :senate_committee
   has_many :statuses
   has_many :votes
   has_many :member_votes
