@@ -13,10 +13,13 @@
 	<% end %>
   
 	<h2><%= @bill.number %>: <%= @bill.short_title %></h2>
-<p><strong>Citation: </strong> Title <%= @bill.code_title %> Chapter <%= @bill.code_chapter %>
-	<br/>
-<strong>Current status: </strong><%= @bill.b_status %> (<%= @bill.current_status_date.strftime( '%Y-%m-%d' ) %>)
-  <p><%= @bill.title %></p>
+	<p>
+		<strong>Citation: </strong> Title <%= @bill.code_title %> Chapter <%= @bill.code_chapter %><br/>
+		<strong>Current status: </strong><%= @bill.b_status %> (<%= @bill.current_status_date.strftime( '%Y-%m-%d' ) %>)<br />
+		<strong>House committee:</strong> <%= @bill.house_committee_name %><br />
+		<strong>Senate committee:</strong> <%= @bill.senate_committee_name %><br />
+  </p>
+	<p><%= @bill.title %></p>
 
 <hr />
 </div>

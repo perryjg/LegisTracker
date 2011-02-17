@@ -12,7 +12,7 @@ class Bill < ActiveRecord::Base
   has_many :sponsorships
   has_many :members, :through => :sponsorships
   search_methods :sponsor_name, :sponsor_district, :sponsor_party, :default_order
-  
+
   scope :sponsor_name, lambda { |name|
     joins("join sponsorships on sponsorships.bill_id = bills.id join members on members.id = sponsorships.member_id").
     where( "sponsorships.seq = 1 and concat_ws( ' ', members.last_name, members.first_name ) like ?", "%#{name}%" )
@@ -27,6 +27,14 @@ class Bill < ActiveRecord::Base
     joins("join sponsorships on sponsorships.bill_id = bills.id join members on members.id = sponsorships.member_id").
     where( "sponsorships.seq = 1 and members.party = ?", party )
   }
+  
+  def house_committee_name
+    house_committee.committee_name
+  end
+  
+  def senate_committee_name
+    senate_committee.committee_name
+  end
   
   def sponsor_count
     sponsorships.count
@@ -82,8 +90,8 @@ class Bill < ActiveRecord::Base
             :short_title       => bill.Short_Title,
             :composite_caption => bill.CompositeCaption,
             :title             => bill.Title,
-            :h_committee       => bill.HCommittee.to_i,
-            :s_committee       => bill.SCommittee.to_i,
+            :house_committee_id   => bill.HCommittee.to_i,
+            :senate_committee_id  => bill.SCommittee.to_i,
             :eff_date          => bill.EffDate,
             :b_status          => bill.BStatus,
             :footnote          => bill.Footnote,
