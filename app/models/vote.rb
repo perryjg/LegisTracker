@@ -5,8 +5,9 @@ class Vote < ActiveRecord::Base
   has_many :member_votes
   acts_as_taggable_on :key
   
-  scope :hot_bills, joins( "join bills on bills.id = votes.bill_id join taggings on taggable_id = bills.id and taggable_type = 'Bill'" ).
+  scope :hot_bills, joins( "JOIN bills ON bills.id = votes.bill_id JOIN taggings ON taggable_id = bills.id AND taggable_type = 'Bill'" ).
                     where( "taggings.context = 'hot'")
+  scope :order_by_datetime_desc, order( "date DESC" )
   
   def self.most_recent
     where( "DATE(date) = ?", last_date )

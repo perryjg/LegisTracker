@@ -17,7 +17,7 @@ class BillsController < ApplicationController
     @bill = Bill.find( params[:id] )
     @bill.hot_list.add( 'hot' )
     if @bill.save
-      flash[:notice] = "Bill successfully tagged as hot"
+      flash[:notice] = "Bill successfully added to the watch list"
     else
       flash[:error] = "Tagging failed"
     end
@@ -28,9 +28,9 @@ class BillsController < ApplicationController
     @bill = Bill.find( params[:id] )
     @bill.hot_list.remove( 'hot' )
     if @bill.save
-      flash[:notice] = "Bill successfully untagged as hot"
+      flash[:notice] = "Bill successfully removed to watch list"
     else
-      flas[:error] = "Untagging fails"
+      flas[:error] = "Tagging fails"
     end
     redirect_to( @bill )
   end

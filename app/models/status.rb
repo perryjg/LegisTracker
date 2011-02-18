@@ -5,7 +5,7 @@ class Status < ActiveRecord::Base
   
   scope :hot, joins( "JOIN bills ON statuses.bill_id = bills.id JOIN taggings ON taggings.taggable_id = bills.id" ).
               where( "taggings.context = 'hot'" )
-  
+  scope :by_date_desc, order( "status_date DESC" )
   def self.most_recent
     where( "DATE(status_date) = ?", last_date )
   end

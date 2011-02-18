@@ -46,7 +46,7 @@ describe BillsController do
       get :hot, :id => @bill.id
     end
     it { should respond_with(:redirect) }
-    it { should set_the_flash.to( "Bill successfully tagged as hot" ) }
+    it { should set_the_flash.to( "Bill successfully added to the watch list" ) }
     it "should route hot_bill_path to bills/hot" do
       { :get => hot_bill_path }.should route_to( :controller => "bills", :action => "hot", :id => @bill.to_param )
     end
@@ -60,7 +60,7 @@ describe BillsController do
       get :unhot, :id => @bill.id
     end
     it { should respond_with( :redirect ) }
-    it { should set_the_flash.to( "Bill successfully untagged as hot" ) }
+    it { should set_the_flash.to( "Bill successfully removed to watch list" ) }
     it "should route unhot_bill_path to bills/unhot" do
       { :get => unhot_bill_path }.should route_to( :controller => "bills", :action => "unhot", :id => @bill.to_param )
     end

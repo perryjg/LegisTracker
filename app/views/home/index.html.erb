@@ -1,39 +1,28 @@
 <div id="main" class="span-24 first last ">
 	<div id="votes" class="span-5 push-1 first border prepend-top">
-		
-	<h2>Votes</h2>
-	<p class="fwdbk" align="center"> 
-	<% if @vote_date < Vote.last_date %>
-		<%= link_to "Next >>", root_path( :vote_date => Date.parse( @vote_date ).tomorrow.to_s(:db), :status_date => @status_date ) %>
-		
-	<% end %> | 
-	
-	<%= link_to "<< Previous", root_path( :vote_date => Date.parse( @vote_date ).yesterday.to_s(:db), :status_date => @status_date ) %>
-<br/>	Date: <%= @vote_date %>
-	</p>
-	
-	<ul>
+		<h2>Votes</h2>
+		<ul>
 		<% @votes.each do |vote| %>
 			<li class="vote">
 			  <% unless vote.bill.nil? %>
           <%= link_to "#{vote.bill.number}", bill_path( vote.bill ) %>
 				<% end %> 
-        <%= link_to "#{vote.description}", vote_path( vote.id ) %> &nbsp;<span class="tstamp">(<%= vote.date.strftime( '%l:%M %p' ) %>)</span><br/>
-			<strong>   Yea: <%= vote.yea %> Nay: <%= vote.nay %> </strong>
+        <%= link_to "#{vote.description}", vote_path( vote.id ) %> &nbsp;
+				<span class="tstamp">(<%= vote.date.strftime( '%l:%M %p' ) %>)</span><br/>
+				<strong>Yea: <%= vote.yea %> Nay: <%= vote.nay %></strong>
 			</li>
 		<% end %>
-	</ul>
-		<p class="endy"> >>> end feed <<< </class> </p>
-</div>
+		</ul>
+	</div>
 
-<div id="status" class="span-11 push-2 prepend-top ">
-	<div id="hot">
-		<h2>Hot Bills</h2>
+	<div id="status" class="span-11 push-2 prepend-top last">
+		<h2>Bill Status Changes</h2>
 		<ul>
 				<% @hot_events.each do |hot| %>
-				<li class="hot_event">
+				<li class="event">
 			    <%= link_to "#{hot.bill.number}", bill_path( hot.bill ) %>
-			    <%= hot.status_code.description %><br />
+			    <%= hot.status_code.description %>
+			    <span class="tstamp">(<%= hot.status_date.strftime('%Y-%m-%d') %>)</span><br />
 			    <%= hot.bill.short_title %>
 						(<%= hot.bill.primary_sponsor_name %>
 						 <%= hot.bill.primary_sponsor_party %> -
@@ -42,59 +31,29 @@
 				<% end %>
 			</li>
 		</ul>
-	
-	</div>
-		
-	<h3>Bill Status <%= @status_date %></h3>
-	
-	<p class="fwdbk" align="center">
-		<% if @status_date < Status.last_date %>
-			<%= link_to "Next >> | ", root_path( :status_date => Date.parse( @status_date ).tomorrow.to_s(:db), :vote_date => @vote_date ) %>
-		<% end %>
-		<%= link_to "<< Previous", root_path( :status_date => Date.parse( @status_date ).yesterday.to_s(:db), :vote_date => @vote_date ) %>
-		 <br/>Date: <%= @status_date %> 
-	</p>
-	
-	<ul>
-	<% @events.each do |event| %>
-		<li class="event">
-    		<%= link_to "#{event.bill.number}", bill_path( event.bill ) %>
-     		<span class="vtitle"> <%= event.bill.short_title %></span> ...
-      		<span class="vdesc"><%= event.status_code.description %> </span>
-			<span class="tstamp">(<%= event.status_date.strftime('%Y-%m-%d') %>)</span>
-		</li>
-	<% end %>
-	</ul>
-	
-	<p class="endy"> >>> end feed <<< </class> </p>
-</div>
-
-
-<div id="feeds" class="span-5 last"></div>
-
-<div id="feedbox" class="span-5 last">
-	<div id="senate_rss">
-		<h3>Senate Press Releases</h3>
-		<ul>
-		<% @senate_rss.each do |item| %>
-			<li class="rss senate"><a href="<%= item.url %>"><%= item.title %></a><br />(<%= item.published_at %>)</li>
-		<% end %>
-		</ul>
 	</div>
 
-	<div id="house_rss">
-		<h3>House Press Releases</h3>
-		<ul>
-		<% @house_rss.each do |item| %>
-			<li class="rss house"><a class="rss house" href="<%= item.url %>"><%= item.title %></a><br />(<%= item.published_at %>)</li>
-		<% end %>
-		</ul>
+	<div id="feeds" class="span-5 last"></div>
+		<div id="feedbox" class="span-5 last">
+			<div id="senate_rss">
+				<h3>Senate Press Releases</h3>
+				<ul>
+				<% @senate_rss.each do |item| %>
+					<li class="rss senate"><a href="<%= item.url %>"><%= item.title %></a><br />(<%= item.published_at %>)</li>
+				<% end %>
+				</ul>
+			</div>
+
+			<div id="house_rss">
+				<h3>House Press Releases</h3>
+				<ul>
+				<% @house_rss.each do |item| %>
+					<li class="rss house"><a class="rss house" href="<%= item.url %>"><%= item.title %></a><br />(<%= item.published_at %>)</li>
+				<% end %>
+				</ul>
+			</div>
+		</div>
 	</div>
-</div>
-
-
-
-
 </div>
 
 

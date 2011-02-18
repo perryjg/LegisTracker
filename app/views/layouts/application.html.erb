@@ -14,9 +14,6 @@
   <%= javascript_include_tag :defaults %>
   <%= stylesheet_link_tag 'custom', :media => 'screen' %>
   <%= stylesheet_link_tag 'http://fonts.googleapis.com/css?family=Orbitron', :media =>'screen'%>
-
-
-
 </head>
 <body>
 	<div class="container">
@@ -31,13 +28,24 @@
         <%= link_to "Advanced Search", search_path, :class => 'advanced_search' %>
       </div>
 	  </header>
+	
+	  <nav>
+			<ul>
+				<li><%= link_to "Watched bills status", root_path %></li>
+				<li><%= link_to "Daily bill status report", statuses_path %></li>
+				<li><%= link_to "Members", '#' %></li>
+				<li><%= link_to "Committees", '#' %></li>
+			</ul>
+		</nav>
+		
 	  <section>
-		<div id="content" class="span-24 first last ">
-	    <%= yield %>
-	</div>
+			<div id="content" class="span-24 first last ">
+		    <%= yield %>
+			</div>
 	  </section>
+	
 	  <footer id="footer" class="span-24 first last">
-		<p>Copyright &copy;<%= Date.today.year %></p>
+			<p>Copyright &copy;<%= Date.today.year %></p>
 	  </footer>
 	</div>
 </body>

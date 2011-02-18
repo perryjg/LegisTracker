@@ -7,9 +7,9 @@
 	<% end %>
 
 	<% if @bill.is_hot? %>
-		<%= link_to "Un-tag as hot", unhot_bill_path( @bill ) %>
+		<%= link_to "Un-watch", unhot_bill_path( @bill ) %>
 	<% else %>
-		<%= link_to "Tag as hot", hot_bill_path( @bill ) %>
+		<%= link_to "Watch", hot_bill_path( @bill ) %>
 	<% end %>
   
 	<h2><%= @bill.number %>: <%= @bill.short_title %></h2>
