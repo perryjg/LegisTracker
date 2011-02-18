@@ -108,4 +108,32 @@ describe Vote do
       @vote.is_key?.should == true
     end
   end
+  
+  describe "votes on hot bills" do
+    before( :each ) do
+      @hot_bill = Factory.create( :bill )
+      @hot_bill.hot_list.add( 'hot' )
+      @hot_bill.save
+      @hot_vote = Factory.create( :vote, :bill => @hot_bill )
+
+      @cold_bill = Factory.create( :bill, :num => 2, :number => 'HB2' )
+      @cold_vote = Factory.create( :vote, :bill => @cold_bill, :legislation => 'HB 2' )
+    end
+  
+    it "should be true that hot bill vote is hot" do
+      @hot_vote.is_hot_bill?.should be_true
+    end
+
+    it "should be false that cold bill vote is hot" do
+      @cold_vote.is_hot_bill?.should be_false
+    end
+    
+    it "should find hot bills" do
+      hot_votes = Vote.hot_bills
+      
+      hot_votes.each do |vote|
+        vote.is_hot_bill?.should be_true
+      end
+    end
+  end
 end

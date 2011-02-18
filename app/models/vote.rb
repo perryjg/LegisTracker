@@ -4,7 +4,10 @@ class Vote < ActiveRecord::Base
   belongs_to :bill
   has_many :member_votes
   acts_as_taggable_on :key
-
+  
+  scope :hot_bills, joins( "join bills on bills.id = votes.bill_id join taggings on taggable_id = bills.id and taggable_type = 'Bill'" ).
+                    where( "taggings.context = 'hot'")
+  
   def self.most_recent
     where( "DATE(date) = ?", last_date )
   end
@@ -23,6 +26,10 @@ class Vote < ActiveRecord::Base
   
   def is_key?
     key_list.include?( 'key' )
+  end
+  
+  def is_hot_bill?
+    bill.is_hot?
   end
   
   def self.reload_from_xml

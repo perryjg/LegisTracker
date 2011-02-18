@@ -26,13 +26,14 @@ describe Bill do
     end
     
     it "should take tag 'hot'" do
-      @bill.hot_list.add( 'hot' )
-      @bill.save.should be true
+      bill = Factory.create( :bill )
+      bill.hot_list.add( 'hot' )
+      bill.save.should be true
     end
     
     it "should find bills tagged as hot" do
       hot_bill = Factory.create( :bill )
-      hot_bill.hot_list = 'hot'
+      hot_bill.hot_list.add( 'hot' )
       hot_bill.save
       
       Bill.hot.all.should == Bill.tagged_with( 'hot' )
