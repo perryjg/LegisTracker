@@ -5,10 +5,12 @@ describe Bill do
     @attr = Factory.attributes_for( :bill )
   end
   
-  it { should have_many(:statuses) }
-  it { should have_many(:votes) }
+  it { should have_many( :statuses ) }
+  it { should have_many( :votes ) }
   it { should have_many( :sponsorships ) }
   it { should have_many( :members ).through( :sponsorships ) }
+  it { should belong_to( :house_committee ) }
+  it { should belong_to( :senate_committee ) }
 
   it "should create new bill record" do
     previous_record_count = Bill.count
