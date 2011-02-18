@@ -1,4 +1,6 @@
 Legitracker::Application.routes.draw do
+  get "statuses/index"
+
   get "votes/show"
 
   resources :bills do
@@ -24,6 +26,7 @@ Legitracker::Application.routes.draw do
   root :to => "home#index"
 
   match 'search' => 'bills#search'
+  match 'statuses' => 'statuses#index'
   match 'hot/:id' => 'bills#hot', :as => 'hot_bill'
   match 'unhot/:id' => 'bills#unhot', :as => 'unhot_bill'
   match 'key/:id' => 'votes#key', :as => 'key_vote'
