@@ -23,8 +23,18 @@
 
 <hr />
 </div>
-<div id="sponsors" class="span-6 prepend-2 first">
-	
+
+<div id="versions" class="span-4 prepend-1 first">
+	<h3>Versions</h3>
+	<ul>
+	<% @bill.bill_versions.order_desc.each do |version| %>
+		<li><a href="<%= version.url %>"><%= version.description %></a>
+	<% end %>
+	</ul>
+	<br />
+</div>
+
+<div id="sponsors" class="span-6">
 	<h3>Sponsors</h3>
 	<ul>
 	<% @bill.sponsorships.each do |sponsor| %>
@@ -40,8 +50,8 @@
 	</ul>
 	<br/>
 </div>
-<div id="status" class="span-7 prepend-1 ">
 
+<div id="status" class="span-8 ">
   <h3>Bill status</h3>
 	<ul>
     <% @bill.statuses.each do |status| %>
@@ -51,12 +61,15 @@
   </p>
 <br/>
 </div>
-<div id="votes" class="span-6 prepend-1 last">
-	
+
+<div id="votes" class="span-4 last">
   <h3>Votes</h3>
   <ul>
     <% @bill.votes.each do |vote| %>
-      <li><span class="tstamp"><%= vote.date.strftime( '%Y-%m-%d' ) %> </span><%= vote.description %> <strong> Yea: <%= vote.yea %> Nay: <%= vote.nay %> </strong></li>
+      <li>
+	    	<span class="tstamp"><%= vote.date.strftime( '%Y-%m-%d' ) %> </span>
+        <%= link_to "#{vote.description}", vote_path( vote.id ) %>
+ 				<strong> Yea: <%= vote.yea %> Nay: <%= vote.nay %> </strong></li>
     <% end %>
   </ul>
 <br/>

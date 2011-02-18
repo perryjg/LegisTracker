@@ -49,4 +49,19 @@ describe Bill do
       @bill.is_hot?.should == false
     end
   end
+  
+  describe "versions" do
+    before( :each ) do
+      @bill = Factory.create( :bill )
+      @first_version = Factory.create( :bill_version, :bill => @bill )
+    end
+    
+    it "should find latest version" do
+      newer_version = Factory.create( :bill_version,
+                                      :bill => @bill,
+                                      :number => @first_version.number + 1 )
+      
+      @bill.latest_version.should == newer_version
+    end
+  end
 end

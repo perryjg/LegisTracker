@@ -65,6 +65,10 @@ class Bill < ActiveRecord::Base
   def is_hot?
     hot_list.include?( 'hot' )
   end
+  
+  def latest_version
+    bill_versions.latest
+  end
 
   def self.reload_from_xml
     transaction do
