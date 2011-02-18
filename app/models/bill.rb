@@ -7,6 +7,7 @@ class Bill < ActiveRecord::Base
   belongs_to :house_committee
   belongs_to :senate_committee
   has_many :statuses
+  has_many :bill_versions
   has_many :votes
   has_many :member_votes
   has_many :sponsorships
@@ -76,6 +77,8 @@ class Bill < ActiveRecord::Base
         self.connection.execute( 'ALTER TABLE sponsorships AUTO_INCREMENT = 1' )
         self.connection.execute( 'DELETE from statuses' )
         self.connection.execute( 'ALTER TABLE statuses AUTO_INCREMENT = 1' )
+        self.connection.execute( 'DELETE from bill_versions' )
+        self.connection.execute( 'ALTER TABLE bill_versions AUTO_INCREMENT = 1' )
 
         bills_summary.bills.each do |bill|
           create!(
@@ -113,6 +116,16 @@ class Bill < ActiveRecord::Base
               :bill_id   => bill.Id.to_i,
               :member_id => s['Id'],
               :seq       => s['Seq']
+            )
+          end
+          
+          bill.version_data_array.each do |v|
+            BillVersion.create!(
+              :bill_id => v[0],
+              :number => v[1],
+              :xmlid => v[2],
+              :description => v[3],
+              :fileid => v[4]
             )
           end
         end

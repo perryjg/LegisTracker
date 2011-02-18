@@ -7,6 +7,7 @@ describe Bill do
   
   it { should have_many( :statuses ) }
   it { should have_many( :votes ) }
+  it { should have_many( :bill_versions ) }
   it { should have_many( :sponsorships ) }
   it { should have_many( :members ).through( :sponsorships ) }
   it { should belong_to( :house_committee ) }

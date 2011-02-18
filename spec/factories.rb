@@ -73,4 +73,11 @@ FactoryGirl.define do
     association :bill
     association :member
   end
+  
+  factory :bill_version do
+    number 2
+    description 'LC 21 1055/a'
+    fileid 'hb246_LC_21_1055_a_2.htm'
+    association :bill
+  end
 end

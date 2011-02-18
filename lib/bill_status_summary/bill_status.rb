@@ -130,6 +130,14 @@ class BillStatus
     end
   end
   
+  def Carryover
+    if @node.has_attribute?( "Carryover" )
+      return @node.attribute( "Carryover" ).to_s
+    else
+      return "0"
+    end
+  end
+  
   def method_missing( name )
     if @node.has_attribute?( "#{name}" )
       return @node.attribute( "#{name}" ).to_s
@@ -138,7 +146,8 @@ class BillStatus
       text.gsub!( /"/, "'" )
       return text
     else
-      super.method_missing( name )
+      #super.method_missing( name )
+      return ''
     end
   end
   

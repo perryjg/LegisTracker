@@ -10,7 +10,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110217021936) do
+ActiveRecord::Schema.define(:version => 20110218142146) do
+
+  create_table "bill_versions", :force => true do |t|
+    t.integer "number"
+    t.integer "xmlid"
+    t.string  "description"
+    t.string  "fileid"
+    t.integer "bill_id"
+  end
 
   create_table "bills", :force => true do |t|
     t.string  "btype"
