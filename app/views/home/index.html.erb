@@ -18,15 +18,15 @@
 	<div id="status" class="span-11 push-2 prepend-top last">
 		<h2>Bill Status Changes</h2>
 		<ul>
-				<% @hot_events.each do |hot| %>
+				<% @events.each do |event| %>
 				<li class="event">
-			    <%= link_to "#{hot.bill.number}", bill_path( hot.bill ) %>
-			    <%= hot.status_code.description %>
-			    <span class="tstamp">(<%= hot.status_date.strftime('%Y-%m-%d') %>)</span><br />
-			    <%= hot.bill.short_title %>
-						(<%= hot.bill.primary_sponsor_name %>
-						 <%= hot.bill.primary_sponsor_party %> -
-						 <%= hot.bill.primary_sponsor_district %>)
+			    <%= link_to "#{event.bill.number}", bill_path( event.bill ) %>
+			    <%= event.status_code.description %>
+			    <span class="tstamp">(<%= event.status_date.strftime('%Y-%m-%d') %>)</span><br />
+			    <%= event.bill.short_title %>
+						(<%= event.bill.primary_sponsor_name %>
+						 <%= event.bill.primary_sponsor_party %> -
+						 <%= event.bill.primary_sponsor_district %>)
 				</li>
 				<% end %>
 			</li>
