@@ -1,39 +1,69 @@
 <div id="search_form" class="span-15 prepend-top push-1 first last">
   <%= form_for @search, :url => bills_path do |f| %>
-
-<div  class=" span-4">
-
-<%= f.label :btype_equals, "Bill type ", :class => ".label" %> <%= f.text_field :btype_equals, :size => 4, :class =>".text" %>
-<br/>
-<%= f.label :num_equals, "Bill number ", :class => ".label" %> <%= f.text_field :num_equals, :size => 4, :class =>".text" %>
-<br />
-		 <%= f.label :code_title, "Citation title ", :class => ".label" %> <%= f.text_field :code_title_equals, :size => 4, :class =>".text" %>
-<br/>
-    <%= f.label :code_chalter_equals, "Citation chapt. " , :class => ".label"%> <%= f.text_field :code_chapter_equals, :size => 4, :class =>".text" %><br />
+		<div class="span-14 first last">
+			<%= f.label :tagged_with, "Watched" %>
+			<%= f.check_box :tagged_with, {}, 'hot' %>
+			
+			<%= f.label :carryover_equals, "Carryover" %>
+			<%= f.check_box :carryover_equals%>
+		</div>
+		
+		<div class="span-7 first">
+			<fieldset> <legend>Bill</legend>
+				<%= f.label :btype_equals, "Type ", :class => ".label" %>
+				<%= f.text_field :btype_equals, :size => 4, :class =>".text" %>
+				
+				<%= f.label :num_equals, "Number ", :class => ".label" %>
+				<%= f.text_field :num_equals, :size => 4, :class =>".text" %>
+			</fieldset>
+		</div>
 	
-</div>
+		<div class="span-7 last">
+			<fieldset><legend>Citation</legend>
+				<%= f.label :code_title, "Title ", :class => ".label" %>
+				<%= f.text_field :code_title_equals, :size => 4, :class =>".text" %>
+				
+				<%= f.label :code_chalter_equals, " Chapter " , :class => ".label"%>
+				<%= f.text_field :code_chapter_equals, :size => 4, :class =>".text" %>
+			</fieldset>
+		</div>
 
- <div  class="span-10">
-   
+		<div class="span-14 first last">
+			<fieldset> <legend>Primary Sponsor </legend>
+				<%= f.label :sponsor_name, "Name " , :class => ".label"%>
+				<%= f.text_field :sponsor_name, :class =>".text"%>
+				
+				<%= f.label :sponsor_district, " District ", :class => ".label" %>
+				<%= f.text_field :sponsor_district, :size => 4, :class =>".text" %>
+				
+				<%= f.label :sponsor_party, " Party ", :class => ".label" %>
+				<%= f.text_field :sponsor_party, :size => 4, :class =>".text" %>
+			</fieldset>
+		</div>
+		
+		<div class="span-14 first last">
+			<fieldset><legend>Bill status</legend>
+				<%= f.label :b_status_contains, "Current status contains ", :class => ".label" %>
+				<%= f.text_field :b_status_contains, :class =>".text" %>
+				<br />
+				<%= f.label :status_history, "Status history contains ", :class => ".label" %>
+				<%= f.text_field :status_history, :class =>".text" %><br /><br/>
+			</fieldset>
+		</div>
 
-    <%= f.label :short_title_contains , :class => ".label"%> <%= f.text_field :short_title_contains, :class =>".text" %><br />
+		<div class="span-14 first last">
+			<fieldset><legend>Text search</legend>
+				<%= f.label :short_title_contains, :class => ".label"%>
+				<%= f.text_field :short_title_contains, :class =>".text" %>
+				<br />
+				<%= f.label :title_contains, "Long title contains ", :class => ".label" %>
+				<%= f.text_field :title_contains, :class =>".text" %>
+			</fieldset>
+		</div>
 
-    <%= f.label :title_contains, "Long title contains ", :class => ".label" %> <%= f.text_field :title_contains, :class =>".text" %><br />
-
-<%= f.label :b_status_contains, "Current status contains ", :class => ".label" %> <%= f.text_field :b_status_contains, :class =>".text" %><br /><br/>
-</div>
-
-<div  class=" span-14">
-	<fieldset> <legend>Primary Sponsor </legend>
-	<%= f.label :sponsor_name, "Name " , :class => ".label"%> <%= f.text_field :sponsor_name, :class =>".text"%>
-    <%= f.label :sponsor_district, "District ", :class => ".label" %> <%= f.text_field :sponsor_district, :size => 4, :class =>".text" %>
-    <%= f.label :sponsor_party, "Party ", :class => ".label" %> <%= f.text_field :sponsor_party, :size => 4, :class =>".text" %>
-</fieldset>
-</div>
-
-<div class="clear">
-    <%= f.submit "Search" %>
-  <% end %>
-
+		<div class="clear">
+			<%= f.submit "Search" %>
+		</div>
+	<% end %>
 </div>
 
