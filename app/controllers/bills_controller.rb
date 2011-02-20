@@ -34,4 +34,15 @@ class BillsController < ApplicationController
     end
     redirect_to( @bill )
   end
+  
+  def add_tag
+    @bill = Bill.find( params[:id] )
+    @bill.tag_list_on( params[:context].to_sym ).add( params[:tag] )
+    if @bill.save
+      flash[:notice] = "Bill successfully taged with topic"
+    else
+      flash[:error] = "Tagging failed"
+    end
+    redirect_to( @bill )
+  end
 end

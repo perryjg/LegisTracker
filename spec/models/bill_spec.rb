@@ -51,6 +51,23 @@ describe Bill do
     end
   end
   
+  describe "topic tags" do
+    before( :each ) do
+      @bill = Factory.create( :bill )
+    end
+    
+    it "should take topic tag" do
+      @bill.topic_list.add( 'taxes' )
+      @bill.save.should be true
+    end
+    
+    it "should find bills by topic tag" do
+      @bill.topic_list.add( 'taxes' )
+      @bill.save
+      Bill.tagged_with( 'taxes' ).should == [@bill]
+    end
+  end
+  
   describe "versions" do
     before( :each ) do
       @bill = Factory.create( :bill )

@@ -61,8 +61,25 @@ describe BillsController do
     end
     it { should respond_with( :redirect ) }
     it { should set_the_flash.to( "Bill successfully removed to watch list" ) }
+    it { should assign_to( :bill ).with( @bill ) }
     it "should route unhot_bill_path to bills/unhot" do
       { :get => unhot_bill_path }.should route_to( :controller => "bills", :action => "unhot", :id => @bill.to_param )
+    end
+    it "should include 'hot' tag in hot_list" do
+      @bill.hot_list.should include( 'hot' )
+    end
+  end
+  
+  describe BillsController, '#add_tag' do
+    before( :each ) do
+      @bill = Factory( :bill )
+      get :add_tag, :id => @bill.id, :context => 'topics', :tag => 'taxes'
+    end
+    it { should respond_with( :redirect ) }
+    it { should set_the_flash.to( "Bill successfully taged with topic" ) }
+    it { should assign_to( :bill ).with( @bill ) }
+    it "should include 'taxes' tag in topics_list" do
+      @bill.topic_list.should include( 'taxes' )
     end
   end
 end

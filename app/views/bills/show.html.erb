@@ -1,28 +1,48 @@
 <div id="title" class="span-22 push-1 first last">
 	<% if flash[:notice] %>
-		<p class="flash notice"><%= flash[:notice] %></p>
+		<div class="flash notice span-21 first last"><%= flash[:notice] %></div>
 	<% end %>
 	<% if flash[:error] %>
-		<p class="flash error"><%= flash[:error] %></p>
+		<div class="flash error span-22 first last"><%= flash[:error] %></p>
 	<% end %>
 
-	<% if @bill.is_hot? %>
-		<%= link_to "Un-watch", unhot_bill_path( @bill ) %>
-	<% else %>
-		<%= link_to "Watch", hot_bill_path( @bill ) %>
-	<% end %>
+	<div class="span-21 first last">
+		<% if @bill.is_hot? %>
+			<%= link_to "Un-watch", unhot_bill_path( @bill ) %>
+		<% else %>
+			<%= link_to "Watch", hot_bill_path( @bill ) %>
+		<% end %>
+	</div>
   
-	<h2><%= @bill.number %>: <%= @bill.short_title %></h2>
-	<p>
+	<div class="span-21 first last">
+		<h2><%= @bill.number %>: <%= @bill.short_title %></h2>
+	</div>
+	
+	<div class="span-10 first">
+		<p>
 		<strong>Citation: </strong> Title <%= @bill.code_title %> Chapter <%= @bill.code_chapter %><br/>
 		<strong>Current status: </strong><%= @bill.b_status %> (<%= @bill.current_status_date.strftime( '%Y-%m-%d' ) %>)<br />
 		<strong>House committee:</strong> <%= @bill.house_committee_name %><br />
 		<strong>Senate committee:</strong> <%= @bill.senate_committee_name %><br />
-  </p>
-	<p><%= @bill.title %></p>
+		</p>
+  </div>
+	<div class="span-8 last">
+		<% form_tag tag_path( @bill ) do %>
+			<%= hidden_field_tag :context, 'topic' %>
+			<%= submit_tag "Add tag" %>
+			<%= text_field_tag :tag %>
+		<% end %>
+		<p>
+			<strong>Topic tags:</strong> <%= @bill.topic_list.join( ', ' ) %>
+		</p>
+	</div>
+
+	<div id="bill_text" class="span-21 first last">
+		<p><%= @bill.title %></p>
+	</div>
+</div>
 
 <hr />
-</div>
 
 <div id="versions" class="span-4 prepend-1 first">
 	<h3>Versions</h3>
@@ -59,7 +79,6 @@
     <% end %>
   </ul>
   </p>
-<br/>
 </div>
 
 <div id="votes" class="span-4 last">
@@ -68,10 +87,8 @@
     <% @bill.votes.each do |vote| %>
       <li>
 	    	<span class="tstamp"><%= vote.date.strftime( '%Y-%m-%d' ) %> </span>
-        <%= link_to "#{vote.description}", vote_path( vote.id ) %>
+        <%= link_to "#{vote.description}", vote_path( vote.id ) %><br />
  				<strong> Yea: <%= vote.yea %> Nay: <%= vote.nay %> </strong></li>
     <% end %>
   </ul>
-<br/>
 </div>
-

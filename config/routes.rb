@@ -31,6 +31,7 @@ Legitracker::Application.routes.draw do
   match 'unhot/:id' => 'bills#unhot', :as => 'unhot_bill'
   match 'key/:id' => 'votes#key', :as => 'key_vote'
   match 'unkey/:id' => 'votes#unkey', :as => 'unkey_vote'
+  match 'add_tag/:id' => 'bills#add_tag', :as => 'tag'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
