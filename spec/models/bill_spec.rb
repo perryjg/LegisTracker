@@ -64,7 +64,7 @@ describe Bill do
     it "should find bills by topic tag" do
       @bill.topic_list.add( 'taxes' )
       @bill.save
-      Bill.tagged_with( 'taxes' ).should == [@bill]
+      Bill.topic_includes( 'taxes' ).all.should == Bill.tagged_with( 'taxes', :on => :topics )
     end
   end
   

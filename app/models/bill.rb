@@ -12,7 +12,7 @@ class Bill < ActiveRecord::Base
   has_many :member_votes
   has_many :sponsorships
   has_many :members, :through => :sponsorships
-  search_methods :sponsor_name, :sponsor_district, :sponsor_party, :default_order, :status_history, :tagged_with
+  search_methods :sponsor_name, :sponsor_district, :sponsor_party, :default_order, :status_history, :tagged_with, :topic_includes
 
   scope :sponsor_name, lambda { |name|
     joins("join sponsorships on sponsorships.bill_id = bills.id join members on members.id = sponsorships.member_id").
@@ -33,6 +33,8 @@ class Bill < ActiveRecord::Base
     joins( "JOIN statuses ON statuses.bill_id = bills.id JOIN status_codes ON statuses.status_code_id = status_codes.id" ).
     where( "status_codes.description like ?", "%#{text}%" )
   }
+  
+  scope :topic_includes, lambda { |text| tagged_with( text, :on => :topics ) }
   
   def house_committee_name
     house_committee.committee_name

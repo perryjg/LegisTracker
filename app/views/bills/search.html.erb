@@ -1,11 +1,9 @@
 <div id="search_form" class="span-15 prepend-top push-1 first last">
   <%= form_for @search, :url => bills_path do |f| %>
 		<div class="span-14 first last">
-			<%= f.label :tagged_with, "Watched" %>
-			<%= f.check_box :tagged_with, {}, 'hot' %>
-			
-			<%= f.label :carryover_equals, "Carryover" %>
-			<%= f.check_box :carryover_equals%>
+			<%= f.checks :tagged_with, [['Watched','hot']] do |check| %>
+				<%= check.label %> <%= check.box %>
+			<% end %>
 		</div>
 		
 		<div class="span-7 first">
@@ -58,6 +56,9 @@
 				<br />
 				<%= f.label :title_contains, "Long title contains ", :class => ".label" %>
 				<%= f.text_field :title_contains, :class =>".text" %>
+				<br />
+				<%= f.label :topic_includes, :class => ".label" %>
+				<%= f.text_field :topic_includes, :class =>".text" %>
 			</fieldset>
 		</div>
 
