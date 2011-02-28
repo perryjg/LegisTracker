@@ -1,8 +1,8 @@
 <div class="span-24 push-1 first prepend-top last">
-	<h2>Daily Bill Status</h2>
+	<h2>Daily Status Report</h2>
 
-	<div id="votes" class="span-5 push-1 first border prepend-top">
-		<h4>Votes on <%= @vote_date %></h4>
+	<div id="votes" class="span-7 push-1 first border prepend-top">
+		<h3>Votes <%= @vote_date %></h3>
 		<p class="fwdbk" align="center"> 
 			<% if @vote_date < Vote.last_date %>
 				<%= link_to "Next >>", statuses_path( :vote_date => Date.parse( @vote_date ).tomorrow.to_s(:db), :status_date => @status_date ) %>
@@ -25,7 +25,7 @@
 	</div>
 
 	<div id="status" class="span-11 push-2 prepend-top ">
-		<h4>Bill status changes on <%= @status_date %></h4>
+		<h3>Bill status changes <%= @status_date %></h3>
 		<p class="fwdbk" align="center">
 			<% if @status_date < Status.last_date %>
 				<%= link_to "Next >> | ", statuses_path( :status_date => Date.parse( @status_date ).tomorrow.to_s(:db), :vote_date => @vote_date ) %>

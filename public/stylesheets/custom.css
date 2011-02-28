@@ -12,33 +12,85 @@ a:focus {color:#274385;}
 .vdesc {color:#888;}
 .fwdbk a {text-decoration:none;}
 .memid {color:#888;}
-
+.votecenter {}
                        
 /* div css */
-
-#container {;background:white; height:100%; }
+  /* application html divs */
+#container { background:white; height:100%; }
 
 #header {background:#3774A2;margin:0; padding-top:1em; height:50px; width:100%;}
 #header h1 {font-family: 'Orbitron', arial, serif; padding-left:.5em; color:white; }
 #header a {text-decoration:none;color:white;}
 #header a:link {}
 #header a:hover {}
-#logo { height:51px; background-image:url('images/legilogo.gif');}
 
-#content{ position:relative;background:white;margin:0; padding:0; height:100%;}
+
+/* #logo { height:51px; background-image:url('images/legilogo.gif');} */
+
+#content{position:relative; background:white; margin-top:-18px; padding:0; height:100%;}
 #content p.endy{font-family: 'Orbitron', arial, serif; text-align:center; size:0.75em; color:#777;}
 
-#main { margin:0; padding:0; height:100%;}
-/* #main ul {list-style-type:none; margin-left:0; padding-left:0;} */
-/* #main li {padding-bottom:.6em; } */
+#footer {z-index:4; position:relative; background: #3774A2;  height: 25px;}
+#footer p {color:white; padding-top:.3em; text-align:center;}
 
+
+/* all pages */
+#main { margin:0; padding:0; height:100%;}
+
+
+
+/* Bills  SHOW */
+#title h2 { padding-top:1em;}
+#title p {text-align:justify;}
+#tags {float:right; text-align:right;}
+#tags p {text-align:right;}
+#flash {}
+#hotnot a {
+	clear:both;
+	text-decoration:none; 
+	color:#eee; 
+	float:left; 
+	width:75px; 
+	margin:5px; 
+	margin-left:0; 
+	height:2em; 
+	padding:3px; 
+	padding-bottom:0px; 
+	margin-top:2.35em; 
+	background:#AF4F4D; 
+	-moz-border-radius: 10px 0px 0px 10px; 
+	border-radius: 10px 0px 0px 10px; 
+	text-align:center;
+	background:#AF4F4D; 
+	background: -moz-linear-gradient(left center,#AF4F4D 32%,#AF4F4D 60%,#FFFFFF 100%); 
+	background: -webkit-gradient(linear,left 90,right 90,color-stop(0.32, #AF4F4D),color-stop(0.60, #AF4F4D),color-stop(1.0, #fff));
+}	
+#hotnot a:hover {
+	clear:both;
+	color:white;
+	float:left; 
+	width:75px; 
+	margin:5px; 
+	margin-top:2.35em; 
+	margin-left:0; 
+	height:2em; 
+	padding:3px; 
+	padding-bottom:0px; 
+	text-shadow:0 0  1px  #fff; 
+	background: -moz-linear-gradient(left center,#3774A2 32%,#3774A2 60%,#FFFFFF 100%); 
+	background: -webkit-gradient(linear, left 90,right 90,color-stop(0.32, #3774A2),color-stop(0.60, #3774A2),color-stop(1.0, #fff));
+}
+#billtitle {float:left;margin-left:10px;}
+
+
+/* BILLS INDEx */
+#bindex p {text-align:justify;}
+
+/* home INDEX */
 #votes { }
 #hot {margin-left:-20px; margin-right:10px; margin-bottom:20px; padding-left:20px; padding-top:10px;padding-bottom:5px; background:#99CAEE;}
 #status {}
-
-#feeds { z-index:2; position:absolute; height:100%; bottom:0; top:0px; right:0px; padding:2em; padding-bottom:0; padding-right:1em;  background:#e5e5e5; border-left:1px; border-style:solid; border-color:#d4d4d4;}
-
-
+#feeds {height:100%; bottom:0; top:0px; right:0px; padding:2em; padding-bottom:0; padding-right:1em;  background:#e5e5e5; border-left:1px; border-style:solid; border-color:#d4d4d4;}
 #feedbox {  z-index:3; position:relative; float:right; height:100%; bottom:0; top:0px; right:0px; padding:2em; padding-left:2em; padding-right:1em;height:100%; bottom:0; top:0px; right:0px; padding:2em; padding-right:1em;}
 #feedbox h3 {color:#333;margin-bottom:0.3em;}
 #feedbox ul {color:#888; font-size:.8em;}
@@ -47,30 +99,71 @@ a:focus {color:#274385;}
 #house_rss {}
 
 
+/*votes SHOW */
+#votetitle {clear:both; float:left;}
+#votetitle h2 {margin-bottom: 1em;}
+#votetitle h4 {margin-top:-1.75em;}
+#key a {
+	clear:both;
+	position:relative;
+	text-decoration:none; 
+	color:#eee; 
+	float:left; 
+	width:95px; margin:5px; 
+	margin-left:0; 
+	height:2em; 
+	padding:3px; 
+	padding-left:10px;
+	padding-bottom:0px; 
+	margin-top:2em; 
+	background:#AF4F4D; 
+	-moz-border-radius: 10px 0px 0px 10px; 
+	border-radius: 10px 0px 0px 10px; 
+	text-align:left;
+	background:#AF4F4D; 
+	background: -moz-linear-gradient( left center, #AF4F4D 32%, #AF4F4D 60%, #FFFFFF 100%); 
+	background:  -webkit-gradient(	linear,left 90, right 90,color-stop(0.32, #AF4F4D),color-stop(0.60, #AF4F4D),color-stop(1.0, #fff)	);
+}
+#key a:hover {
+	clear:both;
+	color:white;
+	float:left; 
+	width:95px; 
+	margin:5px; 
+	margin-top:2em; 
+	margin-left:0; 
+	height:2em; 
+	padding:3px; 
+	padding-bottom:0px; 
+	text-shadow:0 0  1px  #fff; 
+	background: -moz-linear-gradient(left center,#3774A2 32%,#3774A2 60%,#FFFFFF 100%	); 
+	background: -webkit-gradient(linear, left 90,right 90,color-stop(0.32, #3774A2),color-stop(0.60, #3774A2), color-stop(1.0, #fff)	);
+	padding-left:10px;
+	text-align:left;
+}
 
-#footer {z-index:4; position:relative;background: #3774A2; margin:0; padding:0; height: 25px; width:100%;}
-#footer p {color:white; padding-top:.3em; text-align:center;}
+#keytitle {float:left;}
+#votebox {clear:both; background: #e5e5e5; padding:0; margin-top:-1em;}
+#votebox ul { margin-left:auto; margin-right:auto; list-style-type: none;}
+#votebox li { float: left; padding: 5px 20px 7px 20px; }
+#repub_votes {clear:both;}
 
-/* Bills  SHOW */
-#title h2 { padding-top:1em;}
-#title p {text-align:justify;}
-
-/* BILLS INDEx */
-#bindex p {text-align:justify;}
 
 /* members SHOW */
 #sponsorships tbody tr:nth-child(even) td, tbody tr.even td {background:white;}
 #sponsorships tr td {text-align:left; vertical-align:top;  padding:0;}/* Bills */
 #title h2 { padding-top:1em;}
 
+
 /* Flash messages */
 .flash {
-    text-align: center;
+    position:relative;
+	text-align: center;
     padding:    .3em .4em;
-    margin:             0 auto .5em;
+    margin-top: 1em;
     clear:              both;
-    max-width:  46.923em; /* 610/13 */  
-    *max-width: 45.750em; /* 610/13.3333 - for IE */
+    max-width:  100%; /* 610/13 */  
+    *max-width: 100%; /* 610/13.3333 - for IE */
 }
 
 .flash.error {
@@ -98,39 +191,43 @@ a:focus {color:#274385;}
 }
 
 /* navigation */
+
 nav ul {
+	margin-top: -5px;
 	float: left;
 	width: 100%;
 	list-style-type: none;
-	-moz-border-radius: 10px;
-	-webkit-border-radius: 10px;
 
-	background: #e3e3e3;
-	background: -moz-linear-gradient(top, #ccc, #999);
-	background: -webkit-gradient(linear, left top, left bottom, from(#ccc), to(#999));
+font-weight:bold;
+text-shadow: 0 1px 0 #162F42;
+	background: #3774A2;
+	background: -moz-linear-gradient(top, #3774A2, #2D5F85);
+	background: -webkit-gradient(linear, left top, left bottom, from(#3774A2), to(#2D5F85));
 }
 nav li {
 	float: left;
 }
 nav ul a{
 	display: block;
-	padding: 10px 20px 10px 20px;
+	padding: 5px 20px 7px 20px;
 	list-style-type: none;
 	float: left;
-	color: #454545;
-	font-size: 16px;
+	color: white;
+	font-size: 12px;
 	text-decoration: none;
 }
 nav ul a:hover{
 	display: block;
-	padding: 10px 20px 10px 20px;
+	padding: 5px 20px 5px 20px;
 	list-style-type: none;
 	float: left;
-	color: #ddd;
+	color: white;
+	font-weight:bold;
+	
 
-	text-shadow: 0 1px 0 black;
+	text-shadow: 0 1px 0 #162F42;
 
 	background: #555;
-	background: -moz-linear-gradient(top, #444, #555);
-	background: -webkit-gradient(linear, left top, left bottom, from(#444), to(#555));
+	background: -moz-linear-gradient(top, #275273, #2D5F85);
+	background: -webkit-gradient(linear, left top, left bottom, from(#275273), to(#2D5F85));
 }

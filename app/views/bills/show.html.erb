@@ -1,12 +1,12 @@
 <div id="title" class="span-22 push-1 first last">
 	<% if flash[:notice] %>
-		<div class="flash notice span-21 first last"><%= flash[:notice] %></div>
+		<div id="flash" class="flash notice span-21 first last"><%= flash[:notice] %></div>
 	<% end %>
 	<% if flash[:error] %>
-		<div class="flash error span-22 first last"><%= flash[:error] %></p>
+		<div id="flash" class="flash error span-21 first last"><%= flash[:error] %></p>
 	<% end %>
 
-	<div class="span-21 first last">
+	<div id="hotnot" class="first">
 		<% if @bill.is_hot? %>
 			<%= link_to "Un-watch", unhot_bill_path( @bill ) %>
 		<% else %>
@@ -14,7 +14,7 @@
 		<% end %>
 	</div>
   
-	<div class="span-21 first last">
+	<div id="billtitle" class="span-18 first last">
 		<h2><%= @bill.number %>: <%= @bill.short_title %></h2>
 	</div>
 	
@@ -26,7 +26,7 @@
 		<strong>Senate committee:</strong> <%= @bill.senate_committee_name %><br />
 		</p>
   </div>
-	<div class="span-8 last">
+	<div id="tags" class="span-6 last">
 		<% form_tag tag_path( @bill ) do %>
 			<%= hidden_field_tag :context, 'topic' %>
 			<%= submit_tag "Add tag" %>
@@ -37,7 +37,7 @@
 		</p>
 	</div>
 
-	<div id="bill_text" class="span-21 first last">
+	<div id="bill_text" class="span-22 first last">
 		<p><%= @bill.title %></p>
 	</div>
 </div>

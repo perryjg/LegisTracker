@@ -29,7 +29,8 @@
       </div>
 	  </header>
 	
-	  <nav>
+	  
+		<nav class="first last">
 			<ul>
 				<li><%= link_to "Watched bills", root_path %></li>
 				<li><%= link_to "Daily status report", statuses_path %></li>
@@ -38,15 +39,19 @@
 			</ul>
 		</nav>
 		
+		
 	  <section>
 			<div id="content" class="span-24 first last ">
 		    <%= yield %>
+			
+			<footer id="footer" class="span-24 first last">
+					<p>Copyright &copy;<%= Date.today.year %></p>
+			  </footer>
+			
 			</div>
 	  </section>
 	
-	  <footer id="footer" class="span-24 first last">
-			<p>Copyright &copy;<%= Date.today.year %></p>
-	  </footer>
+	  
 	</div>
 </body>
 </html>

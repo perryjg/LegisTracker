@@ -1,33 +1,47 @@
-<div class="span-22 push-1 first last">
+<div id="votetitle" class="span-22 push-1 first last">
 	<% if flash[:notice] %>
-		<p class="flash notice"><%= flash[:notice] %></p>
+		<p class="flash notice span-21 first last"><%= flash[:notice] %></p>
 	<% end %>
 	<% if flash[:error] %>
-		<p class="flash error"><%= flash[:error] %></p>
+		<p class="flash error span-21 first last"><%= flash[:error] %></p>
 	<% end %>
 
+	<div id="key" class="first">
 	<% if @vote.is_key? %>
 		<%= link_to "Un-tag as key", unkey_vote_path( @vote ) %>
 	<% else %>
 		<%= link_to "Tag as key", key_vote_path( @vote ) %>
 	<% end %>
-
-	<h2><%= "#{@vote.legislation} #{@vote.description}" %></h2>
+	</div>
+	
+	<div id="keytitle" class="span-15 prepend-top">
+		<h2><%= "#{@vote.legislation} #{@vote.description}" %></h2>
 	<h4>Vote on <%= @vote.date.strftime( '%Y-%m-%d' ) %></h4>
-
-	<% if @bill %>
-		<%= link_to "#{@bill.number}", bill_path( @bill ) %> <%= @bill.short_title %>
-		<%= @bill.short_title %>
-	<% end %>
-
 	<p>
-		<strong>Yea:</strong> <%= @vote.yea %>
-	  <strong>Nay:</strong> <%= @vote.nay%>
-		<strong>Not Voting:</strong> <%= @vote.not_voting %>
-		<strong>Excused:</strong> <%= @vote.excused %>
-	</p>
+		<% if @bill %>
+			<%= link_to "#{@bill.number}", bill_path( @bill ) %> <%= @bill.short_title %>
+			<%= @bill.short_title %>
+		<% end %>
+		</p>
+	</div>
+
+
 </div>
-<div id="repub_votes" class="span-9 push-1 first">
+
+
+	
+<div id="votebox" class="span-10 push-6 first last">
+	<ul>
+		<li><strong>Yea:</strong> <%= @vote.yea %></li>
+  		<li><strong>Nay:</strong> <%= @vote.nay%></li>
+		<li><strong>Not Voting:</strong> <%= @vote.not_voting %></li>
+		<li><strong>Excused:</strong> <%= @vote.excused %></li>
+	</ul>
+</div>
+
+
+
+<div id="repub_votes" class="span-9 push-4 first">
 	<h3>Republicans</h3>
 	<strong>
 		Yea: <%= @repub_votes.yea.count %> |
@@ -43,7 +57,7 @@
 		<% end %>
 	</ul>
 </div>
-<div id="demo_votes" class="span-9 push-1 last">
+<div id="demo_votes" class="span-9 push-6 last">
 	<h3>Democrats</h3>
 	<strong>
 		Yea: <%= @demo_votes.yea.count %> |
