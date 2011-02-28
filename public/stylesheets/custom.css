@@ -90,8 +90,11 @@ a:focus {color:#274385;}
 #votes { }
 #hot {margin-left:-20px; margin-right:10px; margin-bottom:20px; padding-left:20px; padding-top:10px;padding-bottom:5px; background:#99CAEE;}
 #status {}
-#feeds {height:100%; bottom:0; top:0px; right:0px; padding:2em; padding-bottom:0; padding-right:1em;  background:#e5e5e5; border-left:1px; border-style:solid; border-color:#d4d4d4;}
-#feedbox {  z-index:3; position:relative; float:right; height:100%; bottom:0; top:0px; right:0px; padding:2em; padding-left:2em; padding-right:1em;height:100%; bottom:0; top:0px; right:0px; padding:2em; padding-right:1em;}
+
+#feeds { z-index:2; position:absolute; height:100%; bottom:0; top:0px; right:0px; padding:2em; padding-bottom:0; padding-right:1em; background:#e5e5e5; border-left:1px; border-style:solid; border-color:#d4d4d4;}
+
+
+#feedbox { z-index:3; position:relative; float:right; height:100%; bottom:0; top:0px; right:0px; padding:2em; padding-left:2em; padding-right:1em;height:100%; bottom:0; top:0px; right:0px; padding:2em; padding-right:1em;}
 #feedbox h3 {color:#333;margin-bottom:0.3em;}
 #feedbox ul {color:#888; font-size:.8em;}
 #feedbox a {color:#444 ;text-decoration:underline;font-size:1.25em;}
