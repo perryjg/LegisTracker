@@ -1,6 +1,7 @@
 <div id="main" class="span-24 first last ">
-	<div id="votes" class="span-5 push-1 first border prepend-top">
-		<h2>Votes</h2>
+	<div class="span-22 push-1 first last prepend-top"><h2> Watched Bills </h2></div>
+	<div id="votes" class="span-5 push-1 first border">
+		<h3>Votes</h3>
 		<ul>
 		<% @votes.each do |vote| %>
 			<li class="vote">
@@ -15,8 +16,8 @@
 		</ul>
 	</div>
 
-	<div id="status" class="span-11 push-2 prepend-top last">
-		<h2>Bill Status Changes</h2>
+	<div id="status" class="span-11 push-2  last">
+		<h3>Bill Status Changes</h3>
 		<ul>
 				<% @events.each do |event| %>
 				<li class="event">
