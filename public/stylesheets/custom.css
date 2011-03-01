@@ -19,7 +19,7 @@ a:focus {color:#274385;}
 #container { position:absolute; background:white; height:100%; }
 
 #header {background:#3774A2;margin:0; padding-top:1em; height:50px; width:100%;}
-#header h1 {font-family: 'Orbitron', arial, serif; padding-left:.5em; color:white; }
+#header h1 {font-family: 'Orbitron', arial, serif; padding-left:.5em; color:white; text-shadow:0 1px 0 black;}
 #header a {text-decoration:none;color:white;}
 #header a:link {}
 #header a:hover {}
@@ -212,6 +212,7 @@ nav ul a{
 	color: white;
 	font-size: 12px;
 	text-decoration: none;
+	text-shadow:0 1px 0 black;
 }
 nav ul a:hover{
 	padding: 5px 20px 5px 20px;
@@ -219,7 +220,7 @@ nav ul a:hover{
 	float: left;
 	color: white;
 	font-weight:bold;
-	text-shadow:none;
+	text-shadow:0 1px 0 black;
 	background: -moz-linear-gradient(top, #2A587A, #3774A2);
 	background: -webkit-gradient(linear, left top, left bottom, from(#2A587A), to(#3774A2));
 	-moz-border-radius: 10px 10px 0px 0px; 
