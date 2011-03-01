@@ -30,14 +30,16 @@
 	  </header>
 	
 	  
-		<nav class="first last">
+		
+			<nav class="first last">
 			<ul>
-				<li><%= link_to "Watched bills", root_path %></li>
-				<li><%= link_to "Daily status report", statuses_path %></li>
-				<li><%= link_to "Members", '#' %></li>
-				<li><%= link_to "Committees", '#' %></li>
+				<li><%= link_to "Watched bills", root_path, :class => current_class?(root_path) %></li>
+				<li><%= link_to "Daily status report", statuses_path, :class => current_class?(statuses_path)  %></li>
+				<li><%= link_to "Members", members_path, :class => current_class?(members_path)  %></li>
+				<li><%= link_to "Committees",'#', :class => current_class?('#')  %></li>
 			</ul>
 		</nav>
+		
 		
 		
 	  <section>

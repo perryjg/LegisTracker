@@ -1,6 +1,4 @@
-<div id="main" class="span-24 first last ">
-	<div class="span-22 push-1 first last prepend-top"><h2> Watched Bills </h2></div>
-	<div id="votes" class="span-5 push-1 first border">
+<div id="votes" class="span-5 push-1 first border prepend-top">
 		<h3>Votes</h3>
 		<ul>
 		<% @votes.each do |vote| %>
@@ -16,7 +14,7 @@
 		</ul>
 	</div>
 
-	<div id="status" class="span-11 push-2  last">
+	<div id="status" class="span-11 push-2 prepend-top last">
 		<h3>Bill Status Changes</h3>
 		<ul>
 				<% @events.each do |event| %>
@@ -34,7 +32,7 @@
 		</ul>
 	</div>
 
-	<div id="feeds" class="span-5 last"></div>
+	<div id="feeds" class="span-5 last prepend-top"></div>
 		<div id="feedbox" class="span-5 last">
 			<div id="senate_rss">
 				<h3>Senate Press Releases</h3>
@@ -55,6 +53,6 @@
 			</div>
 		</div>
 	</div>
-</div>
+
 
 

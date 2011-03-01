@@ -16,7 +16,7 @@ a:focus {color:#274385;}
                        
 /* div css */
   /* application html divs */
-#container { background:white; height:100%; }
+#container { position:absolute; background:white; height:100%; }
 
 #header {background:#3774A2;margin:0; padding-top:1em; height:50px; width:100%;}
 #header h1 {font-family: 'Orbitron', arial, serif; padding-left:.5em; color:white; }
@@ -24,19 +24,26 @@ a:focus {color:#274385;}
 #header a:link {}
 #header a:hover {}
 
-
-/* #logo { height:51px; background-image:url('images/legilogo.gif');} */
-
-#content{position:relative; background:white; margin-top:-18px; padding:0; height:100%;}
+#content{position:relative; background:white; margin-top:-1.15em; }
 #content p.endy{font-family: 'Orbitron', arial, serif; text-align:center; size:0.75em; color:#777;}
 
 #footer {z-index:4; position:relative; background: #3774A2;  height: 25px;}
 #footer p {color:white; padding-top:.3em; text-align:center;}
 
 
-/* all pages */
-#main { margin:0; padding:0; height:100%;}
+/* home INDEX */
+#votes { }
+#status {}
 
+#feeds { z-index:2; position:absolute; height:100%; bottom:0; top:-1.5em; right:0px; padding:2em; padding-bottom:0; padding-right:1em; background:#e5e5e5; border-left:1px solid #d4d4d4;}
+
+
+#feedbox { z-index:3; position:relative; float:right; margin-top: -0.5em; height:100%; bottom:0; top:0px; right:0px; padding:2em; padding-left:2em; padding-right:1em;height:100%; bottom:0; top:0px; right:0px; padding:2em; padding-right:1em;}
+#feedbox h3 {color:#333;margin-bottom:0.3em;}
+#feedbox ul {color:#888; font-size:.8em;}
+#feedbox a {color:#444 ;text-decoration:underline;font-size:1.25em;}
+#senate_rss {height:100%; }
+#house_rss {}
 
 
 /* Bills  SHOW */
@@ -86,20 +93,7 @@ a:focus {color:#274385;}
 /* BILLS INDEx */
 #bindex p {text-align:justify;}
 
-/* home INDEX */
-#votes { }
-#hot {margin-left:-20px; margin-right:10px; margin-bottom:20px; padding-left:20px; padding-top:10px;padding-bottom:5px; background:#99CAEE;}
-#status {}
 
-#feeds { z-index:2; position:absolute; height:100%; bottom:0; top:0px; right:0px; padding:2em; padding-bottom:0; padding-right:1em; background:#e5e5e5; border-left:1px; border-style:solid; border-color:#d4d4d4;}
-
-
-#feedbox { z-index:3; position:relative; float:right; margin-top: -7em; height:100%; bottom:0; top:0px; right:0px; padding:2em; padding-left:2em; padding-right:1em;height:100%; bottom:0; top:0px; right:0px; padding:2em; padding-right:1em;}
-#feedbox h3 {color:#333;margin-bottom:0.3em;}
-#feedbox ul {color:#888; font-size:.8em;}
-#feedbox a {color:#444 ;text-decoration:underline;font-size:1.25em;}
-#senate_rss {height:100%; }
-#house_rss {}
 
 
 /*votes SHOW */
@@ -197,7 +191,7 @@ a:focus {color:#274385;}
 
 nav ul {
 	margin-top: -5px;
-	margin-bottom:16px;
+	margin-bottom:12px;
 	float: left;
 	width: 100%;
 	list-style-type: none;
@@ -223,9 +217,39 @@ nav ul a:hover{
 	padding: 5px 20px 5px 20px;
 	list-style-type: none;
 	float: left;
+	color: white;
+	font-weight:bold;
+	text-shadow:none;
+	background: -moz-linear-gradient(top, #2A587A, #3774A2);
+	background: -webkit-gradient(linear, left top, left bottom, from(#2A587A), to(#3774A2));
+	-moz-border-radius: 10px 10px 0px 0px; 
+	border-radius: 10px 10px 0px 0px;
+}
+
+nav li a.current {
+	padding: 5px 20px 5px 20px;
+	list-style-type: none;
+	float: left;
 	color: black;
 	font-weight:bold;
 	text-shadow:none;
-	background: -moz-linear-gradient(top, #3774A2, white);
-	background: -webkit-gradient(linear, left top, left bottom, from(#3774A2), to(white));
+	-moz-border-radius: 10px 10px 0px 0px; 
+	border-radius: 10px 10px 0px 0px;
+	background:white;
+	background: -moz-linear-gradient(top, #eee, white);
+	background: -webkit-gradient(linear, left top, left bottom, from(#eee), to(white));
+	border: 1px solid white;
 }
+
+/* nav li a.current1 {
+	padding: 5px 20px 5px 20px;
+	list-style-type: none;
+	float: left;
+	color: black;
+	font-weight:bold;
+	text-shadow:none;
+	-moz-border-radius: 10px 10px 0px 0px; 
+	border-radius: 10px 10px 0px 0px;
+	background:white;
+	border: 1px solid white;
+} */

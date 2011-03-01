@@ -1,5 +1,7 @@
-<div id="main" class="span-24 first last">
-	<div id="bindex" class="span-20 push-2 prepend-top">
+
+
+	<div id="bindex" class="span-20 push-2 first last prepend-top">
+			<h2> All Watched Bills </h2>
 <% @bills.each do |bill| %>
   
   <h3><%= link_to "#{bill.number}", bill_path( bill ) %> <%= bill.short_title %></h3>
@@ -9,4 +11,4 @@
   
 <% end %>
 </div>
-</div>
+
