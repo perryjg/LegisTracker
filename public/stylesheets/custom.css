@@ -23,6 +23,7 @@ a:focus {color:#274385;}
 #header a {text-decoration:none;color:white;}
 #header a:link {}
 #header a:hover {}
+#search {horizontal-align:right; text-align:center;}
 
 #content{position:relative; background:white; margin-top:-1.0em; }
 #content p.endy{font-family: 'Orbitron', arial, serif; text-align:center; size:0.75em; color:#777;}
@@ -62,8 +63,8 @@ a:focus {color:#274385;}
 /* WATCH OR UNWATCH BUTTON */
 #hotnot { clear:both; 
 	float:left;
-	width:107px; 
-	height:30px; 
+	width:80px; 
+
 	margin:5px; 
 	margin-left:0;padding:3px; 
 		padding-bottom:0px; 

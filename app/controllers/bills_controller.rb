@@ -39,7 +39,7 @@ class BillsController < ApplicationController
     @bill = Bill.find( params[:id] )
     @bill.tag_list_on( params[:context].to_sym ).add( params[:tag] )
     if @bill.save
-      flash[:notice] = "Bill successfully taged with topic"
+      flash[:notice] = "Bill successfully tagged with topic"
     else
       flash[:error] = "Tagging failed"
     end
