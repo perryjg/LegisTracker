@@ -7,6 +7,7 @@ gem 'heroku'
 gem 'taps'
 gem 'meta_search'
 gem 'acts-as-taggable-on'
+gem 'govkit', :git => 'https://perryjg@github.com/perryjg/govkit.git'
 
 group :development, :test do
   gem 'cucumber-rails'
