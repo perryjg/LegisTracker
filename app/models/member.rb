@@ -30,6 +30,22 @@ class Member < ActiveRecord::Base
     sponsorships.secondary
   end
   
+  def top_contributors
+    GovKit::FollowTheMoney::Contribution.top( imsp_member_id )
+  end
+  
+  def contributions_by_sector
+    GovKit::FollowTheMoney::SectorContribution.find( imsp_member_id )
+  end
+  
+  def contributions_by_industry
+    GovKit::FollowTheMoney::IndustryContribution.find( imsp_member_id )
+  end
+  
+  def contributions_by_business
+    GovKit::FollowTheMoney::BusinessContribution.find( imsp_member_id )
+  end
+  
   def self.load_imsp_data
     [ 'HOUSE', 'SENATE' ].each do |house|
       puts "Getting #{house} candidates"

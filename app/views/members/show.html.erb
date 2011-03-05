@@ -1,6 +1,21 @@
 <div id="title" class="sapn-22 push-1 first last">
 	<h2><%= @member.name %> <span class="memid"><%= @member.seat %> </span></h2>
+	<p>2010 contribution total: <strong><%= number_to_currency(@member.total_dollars, :precision => 0) %></strong></p>
+	<p>
+		<h3>Top 5 donors:</h3>
+		<ul>
+		<% @member.top_contributors[0..4].each do |c| %>
+			<li>
+				<%= c.contributor_name %>,
+				<%= c.business_name %>:
+				<strong><%= number_to_currency(c.total_dollars, :precision => 0) %></strong>
+			</li>
+		<% end %>
+		</ul>
+	</p>
+	<hr />
 </div>
+
 <div id="sponsorships" class="span-22 push-1 first last">
 	<% if @member.sponsorships.primary.count > 0 %>
 		<h3>Bills sponsored: Primary</h3>
@@ -27,5 +42,6 @@
 			<% end %>
 		</table>
 	<% end %>
+	<%= link_to image_tag( 'IMSP-color.jpg' ), 'http://www.followthemoney.org' %>
 </div>
 
