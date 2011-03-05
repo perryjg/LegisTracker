@@ -8,7 +8,7 @@ gem 'taps'
 gem 'meta_search'
 gem 'acts-as-taggable-on'
 # gem 'govkit', :git => 'https://perryjg@github.com/perryjg/govkit.git'
-gem 'govkit', :path => '/home/john/src/govkit'
+gem 'govkit', :path => '/Users/john/src/govkit'
 
 group :development, :test do
   gem 'cucumber-rails'
