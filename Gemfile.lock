@@ -8,7 +8,7 @@ GIT
 
 GIT
   remote: https://perryjg@github.com/perryjg/govkit.git
-  revision: 234dcc202976ef8faf9b93a3cf9be9c9984db62f
+  revision: 2609398036878432675d0c039544bdfcf331b549
   specs:
     govkit (0.6.1)
       fastercsv (>= 1.5.3)

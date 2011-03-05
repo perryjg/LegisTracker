@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110218142146) do
+ActiveRecord::Schema.define(:version => 20110305043823) do
 
   create_table "bill_versions", :force => true do |t|
     t.integer "number"
@@ -72,10 +72,22 @@ ActiveRecord::Schema.define(:version => 20110218142146) do
     t.string  "last_name"
     t.string  "first_name"
     t.integer "district"
-    t.string  "house",          :limit => 1
-    t.string  "party",          :limit => 1
-    t.string  "seat",           :limit => 4
+    t.string  "house",                        :limit => 1
+    t.string  "party",                        :limit => 1
+    t.string  "seat",                         :limit => 4
     t.string  "vote_id_string"
+    t.integer "imsp_member_id"
+    t.integer "total_instate_dollars"
+    t.integer "total_out_of_state_dollars"
+    t.integer "total_unknown_state_dollars"
+    t.integer "party_committee_dollars"
+    t.integer "leadership_committee_dollars"
+    t.integer "candidate_money_dollars"
+    t.integer "individual_dollars"
+    t.integer "unitemized_donation_dollars"
+    t.integer "non_contribution_dollars"
+    t.integer "institution_dollars"
+    t.integer "total_dollars"
   end
 
   create_table "senate_committees", :force => true do |t|
