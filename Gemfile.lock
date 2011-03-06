@@ -7,7 +7,7 @@ GIT
       railties (~> 3.0.0)
 
 PATH
-  remote: vendor/govkit
+  remote: vendor/govkit-0.6.1
   specs:
     govkit (0.6.1)
       fastercsv (>= 1.5.3)
