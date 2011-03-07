@@ -1,22 +1,35 @@
+/* general styles 
+---------------------------------------------------------------------------------- */
 body {background:#888;}
 ul {list-style-type:none; margin-left:0; padding-left:0;}
 p {color:#222;}
 a {color:#3774A2;}
 a:hover {color:#274385;}
 a:focus {color:#274385;}
-input[type=image] {margin:0.5em 0; vertical-align:bottom;}  /* form input images */
-input[type="submit"] {
-padding: 5px 10px; 
-color: #444; 
-font-weight:bold;
-text-shadow: 0 1px rgba(255,255,255, 0.85);
-border: 1px solid #777; 
-background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#ccc), to(#eee)); 
-background-image: -moz-linear-gradient(0 100% 90deg, #ccc, #eee);
-background-color: #333; 
--webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5); 
--moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5); 
-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+
+/* forms
+--------------------------------------------------------------------------------- */
+input[type=image] { /* form input images */
+	margin:0.5em 0; 
+	vertical-align:bottom;
+} 
+input[type=image]:hover{
+	-webkit-transform: scale(1.25);
+	-moz-transform: scale(1.25);
+	transform:scale(1.25);
+}
+input[type="submit"] { /* Assistance by a book apart */
+	padding: 5px 10px; 
+	color: #444; 
+	font-weight:bold;
+	text-shadow: 0 1px rgba(255,255,255, 0.85);
+	border: 1px solid #777; 
+	background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#ccc), to(#eee)); 
+	background-image: -moz-linear-gradient(0 100% 90deg, #ccc, #eee);
+	background-color: #333; 
+	-webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5); 
+	-moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5); 
+	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
 
 }
 input[type="submit"]:hover {
@@ -25,12 +38,10 @@ input[type="submit"]:hover {
 	background-color: #333; 
 	-webkit-box-shadow: 0 0px 0px rgba(0, 0, 0, 0.5); 
 	-moz-box-shadow: 0 0px 0px rgba(0, 0, 0, 0.5); 
-	box-shadow: 0 0px 0px rgba(0, 0, 0, 0.5);
-	
-	
+	box-shadow: 0 0px 0px rgba(0, 0, 0, 0.5);		
 }
 
-/* customized classes
+/* special classes
 -------------------------------------------------------------------- */
 .box {background:#3774A2;}
 .tstamp {font-size:.8em;}
@@ -41,9 +52,9 @@ input[type="submit"]:hover {
 .votecenter {}
 
                        
-/* div css
+/* DIV STYLES
 ------------------------------------------------------------------------------------*/
-/* -------------------- application html divs */
+/* ------------------------- application html */
 #container { position:absolute; background:white; height:100%; }
 #header {background:#3774A2;margin:0; padding-top:1em; height:50px; width:100%;}
 #header h1 {font-family: 'Orbitron', arial, serif; padding-left:.5em; color:white; text-shadow:0 1px 0 black;}
@@ -82,7 +93,7 @@ input[type="submit"]:hover {
 #tags p {text-align:right;}
 #flash {}
 
-/*--------- WATCH OR UNWATCH BUTTON */
+/*--------- WATCH & UNWATCH BUTTON */
 #hotnot { clear:both; 
 	float:left;
 	width:80px; 
@@ -95,20 +106,20 @@ input[type="submit"]:hover {
 #hotnot a:focus img { }
 #billtitle {float:left;margin-left:10px;}
 
+/* ------- TAGS */
 #tags input[type="submit"] {
-padding: 2px 5px; 
+padding: 1px 5px; 
 color: #444; 
 font-weight:bold;
-font-size: .75em;
+font-size: .85em;
 text-shadow: 0 1px rgba(255,255,255, 0.85);
-border: 1px solid #777; 
+border: 1px solid #888; 
 background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#ccc), to(#eee)); 
 background-image: -moz-linear-gradient(0 100% 90deg, #ccc, #eee);
 background-color: #333; 
 -webkit-box-shadow: 0 0px 0px rgba(0, 0, 0, 0.5); 
 -moz-box-shadow: 0 0px 0px rgba(0, 0, 0, 0.5); 
 box-shadow: 0 0px 0px rgba(0, 0, 0, 0.5);
-
 }
 
 #tags input[type="submit"]:hover {
@@ -118,8 +129,6 @@ box-shadow: 0 0px 0px rgba(0, 0, 0, 0.5);
 	-webkit-box-shadow: 0 0px 0px rgba(0, 0, 0, 0.5); 
 	-moz-box-shadow: 0 0px 0px rgba(0, 0, 0, 0.5); 
 	box-shadow: 0 0px 0px rgba(0, 0, 0, 0.5);
-	
-	
 }
 
 /* ---------------------------------- BILLS INDEx */
@@ -177,7 +186,7 @@ box-shadow: 0 0px 0px rgba(0, 0, 0, 0.5);
     text-decoration:    none;
 }
 
-/* navigation
+/* navigation bar
 ------------------------------------------------------- */
 
 nav ul {
