@@ -1,24 +1,28 @@
-<div id="votes" class="span-5 push-1 first border prepend-top">
-	<h3>Votes</h3>
+<section id="votes" class="span-5 push-1 first border prepend-top">
+	<header><h3>Votes</h3></header>
 	<ul>
 	<% @votes.each do |vote| %>
-		<li class="vote">
-		  <% unless vote.bill.nil? %>
-         <%= link_to "#{vote.bill.number}", bill_path( vote.bill ) %>
-			<% end %> 
-       <%= link_to "#{vote.description}", vote_path( vote.id ) %> &nbsp;
-			<span class="tstamp">(<%= vote.date.strftime( '%l:%M %p' ) %>)</span><br/>
-			<strong>Yea: <%= vote.yea %> Nay: <%= vote.nay %></strong>
-		</li>
+		<article>
+			<li class="vote">
+				<% unless vote.bill.nil? %>
+					<%= link_to "#{vote.bill.number}", bill_path( vote.bill ) %>
+					<% end %> 
+				<%= link_to "#{vote.description}", vote_path( vote.id ) %> &nbsp;
+				<span class="tstamp">(<%= vote.date.strftime( '%l:%M %p' ) %>)</span>
+				<br/>
+				<strong>Yea: <%= vote.yea %> Nay: <%= vote.nay %></strong>
+			</li>
+		</article>
 	<% end %>
 	</ul>
-</div>
+</section>
 
-<div id="status" class="span-11 push-2 prepend-top last">
-	<h3>Bill Status Changes</h3>
+<section id="status" class="span-11 push-2 prepend-top last">
+	<header><h3>Bill Status Changes</h3></header>
 	<ul>
 			<% @events.each do |event| %>
-			<li class="event">
+			<article>
+				<li class="event">
 		    <%= link_to "#{event.bill.number}", bill_path( event.bill ) %>
 		    <%= event.status_code.description %>
 		    <span class="tstamp">(<%= event.status_date.strftime('%Y-%m-%d') %>)</span><br />
@@ -27,32 +31,39 @@
 					 <%= event.bill.primary_sponsor_party %> -
 					 <%= event.bill.primary_sponsor_district %>)
 			</li>
+			</article>
 			<% end %>
 		</li>
 	</ul>
-</div>
-
+</section>
+<section>
 <div id="feeds" class="span-5 last prepend-top"></div>
 	<div id="feedbox" class="span-5 last">
 		<div id="senate_rss">
-			<h3>Senate Press Releases</h3>
+		<header>	<h3>Senate Press Releases</h3></header>
 			<ul>
 			<% @senate_rss.each do |item| %>
-				<li class="rss senate"><a href="<%= item.url %>"><%= item.title %></a><br />(<%= item.published_at %>)</li>
+				<article>
+					<li class="rss senate"><a href="<%= item.url %>"><%= item.title %></a><br />(<%= item.published_at %>)</li>
+					</article>
 			<% end %>
 			</ul>
+			
 		</div>
 
 		<div id="house_rss">
-			<h3>House Press Releases</h3>
+		<header>	<h3>House Press Releases</h3></header>
 			<ul>
 			<% @house_rss.each do |item| %>
-				<li class="rss house"><a class="rss house" href="<%= item.url %>"><%= item.title %></a><br />(<%= item.published_at %>)</li>
+				<article>
+					<li class="rss house"><a class="rss house" href="<%= item.url %>"><%= item.title %></a><br />(<%= item.published_at %>)</li>
+					</article>
 			<% end %>
 			</ul>
 		</div>
 	</div>
+	
 </div>
-
+</section>
 
 

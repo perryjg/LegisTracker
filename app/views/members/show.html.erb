@@ -1,7 +1,7 @@
-<div id="title" class="sapn-22 push-1 first last">
+<section id="title" class="sapn-22 push-1 first last">
 	<h2><%= @member.name %> <span class="memid"><%= @member.seat %> </span></h2>
-</div>
-<div id="sponsorships" class="span-22 push-1 first last">
+</section>
+<section id="sponsorships" class="span-22 push-1 first last">
 	<% if @member.sponsorships.primary.count > 0 %>
 		<h3>Bills sponsored: Primary</h3>
 		<table>
@@ -27,5 +27,5 @@
 			<% end %>
 		</table>
 	<% end %>
-</div>
+</section>
 

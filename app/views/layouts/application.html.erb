@@ -18,15 +18,15 @@
 <body>
 	<div class="container">
 	  <header id="header"class="span-24 first last">
-      <div id="logo" class="span-16 first">
+      <section id="logo" class="span-16 first">
 		    <h1> <%= link_to 'LegiTracker', root_url %></h1>
-      </div>
-      <div id="search" class="span-7 last push-1">
+      </section>
+      <section id="search" class="span-7 last push-1">
         <%= form_for @search, :url => bills_path, :class => 'inline', :html => {:method => :get} do |f| %>
           <%= f.search_field :number_or_short_title_or_title_or_b_status_contains, :placeholder => 'Quick search' %> <%= image_submit_tag 'ic_search.png' %>
         <% end %>
         <%= link_to "Advanced Search  "   , search_path, :class => 'advanced_search' %>
-      </div>
+      </section>
 	  </header>
 	
 	  
@@ -42,15 +42,13 @@
 		
 		
 		
-	  <section>
-			<div id="content" class="span-24 first last ">
+	  <section id="content" class="span-24 first last ">
 		    <%= yield %>
 			
 			<footer id="footer" class="span-24 first last">
 					<p>Copyright &copy;<%= Date.today.year %></p>
 			  </footer>
 			
-			</div>
 	  </section>
 	
 	  
