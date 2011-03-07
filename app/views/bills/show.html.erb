@@ -1,9 +1,9 @@
-<div id="title" class="span-22 push-1 first last">
+<section id="title" class="span-22 push-1 first last">
 	<% if flash[:notice] %>
 		<div id="flash" class="flash notice span-21 first last"><%= flash[:notice] %></div>
 	<% end %>
 	<% if flash[:error] %>
-		<div id="flash" class="flash error span-21 first last"><%= flash[:error] %></p>
+		<div id="flash" class="flash error span-21 first last"><%= flash[:error] %></div>
 	<% end %>
 
 	<div id="hotnot" class="first">
@@ -25,7 +25,7 @@
 		<strong>House committee:</strong> <%= @bill.house_committee_name %><br />
 		<strong>Senate committee:</strong> <%= @bill.senate_committee_name %><br />
 		</p>
-  </div>
+  	</div>
 	<div id="tags" class="span-6 last">
 		<% form_tag tag_path( @bill ) do %>
 			<%= hidden_field_tag :context, 'topic' %>
@@ -40,7 +40,7 @@
 	<div id="bill_text" class="span-22 first last">
 		<p><%= @bill.title %></p>
 	</div>
-</div>
+</section>
 
 <hr />
 
@@ -78,7 +78,7 @@
       <li><span class="tstamp"><%= status.status_date.strftime( '%Y-%m-%d' ) %> </span> <%= status.status_code.description %></li>
     <% end %>
   </ul>
-  </p>
+ 
 </section>
 
 <section id="votes" class="span-4 last">

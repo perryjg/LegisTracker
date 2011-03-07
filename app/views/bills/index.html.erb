@@ -1,14 +1,12 @@
-
-
-	<div id="bindex" class="span-20 push-2 first last prepend-top">
-			<h2> All Watched Bills </h2>
-<% @bills.each do |bill| %>
-  
-  <h3><%= link_to "#{bill.number}", bill_path( bill ) %> <%= bill.short_title %></h3>
-    <p><%= bill.title %></p>
-    <p><strong>Current status: </strong><%= bill.b_status %> <span class="tstamp">(<%= bill.current_status_date %>)</span></p>
-<hr>
-  
-<% end %>
-</div>
+<section id="bindex" class="span-20 push-2 first last prepend-top">
+	<header><h2> All Watched Bills </h2></header>
+	<% @bills.each do |bill| %>
+		<article>
+		  	<header><h3><%= link_to "#{bill.number}", bill_path( bill ) %> <%= bill.short_title %></h3></header>
+			<p><%= bill.title %></p>
+			<p><strong>Current status: </strong><%= bill.b_status %> <span class="tstamp">(<%= bill.current_status_date %>)</span></p>
+			<hr>
+		</article>
+	<% end %>
+</section>
 
