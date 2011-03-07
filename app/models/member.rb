@@ -29,6 +29,55 @@ class Member < ActiveRecord::Base
   def secondary_sponsorships
     sponsorships.secondary
   end
+
+  def percent_in_state
+    total_instate_dollars / total_dollars.to_f * 100
+  end
+
+  def percent_out_of_state
+    total_out_of_state_dollars / total_dollars.to_f * 100
+  end
+  
+  def percent_unknown_state
+    total_unknown_state_dollars / total_dollars.to_f * 100
+  end
+
+  def contributions_by_geography
+    [percent_in_state, percent_out_of_state, percent_unknown_state]
+  end
+
+  def percent_party_committee
+    party_committee_dollars / total_dollars.to_f * 100
+  end
+  
+  def percent_leadership_committee
+    leadership_committee_dollars / total_dollars.to_f * 100
+  end
+
+  def percent_self_finance
+    candidate_money_dollars / total_dollars.to_f * 100
+  end
+
+  def percent_individuals
+    individual_dollars / total_dollars.to_f * 100
+  end
+
+  def percent_institutions
+    institution_dollars / total_dollars.to_f * 100
+  end
+
+  def percent_unitemized
+    unitemized_donation_dollars / total_dollars.to_f * 100
+  end
+
+  def percent_noncontribution_income
+    non_contribution_dollars / total_dollars.to_f * 100
+  end
+
+  def contributions_by_source
+    [percent_individuals, percent_institutions, percent_party_committee, percent_leadership_committee,
+     percent_leadership_committee, percent_self_finance, percent_noncontribution_income, percent_unitemized]
+  end
   
   def top_contributors
     GovKit::FollowTheMoney::Contribution.top( imsp_member_id )

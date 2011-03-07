@@ -2,6 +2,8 @@
 	<h2><%= @member.name %> <span class="memid"><%= @member.seat %> </span></h2>
 	<p>2010 contribution total: <strong><%= number_to_currency(@member.total_dollars, :precision => 0) %></strong></p>
 	<p>
+
+  <div id="top_donars" class="span-12 first"
 		<h3>Top 5 donors:</h3>
 		<ul>
 		<% @member.top_contributors[0..4].each do |c| %>
@@ -12,7 +14,10 @@
 			</li>
 		<% end %>
 		</ul>
-	</p>
+    </p>
+  </div>
+  <div class="span-10 push-1">
+  </div>
 	<hr />
 </div>
 
