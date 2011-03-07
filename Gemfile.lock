@@ -6,9 +6,8 @@ GIT
       factory_girl (~> 2.0.0.beta)
       railties (~> 3.0.0)
 
-GIT
-  remote: https://perryjg@github.com/perryjg/govkit.git
-  revision: 2609398036878432675d0c039544bdfcf331b549
+PATH
+  remote: vendor/gems
   specs:
     govkit (0.6.1)
       fastercsv (>= 1.5.3)
