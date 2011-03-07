@@ -23,7 +23,7 @@
       </div>
       <div id="search" class="span-7 last push-1">
         <%= form_for @search, :url => bills_path, :class => 'inline', :html => {:method => :get} do |f| %>
-          <%= f.text_field :number_or_short_title_or_title_or_b_status_contains %> <%= image_submit_tag 'ic_search.png' %>
+          <%= f.search_field :number_or_short_title_or_title_or_b_status_contains, :placeholder => 'Quick search' %> <%= image_submit_tag 'ic_search.png' %>
         <% end %>
         <%= link_to "Advanced Search  "   , search_path, :class => 'advanced_search' %>
       </div>

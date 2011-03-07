@@ -29,7 +29,7 @@
 	<div id="tags" class="span-6 last">
 		<% form_tag tag_path( @bill ) do %>
 			<%= hidden_field_tag :context, 'topic' %>
-			<%= image_submit_tag "addTag.png", :mouseover => "addTag_hv.png"%>
+			<%= submit_tag "+Tag"%>
 			<%= text_field_tag :tag %>
 		<% end %>
 		<p>
