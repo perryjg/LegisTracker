@@ -3,10 +3,10 @@
 	<p>2010 contribution total: <strong><%= number_to_currency(@member.total_dollars, :precision => 0) %></strong></p>
 	<p>
 
-  <div id="top_donars" class="span-12 first"
-		<h3>Top 5 donors:</h3>
+  <div id="top_donars" class="span-13 first"
+		<h3>Top 10 donors:</h3>
 		<ul>
-		<% @member.top_contributors[0..4].each do |c| %>
+		<% @member.top_contributors[0..9].each do |c| %>
 			<li>
 				<%= c.contributor_name %>,
 				<%= c.business_name %>:
@@ -16,7 +16,19 @@
 		</ul>
     </p>
   </div>
-  <div class="span-10 push-1">
+  <div class="span-9 push-1">
+		<%=raw "#{Gchart.pie( 
+			:data   => @member.contributions_by_geography,
+			:labels => ['In-state', 'Out-of-state', 'Unknown'],
+			:size   => '300x150',
+			:bar_colors => 'AF4F4D',
+		 	:format => 'image_tag' )}" %>
+		<%=raw "#{Gchart.pie( 
+			:data   => @member.contributions_by_source,
+			:labels => ['Individuals', 'Institutions', 'Party', 'Leadership PACS', 'Self', 'Other income', 'Unitemized'],
+			:size   => '300x150',
+			:bar_colors => 'AF4F4D',
+			:format => 'image_tag' )}" %>
   </div>
 	<hr />
 </div>

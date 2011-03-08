@@ -76,7 +76,7 @@ class Member < ActiveRecord::Base
 
   def contributions_by_source
     [percent_individuals, percent_institutions, percent_party_committee, percent_leadership_committee,
-     percent_leadership_committee, percent_self_finance, percent_noncontribution_income, percent_unitemized]
+     percent_self_finance, percent_noncontribution_income, percent_unitemized]
   end
   
   def top_contributors

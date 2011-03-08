@@ -75,6 +75,7 @@ GEM
       sax-machine (>= 0.0.12)
     gherkin (2.3.3)
       json (~> 1.4.6)
+    googlecharts (1.6.1)
     heroku (1.17.10)
       json (~> 1.4.6)
       launchy (~> 0.3.2)
@@ -171,6 +172,7 @@ DEPENDENCIES
   factory_girl_rails!
   faker
   feedzirra
+  googlecharts
   govkit!
   heroku
   meta_search
