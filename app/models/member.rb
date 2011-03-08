@@ -94,6 +94,14 @@ class Member < ActiveRecord::Base
   def contributions_by_business
     GovKit::FollowTheMoney::BusinessContribution.find( imsp_member_id )
   end
+
+  def pvs_bio
+    GovKit::VoteSmart::Bio.find( pvs_member_id )
+  end
+
+  def pvs_address
+    GovKit::VoteSmart::Address.find( pvs_member_id )
+  end
   
   def self.load_imsp_data
     [ 'HOUSE', 'SENATE' ].each do |house|

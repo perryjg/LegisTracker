@@ -8,6 +8,7 @@ class MembersController < ApplicationController
   def show
     @member = Member.find( params[:id] )
     @title = @member.name
+    @bio = @member.pvs_bio
   end
 
 end

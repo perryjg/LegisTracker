@@ -1,10 +1,17 @@
 <div id="title" class="sapn-22 push-1 first last">
-	<h2><%= @member.name %> <span class="memid"><%= @member.seat %> </span></h2>
-	<p>2010 contribution total: <strong><%= number_to_currency(@member.total_dollars, :precision => 0) %></strong></p>
+  <h2>
+    <%= @member.name %>
+    <span class="memid">
+      <%= @member.seat %> 
+      (<%= @member.party %>-<%= @bio.homeCity %>)
+    </span>
+  </h2>
 	<p>
 
   <div id="top_donars" class="span-13 first"
-		<h3>Top 10 donors:</h3>
+		<h3>Campaign Finance</h3>
+	  <p>2010 contribution total: <strong><%= number_to_currency(@member.total_dollars, :precision => 0) %></strong></p>
+    <h4>Top 10 Donors</h3>
 		<ul>
 		<% @member.top_contributors[0..9].each do |c| %>
 			<li>
@@ -33,6 +40,16 @@
 	<hr />
 </div>
 
+<div id="bio" class="span-20 push-1 first last">
+  <h3>Biographical Information</h3>
+  <p><strong>Religion:</strong> <%= @bio.religion %></p>
+  <p><strong>Family:</strong> <%= @bio.family %></p>
+  <p><strong>Education:</strong> <%= @bio.education %></p>
+  <p><strong>Professional Experience:</strong> <%= @bio.profession %></p>
+  <p><strong>Political Experience:</strong> <%= @bio.political %></p>
+  <hr />
+</div>
+
 <div id="sponsorships" class="span-22 push-1 first last">
 	<% if @member.sponsorships.primary.count > 0 %>
 		<h3>Bills sponsored: Primary</h3>
@@ -59,6 +76,6 @@
 			<% end %>
 		</table>
 	<% end %>
-	<%= link_to image_tag( 'IMSP-color.jpg' ), 'http://www.followthemoney.org' %>
 </div>
-
+<%= link_to image_tag( 'IMSP-color.jpg' ), 'http://www.followthemoney.org' %>
+<a href="http://www.votesmart.org/" style="font-size: 150%; text-decoration: none;">Project Vote Smart</a>
