@@ -2,7 +2,7 @@
 	<header><h3>Votes</h3></header>
 	<ul>
 	<% @votes.each do |vote| %>
-		<article>
+		
 			<li class="vote">
 				<% unless vote.bill.nil? %>
 					<%= link_to "#{vote.bill.number}", bill_path( vote.bill ) %>
@@ -12,7 +12,7 @@
 				<br/>
 				<strong>Yea: <%= vote.yea %> Nay: <%= vote.nay %></strong>
 			</li>
-		</article>
+		
 	<% end %>
 	</ul>
 </section>
@@ -21,7 +21,7 @@
 	<header><h3>Bill Status Changes</h3></header>
 	<ul>
 			<% @events.each do |event| %>
-			<article>
+			
 				<li class="event">
 		    <%= link_to "#{event.bill.number}", bill_path( event.bill ) %>
 		    <%= event.status_code.description %>
@@ -31,7 +31,7 @@
 					 <%= event.bill.primary_sponsor_party %> -
 					 <%= event.bill.primary_sponsor_district %>)
 			</li>
-			</article>
+			
 			<% end %>
 		</li>
 	</ul>

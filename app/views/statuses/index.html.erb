@@ -1,7 +1,7 @@
-<div class="span-24 first last">
+<section class="span-24 first last">
 	
 
-	<div id="votes" class="span-7 push-1 first border prepend-top">
+	<section id="votes" class="span-7 push-1 first border prepend-top">
 		<h3>Votes <%= @vote_date %></h3>
 		<p class="fwdbk" align="center"> 
 			<% if @vote_date < Vote.last_date %>
@@ -22,9 +22,9 @@
 		<% end %>
 		</ul>
 		<p class="endy"> >>> end feed <<< </class> </p>
-	</div>
+	</section>
 
-	<div id="status" class="span-11 push-2 prepend-top ">
+	<section id="status" class="span-11 push-2 prepend-top ">
 		<h3>Bill status changes <%= @status_date %></h3>
 		<p class="fwdbk" align="center">
 			<% if @status_date < Status.last_date %>
@@ -44,5 +44,5 @@
 		<% end %>
 		</ul>
 		<p class="endy"> >>> end feed <<< </class> </p>
-	</div>
-</div>
+	</section>
+</section>
