@@ -1,32 +1,32 @@
 <section id="title" class="span-22 push-1 first last">
 	<% if flash[:notice] %>
-		<div id="flash" class="flash notice span-21 first last"><%= flash[:notice] %></div>
+		<section id="flash" class="flash notice span-21 first last"><%= flash[:notice] %></section>
 	<% end %>
 	<% if flash[:error] %>
-		<div id="flash" class="flash error span-21 first last"><%= flash[:error] %></div>
+		<section id="flash" class="flash error span-21 first last"><%= flash[:error] %></section>
 	<% end %>
 
-	<div id="hotnot" class="first">
+	<section id="hotnot" class="first">
 		<% if @bill.is_hot? %>
 		<%= link_to image_tag("bt_unwatch.png", :mouseover =>"bt_unwatch_hvr.png"), unhot_bill_path( @bill ), :class => 'watched' %>
 		<% else %>
 		<%= link_to  image_tag("bt_watch.png", :mouseover => "bt_watch_hvr.png"), hot_bill_path( @bill ), :class => 'unwatched'%>
 		<% end %>
-	</div>
+	</section>
   
-	<div id="billtitle" class="span-18 first last">
+	<section id="billtitle" class="span-19  push-2 last">
 		<h2><%= @bill.number %>: <%= @bill.short_title %></h2>
-	</div>
+	</section>
 	
-	<div class="span-10 first">
+	<section class="span-10 first">
 		<p>
 		<strong>Citation: </strong> Title <%= @bill.code_title %> Chapter <%= @bill.code_chapter %><br/>
 		<strong>Current status: </strong><%= @bill.b_status %> (<%= @bill.current_status_date.strftime( '%Y-%m-%d' ) %>)<br />
 		<strong>House committee:</strong> <%= @bill.house_committee_name %><br />
 		<strong>Senate committee:</strong> <%= @bill.senate_committee_name %><br />
 		</p>
-  	</div>
-	<div id="tags" class="span-6 last">
+  	</section>
+	<section id="tags" class="span-6 last">
 		<% form_tag tag_path( @bill ) do %>
 			<%= hidden_field_tag :context, 'topic' %>
 			<%= submit_tag "+Tag"%>
@@ -35,11 +35,11 @@
 		<p>
 			<strong>Topic tags:</strong> <%= @bill.topic_list.join( ', ' ) %>
 		</p>
-	</div>
+	</section>
 
-	<div id="bill_text" class="span-22 first last">
+	<section id="bill_text" class="span-22 first last">
 		<p><%= @bill.title %></p>
-	</div>
+	</section>
 </section>
 
 <hr />

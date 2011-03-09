@@ -6,18 +6,19 @@
 		<p class="flash error span-21 first last"><%= flash[:error] %></p>
 	<% end %>
 
-	<section id="key" class="first">
+	<section id="key" class="first push-2">
 	<% if @vote.is_key? %>
-		<%= link_to "Un-tag as key", unkey_vote_path( @vote ) %>
+		<%= link_to image_tag("bt_unkey.png", :mouseover => "bt_unkey_h.png"), unkey_vote_path( @vote ) %>
 	<% else %>
-		<%= link_to "Tag as key", key_vote_path( @vote ) %>
+		<%= link_to image_tag("bt_makekey.png", :mouseover => "bt_makekey_h.png"), key_vote_path( @vote )  %>
 	<% end %>
 	</section>
 	
-	<section id="keytitle" class="span-18 prepend-top">
-		<h2><%= "#{@vote.legislation} #{@vote.description}" %></h2>
-	<h4>Vote on <%= @vote.date.strftime( '%Y-%m-%d' ) %></h4>
-	<p>
+	<section id="keytitle" class="span-19 last">
+		<header><h2><%= "#{@vote.legislation}" %> <span class="memid"> <%= "#{@vote.description}" %> </span></h2>
+	<h4>Vote on <%= @vote.date.strftime( '%Y-%m-%d' ) %></h4></header>
+		</section>
+	<section id="bill_description" class="span-19 first last" ><p>
 		<% if @bill %>
 			<%= link_to "#{@bill.number}", bill_path( @bill ) %> <%= @bill.short_title %>
 			<%= @bill.short_title %>
@@ -25,6 +26,7 @@
 		</p>
 	</section>
 
+<hr/>
 
 </section>
 
@@ -41,7 +43,7 @@
 
 
 
-<section id="repub_votes" class="span-9 push-4 first">
+<section id="repub_votes" class="span-5 push-6 border first">
 	<h3>Republicans</h3>
 	<strong>
 		Yea: <%= @repub_votes.yea.count %> |
@@ -58,7 +60,7 @@
 	</ul>
 </section>
 
-<section id="demo_votes" class="span-7 push-6 last">
+<section id="demo_votes" class="span-7 push-8 last">
 	<h3>Democrats</h3>
 	<strong>
 		Yea: <%= @demo_votes.yea.count %> |

@@ -136,13 +136,38 @@ box-shadow: 0 0px 0px rgba(0, 0, 0, 0.5);
 
 
 /* -----------------------------------votes SHOW */
-#votetitle {clear:both; float:left;}
-#votetitle h2 {margin-bottom: 1em;}
+
+#votetitle h2 {padding-top:1em; margin-bottom: 1em;}
 #votetitle h4 {margin-top:-1.75em;}
-#votebox {clear:both; background: #e5e5e5; padding:0; margin-top:-1em;}
+#vote title p {text-align:justify;}
+
+
+/*--------- WATCH & UNWATCH BUTTON */
+#key { clear:both; 
+	float:left;
+	width:86px; 
+	margin:5px; 
+	margin-left:0;padding:3px; 
+		padding-bottom:0px; 
+		margin-top:2.35em;}
+#key a img { }
+#key a:hover img,
+#key a:focus img { }
+#votetitle {float:left;}
+
+#votebox {
+	clear:both; 
+	background: #e5e5e5; 
+	padding:0; 
+	margin-top:-1em;
+	-moz-border-radius: 20px; 
+	-webkit-border-radius: 20px; 
+	border-radius: 20px;
+	}
 #votebox ul { margin-left:auto; margin-right:auto; list-style-type: none;}
-#votebox li { float: left; padding: 5px 20px 7px 20px; }
-#repub_votes {clear:both;}
+#votebox li { float: left; padding: 8px 20px 7px 20px; }
+#repub_votes {clear:both; }
+
 
 
 /* --------------------------------- members SHOW */
