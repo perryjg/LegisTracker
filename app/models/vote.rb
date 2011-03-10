@@ -61,6 +61,7 @@ class Vote < ActiveRecord::Base
               v.members.each do |m|
                 next if m['name'] == 'VACANT'
                 member = Member.find_by_vote_id_string( m['name'] )
+                puts member.vote_id_string
                 
                 member_vote = MemberVote.new
                 member_vote.member_id = member.id
