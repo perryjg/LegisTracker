@@ -1,15 +1,19 @@
-<div id="title" class="sapn-22 push-1 first last">
+<div id="title" class="span-22 push-1 first last">
   <h2>
     <%= @member.name %>
     <span class="memid">
       <%= @member.seat %> 
-      (<%= @member.party %>-<%= @bio.homeCity %>)
+      <%= @member.party %>
     </span>
   </h2>
-	<p>
+</div>
 
+<div id="campaign_finance" class="span-22 push-1 first last" >
+	<h3>Campaign Finance</h3>
+  <% if @member.imsp_member_id.nil? %>
+    No data available from FollowTheMoney.org
+  <% else %>
   <div id="top_donars" class="span-13 first"
-		<h3>Campaign Finance</h3>
 	  <p>2010 contribution total: <strong><%= number_to_currency(@member.total_dollars, :precision => 0) %></strong></p>
     <h4>Top 10 Donors</h3>
 		<ul>
@@ -37,17 +41,22 @@
 			:bar_colors => 'AF4F4D',
 			:format => 'image_tag' )}" %>
   </div>
-	<hr />
+  <hr />
+  <% end %>
 </div>
 
 <div id="bio" class="span-20 push-1 first last">
   <h3>Biographical Information</h3>
+  <% if @bio.nil? %>
+    No biographical information available
+  <% else %>
   <p><strong>Religion:</strong> <%= @bio.religion %></p>
   <p><strong>Family:</strong> <%= @bio.family %></p>
   <p><strong>Education:</strong> <%= @bio.education %></p>
   <p><strong>Professional Experience:</strong> <%= @bio.profession %></p>
   <p><strong>Political Experience:</strong> <%= @bio.political %></p>
   <hr />
+<% end %>
 </div>
 
 <div id="sponsorships" class="span-22 push-1 first last">
