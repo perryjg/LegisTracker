@@ -1,22 +1,22 @@
 <section id="title" class="span-22 push-1 first last">
 	<% if flash[:notice] %>
-		<section id="flash" class="flash notice span-21 first last"><%= flash[:notice] %></section>
+		<div id="flash" class="flash notice span-21 first last"><%= flash[:notice] %></div>
 	<% end %>
 	<% if flash[:error] %>
-		<section id="flash" class="flash error span-21 first last"><%= flash[:error] %></section>
+		<div id="flash" class="flash error span-21 first last"><%= flash[:error] %></div>
 	<% end %>
 
-	<section id="hotnot" class="first">
+	<div id="hotnot" class="first">
 		<% if @bill.is_hot? %>
 		<%= link_to image_tag("bt_unwatch.png", :mouseover =>"bt_unwatch_hvr.png"), unhot_bill_path( @bill ), :class => 'watched' %>
 		<% else %>
 		<%= link_to  image_tag("bt_watch.png", :mouseover => "bt_watch_hvr.png"), hot_bill_path( @bill ), :class => 'unwatched'%>
 		<% end %>
-	</section>
+	</div>
   
-	<section id="billtitle" class="span-19  push-2 last">
+	<div id="billtitle" class="span-19  push-2 last">
 		<h2><%= @bill.number %>: <%= @bill.short_title %></h2>
-	</section>
+	</div>
 	
 	<section class="span-10 first">
 		<p>
@@ -26,7 +26,7 @@
 		<strong>Senate committee:</strong> <%= @bill.senate_committee_name %><br />
 		</p>
   	</section>
-	<section id="tags" class="span-6 last">
+	<div id="tags" class="span-6 last">
 		<% form_tag tag_path( @bill ) do %>
 			<%= hidden_field_tag :context, 'topic' %>
 			<%= submit_tag "+Tag"%>
@@ -35,7 +35,7 @@
 		<p>
 			<strong>Topic tags:</strong> <%= @bill.topic_list.join( ', ' ) %>
 		</p>
-	</section>
+	</div>
 
 	<section id="bill_text" class="span-22 first last">
 		<p><%= @bill.title %></p>
@@ -54,7 +54,7 @@
 	<br />
 </section>
 
-<section id="sponsors" class="span-6">
+<section id="sponsors" class="span-4">
 	<header><h3>Sponsors</h3></header>
 	<ul>
 	<% @bill.sponsorships.each do |sponsor| %>
@@ -81,7 +81,7 @@
  
 </section>
 
-<section id="votes" class="span-4 last">
+<section id="votes" class="span-6 last">
  <header> <h3>Votes</h3></header>
   <ul>
     <% @bill.votes.each do |vote| %>

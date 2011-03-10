@@ -7,6 +7,7 @@ a {color:#3774A2;}
 a:hover {color:#274385;}
 a:focus {color:#274385;}
 
+
 /* forms
 --------------------------------------------------------------------------------- */
 input[type=image] { /* form input images */
@@ -87,10 +88,10 @@ input[type="submit"]:hover {
 
 
 /*---------------------------------- Bills  SHOW */
-#title h2 { padding-top:1em;}
-#title p {text-align:justify;}
-#tags {float:right; text-align:right;}
-#tags p {text-align:right;}
+#title h2 { padding-top:1em; margin-bottom: 1em;} /* used on votes show too */
+#title h4 {margin-top:-1.75em;}/* used on votes show too */
+#title p {text-align:justify;}/* used on votes show too */
+
 #flash {}
 
 /*--------- WATCH & UNWATCH BUTTON */
@@ -107,6 +108,8 @@ input[type="submit"]:hover {
 #billtitle {float:left;margin-left:10px;}
 
 /* ------- TAGS */
+#tags {float:right; text-align:right;}
+#tags p {text-align:right;}
 #tags input[type="submit"] {
 padding: 1px 5px; 
 color: #444; 
@@ -114,8 +117,8 @@ font-weight:bold;
 font-size: .85em;
 text-shadow: 0 1px rgba(255,255,255, 0.85);
 border: 1px solid #888; 
-background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#ccc), to(#eee)); 
-background-image: -moz-linear-gradient(0 100% 90deg, #ccc, #eee);
+background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#eee), to(#bbb)); 
+background-image: -moz-linear-gradient(0 100% 90deg, #eee, #bbb);
 background-color: #333; 
 -webkit-box-shadow: 0 0px 0px rgba(0, 0, 0, 0.5); 
 -moz-box-shadow: 0 0px 0px rgba(0, 0, 0, 0.5); 
@@ -123,12 +126,13 @@ box-shadow: 0 0px 0px rgba(0, 0, 0, 0.5);
 }
 
 #tags input[type="submit"]:hover {
-	background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#eee), to(#bbb)); 
-	background-image: -moz-linear-gradient(0 100% 90deg, #eee, #bbb);
+	background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#ccc), to(#eee)); 
+	background-image: -moz-linear-gradient(0 100% 90deg, #ccc, #eee);
 	background-color: #333; 
 	-webkit-box-shadow: 0 0px 0px rgba(0, 0, 0, 0.5); 
 	-moz-box-shadow: 0 0px 0px rgba(0, 0, 0, 0.5); 
 	box-shadow: 0 0px 0px rgba(0, 0, 0, 0.5);
+
 }
 
 /* ---------------------------------- BILLS INDEx */
@@ -136,11 +140,6 @@ box-shadow: 0 0px 0px rgba(0, 0, 0, 0.5);
 
 
 /* -----------------------------------votes SHOW */
-
-#votetitle h2 {padding-top:1em; margin-bottom: 1em;}
-#votetitle h4 {margin-top:-1.75em;}
-#vote title p {text-align:justify;}
-
 
 /*--------- WATCH & UNWATCH BUTTON */
 #key { clear:both; 

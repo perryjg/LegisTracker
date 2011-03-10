@@ -1,6 +1,7 @@
-<!DOCTYPE html>
+<!DOCTYPE html >
 <html lang="en">
 <head>
+	<meta charset="utf-8">
   <title><%= "AJC LegiTracker | #{@title}" %></title>
   <%= csrf_meta_tag %>
 
@@ -16,42 +17,45 @@
   <%= stylesheet_link_tag 'http://fonts.googleapis.com/css?family=Orbitron', :media =>'screen'%>
 </head>
 <body>
-	<div class="container">
-	  <header id="header"class="span-24 first last">
-      <section id="logo" class="span-16 first">
-		    <h1> <%= link_to 'LegiTracker', root_url %></h1>
-      </section>
-      <section id="search" class="span-7 last push-1">
-        <%= form_for @search, :url => bills_path, :class => 'inline', :html => {:method => :get} do |f| %>
-          <%= f.search_field :number_or_short_title_or_title_or_b_status_contains, :placeholder => 'Quick search' %> <%= image_submit_tag 'ic_search.png' %>
-        <% end %>
-        <%= link_to "Advanced Search  "   , search_path, :class => 'advanced_search' %>
-      </section>
-	  </header>
+<div class="container">
+	  
+	<header id="header" class="span-24 first last">
+      
+			<section id="logo" class="span-16 first">
+			    <h1> <%= link_to 'LegiTracker', root_url %></h1>
+	      	</section>
+
+		    <section id="search" class="span-7 last push-1">
+		        <%= form_for @search, :url => bills_path, :class => 'inline', :html => {:method => :get} do |f| %>
+		          <%= f.search_field :number_or_short_title_or_title_or_b_status_contains, :placeholder => 'Quick search' %> <%= image_submit_tag 'ic_search.png' %>
+		        <% end %>
+		        <%= link_to "Advanced Search  "   , search_path, :class => 'advanced_search' %>
+		    </section>
+
+	</header>
+	
+	<nav class="first last">
+		<ul>
+			<li><%= link_to "Watched bills", root_path, :class => current_class?(root_path) %></li>
+			<li><%= link_to "Daily status report", statuses_path, :class => current_class?(statuses_path)  %></li>
+			<li><%= link_to "Members", members_path, :class => current_class?(members_path)  %></li>
+			<li><%= link_to "Committees",'#', :class => current_class?('#')  %></li>
+		</ul>
+	</nav>
+		
+		
+		
+	<section id="content" class="span-24 first last ">
+		
+		<%= yield %>
+	
+		<footer id="footer" class="span-24 first last">
+			<p>Copyright &copy;<%= Date.today.year %></p>
+	  	</footer>
+			
+	 </section>
 	
 	  
-		
-			<nav class="first last">
-			<ul>
-				<li><%= link_to "Watched bills", root_path, :class => current_class?(root_path) %></li>
-				<li><%= link_to "Daily status report", statuses_path, :class => current_class?(statuses_path)  %></li>
-				<li><%= link_to "Members", members_path, :class => current_class?(members_path)  %></li>
-				<li><%= link_to "Committees",'#', :class => current_class?('#')  %></li>
-			</ul>
-		</nav>
-		
-		
-		
-	  <section id="content" class="span-24 first last ">
-		    <%= yield %>
-			
-			<footer id="footer" class="span-24 first last">
-					<p>Copyright &copy;<%= Date.today.year %></p>
-			  </footer>
-			
-	  </section>
-	
-	  
-	</div>
+</div>
 </body>
 </html>
