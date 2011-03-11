@@ -76,7 +76,7 @@ describe BillsController do
       get :add_tag, :id => @bill.id, :context => 'topics', :tag => 'taxes'
     end
     it { should respond_with( :redirect ) }
-    it { should set_the_flash.to( "Bill successfully taged with topic" ) }
+    it { should set_the_flash.to( { :notice => "Bill successfully taged with topic" } ) }
     it { should assign_to( :bill ).with( @bill ) }
     it "should include 'taxes' tag in topics_list" do
       @bill.topic_list.should include( 'taxes' )
