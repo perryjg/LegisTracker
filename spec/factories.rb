@@ -6,7 +6,8 @@ FactoryGirl.define do
     short_title 'A Makebelieve Bill'
     title 'A BILL to be entitled A Make Beleive Bill which does absolutely nothing'
     b_status 'House Passed/Adopted'
-    status_code_id 'HPA'
+    status_code_id 'HFCR'
+    crossover 0
   end
 
   factory :vote do

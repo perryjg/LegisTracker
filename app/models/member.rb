@@ -80,27 +80,27 @@ class Member < ActiveRecord::Base
   end
   
   def top_contributors
-    GovKit::FollowTheMoney::Contribution.top( imsp_member_id )
+    imsp_member_id ? GovKit::FollowTheMoney::Contribution.top( imsp_member_id ) : nil
   end
   
   def contributions_by_sector
-    GovKit::FollowTheMoney::SectorContribution.find( imsp_member_id )
+    imsp_member_id ? GovKit::FollowTheMoney::SectorContribution.find( imsp_member_id ) : nil
   end
   
   def contributions_by_industry
-    GovKit::FollowTheMoney::IndustryContribution.find( imsp_member_id )
+    imsp_member_id ? GovKit::FollowTheMoney::IndustryContribution.find( imsp_member_id ) : nil
   end
   
   def contributions_by_business
-    GovKit::FollowTheMoney::BusinessContribution.find( imsp_member_id )
+    imsp_member_id ? GovKit::FollowTheMoney::BusinessContribution.find( imsp_member_id ) : nil
   end
 
   def pvs_bio
-    GovKit::VoteSmart::Bio.find( pvs_member_id )
+    pvs_member_id ? GovKit::VoteSmart::Bio.find( pvs_member_id ) : nil
   end
 
   def pvs_address
-    GovKit::VoteSmart::Address.find( pvs_member_id )
+    pvs_member_id ? GovKit::VoteSmart::Address.find( pvs_member_id ) : nil
   end
   
   def self.load_imsp_data
