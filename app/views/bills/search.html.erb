@@ -4,6 +4,8 @@
 			<%= f.checks :tagged_with, [['Watched','hot']] do |check| %>
 				<%= check.label %> <%= check.box %>
 			<% end %>
+			<%= f.label :crossover_is_true, "Crossed over" %>
+			<%= f.check_box :crossover_is_true %>
 		</section>
 		
 		<section id="seach_bill" class="span-7 first">

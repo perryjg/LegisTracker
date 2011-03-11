@@ -73,17 +73,15 @@
 		<% end %>
 	<% if @member.sponsorships.secondary.count > 0 %>
 		<h3>Bills sponsored: Secondary</h3>
+
 		<table
 			<% @member.sponsorships.secondary.each do |secondary| %>
-			
-				
-					<tr>
-					<td width="45px"><%= link_to secondary.bill.number, bill_path( secondary.bill.id) %> </td><td> <%= secondary.bill.short_title %></td>
-					</tr>
-					
-			
+			<tr>
+				<td width="45px"><%= link_to secondary.bill.number, bill_path( secondary.bill.id) %> </td><td> <%= secondary.bill.short_title %></td>
+			</tr>
 			<% end %>
 		</table>
+
 	<% end %>
 </div>
 <%= link_to image_tag( 'IMSP-color.jpg' ), 'http://www.followthemoney.org' %>

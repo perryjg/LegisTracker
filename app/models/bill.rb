@@ -38,11 +38,11 @@ class Bill < ActiveRecord::Base
   scope :crossed_over, where( "crossover = 1" )
   
   def house_committee_name
-    house_committee.committee_name
+    house_committee ? house_committee.committee_name : ''
   end
   
   def senate_committee_name
-    senate_committee.committee_name
+    senate_committee ? senate_committee.committee_name : ''
   end
   
   def sponsor_count
