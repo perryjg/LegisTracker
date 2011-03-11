@@ -64,6 +64,8 @@ FactoryGirl.define do
     house 'H'
     party 'R'
     seat 'H0001'
+    imsp_member_id '124658'
+    pvs_member_id '12211'
   end
   
   factory :sponsorship do

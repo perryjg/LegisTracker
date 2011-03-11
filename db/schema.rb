@@ -61,6 +61,14 @@ ActiveRecord::Schema.define(:version => 20110308192759) do
     t.datetime "updated_at"
   end
 
+  create_table "member_ids", :id => false, :force => true do |t|
+    t.integer "id"
+    t.string  "imsp_member_id",                              :null => false
+    t.string  "pvs_member_id",               :default => ""
+    t.string  "pvs_office_id",  :limit => 5,                 :null => false
+    t.string  "ajc_seat",       :limit => 4
+  end
+
   create_table "member_votes", :force => true do |t|
     t.integer "member_id"
     t.integer "bill_id"
@@ -116,7 +124,7 @@ ActiveRecord::Schema.define(:version => 20110308192759) do
   end
 
   create_table "status_codes", :force => true do |t|
-    t.string  "description"
+    t.string  "description", :limit => 45, :null => false
     t.string  "house",       :limit => 1
     t.integer "seq"
   end
