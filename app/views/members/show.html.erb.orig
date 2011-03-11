@@ -1,0 +1,102 @@
+<<<<<<< HEAD
+<section id="title" class="sapn-22 push-1 first last">
+	<header><h2><%= @member.name %> <span class="memid"><%= @member.seat %> </span></h2></header>
+</section>
+<section id="sponsorships" class="span-22 push-1 first last">
+=======
+<div id="title" class="span-22 push-1 first last">
+  <h2>
+    <%= @member.name %>
+    <span class="memid">
+      <%= @member.seat %> 
+      <%= @member.party %>
+    </span>
+  </h2>
+</div>
+
+<div id="campaign_finance" class="span-22 push-1 first last" >
+	<h3>Campaign Finance</h3>
+  <% if @member.imsp_member_id.nil? %>
+    No data available from FollowTheMoney.org
+  <% else %>
+  <div id="top_donars" class="span-13 first"
+	  <p>2010 contribution total: <strong><%= number_to_currency(@member.total_dollars, :precision => 0) %></strong></p>
+    <h4>Top 10 Donors</h3>
+		<ul>
+		<% @member.top_contributors[0..9].each do |c| %>
+			<li>
+				<%= c.contributor_name %>,
+				<%= c.business_name %>:
+				<strong><%= number_to_currency(c.total_dollars, :precision => 0) %></strong>
+			</li>
+		<% end %>
+		</ul>
+    </p>
+  </div>
+  <div class="span-9 push-1">
+		<%=raw "#{Gchart.pie( 
+			:data   => @member.contributions_by_geography,
+			:labels => ['In-state', 'Out-of-state', 'Unknown'],
+			:size   => '300x150',
+			:bar_colors => 'AF4F4D',
+		 	:format => 'image_tag' )}" %>
+		<%=raw "#{Gchart.pie( 
+			:data   => @member.contributions_by_source,
+			:labels => ['Individuals', 'Institutions', 'Party', 'Leadership PACS', 'Self', 'Other income', 'Unitemized'],
+			:size   => '300x150',
+			:bar_colors => 'AF4F4D',
+			:format => 'image_tag' )}" %>
+  </div>
+  <hr />
+  <% end %>
+</div>
+
+<div id="bio" class="span-20 push-1 first last">
+  <h3>Biographical Information</h3>
+  <% if @bio.nil? %>
+    No biographical information available
+  <% else %>
+  <p><strong>Religion:</strong> <%= @bio.religion %></p>
+  <p><strong>Family:</strong> <%= @bio.family %></p>
+  <p><strong>Education:</strong> <%= @bio.education %></p>
+  <p><strong>Professional Experience:</strong> <%= @bio.profession %></p>
+  <p><strong>Political Experience:</strong> <%= @bio.political %></p>
+  <hr />
+<% end %>
+</div>
+
+<div id="sponsorships" class="span-22 push-1 first last">
+>>>>>>> master
+	<% if @member.sponsorships.primary.count > 0 %>
+		<h3>Bills sponsored: Primary</h3>
+		<table>
+			<% @member.sponsorships.primary.each do |primary| %>
+				<tr><td width="45px">
+					<%= link_to primary.bill.number, bill_path( primary.bill.id ) %>
+					</td><td><%= primary.bill.short_title %>
+				</td></tr>
+			<% end %>
+		</table>
+		<% end %>
+	<% if @member.sponsorships.secondary.count > 0 %>
+		<h3>Bills sponsored: Secondary</h3>
+		<table
+			<% @member.sponsorships.secondary.each do |secondary| %>
+			
+				
+					<tr>
+					<td width="45px"><%= link_to secondary.bill.number, bill_path( secondary.bill.id) %> </td><td> <%= secondary.bill.short_title %></td>
+					</tr>
+					
+			
+			<% end %>
+		</table>
+	<% end %>
+<<<<<<< HEAD
+</section>
+
+=======
+</div>
+<%= link_to image_tag( 'IMSP-color.jpg' ), 'http://www.followthemoney.org' %>
+<a href="http://www.votesmart.org/" style="font-size: 150%; text-decoration: none;">Project Vote Smart</a>
+>>>>>>> master

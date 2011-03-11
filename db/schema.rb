@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110218142146) do
+ActiveRecord::Schema.define(:version => 20110310190234) do
 
   create_table "bill_versions", :force => true do |t|
     t.integer "number"
@@ -41,6 +41,7 @@ ActiveRecord::Schema.define(:version => 20110218142146) do
     t.integer "code_chapter"
     t.integer "bill_id"
     t.integer "xml_id"
+    t.boolean "crossover"
   end
 
   create_table "house_committees", :force => true do |t|
@@ -61,6 +62,14 @@ ActiveRecord::Schema.define(:version => 20110218142146) do
     t.datetime "updated_at"
   end
 
+  create_table "member_ids", :id => false, :force => true do |t|
+    t.integer "id"
+    t.string  "imsp_member_id",                              :null => false
+    t.string  "pvs_member_id",               :default => ""
+    t.string  "pvs_office_id",  :limit => 5,                 :null => false
+    t.string  "ajc_seat",       :limit => 4
+  end
+
   create_table "member_votes", :force => true do |t|
     t.integer "member_id"
     t.integer "bill_id"
@@ -72,10 +81,23 @@ ActiveRecord::Schema.define(:version => 20110218142146) do
     t.string  "last_name"
     t.string  "first_name"
     t.integer "district"
-    t.string  "house",          :limit => 1
-    t.string  "party",          :limit => 1
-    t.string  "seat",           :limit => 4
+    t.string  "house",                        :limit => 1
+    t.string  "party",                        :limit => 1
+    t.string  "seat",                         :limit => 4
     t.string  "vote_id_string"
+    t.integer "imsp_member_id"
+    t.integer "total_instate_dollars"
+    t.integer "total_out_of_state_dollars"
+    t.integer "total_unknown_state_dollars"
+    t.integer "party_committee_dollars"
+    t.integer "leadership_committee_dollars"
+    t.integer "candidate_money_dollars"
+    t.integer "individual_dollars"
+    t.integer "unitemized_donation_dollars"
+    t.integer "non_contribution_dollars"
+    t.integer "institution_dollars"
+    t.integer "total_dollars"
+    t.integer "pvs_member_id"
   end
 
   create_table "senate_committees", :force => true do |t|

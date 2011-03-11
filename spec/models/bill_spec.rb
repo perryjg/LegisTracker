@@ -82,4 +82,28 @@ describe Bill do
       @bill.latest_version.should == newer_version
     end
   end
+
+  describe "ccrossover" do
+    before( :each ) do
+      @not_yet_bill = Factory.create( :bill )
+      @crossed_over_bill = Factory.create( :bill,
+                                           :num            => "2",
+                                           :number         => "HB 2",
+                                           :status_code_id => 'HPA',
+                                           :crossover      => 1
+      )
+    end
+
+    it "should find crossed over bills" do
+      Bill.crossed_over.all.should == Bill.where( "crossover = 1" )
+    end
+
+    it "should be true if crossed over" do
+      @crossed_over_bill.crossover.should == true
+    end
+
+    it "should be false if not crossed over" do
+      @not_yet_bill.crossover.should == false
+    end
+  end
 end

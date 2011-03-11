@@ -35,6 +35,7 @@ class Bill < ActiveRecord::Base
   }
   
   scope :topic_includes, lambda { |text| tagged_with( text, :on => :topics ) }
+  scope :crossed_over, where( "crossover = 1" )
   
   def house_committee_name
     house_committee.committee_name
@@ -120,6 +121,11 @@ class Bill < ActiveRecord::Base
               :status_date    => status['StatusDate'],
               :status_code_id => status['StatusCode']
             )
+            if status['StatusCode'].match( /(S|H)PA/ )
+              bill_record = Bill.find( bill.Id.to_i )
+              bill_record.crossover = true
+              bill_record.save
+            end
           end
           
           bill.Sponsors.each do |s|
@@ -141,6 +147,6 @@ class Bill < ActiveRecord::Base
           end
         end
       end
-     end
+    end
   end
 end

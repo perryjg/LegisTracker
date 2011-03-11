@@ -7,6 +7,8 @@ gem 'heroku'
 gem 'taps'
 gem 'meta_search'
 gem 'acts-as-taggable-on'
+gem 'govkit', :path => "#{File.expand_path(__FILE__)}/../vendor/gems"
+gem 'googlecharts'
 
 group :development, :test do
   gem 'cucumber-rails'
