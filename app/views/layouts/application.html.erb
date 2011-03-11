@@ -26,6 +26,16 @@
 	      	</section>
 
 		    <section id="search" class="span-7 last push-1">
+					<div id="user_nav" class="span-8 first last">
+						<% if user_signed_in? %>
+							Signed in as <%= current_user.email %> Not you?
+							<%= link_to "Sign out", destroy_user_session_path %>
+						<% else %>
+							<%= link_to "Sign up", new_user_registration_path %> or
+							<%= link_to "Sign in", new_user_session_path %>
+						<% end %>
+					</div>
+
 		        <%= form_for @search, :url => bills_path, :class => 'inline', :html => {:method => :get} do |f| %>
 		          <%= f.search_field :number_or_short_title_or_title_or_b_status_contains, :placeholder => 'Quick search' %> <%= image_submit_tag 'ic_search.png' %>
 		        <% end %>
@@ -35,27 +45,21 @@
 	</header>
 	
 	<nav class="first last">
-		<ul>
-			<li><%= link_to "Watched bills", root_path, :class => current_class?(root_path) %></li>
-			<li><%= link_to "Daily status report", statuses_path, :class => current_class?(statuses_path)  %></li>
-			<li><%= link_to "Members", members_path, :class => current_class?(members_path)  %></li>
-			<li><%= link_to "Committees",'#', :class => current_class?('#')  %></li>
-		</ul>
+			<ul>
+				<li><%= link_to "Watched bills", root_path, :class => current_class?(root_path) %></li>
+				<li><%= link_to "Daily status report", statuses_path, :class => current_class?(statuses_path)  %></li>
+				<li><%= link_to "Members", members_path, :class => current_class?(members_path)  %></li>
+				<li><%= link_to "Committees",'#', :class => current_class?('#')  %></li>
+			</ul>
 	</nav>
-		
-		
-		
 	<section id="content" class="span-24 first last ">
 		
 		<%= yield %>
-	
+		
 		<footer id="footer" class="span-24 first last">
 			<p>Copyright &copy;<%= Date.today.year %></p>
 	  	</footer>
-			
 	 </section>
-	
-	  
 </div>
 </body>
 </html>
