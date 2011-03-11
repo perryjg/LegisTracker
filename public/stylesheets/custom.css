@@ -57,7 +57,7 @@ input[type="submit"]:hover {
 ------------------------------------------------------------------------------------*/
 /* ------------------------- application html */
 #container { position:absolute; background:white; height:100%; }
-#header {background:#3774A2;margin:0; padding-top:1em; height:50px; width:100%;}
+#header {background:#3774A2;margin:0; padding-top:1em; height:70px; width:100%;}
 #header h1 {font-family: 'Orbitron', arial, serif; padding-left:.5em; color:white; text-shadow:0 1px 0 black;}
 #header a {text-decoration:none;color:white;}
 #header a:link {}

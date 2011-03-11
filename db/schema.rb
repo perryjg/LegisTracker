@@ -41,7 +41,7 @@ ActiveRecord::Schema.define(:version => 20110311043234) do
     t.integer "code_chapter"
     t.integer "bill_id"
     t.integer "xml_id"
-    t.boolean "crossover",           :default => false
+    t.boolean "crossover"
   end
 
   create_table "house_committees", :force => true do |t|
@@ -60,14 +60,6 @@ ActiveRecord::Schema.define(:version => 20110311043234) do
     t.string   "guid"
     t.datetime "created_at"
     t.datetime "updated_at"
-  end
-
-  create_table "member_ids", :id => false, :force => true do |t|
-    t.integer "id"
-    t.string  "imsp_member_id",                              :null => false
-    t.string  "pvs_member_id",               :default => ""
-    t.string  "pvs_office_id",  :limit => 5,                 :null => false
-    t.string  "ajc_seat",       :limit => 4
   end
 
   create_table "member_votes", :force => true do |t|
