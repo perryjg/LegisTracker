@@ -15,8 +15,15 @@ class BillsController < ApplicationController
   
   def hot
     @bill = Bill.find( params[:id] )
-    @bill.hot_list.add( 'hot' )
-    if @bill.save
+    
+    if current_user
+      saved = current_user.tag( @bill, :with => "hot", :on => :hot )
+    else
+      @bill.hot_list.add( 'hot' )
+      saved = @bill.save
+    end
+    
+    if saved
       flash[:notice] = "Bill successfully added to the watch list"
     else
       flash[:error] = "Tagging failed"

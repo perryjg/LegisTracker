@@ -15,11 +15,13 @@ class User < ActiveRecord::Base
 
   def watched_bill_votes
     Vote.joins( "JOIN taggings ON votes.bill_id = taggings.taggable_id" ).
-         where( "taggings.context = 'hot' AND taggings.tagger_id = ?", id )
+         where( "taggings.context = 'hot' AND taggings.tagger_id = ?", id ).
+         order( "date DESC" )
   end
 
   def watched_bill_statuses
     Status.joins( "JOIN taggings ON statuses.bill_id = taggings.taggable_id" ).
-           where( "taggings.context = 'hot' AND taggings.tagger_id = ?", id )
+           where( "taggings.context = 'hot' AND taggings.tagger_id = ?", id ).
+           order( "status_date DESC" )
   end
 end

@@ -7,10 +7,18 @@
 	<% end %>
 
 	<div id="hotnot" class="first">
-		<% if @bill.is_hot? %>
-		<%= link_to image_tag("bt_unwatch.png", :mouseover =>"bt_unwatch_hvr.png"), unhot_bill_path( @bill ), :class => 'watched' %>
+		<% if current_user %>
+			<% if @bill.hot_from( current_user ).include? 'hot' %>
+				<%= link_to image_tag("bt_unwatch.png", :mouseover =>"bt_unwatch_hvr.png"), unhot_bill_path( @bill ), :class => 'watched' %>
+			<% else %>
+				<%= link_to  image_tag("bt_watch.png", :mouseover => "bt_watch_hvr.png"), hot_bill_path( @bill ), :class => 'unwatched'%>
+			<% end %>
 		<% else %>
-		<%= link_to  image_tag("bt_watch.png", :mouseover => "bt_watch_hvr.png"), hot_bill_path( @bill ), :class => 'unwatched'%>
+			<% if @bill.is_hot? %>
+				<%= link_to image_tag("bt_unwatch.png", :mouseover =>"bt_unwatch_hvr.png"), unhot_bill_path( @bill ), :class => 'watched' %>
+			<% else %>
+				<%= link_to  image_tag("bt_watch.png", :mouseover => "bt_watch_hvr.png"), hot_bill_path( @bill ), :class => 'unwatched'%>
+			<% end %>
 		<% end %>
 	</div>
   
@@ -44,7 +52,7 @@
 
 <hr />
 
-<section id="versions" class="span-4 prepend-1 first">
+<section id="versions" class="span-5 prepend-1 first">
 	<header><h3>Versions</h3></header>
 	<ul>
 	<% @bill.bill_versions.order_desc.each do |version| %>
@@ -54,7 +62,7 @@
 	<br />
 </section>
 
-<section id="sponsors" class="span-4">
+<section id="sponsors" class="span-5">
 	<header><h3>Sponsors</h3></header>
 	<ul>
 	<% @bill.sponsorships.each do |sponsor| %>
@@ -81,7 +89,7 @@
  
 </section>
 
-<section id="votes" class="span-6 last">
+<section id="votes" class="span-5 last">
  <header> <h3>Votes</h3></header>
   <ul>
     <% @bill.votes.each do |vote| %>
