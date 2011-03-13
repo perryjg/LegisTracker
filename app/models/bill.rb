@@ -2,12 +2,13 @@ require 'bill_status_summary'
 require 'shellwords'
 
 class Bill < ActiveRecord::Base
-  acts_as_taggable_on :hot, :topics
+  acts_as_taggable_on :topics
   
   belongs_to :house_committee
   belongs_to :senate_committee
   has_many :statuses
   has_many :bill_versions
+  has_many :watched_bills
   has_many :votes
   has_many :member_votes
   has_many :sponsorships
@@ -36,6 +37,10 @@ class Bill < ActiveRecord::Base
   
   scope :topic_includes, lambda { |text| tagged_with( text, :on => :topics ) }
   scope :crossed_over, where( "crossover = 1" )
+  
+  def is_watched_by_user?(user)
+    watched_bills.where( :user_id => user ).count > 0 ? true : false
+  end
   
   def house_committee_name
     house_committee ? house_committee.committee_name : ''

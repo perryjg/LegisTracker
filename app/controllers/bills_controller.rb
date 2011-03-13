@@ -15,15 +15,8 @@ class BillsController < ApplicationController
   
   def hot
     @bill = Bill.find( params[:id] )
-    
-    if current_user
-      saved = current_user.tag( @bill, :with => "hot", :on => :hot )
-    else
-      @bill.hot_list.add( 'hot' )
-      saved = @bill.save
-    end
-    
-    if saved
+    watched_bill = @bill.watched_bills.new( :user_id => current_user.id )
+    if watched_bill.save
       flash[:notice] = "Bill successfully added to the watch list"
     else
       flash[:error] = "Tagging failed"
@@ -33,8 +26,8 @@ class BillsController < ApplicationController
   
   def unhot
     @bill = Bill.find( params[:id] )
-    @bill.hot_list.remove( 'hot' )
-    if @bill.save
+    watched_bill = @bill.watched_bills.where( :user_id => current_user.id ).first
+    if watched_bills.delete
       flash[:notice] = "Bill successfully removed to watch list"
     else
       flas[:error] = "Tagging fails"
