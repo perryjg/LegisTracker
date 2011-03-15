@@ -175,6 +175,50 @@ box-shadow: 0 0px 0px rgba(0, 0, 0, 0.5);
 #sponsorships tr td {text-align:left; vertical-align:top;  padding:0;}/* Bills */
 #title h2 { padding-top:1em;}
 
+#fin_graph {
+	margin-top: -2.75em;
+	padding: 10px;
+	padding-bottom: 0px;
+	float:right;
+	background: #eee;
+	border-radius: 10px;
+	-moz-border-radius: 10px; 
+	-webkit-border-radius: 10px; 
+	border-radius: 10px;
+}
+
+#links {
+
+	border: 1px solid #eee;
+	-moz-border-radius: 10px; 
+	-webkit-border-radius: 10px; 
+
+}
+#ftm {
+	padding: 8px;
+	padding-bottom:0px;
+	margin-left: 5px;
+}
+
+#pvs {
+	margin-top:15px;
+	margin-left: 65px;
+	padding: 10px;
+	
+	text-align: center;
+	background: #eee;
+	border-radius: 10px;
+	-moz-border-radius: 10px; 
+	-webkit-border-radius: 10px; 
+	border-radius: 10px;
+}
+
+#pvs a {
+	color:white;
+	font-display:strong;
+	text-shadow: 1px 1px 1px #0a0a0a;
+	filter: dropshadow(color=#0a0a0a, offx=1, offy=1);
+}
 
 /*------------------------------- Flash messages */
 .flash {
@@ -210,6 +254,9 @@ box-shadow: 0 0px 0px rgba(0, 0, 0, 0.5);
     color: #f00;
     text-decoration:    none;
 }
+
+
+
 
 /* navigation bar
 ------------------------------------------------------- */

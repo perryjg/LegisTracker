@@ -8,14 +8,14 @@
   </h2>
 </div>
 
-<div id="campaign_finance" class="span-22 push-1 first last" >
+<section id="campaign_finance" class="span-22 push-1 first last" >
 	<h3>Campaign Finance</h3>
   <% if @member.imsp_member_id.nil? %>
     No data available from FollowTheMoney.org
   <% else %>
-  <div id="top_donars" class="span-13 first"
+  <section id="top_donors" class="span-13 first">
 	  <p>2010 contribution total: <strong><%= number_to_currency(@member.total_dollars, :precision => 0) %></strong></p>
-    <h4>Top 10 Donors</h3>
+    <h4>Top 10 Donors</h4>
 		<ul>
 		<% @member.top_contributors[0..9].each do |c| %>
 			<li>
@@ -25,41 +25,50 @@
 			</li>
 		<% end %>
 		</ul>
-    </p>
-  </div>
-  <div class="span-9 push-1">
+    
+  </section>
+  <div id="fin_graph" class="span-8 last">
+	<h4>Funding sources</h4>
 		<%=raw "#{Gchart.pie( 
 			:data   => @member.contributions_by_geography,
+			:bg => 'eeeeee',
 			:labels => ['In-state', 'Out-of-state', 'Unknown'],
 			:size   => '300x150',
 			:bar_colors => 'AF4F4D',
 		 	:format => 'image_tag' )}" %>
 		<%=raw "#{Gchart.pie( 
 			:data   => @member.contributions_by_source,
+			:bg => 'eeeeee',
 			:labels => ['Individuals', 'Institutions', 'Party', 'Leadership PACS', 'Self', 'Other income', 'Unitemized'],
 			:size   => '300x150',
 			:bar_colors => 'AF4F4D',
 			:format => 'image_tag' )}" %>
   </div>
+<div id="links" class="span-8 push-1 last">
+	<div id='ftm' class="span-2 first"><%= link_to image_tag( 'IMSP-color.jpg', :width => '120' ), 'http://www.followthemoney.org'%></div>
+	<div id='pvs' class="span-3 push-1 last"><a href="http://www.votesmart.org/" style="font-size: 150%; text-decoration: none;">Project Vote Smart</a></div>
+</div>
   <hr />
   <% end %>
-</div>
+</section>
 
-<div id="bio" class="span-20 push-1 first last">
+<section id="bio" class="span-20 push-1 first last">
   <h3>Biographical Information</h3>
   <% if @bio.nil? %>
     No biographical information available
   <% else %>
-  <p><strong>Religion:</strong> <%= @bio.religion %></p>
-  <p><strong>Family:</strong> <%= @bio.family %></p>
-  <p><strong>Education:</strong> <%= @bio.education %></p>
-  <p><strong>Professional Experience:</strong> <%= @bio.profession %></p>
-  <p><strong>Political Experience:</strong> <%= @bio.political %></p>
+<ul>
+  <li><strong>Religion:</strong> <%= @bio.religion %></li>
+  <li><strong>Family:</strong> <%= @bio.family %></li>
+  <li><strong>Education:</strong> <%= @bio.education %></li>
+  <li><strong>Professional Experience:</strong> <%= @bio.profession %></li>
+  <li><strong>Political Experience:</strong> <%= @bio.political %></li>
+</ul>
   <hr />
 <% end %>
-</div>
+</section>
 
-<div id="sponsorships" class="span-22 push-1 first last">
+<section id="sponsorships" class="span-20 push-1 first last">
 	<% if @member.sponsorships.primary.count > 0 %>
 		<h3>Bills sponsored: Primary</h3>
 		<table>
@@ -83,6 +92,6 @@
 		</table>
 
 	<% end %>
-</div>
-<%= link_to image_tag( 'IMSP-color.jpg' ), 'http://www.followthemoney.org' %>
-<a href="http://www.votesmart.org/" style="font-size: 150%; text-decoration: none;">Project Vote Smart</a>
+</section>
+
+
