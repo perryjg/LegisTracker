@@ -1,8 +1,8 @@
 class MembersController < ApplicationController
   def index
     @title = 'Members'
-    @reps = Member.reps.all
-    @senators = Member.senators.all
+    @reps = Member.reps.order( "seat" )
+    @senators = Member.senators.order( "seat" )
   end
 
   def show
