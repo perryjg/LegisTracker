@@ -2,6 +2,7 @@
 ---------------------------------------------------------------------------------- */
 body {background:#888;}
 ul {list-style-type:none; margin-left:0; padding-left:0;}
+li {margin-top:.25em;}
 p {color:#222;}
 a {color:#3774A2;}
 a:hover {color:#274385;}
@@ -72,7 +73,7 @@ input[type="submit"]:hover {
 /* ------------------------------- home INDEX */
 #votes { }
 #status {}
-#feeds { z-index:2; position:absolute; height:100%; bottom:0; top:-1.5em; right:0px; padding:2em; padding-bottom:0; padding-right:1em; 
+#feeds { z-index:2; position:absolute;  bottom:0; top:-1.5em; right:0px; padding:2em; padding-bottom:0; padding-right:1em; 
 	background:#e5e5e5;
 	background: -moz-linear-gradient(top, #cccccc 0%, #eeeeee 100%); /* firefox */
 	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#cccccc), color-stop(100%,#eeeeee)); /* webkit */
@@ -80,7 +81,7 @@ input[type="submit"]:hover {
 
 	}
 #feedbox { z-index:3; position:relative; float:right; margin-top: -0.5em; height:100%; bottom:0; top:0px; right:0px; padding:2em; padding-left:2em; padding-right:1em;height:100%; bottom:0; top:0px; right:0px; padding:2em; padding-right:1em;}
-#feedbox h3 {color:#333;margin-bottom:0.3em;}
+#feedbox h3 {color:#333;}
 #feedbox ul {color:#888; font-size:.8em;}
 #feedbox a {color:#444 ;text-decoration:underline;font-size:1.25em;}
 #senate_rss {height:100%; }
