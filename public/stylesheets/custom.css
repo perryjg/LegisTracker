@@ -97,9 +97,9 @@ input[type="submit"]:hover {
 
 
 /*---------------------------------- Bills  SHOW */
-#title h2 { padding-top:1em; margin-bottom: 1em;} /* used on votes show too */
-#title h4 {margin-top:-1.75em;}/* used on votes show too */
-#title p {text-align:justify;}/* used on votes show too */
+#inside h2 { padding-top:1em; margin-bottom: 1em;} /* used on votes show too */
+#inside h4 {margin-top:-1.75em;}/* used on votes show too */
+#inside p {text-align:justify;}/* used on votes show too */
 
 #flash {}
 
@@ -163,7 +163,7 @@ input[type="submit"]:hover {
 /* --------------------------------- members SHOW */
 #sponsorships tbody tr:nth-child(even) td, tbody tr.even td {background:white;}
 #sponsorships tr td {text-align:left; vertical-align:top;  padding:0;}/* Bills */
-#title h2 { padding-top:1em;}
+#inside h2 { padding-top:1em;}
 #top_donors p {font-size: 1.25em; color:#AF4F4D;}
 #fin_graph {
 	margin-top: -2.75em;
