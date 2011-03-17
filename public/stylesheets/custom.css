@@ -1,6 +1,8 @@
 /* general styles 
 ---------------------------------------------------------------------------------- */
+
 body {background:#888;}
+h4 { font-style:bold; font-weight:bold;}
 ul {list-style-type:none; margin-left:0; padding-left:0;}
 li {margin-top:.25em;}
 p {color:#222;}
@@ -26,21 +28,26 @@ input[type="submit"] { /* Assistance by a book apart */
 	font-weight:bold;
 	text-shadow: 0 1px rgba(255,255,255, 0.85);
 	border: 1px solid #777; 
-	background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#ccc), to(#eee)); 
-	background-image: -moz-linear-gradient(0 100% 90deg, #ccc, #eee);
+	background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#eee), to(#bbb)); 
+	background-image: -moz-linear-gradient(0 100% 90deg, #eee, #bbb);
 	background-color: #333; 
 	-webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5); 
 	-moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5); 
 	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+	
 
 }
 input[type="submit"]:hover {
-	background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#eee), to(#bbb)); 
-	background-image: -moz-linear-gradient(0 100% 90deg, #eee, #bbb);
+		
+	
+	background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#ccc), to(#eee)); 
+	background-image: -moz-linear-gradient(0 100% 90deg, #ccc, #eee);
 	background-color: #333; 
+
+	
 	-webkit-box-shadow: 0 0px 0px rgba(0, 0, 0, 0.5); 
 	-moz-box-shadow: 0 0px 0px rgba(0, 0, 0, 0.5); 
-	box-shadow: 0 0px 0px rgba(0, 0, 0, 0.5);		
+	box-shadow: 0 0px 0px rgba(0, 0, 0, 0.5);
 }
 
 /* special classes
@@ -64,6 +71,7 @@ input[type="submit"]:hover {
 #header a:link {}
 #header a:hover {}
 #search {horizontal-align:right; text-align:center;}
+#user_nav {text-align:center;}
 #content{position:relative; background:white; margin-top:-1.0em; }
 #content p.endy{font-family: 'Orbitron', arial, serif; text-align:center; size:0.75em; color:#777;}
 #footer {z-index:4; position:relative; background: #3774A2;  height: 25px;}
@@ -112,29 +120,11 @@ input[type="submit"]:hover {
 #tags {float:right; text-align:right;}
 #tags p {text-align:right;}
 #tags input[type="submit"] {
-padding: 1px 5px; 
-color: #444; 
-font-weight:bold;
-font-size: .85em;
-text-shadow: 0 1px rgba(255,255,255, 0.85);
-border: 1px solid #888; 
-background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#eee), to(#bbb)); 
-background-image: -moz-linear-gradient(0 100% 90deg, #eee, #bbb);
-background-color: #333; 
--webkit-box-shadow: 0 0px 0px rgba(0, 0, 0, 0.5); 
--moz-box-shadow: 0 0px 0px rgba(0, 0, 0, 0.5); 
-box-shadow: 0 0px 0px rgba(0, 0, 0, 0.5);
+	padding: 1px 5px; 
+	font-size: .85em;
 }
 
-#tags input[type="submit"]:hover {
-	background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#ccc), to(#eee)); 
-	background-image: -moz-linear-gradient(0 100% 90deg, #ccc, #eee);
-	background-color: #333; 
-	-webkit-box-shadow: 0 0px 0px rgba(0, 0, 0, 0.5); 
-	-moz-box-shadow: 0 0px 0px rgba(0, 0, 0, 0.5); 
-	box-shadow: 0 0px 0px rgba(0, 0, 0, 0.5);
 
-}
 
 /* ---------------------------------- BILLS INDEx */
 #bindex p {text-align:justify;}
@@ -174,7 +164,7 @@ box-shadow: 0 0px 0px rgba(0, 0, 0, 0.5);
 #sponsorships tbody tr:nth-child(even) td, tbody tr.even td {background:white;}
 #sponsorships tr td {text-align:left; vertical-align:top;  padding:0;}/* Bills */
 #title h2 { padding-top:1em;}
-
+#top_donors p {font-size: 1.25em; color:#AF4F4D;}
 #fin_graph {
 	margin-top: -2.75em;
 	padding: 10px;
@@ -187,13 +177,7 @@ box-shadow: 0 0px 0px rgba(0, 0, 0, 0.5);
 	border-radius: 10px;
 }
 
-#links {
 
-	border: 1px solid #eee;
-	-moz-border-radius: 10px; 
-	-webkit-border-radius: 10px; 
-
-}
 #ftm {
 	padding: 8px;
 	padding-bottom:0px;
@@ -206,7 +190,8 @@ box-shadow: 0 0px 0px rgba(0, 0, 0, 0.5);
 	padding: 10px;
 	
 	text-align: center;
-	background: #eee;
+	background: #A27737;
+	border: 2px solid #553B14;
 	border-radius: 10px;
 	-moz-border-radius: 10px; 
 	-webkit-border-radius: 10px; 
@@ -220,6 +205,13 @@ box-shadow: 0 0px 0px rgba(0, 0, 0, 0.5);
 	filter: dropshadow(color=#0a0a0a, offx=1, offy=1);
 }
 
+#links {
+	float:right;
+	margin-top: -35px;
+	margin-bottom: -5px;
+
+
+}
 /*------------------------------- Flash messages */
 .flash {
     position:relative;
