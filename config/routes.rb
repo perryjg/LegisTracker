@@ -1,4 +1,6 @@
 Legitracker::Application.routes.draw do
+  devise_for :users
+
   get "statuses/index"
 
   get "votes/show"

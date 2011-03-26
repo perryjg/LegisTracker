@@ -1,7 +1,10 @@
 /* general styles 
 ---------------------------------------------------------------------------------- */
+
 body {background:#888;}
+h4 { font-style:bold; font-weight:bold;}
 ul {list-style-type:none; margin-left:0; padding-left:0;}
+li {margin-top:.25em;}
 p {color:#222;}
 a {color:#3774A2;}
 a:hover {color:#274385;}
@@ -25,21 +28,26 @@ input[type="submit"] { /* Assistance by a book apart */
 	font-weight:bold;
 	text-shadow: 0 1px rgba(255,255,255, 0.85);
 	border: 1px solid #777; 
-	background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#ccc), to(#eee)); 
-	background-image: -moz-linear-gradient(0 100% 90deg, #ccc, #eee);
+	background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#eee), to(#bbb)); 
+	background-image: -moz-linear-gradient(0 100% 90deg, #eee, #bbb);
 	background-color: #333; 
 	-webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5); 
 	-moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5); 
 	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+	
 
 }
 input[type="submit"]:hover {
-	background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#eee), to(#bbb)); 
-	background-image: -moz-linear-gradient(0 100% 90deg, #eee, #bbb);
+		
+	
+	background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#ccc), to(#eee)); 
+	background-image: -moz-linear-gradient(0 100% 90deg, #ccc, #eee);
 	background-color: #333; 
+
+	
 	-webkit-box-shadow: 0 0px 0px rgba(0, 0, 0, 0.5); 
 	-moz-box-shadow: 0 0px 0px rgba(0, 0, 0, 0.5); 
-	box-shadow: 0 0px 0px rgba(0, 0, 0, 0.5);		
+	box-shadow: 0 0px 0px rgba(0, 0, 0, 0.5);
 }
 
 /* special classes
@@ -57,12 +65,13 @@ input[type="submit"]:hover {
 ------------------------------------------------------------------------------------*/
 /* ------------------------- application html */
 #container { position:absolute; background:white; height:100%; }
-#header {background:#3774A2;margin:0; padding-top:1em; height:50px; width:100%;}
+#header {background:#3774A2;margin:0; padding-top:1em; height:70px; width:100%;}
 #header h1 {font-family: 'Orbitron', arial, serif; padding-left:.5em; color:white; text-shadow:0 1px 0 black;}
 #header a {text-decoration:none;color:white;}
 #header a:link {}
 #header a:hover {}
 #search {horizontal-align:right; text-align:center;}
+#user_nav {text-align:center;}
 #content{position:relative; background:white; margin-top:-1.0em; }
 #content p.endy{font-family: 'Orbitron', arial, serif; text-align:center; size:0.75em; color:#777;}
 #footer {z-index:4; position:relative; background: #3774A2;  height: 25px;}
@@ -72,7 +81,7 @@ input[type="submit"]:hover {
 /* ------------------------------- home INDEX */
 #votes { }
 #status {}
-#feeds { z-index:2; position:absolute; height:100%; bottom:0; top:-1.5em; right:0px; padding:2em; padding-bottom:0; padding-right:1em; 
+#feeds { z-index:2; position:absolute;  bottom:0; top:-1.5em; right:0px; padding:2em; padding-bottom:0; padding-right:1em; 
 	background:#e5e5e5;
 	background: -moz-linear-gradient(top, #cccccc 0%, #eeeeee 100%); /* firefox */
 	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#cccccc), color-stop(100%,#eeeeee)); /* webkit */
@@ -80,7 +89,7 @@ input[type="submit"]:hover {
 
 	}
 #feedbox { z-index:3; position:relative; float:right; margin-top: -0.5em; height:100%; bottom:0; top:0px; right:0px; padding:2em; padding-left:2em; padding-right:1em;height:100%; bottom:0; top:0px; right:0px; padding:2em; padding-right:1em;}
-#feedbox h3 {color:#333;margin-bottom:0.3em;}
+#feedbox h3 {color:#333;}
 #feedbox ul {color:#888; font-size:.8em;}
 #feedbox a {color:#444 ;text-decoration:underline;font-size:1.25em;}
 #senate_rss {height:100%; }
@@ -88,9 +97,9 @@ input[type="submit"]:hover {
 
 
 /*---------------------------------- Bills  SHOW */
-#title h2 { padding-top:1em; margin-bottom: 1em;} /* used on votes show too */
-#title h4 {margin-top:-1.75em;}/* used on votes show too */
-#title p {text-align:justify;}/* used on votes show too */
+#inside h2 { padding-top:1em; margin-bottom: 1em;} /* used on votes show too */
+#inside h4 {margin-top:-1.75em;}/* used on votes show too */
+#inside p {text-align:justify;}/* used on votes show too */
 
 #flash {}
 
@@ -111,29 +120,11 @@ input[type="submit"]:hover {
 #tags {float:right; text-align:right;}
 #tags p {text-align:right;}
 #tags input[type="submit"] {
-padding: 1px 5px; 
-color: #444; 
-font-weight:bold;
-font-size: .85em;
-text-shadow: 0 1px rgba(255,255,255, 0.85);
-border: 1px solid #888; 
-background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#eee), to(#bbb)); 
-background-image: -moz-linear-gradient(0 100% 90deg, #eee, #bbb);
-background-color: #333; 
--webkit-box-shadow: 0 0px 0px rgba(0, 0, 0, 0.5); 
--moz-box-shadow: 0 0px 0px rgba(0, 0, 0, 0.5); 
-box-shadow: 0 0px 0px rgba(0, 0, 0, 0.5);
+	padding: 1px 5px; 
+	font-size: .85em;
 }
 
-#tags input[type="submit"]:hover {
-	background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#ccc), to(#eee)); 
-	background-image: -moz-linear-gradient(0 100% 90deg, #ccc, #eee);
-	background-color: #333; 
-	-webkit-box-shadow: 0 0px 0px rgba(0, 0, 0, 0.5); 
-	-moz-box-shadow: 0 0px 0px rgba(0, 0, 0, 0.5); 
-	box-shadow: 0 0px 0px rgba(0, 0, 0, 0.5);
 
-}
 
 /* ---------------------------------- BILLS INDEx */
 #bindex p {text-align:justify;}
@@ -172,13 +163,59 @@ box-shadow: 0 0px 0px rgba(0, 0, 0, 0.5);
 /* --------------------------------- members SHOW */
 #sponsorships tbody tr:nth-child(even) td, tbody tr.even td {background:white;}
 #sponsorships tr td {text-align:left; vertical-align:top;  padding:0;}/* Bills */
-#title h2 { padding-top:1em;}
+#inside h2 { padding-top:1em;}
+#top_donors p {font-size: 1.25em; color:#AF4F4D;}
+#fin_graph {
+	margin-top: -2.75em;
+	padding: 10px;
+	padding-bottom: 0px;
+	float:right;
+	background: #eee;
+	border-radius: 10px;
+	-moz-border-radius: 10px; 
+	-webkit-border-radius: 10px; 
+	border-radius: 10px;
+}
 
 
+#ftm {
+	padding: 8px;
+	padding-bottom:0px;
+	margin-left: 5px;
+}
+
+#pvs {
+	margin-top:15px;
+	margin-left: 65px;
+	padding: 10px;
+	
+	text-align: center;
+	background: #A27737;
+	border: 2px solid #553B14;
+	border-radius: 10px;
+	-moz-border-radius: 10px; 
+	-webkit-border-radius: 10px; 
+	border-radius: 10px;
+}
+
+#pvs a {
+	color:white;
+	font-display:strong;
+	text-shadow: 1px 1px 1px #0a0a0a;
+	filter: dropshadow(color=#0a0a0a, offx=1, offy=1);
+}
+
+#links {
+	float:right;
+	margin-top: -35px;
+	margin-bottom: -5px;
+
+
+}
 /*------------------------------- Flash messages */
 .flash {
     position:relative;
-	text-align: center;
+	  text-align: center;
     padding:    .3em .4em;
     margin-top: 1em;
     clear:              both;
@@ -209,6 +246,9 @@ box-shadow: 0 0px 0px rgba(0, 0, 0, 0.5);
     color: #f00;
     text-decoration:    none;
 }
+
+
+
 
 /* navigation bar
 ------------------------------------------------------- */
