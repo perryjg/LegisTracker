@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  has_many :watched_bills
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable, :lockable and :timeoutable
   devise :database_authenticatable, :registerable,
@@ -8,20 +9,15 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me
   acts_as_tagger
 
-  def watched_bills
-    Bill.joins( "JOIN taggings ON bills.id = taggings.taggable_id" ).
-         where( "taggings.context = 'hot' AND taggings.tagger_id = ?", id )
-  end
-
   def watched_bill_votes
-    Vote.joins( "JOIN taggings ON votes.bill_id = taggings.taggable_id" ).
-         where( "taggings.context = 'hot' AND taggings.tagger_id = ?", id ).
-         order( "date DESC" )
+    Vote.joins( "JOIN watched_bills ON votes.bill_id = watched_bills.bill_id" ).
+         where( "watched_bills.user_id = ?", id ).
+         order( "votes.date DESC" )
   end
 
   def watched_bill_statuses
-    Status.joins( "JOIN taggings ON statuses.bill_id = taggings.taggable_id" ).
-           where( "taggings.context = 'hot' AND taggings.tagger_id = ?", id ).
-           order( "status_date DESC" )
+    Status.joins( "JOIN watched_bills ON statuses.bill_id = watched_bills.bill_id" ).
+           where( "watched_bills.user_id = ?", id ).
+           order( "statuses.status_date DESC" )
   end
 end

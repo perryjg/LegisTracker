@@ -28,7 +28,7 @@ class BillStatus
     if @node.xpath( 'EffDate/text()' ).inner_text.empty?
       return nil
     else
-      return Date::parse( @node.xpath( 'EffDate' ).inner_text, comp = true ).to_s
+      return Date.strptime( @node.xpath( 'EffDate' ).inner_text, '%m/%d/%y' ).to_s
     end
   end
   

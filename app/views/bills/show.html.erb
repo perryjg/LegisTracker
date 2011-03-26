@@ -7,18 +7,10 @@
 	<% end %>
 
 	<div id="hotnot" class="first">
-		<% if current_user %>
-			<% if @bill.hot_from( current_user ).include? 'hot' %>
-				<%= link_to image_tag("bt_unwatch.png", :mouseover =>"bt_unwatch_hvr.png"), unhot_bill_path( @bill ), :class => 'watched' %>
-			<% else %>
-				<%= link_to  image_tag("bt_watch.png", :mouseover => "bt_watch_hvr.png"), hot_bill_path( @bill ), :class => 'unwatched'%>
-			<% end %>
+		<% if @bill.is_watched_by_user?( current_user ) %>
+			<%= link_to image_tag("bt_unwatch.png", :mouseover =>"bt_unwatch_hvr.png"), unhot_bill_path( @bill ), :class => 'watched' %>
 		<% else %>
-			<% if @bill.is_hot? %>
-				<%= link_to image_tag("bt_unwatch.png", :mouseover =>"bt_unwatch_hvr.png"), unhot_bill_path( @bill ), :class => 'watched' %>
-			<% else %>
-				<%= link_to  image_tag("bt_watch.png", :mouseover => "bt_watch_hvr.png"), hot_bill_path( @bill ), :class => 'unwatched'%>
-			<% end %>
+			<%= link_to  image_tag("bt_watch.png", :mouseover => "bt_watch_hvr.png"), hot_bill_path( @bill ), :class => 'unwatched'%>
 		<% end %>
 	</div>
   

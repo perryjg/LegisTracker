@@ -1,6 +1,11 @@
 require 'spec_helper'
 
 describe HomeController do
+  before( :each ) do
+    @user = Factory.create( :user )
+    sign_in @user
+  end
+  
   describe HomeController, '#index' do
     before( :each ) do
       @bill = Factory.create( :bill )
@@ -26,8 +31,8 @@ describe HomeController do
     end
 
     describe "Show watched bill events" do
-      it { should assign_to( :events ).with( Status.hot.by_date_desc ) }
-      it { should assign_to( :votes ).with( Vote.hot_bills.order_by_datetime_desc ) }
+      it { should assign_to( :events ).with( @user.watched_bill_statuses ) }
+      it { should assign_to( :votes  ).with( @user.watched_bill_votes ) }
     end
     
     describe "Show recent press releases" do

@@ -2,6 +2,10 @@ require 'spec_helper'
 
 describe StatusesController do
   before( :each ) do
+    @user = Factory.create( :user )
+    sign_in @user
+  end
+  before( :each ) do
     @bill = Factory.create( :bill )
     @status = Factory.create( :status, :bill => @bill )
     @votes = Factory.create( :vote, :bill => @bill )

@@ -1,6 +1,11 @@
 require 'spec_helper'
 
 describe BillsController do
+  before( :each ) do
+    @user = Factory.create( :user )
+    sign_in @user
+  end
+  
   describe BillsController, '#index' do
     before( :each ) do
       get :index
@@ -55,8 +60,8 @@ describe BillsController do
   describe BillsController, '#unhot' do
     before( :each ) do
       @bill = Factory( :bill )
-      @bill.hot_list.add( 'hot' )
-      @bill.save
+      @watched_bill = @bill.watched_bills.new( :user_id => @user.id )
+      @watched_bill.save
       get :unhot, :id => @bill.id
     end
     it { should respond_with( :redirect ) }
@@ -64,9 +69,6 @@ describe BillsController do
     it { should assign_to( :bill ).with( @bill ) }
     it "should route unhot_bill_path to bills/unhot" do
       { :get => unhot_bill_path }.should route_to( :controller => "bills", :action => "unhot", :id => @bill.to_param )
-    end
-    it "should include 'hot' tag in hot_list" do
-      @bill.hot_list.should include( 'hot' )
     end
   end
   

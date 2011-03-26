@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110311043234) do
+ActiveRecord::Schema.define(:version => 20110313055843) do
 
   create_table "bill_versions", :force => true do |t|
     t.integer "number"
@@ -41,7 +41,7 @@ ActiveRecord::Schema.define(:version => 20110311043234) do
     t.integer "code_chapter"
     t.integer "bill_id"
     t.integer "xml_id"
-    t.boolean "crossover"
+    t.boolean "crossover",           :default => false
   end
 
   create_table "house_committees", :force => true do |t|
@@ -177,6 +177,13 @@ ActiveRecord::Schema.define(:version => 20110311043234) do
     t.string   "xml_id"
     t.string   "legislation"
     t.integer  "unknown"
+  end
+
+  create_table "watched_bills", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "bill_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
 end
