@@ -2,7 +2,7 @@ require 'bill_status_summary'
 require 'shellwords'
 
 class Bill < ActiveRecord::Base
-  acts_as_taggable_on :topics
+  acts_as_taggable_on :topics, :hot
   
   belongs_to :house_committee
   belongs_to :senate_committee

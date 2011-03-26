@@ -83,4 +83,9 @@ FactoryGirl.define do
     fileid 'hb246_LC_21_1055_a_2.htm'
     association :bill
   end
+  
+  factory :user do
+    email Faker::Internet.email
+    password 'password'
+  end
 end
