@@ -1,14 +1,14 @@
 <section id="search_form" class="span-15 prepend-top push-5 first last">
   <%= form_for @search, :url => bills_path do |f| %>
 		<section class="span-14 first last">
-			<%= f.checks :tagged_with, [['Watched','hot']] do |check| %>
-				<%= check.label %> <%= check.box %>
+			<%= f.checks :my_watched_bills, [['Watched',current_user.id]] do |check| %>
+				<%= check.box %> <%= check.label %>
 			<% end %>
-			<%= f.label :crossover_is_true, "Crossed over" %>
 			<%= f.check_box :crossover_is_true %>
+			<%= f.label :crossover_is_true, "Crossed over" %>
 
-			<%= f.label :crossover_is_false, "Not crossed over" %>
 			<%= f.check_box :crossover_is_false %>
+			<%= f.label :crossover_is_false, "Not crossed over" %>
 		</section>
 		
 		<section id="seach_bill" class="span-7 first">

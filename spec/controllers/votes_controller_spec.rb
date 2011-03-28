@@ -1,6 +1,10 @@
 require 'spec_helper'
 
 describe VotesController do
+  before( :each ) do
+    @user = Factory.create( :user )
+    sign_in @user
+  end
 
   describe VotesController, '#show' do
     before( :each ) do
