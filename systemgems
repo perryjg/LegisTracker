@@ -1,0 +1,6 @@
+# systemgems generated gem export file. Note that any env variable settings will be missing. Append these after using a ';' field separator
+activesupport -v3.0.0
+builder -v2.1.2
+libxml-ruby -v1.1.4
+ruby-openid -v2.1.8
+sqlite3-ruby -v1.3.1
