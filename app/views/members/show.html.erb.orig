@@ -1,10 +1,10 @@
 <<<<<<< HEAD
-<section id="title" class="sapn-22 push-1 first last">
+<div id="inside" class="sapn-22 push-1 first last">
 	<header><h2><%= @member.name %> <span class="memid"><%= @member.seat %> </span></h2></header>
 </section>
 <section id="sponsorships" class="span-22 push-1 first last">
 =======
-<div id="title" class="span-22 push-1 first last">
+<div id="inside" class="span-22 push-1 first last">
   <h2>
     <%= @member.name %>
     <span class="memid">
