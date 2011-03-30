@@ -1,6 +1,6 @@
 source 'http://rubygems.org' 
 
-gem 'rails', '3.0.3'
+gem 'rails', '3.0.5'
 gem 'mysql2'
 gem 'feedzirra'
 gem 'heroku'
@@ -14,7 +14,7 @@ gem 'devise'
 group :development, :test do
   gem 'cucumber-rails'
   gem 'shoulda'
-  gem 'rspec-rails'
+  gem 'rspec-rails', '>=2.5.0'
   gem 'webrat'
   gem 'factory_girl_rails' , :git => "http://github.com/CodeMonkeySteve/factory_girl_rails.git"
   gem 'faker'

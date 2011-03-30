@@ -2,17 +2,19 @@ require 'bill_status_summary'
 require 'shellwords'
 
 class Bill < ActiveRecord::Base
-  acts_as_taggable_on :hot, :topics
+  acts_as_taggable_on :topics, :hot
   
   belongs_to :house_committee
   belongs_to :senate_committee
   has_many :statuses
   has_many :bill_versions
+  has_many :watched_bills
   has_many :votes
   has_many :member_votes
   has_many :sponsorships
   has_many :members, :through => :sponsorships
-  search_methods :sponsor_name, :sponsor_district, :sponsor_party, :default_order, :status_history, :tagged_with, :topic_includes
+  search_methods :sponsor_name, :sponsor_district, :sponsor_party, :default_order,
+                 :status_history, :tagged_with, :topic_includes, :my_watched_bills
 
   scope :sponsor_name, lambda { |name|
     joins("join sponsorships on sponsorships.bill_id = bills.id join members on members.id = sponsorships.member_id").
@@ -34,8 +36,17 @@ class Bill < ActiveRecord::Base
     where( "status_codes.description like ?", "%#{text}%" )
   }
   
+  scope :my_watched_bills, lambda { |user|
+    joins( "JOIN watched_bills ON watched_bills.bill_id = bills.id" ).
+    where( "watched_bills.user_id = ?", user )
+  }
+  
   scope :topic_includes, lambda { |text| tagged_with( text, :on => :topics ) }
   scope :crossed_over, where( "crossover = 1" )
+  
+  def is_watched_by_user?( user )
+    watched_bills.where( :user_id => user ).count > 0 ? true : false
+  end
   
   def house_committee_name
     house_committee ? house_committee.committee_name : ''

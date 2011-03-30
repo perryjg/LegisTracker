@@ -1,19 +1,19 @@
-<div class="span2-4 push-1 first last">
-	<h1>Members</h1>
-	<div id="house" class="span-11 first">
-		<h2>Representative</h2>
+<div id="inside" class="span-22 push-1 first last">
+	<h2>Georgia State Assembly Members</h2>
+	<section id="house" class="span-6 prepend-3 border first">
+		<h3>Representatives</h3>
 		<ul>
 		<% @reps.each do |rep| %>
 			<li><%= link_to "#{rep.seat} #{rep.display_name} (#{rep.party})", member_path( rep ) %></li>
 		<% end %>
 		</ul>
-	</div>
-	<div id="senate" class="span-11 first">
-		<h2>Senators</h2>
+	</section>
+	<section id="senate" class=" push-3 span-11 first">
+		<h3>Senators</h3>
 		<ul>
 		<% @senators.each do |sen| %>
 		<li><%= link_to "#{sen.seat} #{sen.display_name} (#{sen.party})", member_path( sen ) %></li>
 		<% end %>
 		</ul>
-	</div>
+	</section>
 </div>

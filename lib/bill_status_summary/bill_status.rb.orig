@@ -28,7 +28,11 @@ class BillStatus
     if @node.xpath( 'EffDate/text()' ).inner_text.empty?
       return nil
     else
+<<<<<<< HEAD
+      return Date.strptime( @node.xpath( 'EffDate/text()' ).inner_text, '%m/%d/%y' ).to_s
+=======
       return Date.strptime( @node.xpath( 'EffDate' ).inner_text, '%m/%d/%y' ).to_s
+>>>>>>> fa68020ab3c2d61b570cc824e0d143dceb7a429a
     end
   end
   
