@@ -1,7 +1,10 @@
 /* general styles 
 ---------------------------------------------------------------------------------- */
+body {
 
-body {background:#888;}
+	background:#888888 url('../images/bggrad.jpg') repeat-x;
+	}
+	
 h4 { font-style:bold; font-weight:bold;}
 ul {list-style-type:none; margin-left:0; padding-left:0;}
 li {margin-top:.25em;}
@@ -65,13 +68,24 @@ input[type="submit"]:hover {
 ------------------------------------------------------------------------------------*/
 /* ------------------------- application html */
 #container { position:absolute; background:white; height:100%; }
-#header {background:#3774A2;margin:0; padding-top:1em; height:70px; width:100%;}
+#header {background:#3774A2;margin:0; padding-top:1em; height:60px; width:100%;}
 #header h1 {font-family: 'Orbitron', arial, serif; padding-left:.5em; color:white; text-shadow:0 1px 0 black;}
 #header a {text-decoration:none;color:white;}
 #header a:link {}
 #header a:hover {}
-#search {horizontal-align:right; text-align:center;}
-#user_nav {text-align:center;}
+#logo {clear:both; float:left;}
+#search {
+	float:right; 
+	horizontal-align:right; 
+	text-align:center;}
+#navhed {
+	background: #3774A2;
+background: -moz-linear-gradient(top, #3774A2, #2D5F85);
+background: -webkit-gradient(linear, left top, left bottom, from(#3774A2), to(#2D5F85));
+}
+#nav {clear:both; float:left;}
+#user_nav {float:right; font-size:.9em; text-align:right; color:white; text-shadow: 0 1px 0 #162F42;}
+#user_nav a {color:white; font-weight:bold; text-shadow: 0 1px 0 #162F42;}
 #content{position:relative; background:white; margin-top:-1.0em; }
 #content p.endy{font-family: 'Orbitron', arial, serif; text-align:center; size:0.75em; color:#777;}
 #footer {z-index:4; position:relative; background: #3774A2;  height: 25px;}
@@ -261,10 +275,7 @@ nav ul {
 	list-style-type: none;
 	font-weight:bold;
 	text-shadow: 0 1px 0 #162F42;
-	background: #3774A2;
-	background: -moz-linear-gradient(top, #3774A2, #2D5F85);
-	background: -webkit-gradient(linear, left top, left bottom, from(#3774A2), to(#2D5F85));
-
+	
 }
 
 nav li {
