@@ -56,6 +56,10 @@ class Bill < ActiveRecord::Base
     senate_committee ? senate_committee.committee_name : ''
   end
   
+  def statuses_most_recent
+    statuses.most_recent
+  end
+
   def sponsor_count
     sponsorships.count
   end

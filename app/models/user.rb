@@ -20,4 +20,9 @@ class User < ActiveRecord::Base
            where( "watched_bills.user_id = ?", id ).
            order( "statuses.status_date DESC" )
   end
+
+  def watched_bills
+    Bill.joins( "Join watched_bills ON bills.id = watched_bills.bill_id" ).
+         where( "watched_bills.user_id = ?", id )
+  end
 end

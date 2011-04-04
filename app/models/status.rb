@@ -7,7 +7,7 @@ class Status < ActiveRecord::Base
               where( "taggings.context = 'hot'" )
   scope :by_date_desc, order( "status_date DESC" )
   def self.most_recent
-    where( "DATE(status_date) = ?", last_date )
+    order( 'status_date DESC' ).limit(1).first
   end
   
   def self.find_for_date( date )

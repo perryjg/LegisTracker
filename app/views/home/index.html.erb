@@ -21,18 +21,18 @@
 
 <section id="status" class="span-11 push-2 prepend-top last">
 	<header>
-		<h3>Bill Status Changes</h3>
+		<h3>Most Recent Status Changes</h3>
 	</header>
 	<ul>
-		<% @events.each do |event| %>
+		<% @bills.each do |bill| %>
 		<li class="event">
-	    	<%= link_to "#{event.bill.number}", bill_path( event.bill ) %>
-		    <%= event.status_code.description %>
-		    <span class="tstamp">(<%= event.status_date.strftime('%Y-%m-%d') %>)</span><br />
-		    <%= event.bill.short_title %>
-					(<%= event.bill.primary_sponsor_name %>
-					 <%= event.bill.primary_sponsor_party %> -
-					 <%= event.bill.primary_sponsor_district %>)
+	    	<%= link_to "#{bill.number}", bill_path( bill ) %>
+		    <%= bill.statuses_most_recent.status_code.description %>
+		    <span class="tstamp">(<%= bill.statuses_most_recent.status_date.strftime('%Y-%m-%d') %>)</span><br />
+		    <%= bill.short_title %>
+					(<%= bill.primary_sponsor_name %>
+					 <%= bill.primary_sponsor_party %> -
+					 <%= bill.primary_sponsor_district %>)
 		</li>
 	
 		<% end %>

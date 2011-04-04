@@ -107,16 +107,24 @@ class Member < ActiveRecord::Base
     begin
       imsp_member_id ? GovKit::FollowTheMoney::BusinessContribution.find( imsp_member_id ) : nil
     rescue
-      nol
+      nil
     end
   end
 
   def pvs_bio
-    pvs_member_id ? GovKit::VoteSmart::Bio.find( pvs_member_id ) : nil
+    begin
+      pvs_member_id ? GovKit::VoteSmart::Bio.find( pvs_member_id ) : nil
+    rescue
+      nil
+    end
   end
 
   def pvs_address
-    pvs_member_id ? GovKit::VoteSmart::Address.find( pvs_member_id ) : nil
+    begin
+      pvs_member_id ? GovKit::VoteSmart::Address.find( pvs_member_id ) : nil
+    rescue
+      nil
+    end
   end
   
   def self.load_imsp_data
