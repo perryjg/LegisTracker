@@ -1,8 +1,11 @@
+<div class="span-18 first last">
+
 <section id="votes" class="span-5 push-1 first border prepend-top">
 	<header>
 		<h3>Votes</h3>
 	</header>
-	<ul>
+	<div id="vote_container">
+		<ul>
 	<% @votes.each do |vote| %>
 		
 			<li class="vote">
@@ -17,30 +20,57 @@
 		
 	<% end %>
 	</ul>
+	</div>
 </section>
 
-<section id="status" class="span-11 push-2 prepend-top last">
+<section id="status" class="span-10 push-2 prepend-top last">
+	
 	<header>
 		<h3>Bill Status Changes</h3>
 	</header>
-	<ul>
-		<% @events.each do |event| %>
-		<li class="event">
-	    	<%= link_to "#{event.bill.number}", bill_path( event.bill ) %>
-		    <%= event.status_code.description %>
-		    <span class="tstamp">(<%= event.status_date.strftime('%Y-%m-%d') %>)</span><br />
-		    <%= event.bill.short_title %>
-					(<%= event.bill.primary_sponsor_name %>
-					 <%= event.bill.primary_sponsor_party %> -
-					 <%= event.bill.primary_sponsor_district %>)
-		</li>
+	<div class="customScrollBox">
+			<div class="container">	
+				<div id="status_content" class="content">
+					<ul>
+						<% @events.each do |event| %>
+						<li class="event">
+					    	<%= link_to "#{event.bill.number}", bill_path( event.bill ) %>
+						    <%= event.status_code.description %>
+						    <span class="tstamp">(<%= event.status_date.strftime('%Y-%m-%d') %>)</span><br />
+						    <%= event.bill.short_title %>
+									(<%= event.bill.primary_sponsor_name %>
+									 <%= event.bill.primary_sponsor_party %> -
+									 <%= event.bill.primary_sponsor_district %>)
+						</li>
 	
-		<% end %>
-	</ul>
+						<% end %>
+					</ul>
+				</div>
+			</div>
+				<div class="dragger_container">
+    				<div class="dragger"></div>	
+				</div>
+	</div>
+	
+	<%= link_to image_tag('mcs_scrollUpBtn.png'), '#', :class => scrollUpBtn %> <%= link_to image_tag('mcs_scrollDownBtn.png'),'#', :class => scrollDownBtn %>
+
 </section>
 
-<div>
-	
+<!-- content to show if javascript is disabled -->
+<noscript>
+	<style type="text/css">
+		#status .customScrollBox{overflow:auto;}
+		#status .dragger_container{display:none;}
+	</style>
+</noscript>
+
+
+
+</div>
+
+<div id="undercontent">
+	</div>
+
 <div id="feeds" class="span-5 last prepend-top"></div>
 		
 		<aside id="feedbox" class="span-5 last">

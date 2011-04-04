@@ -1,5 +1,7 @@
 /* general styles 
 ---------------------------------------------------------------------------------- */
+html{overflow-y: scroll;}
+
 body {
 
 	background:#888888 url('../images/bggrad.jpg') repeat-x;
@@ -80,9 +82,9 @@ input[type="submit"]:hover {
 	text-align:center;}
 #navhed {
 	background: #3774A2;
-background: -moz-linear-gradient(top, #3774A2, #2D5F85);
-background: -webkit-gradient(linear, left top, left bottom, from(#3774A2), to(#2D5F85));
-}
+	background: -moz-linear-gradient(top, #3774A2, #2D5F85);
+	background: -webkit-gradient(linear, left top, left bottom, from(#3774A2), to(#2D5F85));
+	}
 #nav {clear:both; float:left;}
 #user_nav {float:right; font-size:.9em; text-align:right; color:white; text-shadow: 0 1px 0 #162F42;}
 #user_nav a {color:white; font-weight:bold; text-shadow: 0 1px 0 #162F42;}
@@ -94,19 +96,52 @@ background: -webkit-gradient(linear, left top, left bottom, from(#3774A2), to(#2
 
 /* ------------------------------- home INDEX */
 #votes { }
+#vote_container {height:34em; overflow:auto;}
 #status {}
-#feeds { z-index:2; position:absolute;  bottom:0; top:-1.5em; right:0px; padding:2em; padding-bottom:0; padding-right:1em; 
+#status_content {height:34em;}
+
+#undercontent {
+	clear:both;
+	position:absolute; 
+	height: 20em;
+	right:0;
+	left:0px;
+	bottom:0px;
+	padding-top:1.5em;
+	background: #3774A2;
+	background: -moz-linear-gradient(top,  #234B69, #3774A2);
+	background: -webkit-gradient(linear, left top, left bottom, from(#234B69), to(#3774A2));
+	}
+
+	
+#feeds { 
+	z-index:2;
+	 position:absolute;  
+	bottom:10px; 
+	top:-1.5em; 
+	right: 10px; 
+	padding:2em; 
+	padding-bottom:0; 
+	padding-right:1em; 
 	background:#e5e5e5;
-	background: -moz-linear-gradient(top, #cccccc 0%, #eeeeee 100%); /* firefox */
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#cccccc), color-stop(100%,#eeeeee)); /* webkit */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#eeeeee', endColorstr='#cccccc',GradientType=0 ); /* ie */
+	background: -moz-linear-gradient(top, #aaa 0%, #eeeeee 100%); /* firefox */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#aaa), color-stop(100%,#eeeeee)); /* webkit */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#eeeeee', endColorstr='#aaa',GradientType=0 ); /* ie */
+	-moz-border-radius: 0 0 10px 10px; 
+	-webkit-border-radius: 0 0 10px 10px; 
+	border-radius: 0 0 10px 10px;
+	border:solid 1px #ggg;
+	border-top:none;
+	opacity:0.8;
+	filter:alpha (opacity=80);
 
 	}
-#feedbox { z-index:3; position:relative; float:right; margin-top: -0.5em; height:100%; bottom:0; top:0px; right:0px; padding:2em; padding-left:2em; padding-right:1em;height:100%; bottom:0; top:0px; right:0px; padding:2em; padding-right:1em;}
+#feedbox { z-index:3; position:relative; margin-right: 10px; margin-top: -0.5em; height:100%; bottom:0; top:0px; right:0px; padding:2em; padding-left:2em; padding-right:1em;height:100%; bottom:0; top:0px; right:0px; padding:2em; padding-right:1em;}
 #feedbox h3 {color:#333;}
 #feedbox ul {color:#888; font-size:.8em;}
 #feedbox a {color:#444 ;text-decoration:underline;font-size:1.25em;}
-#senate_rss {height:100%; }
+#senate_rss.sml {height:10em;}
+#senate_rss.exp {height:100%; }
 #house_rss {}
 
 
@@ -329,3 +364,45 @@ nav li a.current {
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#EEEEEE', endColorstr='#FFFFFF',GradientType=0 ); /* ie */
 	border: 1px solid white;
 }
+
+
+/* scroller */
+
+#status .customScrollBox{position:relative; overflow:hidden;}
+#status .customScrollBox .container{position:relative; top:0; float:left;}
+#status .customScrollBox .content{clear:both;}
+#status .dragger_container {
+	position:relative; 
+	width:2px; 
+	height:100%; 
+	float:left; 
+	margin:0 0 0 10px; 
+	background:#000; 
+	cursor:pointer -moz-border-radius:2px; 
+	-khtml-border-radius:2px; 
+	-webkit-border-radius:2px; 
+	border-radius:2px; 
+	cursor:s-resize;
+	}
+#status .dragger{
+	position:absolute; 
+	width:2px; 
+	height:60px; 
+	background:#black; 
+	text-align:center; 
+	line-height:60px; 
+	color:#666; 
+	overflow:hidden; 
+	cursor:pointer; 
+	-moz-border-radius:2px; 
+	-khtml-border-radius:2px; 
+	-webkit-border-radius:2px; 
+	border-radius:2px;
+	}
+	
+#status .dragger_pressed{position:absolute; width:4px; margin-left:-1px; height:60px; background:#999; text-align:center; line-height:60px; color:#666; overflow:hidden; -moz-border-radius:4px; -khtml-border-radius:4px; -webkit-border-radius:4px; border-radius:4px; cursor:s-resize;}
+#status .scrollUpBtn,#status .scrollDownBtn{position:absolute; display:inline-block; width:14px; height:15px; margin-right:12px; text-decoration:none; right:0; filter:alpha(opacity=20); -moz-opacity:0.20; -khtml-opacity:0.20; opacity:0.20;}
+#status .scrollUpBtn{top:16px; background:url(mcs_btnUp.png) center center no-repeat;}
+#status .scrollDownBtn{bottom:12px; background:url(mcs_btnDown.png) center center no-repeat;}
+#status .scrollUpBtn:hover,#status .scrollDownBtn:hover{filter:alpha(opacity=60); -moz-opacity:0.60; -khtml-opacity:0.60; opacity:0.60;}
+

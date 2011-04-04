@@ -14,6 +14,16 @@
   <!--[if lt IE 8]><%= stylesheet_link_tag 'blueprint/ie' %><![endif]-->
   <%= stylesheet_link_tag 'custom', :media => 'screen' %>
   <%= stylesheet_link_tag 'http://fonts.googleapis.com/css?family=Orbitron', :media =>'screen'%>
+
+
+ <!-- scrollbar -->
+	<%= stylesheet_link_tag 'jquery.mCustomScrollbar.css', :media=>'screen' %>
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
+	<%= javascript_include_tag 'jquery.easing.1.3.js' %>
+	<%= javascript_include_tag 'jquery.mousewheel.min.js' %>
+
+
 </head>
 <body>
 <div class="container">
@@ -63,5 +73,25 @@
 	  	</footer>
 	 </div>
 </div>
+
+
+<!-- 
+malihu custom scrollbar function parameters: 
+1) scroll type (values: "vertical" or "horizontal")
+2) scroll easing amount (0 for no easing) 
+3) scroll easing type 
+4) extra bottom scrolling space for vertical scroll type only (minimum value: 1)
+5) scrollbar height/width adjustment (values: "auto" or "fixed")
+6) mouse-wheel support (values: "yes" or "no")
+7) scrolling via buttons support (values: "yes" or "no")
+8) buttons scrolling speed (values: 1-20, 1 being the slowest)
+-->
+
+
+
+<%= javascript_include_tag  'jquery.mCustomScrollbar.js' %>
+
 </body>
 </html>
+
+
