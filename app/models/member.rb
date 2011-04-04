@@ -80,19 +80,35 @@ class Member < ActiveRecord::Base
   end
   
   def top_contributors
-    imsp_member_id ? GovKit::FollowTheMoney::Contribution.top( imsp_member_id ) : nil
+    begin
+      imsp_member_id ? GovKit::FollowTheMoney::Contribution.top( imsp_member_id ) : nil
+    rescue
+      nil
+    end
   end
   
   def contributions_by_sector
-    imsp_member_id ? GovKit::FollowTheMoney::SectorContribution.find( imsp_member_id ) : nil
+    begin
+      imsp_member_id ? GovKit::FollowTheMoney::SectorContribution.find( imsp_member_id ) : nil
+    rescue
+      nil
+    end
   end
   
   def contributions_by_industry
-    imsp_member_id ? GovKit::FollowTheMoney::IndustryContribution.find( imsp_member_id ) : nil
+    begin
+      imsp_member_id ? GovKit::FollowTheMoney::IndustryContribution.find( imsp_member_id ) : nil
+    rescue
+      nil
+    end
   end
   
   def contributions_by_business
-    imsp_member_id ? GovKit::FollowTheMoney::BusinessContribution.find( imsp_member_id ) : nil
+    begin
+      imsp_member_id ? GovKit::FollowTheMoney::BusinessContribution.find( imsp_member_id ) : nil
+    rescue
+      nol
+    end
   end
 
   def pvs_bio

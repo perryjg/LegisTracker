@@ -10,7 +10,7 @@
 
 <section id="campaign_finance" class="span-22 push-1 first last" >
 	<h3>Campaign Finance</h3>
-  <% if @member.imsp_member_id.nil? %>
+  <% if @member.top_contributors.nil? %>
     No data available from FollowTheMoney.org
   <% else %>
   <section id="top_donors" class="span-13 first">
