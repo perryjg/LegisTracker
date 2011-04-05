@@ -31,7 +31,7 @@ describe HomeController do
     end
 
     describe "Show watched bill events" do
-      it { should assign_to( :events ).with( @user.watched_bill_statuses ) }
+      it { should assign_to( :bills ).with( @user.watched_bills.order_by_status_date_desc ) }
       it { should assign_to( :votes  ).with( @user.watched_bill_votes ) }
     end
     
