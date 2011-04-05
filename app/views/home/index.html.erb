@@ -28,9 +28,9 @@
 	<header>
 		<h3>Bill Status Changes</h3>
 	</header>
-	<div class="customScrollBox">
-			<div class="container">	
-				<div id="status_content" class="content">
+	<div class="customScrollBox span-11">
+			<div class="container span-10">	
+				<div id="status_content" class="content span-10">
 					<ul>
 						<% @events.each do |event| %>
 						<li class="event">
@@ -47,12 +47,12 @@
 					</ul>
 				</div>
 			</div>
-				<div class="dragger_container">
-    				<div class="dragger"></div>	
-				</div>
+			<div class="dragger_container span-1">
+    	<div class="dragger"> </div>	
+			</div>
 	</div>
 	
-	<%= link_to image_tag('mcs_scrollUpBtn.png'), '#', :class => scrollUpBtn %> <%= link_to image_tag('mcs_scrollDownBtn.png'),'#', :class => scrollDownBtn %>
+	
 
 </section>
 

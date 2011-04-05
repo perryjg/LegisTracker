@@ -368,27 +368,33 @@ nav li a.current {
 
 /* scroller */
 
-#status .customScrollBox{position:relative; overflow:hidden;}
+#status .customScrollBox {position:relative; height:34em; overflow:hidden;}
 #status .customScrollBox .container{position:relative; top:0; float:left;}
-#status .customScrollBox .content{clear:both;}
+#status .customScrollBox .content{clear:both; }
 #status .dragger_container {
+	z-index:12;
+	background: red;
 	position:relative; 
+	
+	top:1em;
+	margin-left: 15px;
 	width:2px; 
-	height:100%; 
-	float:left; 
-	margin:0 0 0 10px; 
-	background:#000; 
+	height:34em; 
+	float:left;
+	background:#eee; 
 	cursor:pointer -moz-border-radius:2px; 
 	-khtml-border-radius:2px; 
 	-webkit-border-radius:2px; 
 	border-radius:2px; 
 	cursor:s-resize;
 	}
+
 #status .dragger{
 	position:absolute; 
+	z-index:13;
 	width:2px; 
 	height:60px; 
-	background:#black; 
+	background:#3774A2; 
 	text-align:center; 
 	line-height:60px; 
 	color:#666; 
@@ -400,9 +406,27 @@ nav li a.current {
 	border-radius:2px;
 	}
 	
-#status .dragger_pressed{position:absolute; width:4px; margin-left:-1px; height:60px; background:#999; text-align:center; line-height:60px; color:#666; overflow:hidden; -moz-border-radius:4px; -khtml-border-radius:4px; -webkit-border-radius:4px; border-radius:4px; cursor:s-resize;}
+#status .dragger_pressed{
+	position:absolute; 
+	z-index:13;
+	width:4px; 
+	margin-left:-1px; 
+	height:60px; 
+	background:#3774A2; 
+	text-align:center; 
+	line-height:60px; 
+	color:#3774A2; 
+	overflow:hidden; 
+	-moz-border-radius:4px; 
+	-khtml-border-radius:4px; 
+	-webkit-border-radius:4px; 
+	border-radius:4px; 
+	cursor:s-resize;
+	}
+
+
 #status .scrollUpBtn,#status .scrollDownBtn{position:absolute; display:inline-block; width:14px; height:15px; margin-right:12px; text-decoration:none; right:0; filter:alpha(opacity=20); -moz-opacity:0.20; -khtml-opacity:0.20; opacity:0.20;}
-#status .scrollUpBtn{top:16px; background:url(mcs_btnUp.png) center center no-repeat;}
-#status .scrollDownBtn{bottom:12px; background:url(mcs_btnDown.png) center center no-repeat;}
+#status .scrollUpBtn{top:0px; margin-left:0px; }
+#status .scrollDownBtn{bottom:0px; background:url(mcs_btnDown.png) center center no-repeat;}
 #status .scrollUpBtn:hover,#status .scrollDownBtn:hover{filter:alpha(opacity=60); -moz-opacity:0.60; -khtml-opacity:0.60; opacity:0.60;}
 

@@ -87,8 +87,34 @@ malihu custom scrollbar function parameters:
 8) buttons scrolling speed (values: 1-20, 1 being the slowest)
 -->
 
+<%= javascript_tag do %>
+	Event.observe(window, 'load',
+		function() {
+<!-- >$(window).load(function() -->{
+	mCustomScrollbars();
+});
 
+function mCustomScrollbars(){
+	$("#status").mCustomScrollbar("vertical",300,"easeOutCirc",1.05,"fixed","yes","yes",15); 
+}
 
+<!-- function to fix the -10000 pixel limit of jquery.animate -->
+
+$.fx.prototype.cur = function(){
+    if ( this.elem[this.prop] != null && (!this.elem.style || this.elem.style[this.prop] == null) ) {
+      return this.elem[ this.prop ];
+    }
+    var r = parseFloat( jQuery.css( this.elem, this.prop ) );
+    return typeof r == 'undefined' ? 0 : r;
+}
+
+<!-- function to load new content dynamically -->
+function LoadNewContent(id,file){
+	$("#"+id+" .customScrollBox .content").load(file,function(){
+		mCustomScrollbars();
+	});
+}
+<% end %>
 <%= javascript_include_tag  'jquery.mCustomScrollbar.js' %>
 
 </body>
