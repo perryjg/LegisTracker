@@ -11,7 +11,7 @@
 					<% @votes.each do |vote| %>
 					<li class="vote">
 						<% unless vote.bill.nil? %>
-							<%= link_to "#{vote.bill.number}", bill_path( vote.bill ) %>
+						<strong>	<%= link_to "#{vote.bill.number}", bill_path( vote.bill ) %></strong>
 							<% end %> 
 						<%= link_to "#{vote.description}", vote_path( vote.id ) %> <br />
 						<span class="tstamp">(<%= vote.date.strftime( '%l:%M %p' ) %>)</span>
@@ -43,13 +43,15 @@
 					<ul>
 						<% @events.each do |event| %>
 						<li class="event">
-					    	<%= link_to "#{event.bill.number}", bill_path( event.bill ) %>
-						    <%= event.status_code.description %>
+					    	  <strong><%= link_to "#{event.bill.number}", bill_path( event.bill ) %>
+						  <%= event.status_code.description %></strong>
 						    <span class="tstamp">(<%= event.status_date.strftime('%Y-%m-%d') %>)</span><br />
-						    <%= event.bill.short_title %><br />
+						    <%= event.bill.short_title %>
+									<em>
 									(<%= event.bill.primary_sponsor_name %>
 									 <%= event.bill.primary_sponsor_party %> -
-									 <%= event.bill.primary_sponsor_district %>)<br /><br />
+									 <%= event.bill.primary_sponsor_district %>)
+									</em>
 						</li>
 				
 						<% end %>
@@ -81,7 +83,8 @@
 <div id="undercontent">
 	</div>
 
-<div id="feeds" class="span-5 last prepend-top"></div>
+<div id="feeds" class="span-5 last prepend-top">
+</div>
 		
 		<aside id="feedbox" class="span-5 last">
 		
