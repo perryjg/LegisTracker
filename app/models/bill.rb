@@ -43,6 +43,7 @@ class Bill < ActiveRecord::Base
   
   scope :topic_includes, lambda { |text| tagged_with( text, :on => :topics ) }
   scope :crossed_over, where( "crossover = 1" )
+  scope :order_by_status_date_desc, order( 'current_status_date DESC' )
   
   def is_watched_by_user?( user )
     watched_bills.where( :user_id => user ).count > 0 ? true : false

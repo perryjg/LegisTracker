@@ -2,7 +2,7 @@ class HomeController < ApplicationController
   def index
     @title = 'Home'
     @bills = current_user ?
-      current_user.watched_bills.order( "current_status_date DESC" ) :
+      current_user.watched_bills.order_by_status_date_desc :
       Bill.hot
       
     @votes = current_user ?
