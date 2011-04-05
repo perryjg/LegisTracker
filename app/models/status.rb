@@ -10,6 +10,10 @@ class Status < ActiveRecord::Base
   def self.most_recent
     find_for_date( last_date )
   end
+
+  def self.most_recent_status
+    order( 'status_date DESC' ).first
+  end
   
   def self.find_for_date( date )
     where( "DATE(status_date) = ?", date )

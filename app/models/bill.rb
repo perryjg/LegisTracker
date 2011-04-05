@@ -58,7 +58,7 @@ class Bill < ActiveRecord::Base
   end
   
   def statuses_most_recent
-    statuses.most_recent
+    statuses.most_recent_status
   end
 
   def sponsor_count
