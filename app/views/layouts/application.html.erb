@@ -14,14 +14,17 @@
   <!--[if lt IE 8]><%= stylesheet_link_tag 'blueprint/ie' %><![endif]-->
   <%= stylesheet_link_tag 'custom', :media => 'screen' %>
   <%= stylesheet_link_tag 'http://fonts.googleapis.com/css?family=Orbitron', :media =>'screen'%>
-
-
- <!-- scrollbar -->
 	<%= stylesheet_link_tag 'jquery.mCustomScrollbar.css', :media=>'screen' %>
-	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
-	<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
-	<%= javascript_include_tag 'jquery.easing.1.3.js' %>
-	<%= javascript_include_tag 'jquery.mousewheel.min.js' %>
+	
+	
+	<%=javascript_include_tag 'jquery' %>
+	<%=javascript_include_tag 'rails'%>
+	<%=javascript_include_tag 'jquery.min.js' %>
+	<%=javascript_include_tag 'jquery-ui.min.js' %>
+	<%=javascript_include_tag 'jquery.mCustomScrollbar.js'%>
+	<%=javascript_include_tag 'jquery.easing.1.3.js'%>
+	<%=javascript_include_tag 'jquery.mousewheel.min.js'%>
+
 
 
 </head>
@@ -36,7 +39,7 @@
 
 		    <div id="search" class="span-7 last">
 		        <%= form_for @search, :url => bills_path, :class => 'inline', :html => {:method => :get} do |f| %>
-		          <%= f.search_field :number_or_short_title_or_title_or_b_status_contains, :placeholder => 'Quick search' %> <%= image_submit_tag 'ic_search.png' %>
+		          <%= f.search_field :number_or_short_title_or_title_or_b_status_contains, :placeholder => 'Quick search' %> <%= image_submit_tag 'ic_search.png'%>
 		        <% end %>
 		        <%= link_to "Advanced Search  "   , search_path, :class => 'advanced_search' %>
 		    </div>
@@ -72,49 +75,7 @@
 			<p>Copyright &copy;<%= Date.today.year %></p>
 	  	</footer>
 	 </div>
-</div>
 
-
-<!-- 
-malihu custom scrollbar function parameters: 
-1) scroll type (values: "vertical" or "horizontal")
-2) scroll easing amount (0 for no easing) 
-3) scroll easing type 
-4) extra bottom scrolling space for vertical scroll type only (minimum value: 1)
-5) scrollbar height/width adjustment (values: "auto" or "fixed")
-6) mouse-wheel support (values: "yes" or "no")
-7) scrolling via buttons support (values: "yes" or "no")
-8) buttons scrolling speed (values: 1-20, 1 being the slowest)
--->
-
-<%= javascript_tag do %>
-	Event.observe(window, 'load', function() {
-<!-- >$(window).load(function() -- >
-	mCustomScrollbars();
-});
-
-function mCustomScrollbars(){
-	$("#status").mCustomScrollbar("vertical",300,"easeOutCirc",1.05,"fixed","yes","yes",15); 
-}
-
-<!-- function to fix the -10000 pixel limit of jquery.animate -->
-
-$.fx.prototype.cur = function(){
-    if ( this.elem[this.prop] != null && (!this.elem.style || this.elem.style[this.prop] == null) ) {
-      return this.elem[ this.prop ];
-    }
-    var r = parseFloat( jQuery.css( this.elem, this.prop ) );
-    return typeof r == 'undefined' ? 0 : r;
-}
-
-<!-- function to load new content dynamically -->
-function LoadNewContent(id,file){
-	$("#"+id+" .customScrollBox .content").load(file,function(){
-		mCustomScrollbars();
-	});
-}
-<% end %>
-<%= javascript_include_tag  'jquery.mCustomScrollbar.js' %>
 
 </body>
 </html>

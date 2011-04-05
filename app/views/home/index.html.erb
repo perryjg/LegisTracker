@@ -1,26 +1,35 @@
 <div class="span-18 first last">
 
-<section id="votes" class="span-5 push-1 first border prepend-top">
+<section id="votes" class="span-5 push-1 first prepend-top">
 	<header>
 		<h3>Votes</h3>
 	</header>
-	<div id="vote_container">
-		<ul>
-	<% @votes.each do |vote| %>
+	<div class="customScrollBox span-6">
+		<div class="container span-6">
+			<div id="vote_content" class="content span-5">
+				<ul>
+					<% @votes.each do |vote| %>
+					<li class="vote">
+						<% unless vote.bill.nil? %>
+							<%= link_to "#{vote.bill.number}", bill_path( vote.bill ) %>
+							<% end %> 
+						<%= link_to "#{vote.description}", vote_path( vote.id ) %> <br />
+						<span class="tstamp">(<%= vote.date.strftime( '%l:%M %p' ) %>)</span>
+						<br />
+						<strong>Yea: <%= vote.yea %> Nay: <%= vote.nay %></strong><br /><br />
+					</li>
+					<% end %>
+				</ul>
+				</div>
+			</div>
+			<%= link_to image_tag("mcs_btnUp.png"),'#', :class=>"scrollUpBtn" %>
 		
-			<li class="vote">
-				<% unless vote.bill.nil? %>
-					<%= link_to "#{vote.bill.number}", bill_path( vote.bill ) %>
-					<% end %> 
-				<%= link_to "#{vote.description}", vote_path( vote.id ) %> &nbsp;
-				<span class="tstamp">(<%= vote.date.strftime( '%l:%M %p' ) %>)</span>
-				<br/>
-				<strong>Yea: <%= vote.yea %> Nay: <%= vote.nay %></strong>
-			</li>
-		
-	<% end %>
-	</ul>
+				<div class="dragger_container span-2">
+    				<div class="dragger"> </div>
+				</div>
+				<%= link_to image_tag("mcs_btnDown.png"),'#', :class=>"scrollDownBtn" %> 
 	</div>
+	
 </section>
 
 <section id="status" class="span-10 push-2 prepend-top last">
@@ -28,8 +37,8 @@
 	<header>
 		<h3>Bill Status Changes</h3>
 	</header>
-	<div class="customScrollBox span-11">
-			<div class="container span-10">	
+	<div class="customScrollBox span-12">
+			<div class="container span-12">	
 				<div id="status_content" class="content span-10">
 					<ul>
 						<% @events.each do |event| %>
@@ -37,23 +46,22 @@
 					    	<%= link_to "#{event.bill.number}", bill_path( event.bill ) %>
 						    <%= event.status_code.description %>
 						    <span class="tstamp">(<%= event.status_date.strftime('%Y-%m-%d') %>)</span><br />
-						    <%= event.bill.short_title %>
+						    <%= event.bill.short_title %><br />
 									(<%= event.bill.primary_sponsor_name %>
 									 <%= event.bill.primary_sponsor_party %> -
-									 <%= event.bill.primary_sponsor_district %>)
+									 <%= event.bill.primary_sponsor_district %>)<br /><br />
 						</li>
-	
+				
 						<% end %>
 					</ul>
 				</div>
 			</div>
+			<%= link_to image_tag("mcs_btnUp.png"),'#', :class=>"scrollUpBtn" %>
 			<div class="dragger_container span-1">
-    	<div class="dragger"> </div>	
+    				<div class="dragger"> </div>
 			</div>
+			<%= link_to image_tag("mcs_btnDown.png"),'#', :class=>"scrollDownBtn" %> 
 	</div>
-	
-	
-
 </section>
 
 <!-- content to show if javascript is disabled -->
@@ -61,6 +69,8 @@
 	<style type="text/css">
 		#status .customScrollBox{overflow:auto;}
 		#status .dragger_container{display:none;}
+		#votes .customScrollBox{overflow:auto;}
+		#votes .dragger_container{display:none;}
 	</style>
 </noscript>
 
@@ -81,9 +91,9 @@
 				</header>
 					<ul>
 						<% @senate_rss.each do |item| %>
-							<article>
+							
 								<li class="rss senate"><a href="<%= item.url %>"><%= item.title %></a><br />(<%= item.published_at %>)</li>
-								</article>
+								
 						<% end %>
 					</ul>
 			</section>
@@ -94,9 +104,9 @@
 				</header>
 				<ul>
 					<% @house_rss.each do |item| %>
-						<article>
+						
 							<li class="rss house"><a class="rss house" href="<%= item.url %>"><%= item.title %></a><br />(<%= item.published_at %>)</li>
-							</article>
+						
 					<% end %>
 				</ul>
 	
@@ -108,4 +118,41 @@
 	
 </div>
 
+<!-- 
+malihu custom scrollbar function parameters: 
+1) scroll type (values: "vertical" or "horizontal")
+2) scroll easing amount (0 for no easing) 
+3) scroll easing type 
+4) extra bottom scrolling space for vertical scroll type only (minimum value: 1)
+5) scrollbar height/width adjustment (values: "auto" or "fixed")
+6) mouse-wheel support (values: "yes" or "no")
+7) scrolling via buttons support (values: "yes" or "no")
+8) buttons scrolling speed (values: 1-20, 1 being the slowest)
+
+$(document).ready(function() { 
+	mCustomScrollbars();
+});
+-->
+<% javascript_tag do %>
+	
+	mCustomScrollbars();
+
+
+function mCustomScrollbars(){
+	$("#votes").mCustomScrollbar("vertical",200,"easeOutCirc",1.25,"fixed","yes","yes",15);
+	$("#status").mCustomScrollbar("vertical",200,"easeOutCirc",1.25,"fixed","yes","yes",15); 
+}
+
+
+$.fx.prototype.cur = function(){
+    if ( this.elem[this.prop] != null && (!this.elem.style || this.elem.style[this.prop] == null) ) {
+      return this.elem[ this.prop ];
+    }
+    var r = parseFloat( jQuery.css( this.elem, this.prop ) );
+    return typeof r == 'undefined' ? 0 : r;
+}
+
+
+
+<%end%>
 

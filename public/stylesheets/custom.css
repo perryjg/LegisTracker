@@ -95,15 +95,15 @@ input[type="submit"]:hover {
 
 
 /* ------------------------------- home INDEX */
-#votes { }
-#vote_container {height:34em; overflow:auto;}
+#votes {}
+#vote_content {}
 #status {}
-#status_content {height:34em;}
+#status_content {}
 
 #undercontent {
 	clear:both;
 	position:absolute; 
-	height: 20em;
+	height: 10em;
 	right:0;
 	left:0px;
 	bottom:0px;
@@ -366,30 +366,45 @@ nav li a.current {
 }
 
 
-/* scroller */
+/* --------------scroller ----------------------------*/
 
-#status .customScrollBox {position:relative; height:34em; overflow:hidden;}
-#status .customScrollBox .container{position:relative; top:0; float:left;}
-#status .customScrollBox .content{clear:both; }
-#status .dragger_container {
+#status .customScrollBox,   #votes .customScrollBox {position:relative; height:44em; overflow:hidden;}
+#status .customScrollBox .container {position:relative; top:0; float:left;}
+#votes  .customScrollBox .container  {position:relative; top:0; float:left;}
+#status .customScrollBox .content, #votes  .customScrollBox .content {clear:both; }
+
+/* GLOBAL DRAGGER LOOK */
+#votes .dragger_container, #status .dragger_container {
 	z-index:12;
-	background: red;
-	position:relative; 
+	position:absolute; 
+	top:1.5em;
+	bottom:1.5em;
 	
-	top:1em;
-	margin-left: 15px;
 	width:2px; 
-	height:34em; 
+	height:41em;
 	float:left;
 	background:#eee; 
-	cursor:pointer -moz-border-radius:2px; 
+	cursor:pointer;
+	 -moz-border-radius:2px; 
 	-khtml-border-radius:2px; 
 	-webkit-border-radius:2px; 
 	border-radius:2px; 
-	cursor:s-resize;
+	cursor:s-resize;	
 	}
 
-#status .dragger{
+
+/* DRAGGER PLACMENT FOR SPECIFIC DIVS */
+#votes .dragger_container {
+	margin-left: 16em;
+	}
+	
+#status .dragger_container{
+	margin-left: 34em;
+	
+	}
+
+
+#status .dragger, #votes .dragger{
 	position:absolute; 
 	z-index:13;
 	width:2px; 
@@ -397,7 +412,7 @@ nav li a.current {
 	background:#3774A2; 
 	text-align:center; 
 	line-height:60px; 
-	color:#666; 
+	color:#3774A2; 
 	overflow:hidden; 
 	cursor:pointer; 
 	-moz-border-radius:2px; 
@@ -406,17 +421,9 @@ nav li a.current {
 	border-radius:2px;
 	}
 	
-#status .dragger_pressed{
-	position:absolute; 
-	z-index:13;
+#status .dragger_pressed, #votes .dragger_pressed{
 	width:4px; 
 	margin-left:-1px; 
-	height:60px; 
-	background:#3774A2; 
-	text-align:center; 
-	line-height:60px; 
-	color:#3774A2; 
-	overflow:hidden; 
 	-moz-border-radius:4px; 
 	-khtml-border-radius:4px; 
 	-webkit-border-radius:4px; 
@@ -425,8 +432,15 @@ nav li a.current {
 	}
 
 
-#status .scrollUpBtn,#status .scrollDownBtn{position:absolute; display:inline-block; width:14px; height:15px; margin-right:12px; text-decoration:none; right:0; filter:alpha(opacity=20); -moz-opacity:0.20; -khtml-opacity:0.20; opacity:0.20;}
-#status .scrollUpBtn{top:0px; margin-left:0px; }
-#status .scrollDownBtn{bottom:0px; background:url(mcs_btnDown.png) center center no-repeat;}
-#status .scrollUpBtn:hover,#status .scrollDownBtn:hover{filter:alpha(opacity=60); -moz-opacity:0.60; -khtml-opacity:0.60; opacity:0.60;}
+#status .scrollUpBtn,#status .scrollDownBtn, #votes .scrollUpBtn,#votes .scrollDownBtn{position:absolute; display:inline-block; width:14px; height:15px; text-decoration:none; right:0; filter:alpha(opacity=20); -moz-opacity:0.20; -khtml-opacity:0.20; opacity:0.20;}
+
+
+#votes  .scrollUpBtn {top:0px; right:29px;}
+#votes  .scrollDownBtn {bottom:0px; right:29px; }
+
+
+#status .scrollUpBtn {top:0px; right:53px; }
+#status .scrollDownBtn {bottom:0px; right:53px; }
+
+#status .scrollUpBtn:hover,#status .scrollDownBtn:hover, #votes.scrollUpBtn:hover,#votes .scrollDownBtn:hover{filter:alpha(opacity=60); -moz-opacity:0.60; -khtml-opacity:0.60; opacity:0.60;}
 
