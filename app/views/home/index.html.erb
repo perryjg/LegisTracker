@@ -1,20 +1,19 @@
 <section id="votes" class="span-5 push-1 first border prepend-top">
 	<header>
-		<h3>Votes</h3>
+		<h3>Most Recent Votes</h3>
 	</header>
 	<ul>
-	<% @votes.each do |vote| %>
+	<% @bills.each do |bill| %>
 		
+    <% if bill.votes_most_recent %>
 			<li class="vote">
-				<% unless vote.bill.nil? %>
-					<%= link_to "#{vote.bill.number}", bill_path( vote.bill ) %>
-					<% end %> 
-				<%= link_to "#{vote.description}", vote_path( vote.id ) %> &nbsp;
-				<span class="tstamp">(<%= vote.date.strftime( '%l:%M %p' ) %>)</span>
+				<%= link_to "#{bill.number}", bill_path( bill ) %>
+				<%= link_to "#{bill.votes_most_recent.description}", vote_path( bill.votes_most_recent.id ) %> &nbsp;
+				<span class="tstamp">(<%= bill.votes_most_recent.date.strftime( '%Y-%m-%d' ) %>)</span>
 				<br/>
-				<strong>Yea: <%= vote.yea %> Nay: <%= vote.nay %></strong>
+				<strong>Yea: <%= bill.votes_most_recent.yea %> Nay: <%= bill.votes_most_recent.nay %></strong>
 			</li>
-		
+    <% end %>
 	<% end %>
 	</ul>
 </section>

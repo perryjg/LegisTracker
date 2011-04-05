@@ -12,6 +12,10 @@ class Vote < ActiveRecord::Base
   def self.most_recent
     where( "DATE(date) = ?", last_date )
   end
+
+  def self.most_recent_vote
+    order( 'date DESC' ).limit(1)
+  end
   
   def self.find_for_date( date )
     where( "DATE(date) = ?", date )

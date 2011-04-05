@@ -61,6 +61,10 @@ class Bill < ActiveRecord::Base
     statuses.most_recent_status
   end
 
+  def votes_most_recent
+    votes.most_recent_vote.first
+  end
+
   def sponsor_count
     sponsorships.count
   end
