@@ -323,7 +323,7 @@ nav li a.current {
 /*CUSTOM SCROLL BARS 
 -----------------------------------------------*/
 
-#status .customScrollBox,   #votes .customScrollBox {position:relative; height:44em; overflow:hidden;}
+#status .customScrollBox,   #votes .customScrollBox {position:relative; height:20em; overflow:hidden;}
 #status .customScrollBox .container {position:relative; top:0; float:left;}
 #votes  .customScrollBox .container  {position:relative; top:0; float:left;}
 #status .customScrollBox .content, #votes  .customScrollBox .content {clear:both; }
@@ -336,7 +336,7 @@ nav li a.current {
 	bottom:1.5em;
 	/*margin-left determines alignment with scrolling content -- adjust this in specific style for that div.*/
 	width:2px; 
-	height:41em;
+	height:17em;
 	float:left;
 	background:#eee; 
 	cursor:pointer;
