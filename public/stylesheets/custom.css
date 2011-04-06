@@ -1,10 +1,7 @@
-/* general styles 
+/* GENERAL RESETS
 ---------------------------------------------------------------------------------- */
-body {
-
-	background:#888888 url('../images/bggrad.jpg') repeat-x;
-	}
-	
+html{overflow-y: scroll;}
+body {background:#888888 url('../images/bggrad.jpg') repeat-x;}
 h4 { font-style:bold; font-weight:bold;}
 ul {list-style-type:none; margin-left:0; padding-left:0;}
 li {margin-top:.25em;}
@@ -14,7 +11,7 @@ a:hover {color:#274385;}
 a:focus {color:#274385;}
 
 
-/* forms
+/* FORMS
 --------------------------------------------------------------------------------- */
 input[type=image] { /* form input images */
 	margin:0.5em 0; 
@@ -37,23 +34,17 @@ input[type="submit"] { /* Assistance by a book apart */
 	-webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5); 
 	-moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5); 
 	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
-	
-
 }
 input[type="submit"]:hover {
-		
-	
 	background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#ccc), to(#eee)); 
 	background-image: -moz-linear-gradient(0 100% 90deg, #ccc, #eee);
 	background-color: #333; 
-
-	
 	-webkit-box-shadow: 0 0px 0px rgba(0, 0, 0, 0.5); 
 	-moz-box-shadow: 0 0px 0px rgba(0, 0, 0, 0.5); 
 	box-shadow: 0 0px 0px rgba(0, 0, 0, 0.5);
 }
 
-/* special classes
+/* SPECIAL CLASSES
 -------------------------------------------------------------------- */
 .box {background:#3774A2;}
 .tstamp {font-size:.8em;}
@@ -63,224 +54,35 @@ input[type="submit"]:hover {
 .memid {color:#888;}
 .votecenter {}
 
+
+
+
+
                        
-/* DIV STYLES
-------------------------------------------------------------------------------------*/
-/* ------------------------- application html */
+/* DIV AND OTHER BLOCK STYLES*/
+
+/* APPLICATION TEMPLATE
+----------------------------------------------------------------------------------- */
 #container { position:absolute; background:white; height:100%; }
+
+/*HEADER*/
 #header {background:#3774A2;margin:0; padding-top:1em; height:60px; width:100%;}
 #header h1 {font-family: 'Orbitron', arial, serif; padding-left:.5em; color:white; text-shadow:0 1px 0 black;}
 #header a {text-decoration:none;color:white;}
 #header a:link {}
 #header a:hover {}
 #logo {clear:both; float:left;}
-#search {
-	float:right; 
-	horizontal-align:right; 
-	text-align:center;}
-#navhed {
-	background: #3774A2;
-background: -moz-linear-gradient(top, #3774A2, #2D5F85);
-background: -webkit-gradient(linear, left top, left bottom, from(#3774A2), to(#2D5F85));
-}
+#search {float:right; horizontal-align:right; text-align:center;}
+
+/*NAV BAR AREA*/
+#navhed {background: #3774A2; background: -moz-linear-gradient(top, #3774A2, #2D5F85); background: -webkit-gradient(linear, left top, left bottom, from(#3774A2), to(#2D5F85));}
 #nav {clear:both; float:left;}
 #user_nav {float:right; font-size:.9em; text-align:right; color:white; text-shadow: 0 1px 0 #162F42;}
 #user_nav a {color:white; font-weight:bold; text-shadow: 0 1px 0 #162F42;}
-#content{position:relative; background:white; margin-top:-1.0em; }
-#content p.endy{font-family: 'Orbitron', arial, serif; text-align:center; size:0.75em; color:#777;}
-#footer {z-index:4; position:relative; background: #3774A2;  height: 25px;}
-#footer p {color:white; padding-top:.3em; text-align:center;}
 
-
-/* ------------------------------- home INDEX */
-#votes { }
-#status {}
-#feeds { z-index:2; position:absolute;  bottom:0; top:-1.5em; right:0px; padding:2em; padding-bottom:0; padding-right:1em; 
-	background:#e5e5e5;
-	background: -moz-linear-gradient(top, #cccccc 0%, #eeeeee 100%); /* firefox */
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#cccccc), color-stop(100%,#eeeeee)); /* webkit */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#eeeeee', endColorstr='#cccccc',GradientType=0 ); /* ie */
-
-	}
-#feedbox { z-index:3; position:relative; float:right; margin-top: -0.5em; height:100%; bottom:0; top:0px; right:0px; padding:2em; padding-left:2em; padding-right:1em;height:100%; bottom:0; top:0px; right:0px; padding:2em; padding-right:1em;}
-#feedbox h3 {color:#333;}
-#feedbox ul {color:#888; font-size:.8em;}
-#feedbox a {color:#444 ;text-decoration:underline;font-size:1.25em;}
-#senate_rss {height:100%; }
-#house_rss {}
-
-
-/*---------------------------------- Bills  SHOW */
-#inside h2 { padding-top:1em; margin-bottom: 1em;} /* used on votes show too */
-#inside h4 {margin-top:-1.75em;}/* used on votes show too */
-#inside p {text-align:justify;}/* used on votes show too */
-
-#flash {}
-
-/*--------- WATCH & UNWATCH BUTTON */
-#hotnot { clear:both; 
-	float:left;
-	width:80px; 
-	margin:5px; 
-	margin-left:0;padding:3px; 
-		padding-bottom:0px; 
-		margin-top:2.35em;}
-#hotnot a img { }
-#hotnot a:hover img,
-#hotnot a:focus img { }
-#billtitle {float:left;margin-left:10px;}
-
-/* ------- TAGS */
-#tags {float:right; text-align:right;}
-#tags p {text-align:right;}
-#tags input[type="submit"] {
-	padding: 1px 5px; 
-	font-size: .85em;
-}
-
-
-
-/* ---------------------------------- BILLS INDEx */
-#bindex p {text-align:justify;}
-
-
-/* -----------------------------------votes SHOW */
-
-/*--------- WATCH & UNWATCH BUTTON */
-#key { clear:both; 
-	float:left;
-	width:86px; 
-	margin:5px; 
-	margin-left:0;padding:3px; 
-		padding-bottom:0px; 
-		margin-top:2.35em;}
-#key a img { }
-#key a:hover img,
-#key a:focus img { }
-#votetitle {float:left;}
-
-#votebox {
-	clear:both; 
-	background: #e5e5e5; 
-	padding:0; 
-	margin-top:-1em;
-	-moz-border-radius: 20px; 
-	-webkit-border-radius: 20px; 
-	border-radius: 20px;
-	}
-#votebox ul { margin-left:auto; margin-right:auto; list-style-type: none;}
-#votebox li { float: left; padding: 8px 20px 7px 20px; }
-#repub_votes {clear:both; }
-
-
-
-/* --------------------------------- members SHOW */
-#sponsorships tbody tr:nth-child(even) td, tbody tr.even td {background:white;}
-#sponsorships tr td {text-align:left; vertical-align:top;  padding:0;}/* Bills */
-#inside h2 { padding-top:1em;}
-#top_donors p {font-size: 1.25em; color:#AF4F4D;}
-#fin_graph {
-	margin-top: -2.75em;
-	padding: 10px;
-	padding-bottom: 0px;
-	float:right;
-	background: #eee;
-	border-radius: 10px;
-	-moz-border-radius: 10px; 
-	-webkit-border-radius: 10px; 
-	border-radius: 10px;
-}
-
-
-#ftm {
-	padding: 8px;
-	padding-bottom:0px;
-	margin-left: 5px;
-}
-
-#pvs {
-	margin-top:15px;
-	margin-left: 65px;
-	padding: 10px;
-	
-	text-align: center;
-	background: #A27737;
-	border: 2px solid #553B14;
-	border-radius: 10px;
-	-moz-border-radius: 10px; 
-	-webkit-border-radius: 10px; 
-	border-radius: 10px;
-}
-
-#pvs a {
-	color:white;
-	font-display:strong;
-	text-shadow: 1px 1px 1px #0a0a0a;
-	filter: dropshadow(color=#0a0a0a, offx=1, offy=1);
-}
-
-#links {
-	float:right;
-	margin-top: -35px;
-	margin-bottom: -5px;
-
-
-}
-/*------------------------------- Flash messages */
-.flash {
-    position:relative;
-	  text-align: center;
-    padding:    .3em .4em;
-    margin-top: 1em;
-    clear:              both;
-    max-width:  100%; /* 610/13 */  
-    *max-width: 100%; /* 610/13.3333 - for IE */
-}
-
-.flash.error {
-    border: thin solid #8b0000;
-    background: #ffc0cb;
-}
-
-.flash.notice, .flash.info {
-    border: thin solid #ff0;
-    background: #ffe;
-}
-
-.flash.warning {
-    border: thin solid #b8860b;
-    background: #ff0;
-}
-
-.flash .close {
-    float:      right;
-}
-
-.flash .close a {
-    color: #f00;
-    text-decoration:    none;
-}
-
-
-
-
-/* navigation bar
-------------------------------------------------------- */
-
-nav ul {
-	margin-top: -5px;
-	margin-bottom:12px;
-	float: left;
-	width: 100%;
-	list-style-type: none;
-	font-weight:bold;
-	text-shadow: 0 1px 0 #162F42;
-	
-}
-
-nav li {
-	float: left;
-}
+/* NAVIGATION LIST */
+nav ul {margin-top: -5px; margin-bottom:12px; float: left; width: 100%; list-style-type: none; font-weight:bold; text-shadow: 0 1px 0 #162F42;}
+nav li {float: left;}
 nav ul a{
 	display: block;
 	padding: 5px 20px 7px 20px;
@@ -329,3 +131,257 @@ nav li a.current {
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#EEEEEE', endColorstr='#FFFFFF',GradientType=0 ); /* ie */
 	border: 1px solid white;
 }
+
+/*CONTENT*/
+#content{position:relative; background:white; margin-top:-1.0em; }
+#content p.endy{font-family: 'Orbitron', arial, serif; text-align:center; size:0.75em; color:#777;}
+#footer {z-index:4; position:relative; background: #3774A2;  height: 25px;}
+#footer p {color:white; padding-top:.3em; text-align:center;}
+/* END APPLICATION TEMPLATE------------------------------------------------------------------------------------------------------- */
+
+
+/* HOME PAGE
+-------------------------------------------------------------------------------- */
+#votes {}
+#vote_content {}
+#status {}
+#status_content {}
+
+/* TAG CLOUD
+---------------------------------------------*/
+#undercontent {
+	clear:both;
+	position:absolute; 
+	height: 10em;
+	right:0;
+	left:0px;
+	bottom:0px;
+	padding-top:1.5em;
+	background: #3774A2;
+	background: -moz-linear-gradient(top,  #234B69, #3774A2);
+	background: -webkit-gradient(linear, left top, left bottom, from(#234B69), to(#3774A2));
+	}
+
+/*RSS FEEDS 
+----------------------------------------------*/	
+#feeds { 
+	/*This is the background gray box*/
+	z-index:2;
+	 position:absolute;  
+	bottom:10px; 
+	top:-1.5em; 
+	right: 10px; 
+	padding:2em; 
+	padding-bottom:0; 
+	padding-right:1em; SHA
+	background:#e5e5e5;
+	background: -moz-linear-gradient(top, #aaa 0%, #eeeeee 100%); /* firefox */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#aaa), color-stop(100%,#eeeeee)); /* webkit */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#eeeeee', endColorstr='#aaa',GradientType=0 ); /* ie */
+	-moz-border-radius: 0 0 10px 10px; 
+	-webkit-border-radius: 0 0 10px 10px; 
+	border-radius: 0 0 10px 10px;
+	border:solid 1px #ggg;
+	border-top:none;
+	opacity:0.8;
+	filter:alpha (opacity=80);
+	}
+	
+#feedbox { 
+	/*this is the holder div for the rss content feeds */
+	z-index:3; 
+	position:relative; 
+	margin-right: 10px; 
+	margin-top: -0.5em; 
+	height:100%; 
+	bottom:0; 
+	top:0px; 
+	right:0px; 
+	padding:2em; 
+	padding-left:2em; 
+	padding-right:1em;
+	height:100%; 
+	bottom:0; 
+	top:0px; 
+	right:0px; 
+	padding:2em; 
+	padding-right:1em;
+	}
+	
+#feedbox h3 {color:#333;}
+#feedbox ul {color:#888; font-size:.8em;}
+#feedbox a {color:#444 ;text-decoration:underline;font-size:1.25em;}
+#senate_rss.sml {height:10em;}
+#senate_rss.exp {height:100%; }
+#house_rss {}
+/*END HOME PAGE---------------------------------------------------------------------------*/
+
+/*BILLS
+-----------------------------------------------------------------------*/
+/*SHOW*/
+#inside h2 { padding-top:1em; margin-bottom: 1em;} /* used on votes show too */
+#inside h4 {margin-top:-1.75em;}/* used on votes show too */
+#inside p {text-align:justify;}/* used on votes show too */
+
+#flash {}
+
+/*WATCH & UNWATCH BUTTON */
+#hotnot { clear:both; float:left; width:80px; margin:5px; margin-left:0;padding:3px; padding-bottom:0px; margin-top:2.35em;}
+#hotnot a img { }
+#hotnot a:hover img,
+#hotnot a:focus img { }
+#billtitle {float:left;margin-left:10px;}
+
+/* TAGS */
+#tags {float:right; text-align:right;}
+#tags p {text-align:right;}
+#tags input[type="submit"] {padding: 1px 5px; font-size: .85em;}
+
+/*INDEX */
+#bindex p {text-align:justify;}
+/* END BILLS ------------------------------------------------------------------------------*/
+
+
+/* VOTES
+------------------------------------------- */
+
+/* WATCH & UNWATCH BUTTON */
+#key { clear:both; float:left;  width:86px; margin:5px; margin-left:0;padding:3px; padding-bottom:0px; margin-top:2.35em; }
+#key a img { }
+#key a:hover img,
+#key a:focus img { }
+#votetitle {float:left;}
+#votebox {clear:both; background: #e5e5e5; padding:0; margin-top:-1em; -moz-border-radius: 20px; -webkit-border-radius: 20px; border-radius: 20px;}
+#votebox ul { margin-left:auto; margin-right:auto; list-style-type: none;}
+#votebox li { float: left; padding: 8px 20px 7px 20px; }
+#repub_votes {clear:both; }
+
+
+
+/*MEMBERS PAGES
+-----------------------------------------------------------------------------------*/
+#sponsorships tbody tr:nth-child(even) td, tbody tr.even td {background:white;}
+#sponsorships tr td {text-align:left; vertical-align:top;  padding:0;}/* Bills */
+#inside h2 { padding-top:1em;}
+#top_donors p {font-size: 1.25em; color:#AF4F4D;}
+#fin_graph {
+	/* box holding the pie charts */
+	margin-top: -2.75em;
+	padding: 10px;
+	padding-bottom: 0px;
+	float:right;
+	background: #eee;
+	border-radius: 10px;
+	-moz-border-radius: 10px; 
+	-webkit-border-radius: 10px; 
+	border-radius: 10px;
+}
+
+#ftm {padding: 8px; padding-bottom:0px; margin-left: 5px;}
+
+#pvs {
+	margin-top:15px;
+	margin-left: 65px;
+	padding: 10px;
+	text-align: center;
+	background: #A27737;
+	border: 2px solid #553B14;
+	border-radius: 10px;
+	-moz-border-radius: 10px; 
+	-webkit-border-radius: 10px; 
+	border-radius: 10px;
+}
+
+#pvs a {color:white; font-display:strong; text-shadow: 1px 1px 1px #0a0a0a; filter: dropshadow(color=#0a0a0a, offx=1, offy=1);}
+#links { float:right; margin-top: -35px; margin-bottom: -5px; }
+/* END MEMBERS */
+
+
+
+/* OTHER GLOBALS */
+
+/*FLASH MESSAGES
+-------------------------------------------------------------------*/
+.flash {
+    position:relative;
+	text-align: center;
+    padding:.3em .4em;
+    margin-top: 1em;
+    clear: both;
+    max-width:  100%; /* 610/13 */  
+    *max-width: 100%; /* 610/13.3333 - for IE */
+}
+.flash.error { border: thin solid #8b0000; background: #ffc0cb; }
+.flash.notice, .flash.info { border: thin solid #ff0; background: #ffe; }
+.flash.warning { border: thin solid #b8860b; background: #ff0; }
+.flash .close { float:right; }
+.flash .close a { color: #f00; text-decoration:none; }
+/* END FLASH MESSAGES -------------------------------------------------*/
+
+
+
+/*CUSTOM SCROLL BARS 
+-----------------------------------------------*/
+
+#status .customScrollBox,   #votes .customScrollBox {position:relative; height:44em; overflow:hidden;}
+#status .customScrollBox .container {position:relative; top:0; float:left;}
+#votes  .customScrollBox .container  {position:relative; top:0; float:left;}
+#status .customScrollBox .content, #votes  .customScrollBox .content {clear:both; }
+
+/* GLOBAL DRAGGER CONTAINER*/
+#votes .dragger_container, #status .dragger_container {
+	z-index:12;
+	position:absolute; 
+	top:1.5em;
+	bottom:1.5em;
+	/*margin-left determines alignment with scrolling content -- adjust this in specific style for that div.*/
+	width:2px; 
+	height:41em;
+	float:left;
+	background:#eee; 
+	cursor:pointer;
+	 -moz-border-radius:2px; 
+	-khtml-border-radius:2px; 
+	-webkit-border-radius:2px; 
+	border-radius:2px; 
+	cursor:s-resize;	
+	}
+
+/* DRAGGER CONTAINER PLACMENT FOR SPECIFIC DIVS */
+#votes .dragger_container { margin-left: 16em;} /* home: votes */
+#status .dragger_container{ margin-left: 34em; } /* home: status */
+
+#status .dragger, #votes .dragger{
+	position:absolute; 
+	z-index:13;
+	width:2px; 
+	height:60px; 
+	background:#3774A2; 
+	text-align:center; 
+	line-height:60px; 
+	color:#3774A2; 
+	overflow:hidden; 
+	cursor:pointer; 
+	-moz-border-radius:2px; 
+	-khtml-border-radius:2px; 
+	-webkit-border-radius:2px; 
+	border-radius:2px;
+	}
+	
+#status .dragger_pressed, #votes .dragger_pressed{
+	width:4px; 
+	margin-left:-1px; 
+	-moz-border-radius:4px; 
+	-khtml-border-radius:4px; 
+	-webkit-border-radius:4px; 
+	border-radius:4px; 
+	cursor:s-resize;
+	}
+
+#status .scrollUpBtn,#status .scrollDownBtn, #votes .scrollUpBtn,#votes .scrollDownBtn { position:absolute; display:inline-block; width:14px; height:15px; text-decoration:none; right:0; filter:alpha(opacity=20); -moz-opacity:0.20; -khtml-opacity:0.20; opacity:0.20;}
+#votes  .scrollUpBtn {top:0px; right:29px;}/* home: votes */
+#votes  .scrollDownBtn {bottom:0px; right:29px; }/* home: votes */
+#status .scrollUpBtn {top:0px; right:53px; }/* home: status */
+#status .scrollDownBtn {bottom:0px; right:53px; }/* home: status */
+#status .scrollUpBtn:hover,#status .scrollDownBtn:hover, #votes.scrollUpBtn:hover,#votes .scrollDownBtn:hover{filter:alpha(opacity=60); -moz-opacity:0.60; -khtml-opacity:0.60; opacity:0.60;}/* home: status */
+/*END CUSTOMER SCROLL BARS ---------------------------------------------------------------------------------------/
