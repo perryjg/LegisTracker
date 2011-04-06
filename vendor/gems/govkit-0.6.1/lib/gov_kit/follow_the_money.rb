@@ -92,7 +92,7 @@ module GovKit
       end
 
       def self.top(nimsp_id)
-        doc = get_xml("/candidates.top_contributor.php", :query => {"imsp_candidate_id" => nimsp_id})
+        doc = get_xml("/candidates.top_contributors.php", :query => {"imsp_candidate_id" => nimsp_id})
         result = doc.search('//top_contributor').collect { |x| x.attributes }
 
         stringify_values_of(result)
