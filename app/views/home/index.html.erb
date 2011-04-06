@@ -1,126 +1,111 @@
-<div class="span-18 first last">
+<div id="well" class="span-18 first last">
 
-<section id="votes" class="span-5 push-1 first prepend-top">
-	<header>
-		<h3>Most Recent Votes</h3>
-	</header>
-	<div class="customScrollBox span-6">
-		<div class="container span-6">
-			<div id="vote_content" class="content span-5">
-				<ul>
-				<% @bills.each do |bill| %>
-
-			    <% if bill.votes_most_recent %>
-						<li class="vote">
-							<%= link_to "#{bill.number}", bill_path( bill ) %>
-							<%= link_to "#{bill.votes_most_recent.description}", vote_path( bill.votes_most_recent.id ) %> &nbsp;
-							<span class="tstamp">(<%= bill.votes_most_recent.date.strftime( '%Y-%m-%d' ) %>)</span>
-							<br/>
-							<strong>Yea: <%= bill.votes_most_recent.yea %> Nay: <%= bill.votes_most_recent.nay %></strong>
-						</li>
-			    <% end %>
-				<% end %>
-				</ul>
-				</div>
-			</div>
-			<%= link_to image_tag("mcs_btnUp.png"),'#', :class=>"scrollUpBtn" %>
-		
-				<div class="dragger_container span-2">
-    				<div class="dragger"> </div>
-				</div>
-				<%= link_to image_tag("mcs_btnDown.png"),'#', :class=>"scrollDownBtn" %> 
-	</div>
-
-
-</section>
-
-<section id="status" class="span-10 push-2 prepend-top last">
-	<header>
-		<h3>Most Recent Status Changes</h3>
-	</header>
-	<div class="customScrollBox span-12">
-			<div class="container span-12">	
-				<div id="status_content" class="content span-10">
-					<ul>
-						<% @bills.each do |bill| %>
-						<li class="event">
-					    	<%= link_to "#{bill.number}", bill_path( bill ) %>
-						    <%= bill.statuses_most_recent.status_code.description %>
-						    <span class="tstamp">(<%= bill.statuses_most_recent.status_date.strftime('%Y-%m-%d') %>)</span><br />
-						    <%= bill.short_title %>
-									(<%= bill.primary_sponsor_name %>
-									 <%= bill.primary_sponsor_party %> -
-									 <%= bill.primary_sponsor_district %>)
-						</li>
-
-						<% end %>
-					</ul>
-				</div>
-			</div>
-				
-			<%= link_to image_tag("mcs_btnUp.png"),'#', :class=>"scrollUpBtn" %>
-			<div class="dragger_container span-1">
-    				<div class="dragger"> </div>
-			</div>
-			<%= link_to image_tag("mcs_btnDown.png"),'#', :class=>"scrollDownBtn" %> 
-	</div>
+		<!-- START MOST RECENT VOTES LIST -->
+		<section id="votes" class="span-6 push-1 first prepend-top">
+			<header>
+				<h3>Most Recent Votes</h3>
+			</header>
 	
-</section>
+			<div class="customScrollBox span-6">
+				<div class="container span-6">
+					<div id="vote_content" class="content span-5">
+						<ul>
+						<% @bills.each do |bill| %>
+					    <% if bill.votes_most_recent %>
+								<li class="vote">
+									<%= link_to "#{bill.number}", bill_path( bill ) %>
+									<%= link_to "#{bill.votes_most_recent.description}", vote_path( bill.votes_most_recent.id ) %> &nbsp;
+									<span class="tstamp">(<%= bill.votes_most_recent.date.strftime( '%Y-%m-%d' ) %>)</span>
+									<br/>
+									<strong>Yea: <%= bill.votes_most_recent.yea %> Nay: <%= bill.votes_most_recent.nay %></strong>
+								</li>
+					    <% end %>
+						<% end %>
+						</ul>
+					</div><!-- END CLASS: CONTENT -->	
+				</div><!-- END CLASS: CONTAINER -->	
+				<!-- SCROLL BAR -->		<%= link_to image_tag("mcs_btnUp.png"),'#', :class=>"scrollUpBtn" %><div class="dragger_container span-1"><div class="dragger"> </div></div><%= link_to image_tag("mcs_btnDown.png"),'#', :class=>"scrollDownBtn" %> 
+			</div><!-- END CLASS: CUSTOMSCROLLBOX -->
+		</section>
+		<!-- END VOTES LIST -->
 
-<!-- content to show if javascript is disabled -->
-<noscript>
-	<style type="text/css">
-		#status .customScrollBox{overflow:auto;}
-		#status .dragger_container{display:none;}
-		#votes .customScrollBox{overflow:auto;}
-		#votes .dragger_container{display:none;}
-	</style>
-</noscript>
+		<!-- START RECENT BILL STATUS -->
+		<section id="status" class="span-10 push-1 prepend-top last">
+			<header>
+				<h3>Most Recent Status Changes</h3>
+			</header>
+			<div class="customScrollBox span-12">
+					<div class="container span-12">	
+						<div id="status_content" class="content span-11">
+							<ul>
+								<% @bills.each do |bill| %>
+								<li class="event">
+							    	<%= link_to "#{bill.number}", bill_path( bill ) %>
+								    <%= bill.statuses_most_recent.status_code.description %>
+								    <span class="tstamp">(<%= bill.statuses_most_recent.status_date.strftime('%Y-%m-%d') %>)</span><br />
+								    <%= bill.short_title %>
+											(<%= bill.primary_sponsor_name %>
+											 <%= bill.primary_sponsor_party %> -
+											 <%= bill.primary_sponsor_district %>)
+								</li>
+								<% end %>
+							</ul>
+						</div><!-- END CLASS: CONTENT -->	
+					</div><!-- END CLASS: CONTAINER -->	
+				<!-- SCROLL BAR -->		<%= link_to image_tag("mcs_btnUp.png"),'#', :class=>"scrollUpBtn" %><div class="dragger_container span-1"><div class="dragger"> </div></div><%= link_to image_tag("mcs_btnDown.png"),'#', :class=>"scrollDownBtn" %> 
+			</div><!-- END CLASS: CUSTOMSCROLLBOX -->	
+		</section>
+		<!-- END  STATUS -->
+
+		<!-- content to show if javascript is disabled -->
+		<noscript>
+			<style type="text/css">
+				#status .customScrollBox{overflow:auto;}
+				#status .dragger_container{display:none;}
+				#votes .customScrollBox{overflow:auto;}
+				#votes .dragger_container{display:none;}
+			</style>
+		</noscript>
+
+</div> <!-- END MAIN DIV -->
 
 
 
-</div>
 
-<div id="undercontent">
-	</div>
-
-<div id="feeds" class="span-5 last prepend-top">
-</div>
+<!-- START FEEDS BOX -->
+<div id="feeds" class="span-5 last prepend-top"> </div><!-- BACKGROUND OF FEEDBOX -->
 		
+		<!-- FEEDS CONTENT  -->
 		<aside id="feedbox" class="span-5 last">
-		
-			<section id="senate_rss">
+			<!-- SENATE FEEDS -->
+			<section id="senate_rss"> 
 				<header>
 					<h3>Senate Press Releases</h3>
 				</header>
-					<ul>
-						<% @senate_rss.each do |item| %>
-							
-								<li class="rss senate"><a href="<%= item.url %>"><%= item.title %></a><br />(<%= item.published_at %>)</li>
-								
-						<% end %>
-					</ul>
+				<ul>
+					<% @senate_rss.each do |item| %>							
+						<li class="rss senate"><a href="<%= item.url %>"><%= item.title %></a><br />(<%= item.published_at %>)</li>								
+					<% end %>
+				</ul>
 			</section>
+			<!-- END SENATE FEEDS -->
 
+			<!-- HOUSE FEEDS -->
 			<section id="house_rss">
 				<header>
 					<h3>House Press Releases</h3>
 				</header>
 				<ul>
-					<% @house_rss.each do |item| %>
-						
-							<li class="rss house"><a class="rss house" href="<%= item.url %>"><%= item.title %></a><br />(<%= item.published_at %>)</li>
-						
+					<% @house_rss.each do |item| %>						
+						<li class="rss house"><a class="rss house" href="<%= item.url %>"><%= item.title %></a><br />(<%= item.published_at %>)</li>					
 					<% end %>
 				</ul>
-	
 			</section>
-	
+			<!-- END HOUSE FEEDS -->
 		</aside>
-	
-	
-	
+		<!-- END FEEDS CONTENT -->
 </div>
+<!-- END FEEDS BOX -->
 
 <!-- 
 malihu custom scrollbar function parameters: 
@@ -132,10 +117,6 @@ malihu custom scrollbar function parameters:
 6) mouse-wheel support (values: "yes" or "no")
 7) scrolling via buttons support (values: "yes" or "no")
 8) buttons scrolling speed (values: 1-20, 1 being the slowest)
-
-$(document).ready(function() { 
-	mCustomScrollbars();
-});
 -->
 <% javascript_tag do %>
 	
@@ -155,8 +136,6 @@ $.fx.prototype.cur = function(){
     var r = parseFloat( jQuery.css( this.elem, this.prop ) );
     return typeof r == 'undefined' ? 0 : r;
 }
-
-
 
 <%end%>
 

@@ -1,7 +1,6 @@
-<section class="span-24 first last">
-	
 
-	<section id="votes" class="span-6 push-1 first border prepend-top">
+
+	<section id="votes" class="span-6 push-1 first prepend-top">
 		<header><h3>Votes <%= @vote_date %></h3></header>
 		<p class="fwdbk" align="center"> 
 			<% if @vote_date < Vote.last_date %>
@@ -9,22 +8,35 @@
 			<% end %> | 
 			<%= link_to "<< Previous", statuses_path( :vote_date => Date.parse( @vote_date ).yesterday.to_s(:db), :status_date => @status_date ) %>
 		</p>
-	
-		<ul>
-		<% @votes.each do |vote| %>
-			<li class="vote">
-			  <% unless vote.bill.nil? %>
-          <%= link_to "#{vote.bill.number}", bill_path( vote.bill ) %>
-				<% end %> 
-        <%= link_to "#{vote.description}", vote_path( vote.id ) %> &nbsp;<span class="tstamp">(<%= vote.date.strftime( '%l:%M %p' ) %>)</span><br/>
-			<strong>   Yea: <%= vote.yea %> Nay: <%= vote.nay %> </strong>
-			</li>
-		<% end %>
-		</ul>
-		<p class="endy"> >>> end feed <<< </class> </p>
-	</section>
+		<div class="customScrollBox span-6">
+			<div class="container span-6">
+				<div id="vote_content" class="content span-5">
+					<ul>
+					<% @votes.each do |vote| %>
+						<li class="vote">
+						  <% unless vote.bill.nil? %>
+			          <%= link_to "#{vote.bill.number}", bill_path( vote.bill ) %>
+							<% end %> 
+			        <%= link_to "#{vote.description}", vote_path( vote.id ) %> &nbsp;<span class="tstamp">(<%= vote.date.strftime( '%l:%M %p' ) %>)</span><br/>
+						<strong>   Yea: <%= vote.yea %> Nay: <%= vote.nay %> </strong>
+						</li>
+					<% end %>
+					</ul>
+						</div>
+					</div>
+					<%= link_to image_tag("mcs_btnUp.png"),'#', :class=>"scrollUpBtn" %>
 
-	<section id="status" class="span-15 push-2 prepend-top ">
+						<div class="dragger_container span-2">
+		    				<div class="dragger"> </div>
+						</div>
+						<%= link_to image_tag("mcs_btnDown.png"),'#', :class=>"scrollDownBtn" %> 
+			</div>
+					
+		
+	</section>
+	
+
+	<section id="status" class="span-16 push-1 prepend-top ">
 		<header><h3>Bill status changes <%= @status_date %></h3></header>
 		<p class="fwdbk" align="center">
 			<% if @status_date < Status.last_date %>
@@ -33,16 +45,66 @@
 			<%= link_to "<< Previous", statuses_path( :status_date => Date.parse( @status_date ).yesterday.to_s(:db), :vote_date => @vote_date ) %>
 		</p>
 	
-		<ul>
-		<% @events.each do |event| %>
-			<li class="event">
-	    	<%= link_to "#{event.bill.number}", bill_path( event.bill ) %>
-	     	<span class="vtitle"> <%= event.bill.short_title %></span> ...
-	      <span class="vdesc"><%= event.status_code.description %> </span>
-				<span class="tstamp">(<%= event.status_date.strftime('%Y-%m-%d') %>)</span>
-			</li>
-		<% end %>
-		</ul>
-		<p class="endy"> >>> end feed <<< </class> </p>
+			<div class="customScrollBox span-17">
+					<div class="container span-17">	
+						<div id="status_content" class="content span-16">
+							<ul>
+							<% @events.each do |event| %>
+								<li class="event">
+						    	<%= link_to "#{event.bill.number}", bill_path( event.bill ) %>
+						     	<span class="vtitle"> <%= event.bill.short_title %></span> ...
+						      <span class="vdesc"><%= event.status_code.description %> </span>
+									<span class="tstamp">(<%= event.status_date.strftime('%Y-%m-%d') %>)</span>
+								</li>
+							<% end %>
+							</ul>
+							
+							</div>
+						</div>
+
+						<%= link_to image_tag("mcs_btnUp.png"),'#', :class=>"scrollUpBtn" %>
+						<div class="dragger_container span-2">
+			    				<div class="dragger"> </div>
+						</div>
+						<%= link_to image_tag("mcs_btnDown.png"),'#', :class=>"scrollDownBtn" %> 
+				</div>
+							
+		
 	</section>
-</section>
+
+
+	<!-- content to show if javascript is disabled -->
+	<noscript>
+		<style type="text/css">
+			#status .customScrollBox{overflow:auto;}
+			#status .dragger_container{display:none;}
+			#votes .customScrollBox{overflow:auto;}
+			#votes .dragger_container{display:none;}
+		</style>
+	</noscript>
+	
+	<div id="undercontent" class="else"> </div>
+
+	
+	<% javascript_tag do %>
+
+		mCustomScrollbars();
+
+
+	function mCustomScrollbars(){
+		$("#votes").mCustomScrollbar("vertical",200,"easeOutCirc",1.25,"fixed","yes","yes",15);
+		$("#status").mCustomScrollbar("vertical",200,"easeOutCirc",1.25,"fixed","yes","yes",15); 
+	}
+
+
+	$.fx.prototype.cur = function(){
+	    if ( this.elem[this.prop] != null && (!this.elem.style || this.elem.style[this.prop] == null) ) {
+	      return this.elem[ this.prop ];
+	    }
+	    var r = parseFloat( jQuery.css( this.elem, this.prop ) );
+	    return typeof r == 'undefined' ? 0 : r;
+	}
+
+
+	<%end%>
+

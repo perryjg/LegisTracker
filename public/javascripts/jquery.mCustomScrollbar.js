@@ -174,7 +174,11 @@ $.fn.mCustomScrollbar = function (scrollType,animSpeed,easeType,bottomSpace,drag
 				$dragger_container.css("display","none");
 				$scrollDownBtn.css("display","none");
 				$scrollUpBtn.css("display","none");
-			}
+			
+			
+				}
+			
+			
 		//vertical scrolling ------------------------------
 		} else {
 			var visibleHeight=$customScrollBox.height();
@@ -313,10 +317,11 @@ $.fn.mCustomScrollbar = function (scrollType,animSpeed,easeType,bottomSpace,drag
 				}
 			} else { //disable scrollbar if content is short
 				$dragger.css("top",0).css("display","none"); //reset content scroll
-				$customScrollBox_container.css("top",0);
-				$dragger_container.css("display","none");
-				$scrollDownBtn.css("display","none");
-				$scrollUpBtn.css("display","none");
+		//Uncomment to have scrollbars disappear entirely if content is too short.
+			//	$customScrollBox_container.css("top",0);
+			//	$dragger_container.css("display","none");
+			//	$scrollDownBtn.css("display","none");
+			//	$scrollUpBtn.css("display","none");
 			}
 		}
 		

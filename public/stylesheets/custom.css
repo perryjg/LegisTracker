@@ -133,8 +133,28 @@ nav li a.current {
 }
 
 /*CONTENT*/
+
 #content{position:relative; background:white; margin-top:-1.0em; }
 #content p.endy{font-family: 'Orbitron', arial, serif; text-align:center; size:0.75em; color:#777;}
+#well {position:relative;}
+
+#undercontent { /* tag cloud holder */
+	z-index:1;
+	clear:both;
+	position:relative;
+	margin-top:-12em;
+	height:12em;
+	right:0;
+	left:0px;
+	bottom:0px;
+	padding-top:1.5em;
+	background: #3774A2;
+	background: -moz-linear-gradient(top,  #234B69, #3774A2);
+	background: -webkit-gradient(linear, left top, left bottom, from(#234B69), to(#3774A2));
+	}
+
+
+	
 #footer {z-index:4; position:relative; background: #3774A2;  height: 25px;}
 #footer p {color:white; padding-top:.3em; text-align:center;}
 /* END APPLICATION TEMPLATE------------------------------------------------------------------------------------------------------- */
@@ -147,20 +167,7 @@ nav li a.current {
 #status {}
 #status_content {}
 
-/* TAG CLOUD
----------------------------------------------*/
-#undercontent {
-	clear:both;
-	position:absolute; 
-	height: 10em;
-	right:0;
-	left:0px;
-	bottom:0px;
-	padding-top:1.5em;
-	background: #3774A2;
-	background: -moz-linear-gradient(top,  #234B69, #3774A2);
-	background: -webkit-gradient(linear, left top, left bottom, from(#234B69), to(#3774A2));
-	}
+
 
 /*RSS FEEDS 
 ----------------------------------------------*/	
@@ -323,8 +330,8 @@ nav li a.current {
 /*CUSTOM SCROLL BARS 
 -----------------------------------------------*/
 
-#status .customScrollBox,   #votes .customScrollBox {position:relative; height:20em; overflow:hidden;}
-#status .customScrollBox .container {position:relative; top:0; float:left;}
+#status .customScrollBox,   #votes .customScrollBox {position:relative; overflow:hidden; height:44em;}
+#status .customScrollBox .container {position:relative; top:0; float:left;  }
 #votes  .customScrollBox .container  {position:relative; top:0; float:left;}
 #status .customScrollBox .content, #votes  .customScrollBox .content {clear:both; }
 
@@ -336,7 +343,7 @@ nav li a.current {
 	bottom:1.5em;
 	/*margin-left determines alignment with scrolling content -- adjust this in specific style for that div.*/
 	width:2px; 
-	height:17em;
+	height:41em;
 	float:left;
 	background:#eee; 
 	cursor:pointer;
@@ -348,14 +355,15 @@ nav li a.current {
 	}
 
 /* DRAGGER CONTAINER PLACMENT FOR SPECIFIC DIVS */
-#votes .dragger_container { margin-left: 16em;} /* home: votes */
-#status .dragger_container{ margin-left: 34em; } /* home: status */
+#votes .dragger_container { position:absolute; right:24px;} /* home: votes */
+#status .dragger_container{ right:29px; } /* home: status */
 
 #status .dragger, #votes .dragger{
 	position:absolute; 
 	z-index:13;
-	width:2px; 
-	height:60px; 
+	width:7px; 
+	height:18px; 
+	right:-3px;
 	background:#3774A2; 
 	text-align:center; 
 	line-height:60px; 
@@ -369,8 +377,8 @@ nav li a.current {
 	}
 	
 #status .dragger_pressed, #votes .dragger_pressed{
-	width:4px; 
-	margin-left:-1px; 
+	
+
 	-moz-border-radius:4px; 
 	-khtml-border-radius:4px; 
 	-webkit-border-radius:4px; 
@@ -379,9 +387,9 @@ nav li a.current {
 	}
 
 #status .scrollUpBtn,#status .scrollDownBtn, #votes .scrollUpBtn,#votes .scrollDownBtn { position:absolute; display:inline-block; width:14px; height:15px; text-decoration:none; right:0; filter:alpha(opacity=20); -moz-opacity:0.20; -khtml-opacity:0.20; opacity:0.20;}
-#votes  .scrollUpBtn {top:0px; right:29px;}/* home: votes */
-#votes  .scrollDownBtn {bottom:0px; right:29px; }/* home: votes */
-#status .scrollUpBtn {top:0px; right:53px; }/* home: status */
-#status .scrollDownBtn {bottom:0px; right:53px; }/* home: status */
+#votes  .scrollUpBtn {top:0; right:27px;}/* home: votes */
+#votes  .scrollDownBtn {bottom:0px; right:27px; }/* home: votes */
+#status .scrollUpBtn {top:0px; right:32px; }/* home: status */
+#status .scrollDownBtn {bottom:0px; right:32px; }/* home: status */
 #status .scrollUpBtn:hover,#status .scrollDownBtn:hover, #votes.scrollUpBtn:hover,#votes .scrollDownBtn:hover{filter:alpha(opacity=60); -moz-opacity:0.60; -khtml-opacity:0.60; opacity:0.60;}/* home: status */
 /*END CUSTOMER SCROLL BARS ---------------------------------------------------------------------------------------/
