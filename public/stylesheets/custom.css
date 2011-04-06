@@ -63,7 +63,12 @@ input[type="submit"]:hover {
 
 /* APPLICATION TEMPLATE
 ----------------------------------------------------------------------------------- */
-#container { position:absolute; background:white; height:100%; }
+.container  { background:white; height:100%;
+	-moz-box-shadow: 0px 0px 1em #333;
+	-webkit-box-shadow: 0px 0px 1em #333;
+	box-shadow: 0px 0px 1em #333;
+	 }
+
 
 /*HEADER*/
 #header {background:#3774A2;margin:0; padding-top:1em; height:60px; width:100%;}
@@ -180,7 +185,7 @@ nav li a.current {
 	right: 10px; 
 	padding:2em; 
 	padding-bottom:0; 
-	padding-right:1em; SHA
+	padding-right:1em;
 	background:#e5e5e5;
 	background: -moz-linear-gradient(top, #aaa 0%, #eeeeee 100%); /* firefox */
 	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#aaa), color-stop(100%,#eeeeee)); /* webkit */
@@ -192,6 +197,9 @@ nav li a.current {
 	border-top:none;
 	opacity:0.8;
 	filter:alpha (opacity=80);
+	-moz-box-shadow: inset 0px 0px 1em 1em #888;
+	-webkit-box-shadow: inset 0px 0px 1em 1em #888;
+	box-shadow: inset 0px 0px 1em .25em #888;
 	}
 	
 #feedbox { 
@@ -267,6 +275,11 @@ nav li a.current {
 
 /*MEMBERS PAGES
 -----------------------------------------------------------------------------------*/
+/*INDEX */
+#house{}
+#senate{}
+
+/*SHOW */
 #sponsorships tbody tr:nth-child(even) td, tbody tr.even td {background:white;}
 #sponsorships tr td {text-align:left; vertical-align:top;  padding:0;}/* Bills */
 #inside h2 { padding-top:1em;}
@@ -330,13 +343,37 @@ nav li a.current {
 /*CUSTOM SCROLL BARS 
 -----------------------------------------------*/
 
-#status .customScrollBox,   #votes .customScrollBox {position:relative; overflow:hidden; height:44em;}
-#status .customScrollBox .container {position:relative; top:0; float:left;  }
-#votes  .customScrollBox .container  {position:relative; top:0; float:left;}
-#status .customScrollBox .content, #votes  .customScrollBox .content {clear:both; }
+#status .customScrollBox,
+#votes .customScrollBox,
+#house .customScrollBox,
+#senate .customScrollBox
+ {
+	position:relative; overflow:hidden; height:44em;
+	}
+	
+#status .customScrollBox .container, 
+#votes  .customScrollBox .container,
+#house .customScrollBox .container,
+#senate .customScrollBox .container
+  {
+	position:relative; top:0; float:left;
+	}
+	
+#status .customScrollBox .content, 
+#votes  .customScrollBox .content,
+#house .customScrollBox .content, 
+#senate  .customScrollBox .content
+ {
+	clear:both; 
+	}
 
 /* GLOBAL DRAGGER CONTAINER*/
-#votes .dragger_container, #status .dragger_container {
+#votes .dragger_container, 
+#status .dragger_container,
+#house .dragger_container, 
+#senate .dragger_container
+ 
+{
 	z-index:12;
 	position:absolute; 
 	top:1.5em;
@@ -356,9 +393,17 @@ nav li a.current {
 
 /* DRAGGER CONTAINER PLACMENT FOR SPECIFIC DIVS */
 #votes .dragger_container { position:absolute; right:24px;} /* home: votes */
-#status .dragger_container{ right:29px; } /* home: status */
+#status .dragger_container { right:29px; } /* home: status */
+#house .dragger_container, #senate .dragger_container
+{
+	 right:29px; 
+	} 
 
-#status .dragger, #votes .dragger{
+#status .dragger, 
+#votes .dragger,
+#house .dragger, 
+#senate .dragger
+{
 	position:absolute; 
 	z-index:13;
 	width:7px; 
@@ -376,9 +421,12 @@ nav li a.current {
 	border-radius:2px;
 	}
 	
-#status .dragger_pressed, #votes .dragger_pressed{
+#status .dragger_pressed, 
+#votes .dragger_pressed,
+#house .dragger_pressed, 
+#senate .dragger_pressed
+{
 	
-
 	-moz-border-radius:4px; 
 	-khtml-border-radius:4px; 
 	-webkit-border-radius:4px; 
@@ -386,10 +434,38 @@ nav li a.current {
 	cursor:s-resize;
 	}
 
-#status .scrollUpBtn,#status .scrollDownBtn, #votes .scrollUpBtn,#votes .scrollDownBtn { position:absolute; display:inline-block; width:14px; height:15px; text-decoration:none; right:0; filter:alpha(opacity=20); -moz-opacity:0.20; -khtml-opacity:0.20; opacity:0.20;}
+#status .scrollUpBtn,
+#status .scrollDownBtn, 
+#votes .scrollUpBtn,
+#votes .scrollDownBtn,
+#house .scrollUpBtn,
+#house .scrollDownBtn,
+#senate .scrollUpBtn,
+#senate .scrollDownBtn
+{ 
+	position:absolute; display:inline-block; width:14px; height:15px; text-decoration:none; right:0; filter:alpha(opacity=20); -moz-opacity:0.20; -khtml-opacity:0.20; opacity:0.20;
+	}
+
+
+
 #votes  .scrollUpBtn {top:0; right:27px;}/* home: votes */
 #votes  .scrollDownBtn {bottom:0px; right:27px; }/* home: votes */
 #status .scrollUpBtn {top:0px; right:32px; }/* home: status */
 #status .scrollDownBtn {bottom:0px; right:32px; }/* home: status */
-#status .scrollUpBtn:hover,#status .scrollDownBtn:hover, #votes.scrollUpBtn:hover,#votes .scrollDownBtn:hover{filter:alpha(opacity=60); -moz-opacity:0.60; -khtml-opacity:0.60; opacity:0.60;}/* home: status */
+
+#house .scrollUpBtn, #senate .scrollUpBtn {top:0px; right:32px; }
+#house .scrollDownBtn, #senate .scrollDownBtn {bottom:0px; right:32px; }
+
+#status .scrollUpBtn:hover,
+#status .scrollDownBtn:hover, 
+#votes .scrollUpBtn:hover,
+#votes .scrollDownBtn:hover
+
+#house .scrollUpBtn:hover,
+#house .scrollDownBtn:hover,
+#senate .scrollUpBtn:hover,
+#senate .scrollDownBtn:hover
+{
+	filter:alpha(opacity=60); -moz-opacity:0.60; -khtml-opacity:0.60; opacity:0.60;
+	}
 /*END CUSTOMER SCROLL BARS ---------------------------------------------------------------------------------------/

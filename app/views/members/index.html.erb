@@ -1,19 +1,81 @@
 <div id="inside" class="span-22 push-1 first last">
 	<h2>Georgia State Assembly Members</h2>
-	<section id="house" class="span-6 prepend-3 border first">
-		<h3>Representatives</h3>
-		<ul>
-		<% @reps.each do |rep| %>
-			<li><%= link_to "#{rep.seat} #{rep.display_name} (#{rep.party})", member_path( rep ) %></li>
-		<% end %>
-		</ul>
-	</section>
-	<section id="senate" class=" push-3 span-11 first">
-		<h3>Senators</h3>
-		<ul>
-		<% @senators.each do |sen| %>
-		<li><%= link_to "#{sen.seat} #{sen.display_name} (#{sen.party})", member_path( sen ) %></li>
-		<% end %>
-		</ul>
-	</section>
-</div>
+		<hr/>
+</div> 		
+		
+<!-- START HOUSE MEMBER LIST -->
+<section id="house" class=" push-4 span-7 last">
+	<header><h3>House</h3></header>
+
+
+	<div class="customScrollBox span-7">
+		<div class="container span-7">
+			<div  class="content span-7">
+				<ul>
+				<% @reps.each do |rep| %>
+					<li><%= link_to "#{rep.seat} #{rep.display_name} (#{rep.party})", member_path( rep ) %></li>
+					<% end %>
+				</ul>
+			</div><!-- END CLASS: CONTENT -->	
+		</div><!-- END CLASS: CONTAINER -->	
+		<!-- SCROLL BAR -->		<%= link_to image_tag("mcs_btnUp.png"),'#', :class=>"scrollUpBtn" %><div class="dragger_container span-1"><div class="dragger"> </div></div><%= link_to image_tag("mcs_btnDown.png"),'#', :class=>"scrollDownBtn" %> 
+	</div><!-- END CLASS: CUSTOMSCROLLBOX -->
+</section>
+<!-- END HOUSE LIST -->
+
+
+
+<section id="senate" class=" push-7 span-7 last">
+	<header><h3>Senators</h3></header>
+
+		
+			<div class="customScrollBox span-7">
+				<div class="container span-7">
+					<div class="content span-7">
+							<ul>
+							<% @senators.each do |sen| %>
+								<li><%= link_to "#{sen.seat} #{sen.display_name} (#{sen.party})", member_path( sen ) %></li>
+							<% end %>
+							</ul>
+					</div><!-- END CLASS: CONTENT -->	
+				</div><!-- END CLASS: CONTAINER -->	
+		<!-- SCROLL BAR -->		<%= link_to image_tag("mcs_btnUp.png"),'#', :class=>"scrollUpBtn" %><div class="dragger_container span-1"><div class="dragger"> </div></div><%= link_to image_tag("mcs_btnDown.png"),'#', :class=>"scrollDownBtn" %> 
+			</div><!-- END CLASS: CUSTOMSCROLLBOX -->
+</section>
+<!-- END senate LIST -->
+
+
+<!-- content to show if javascript is disabled -->
+<noscript>
+	<style type="text/css">
+		#house.customScrollBox{overflow:auto;}
+		#house .dragger_container{display:none;}
+		#senate .customScrollBox{overflow:auto;}
+		#senate .dragger_container{display:none;}
+	</style>
+</noscript>
+
+
+<div id="undercontent" class="else"> </div>
+
+
+
+<% javascript_tag do %>
+	mCustomScrollbars();
+
+
+function mCustomScrollbars(){
+	$("#house").mCustomScrollbar("vertical",200,"easeOutCirc",1.25,"fixed","yes","yes",15);
+	$("#senate").mCustomScrollbar("vertical",200,"easeOutCirc",1.25,"fixed","yes","yes",15); 
+}
+
+
+$.fx.prototype.cur = function(){
+    if ( this.elem[this.prop] != null && (!this.elem.style || this.elem.style[this.prop] == null) ) {
+      return this.elem[ this.prop ];
+    }
+    var r = parseFloat( jQuery.css( this.elem, this.prop ) );
+    return typeof r == 'undefined' ? 0 : r;
+}
+
+<%end%>
