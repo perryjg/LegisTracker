@@ -63,7 +63,7 @@ input[type="submit"]:hover {
 
 /* APPLICATION TEMPLATE
 ----------------------------------------------------------------------------------- */
-.container  { background:white; height:100%;
+#container.container  { background:white; height:100%;
 	-moz-box-shadow: 0px 0px 1em #333;
 	-webkit-box-shadow: 0px 0px 1em #333;
 	box-shadow: 0px 0px 1em #333;
