@@ -171,7 +171,8 @@ nav li a.current {
 #vote_content {}
 #status {}
 #status_content {}
-
+#button {margin:0; padding-top:5px; padding-right:5px; clear:both; float;left}
+#billdata {float:left;}
 
 
 /*RSS FEEDS 
@@ -241,11 +242,11 @@ nav li a.current {
 #flash {}
 
 /*WATCH & UNWATCH BUTTON */
-#hotnot { clear:both; float:left; width:80px; margin:5px; margin-left:0;padding:3px; padding-bottom:0px; margin-top:2.35em;}
+#hotnot { clear:both; float:left; width:28px; margin:5px; margin-left:0; padding-bottom:0px; margin-top:2.5em;}
 #hotnot a img { }
 #hotnot a:hover img,
 #hotnot a:focus img { }
-#billtitle {float:left;margin-left:10px;}
+#billtitle {float:left;margin-left:5px;}
 
 /* TAGS */
 #tags {float:right; text-align:right;}
