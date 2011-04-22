@@ -10,7 +10,7 @@
 		<h2>Bill index</h2>
 	<% @bills.each do |bill| %>
 		<article>
-			<div class="first span-1">
+			<div id="billhotnot" class="first">
 				<% if bill.is_watched_by_user?( current_user ) %>
 					<%= link_to image_tag("bt_sm_unwatch.png", :mouseover =>"bt_sm_unwatch_hvr.png"), unhot_bill_path( bill ), :alt=> 'Un-watch', :title => 'Un-watch', :class => 'watched'  %>
 				<% else %>
@@ -18,8 +18,11 @@
 				<% end %>
 			</div>
 		  	<header class="span-19 last"><h3><%= link_to "#{bill.number}", bill_path( bill ) %> <%= bill.short_title %></h3></header>
+			<section>
+				<br/><br/>
 			<p><%= bill.title %></p>
 			<p><strong>Current status: </strong><%= bill.b_status %> <span class="tstamp">(<%= bill.current_status_date %>)</span></p>
+			</section>
 			<hr>
 		</article>
 	<% end %>

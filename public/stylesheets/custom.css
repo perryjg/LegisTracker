@@ -171,7 +171,7 @@ nav li a.current {
 #vote_content {}
 #status {}
 #status_content {}
-#button {margin:0; padding-top:5px; padding-right:5px; clear:both; float;left}
+#button {margin:0; padding-top:5px;  clear:both; float;left}
 #billdata {float:left;}
 
 
@@ -180,7 +180,7 @@ nav li a.current {
 #feeds { 
 	/*This is the background gray box*/
 	z-index:2;
-	 position:absolute;  
+	position:absolute;  
 	bottom:10px; 
 	top:-1.5em; 
 	right: 10px; 
@@ -242,10 +242,11 @@ nav li a.current {
 #flash {}
 
 /*WATCH & UNWATCH BUTTON */
-#hotnot { clear:both; float:left; width:28px; margin:5px; margin-left:0; padding-bottom:0px; margin-top:2.5em;}
-#hotnot a img { }
-#hotnot a:hover img,
-#hotnot a:focus img { }
+#hotnot { clear:both; float:left; width:22px; margin:5px; margin-left:0; padding-bottom:0px; margin-top:2.5em;}
+#billhotnot { clear:both; float:left; width:22px; margin:5px; margin-left:0; padding-bottom:0px; margin-top:0;}
+#hotnot #billhotnota img { }
+#hotnot #billhotnota:hover img,
+#hotnot #billhotnot a:focus img { }
 #billtitle {float:left;margin-left:5px;}
 
 /* TAGS */
@@ -262,7 +263,7 @@ nav li a.current {
 ------------------------------------------- */
 
 /* WATCH & UNWATCH BUTTON */
-#key { clear:both; float:left;  width:86px; margin:5px; margin-left:0;padding:3px; padding-bottom:0px; margin-top:2.35em; }
+#key { clear:both; float:left;  width:22px; margin:5px; margin-left:0; padding:3px; padding-bottom:0px; margin-top:2.5I em; }
 #key a img { }
 #key a:hover img,
 #key a:focus img { }

@@ -74,7 +74,7 @@
 		<table>
 			<% @member.sponsorships.primary.each do |primary| %>
 				<tr>
-					<td width="35px">
+					<td width="28px">
 						<% if primary.bill.is_watched_by_user?( current_user ) %>
 							<%= link_to image_tag("bt_sm_unwatch.png", :mouseover =>"bt_sm_unwatch_hvr.png"), unhot_bill_path(primary.bill), :alt=> 'Un-watch', :title => 'Un-watch', :class => 'watched'  %>
 						<% else %>
@@ -89,7 +89,7 @@
 			<% end %>
 		</table>
 		<% end %>
-		</div>
+		</div>chuc#pin
 		
 		<div id="secbill" class="span-9 push-1 last">
 			<% if @member.sponsorships.secondary.count > 0 %>
@@ -98,7 +98,7 @@
 				<table>
 					<% @member.sponsorships.secondary.each do |secondary| %>
 					<tr>
-						<td width="35px">
+						<td width="28px">
 							<% if secondary.bill.is_watched_by_user?( current_user ) %>
 								<%= link_to image_tag("bt_sm_unwatch.png", :mouseover =>"bt_sm_unwatch_hvr.png"), unhot_bill_path(secondary.bill), :alt=> 'Un-watch', :title => 'Un-watch', :class => 'watched'  %>
 							<% else %>
