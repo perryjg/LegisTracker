@@ -8,13 +8,13 @@
 
 	<div id="hotnot" class="first">
 		<% if @bill.is_watched_by_user?( current_user ) %>
-			<%= link_to image_tag("bt_unwatch.png", :mouseover =>"bt_unwatch_hvr.png"), unhot_bill_path( @bill ), :class => 'watched' %>
+			<%= link_to image_tag("bt_sm_unwatch.png", :mouseover =>"bt_sm_unwatch_hvr.png"), unhot_bill_path( @bill ), :alt=> 'Un-watch', :title => 'Un-watch', :class => 'watched'  %>
 		<% else %>
-			<%= link_to  image_tag("bt_watch.png", :mouseover => "bt_watch_hvr.png"), hot_bill_path( @bill ), :class => 'unwatched'%>
+			<%= link_to  image_tag("bt_sm_watch.png", :mouseover => "bt_sm_watch_hvr.png"), hot_bill_path( @bill ), :alt=> 'Watch', :title => 'Watch', :class => 'unwatched' %>
 		<% end %>
 	</div>
   
-	<div id="billtitle" class="span-19  push-2 last">
+	<div id="billtitle" class="span-19 last">
 		<h2><%= @bill.number %>: <%= @bill.short_title %></h2>
 	</div>
 	

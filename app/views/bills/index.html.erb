@@ -1,10 +1,28 @@
 <section id="bindex" class="span-20 push-2 first last prepend-top">
-	<header><h2>Search Results</h2></header>
+		<!-- START FLASH MESSAGES -->
+		<% if flash[:notice] %>
+			<div id="flash" class="flash notice span-18 first last"><%= flash[:notice] %></div>
+		<% end %>
+		<% if flash[:error] %>
+			<div id="flash" class="flash error span-18 first last"><%= flash[:error] %></div>
+		<% end %>
+		<!-- END FLASH MESSAGES -->
+		<h2>Bill index</h2>
 	<% @bills.each do |bill| %>
 		<article>
-		  	<header><h3><%= link_to "#{bill.number}", bill_path( bill ) %> <%= bill.short_title %></h3></header>
+			<div id="billhotnot" class="first">
+				<% if bill.is_watched_by_user?( current_user ) %>
+					<%= link_to image_tag("bt_sm_unwatch.png", :mouseover =>"bt_sm_unwatch_hvr.png"), unhot_bill_path( bill ), :alt=> 'Un-watch', :title => 'Un-watch', :class => 'watched'  %>
+				<% else %>
+					<%= link_to  image_tag("bt_sm_watch.png", :mouseover => "bt_sm_watch_hvr.png"), hot_bill_path( bill ), :alt=> 'Watch', :title => 'Watch', :class => 'unwatched' %>
+				<% end %>
+			</div>
+		  	<header class="span-19 last"><h3><%= link_to "#{bill.number}", bill_path( bill ) %> <%= bill.short_title %></h3></header>
+			<section>
+				<br/><br/>
 			<p><%= bill.title %></p>
 			<p><strong>Current status: </strong><%= bill.b_status %> <span class="tstamp">(<%= bill.current_status_date %>)</span></p>
+			</section>
 			<hr>
 		</article>
 	<% end %>

@@ -12,4 +12,6 @@ class HomeController < ApplicationController
     @house_rss = HouseFeed.find_recent
     @senate_rss = SenateFeed.find_recent
   end
+  
+  
 end

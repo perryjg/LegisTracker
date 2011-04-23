@@ -6,14 +6,14 @@
 		<p class="flash error span-21 first last"><%= flash[:error] %></p>
 	<% end %>
 
-	<div id="key" class="first push-2">
+	<div id="key" class="first">
 	<% if @vote.is_key? %>
-		<%= link_to image_tag("bt_unkey.png", :mouseover => "bt_unkey_h.png"), unkey_vote_path( @vote ) %>
+		<%= link_to image_tag("bt_sm_unwatch.png", :mouseover => "bt_sm_unwatch_hvr.png"),  unkey_vote_path( @vote ), :alt=> 'Un-watch', :title => 'Un-watch', :class => 'watched' %>
 	<% else %>
-		<%= link_to image_tag("bt_makekey.png", :mouseover => "bt_makekey_h.png"), key_vote_path( @vote )  %>
+		<%= link_to image_tag("bt_sm_watch.png", :mouseover => "bt_sm_watch_hvr.png"), key_vote_path( @vote ), :alt=> 'Watch', :title => 'Watch', :class => 'unwatched'  %>
 	<% end %>
 	</div>
-	
+
 	<div id="keytitle" class="span-19 last">
 		<header><hgroup><h2><%= "#{@vote.legislation}" %> <span class="memid"> <%= "#{@vote.description}" %> </span></h2>
 	<h4>Vote on <%= @vote.date.strftime( '%Y-%m-%d' ) %></h4><hgroup></header>

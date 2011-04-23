@@ -73,24 +73,41 @@
 		<h3>Bills sponsored: Primary</h3>
 		<table>
 			<% @member.sponsorships.primary.each do |primary| %>
-				<tr><td width="45px">
+				<tr>
+					<td width="28px">
+						<% if primary.bill.is_watched_by_user?( current_user ) %>
+							<%= link_to image_tag("bt_sm_unwatch.png", :mouseover =>"bt_sm_unwatch_hvr.png"), unhot_bill_path(primary.bill), :alt=> 'Un-watch', :title => 'Un-watch', :class => 'watched'  %>
+						<% else %>
+							<%= link_to  image_tag("bt_sm_watch.png", :mouseover => "bt_sm_watch_hvr.png"), hot_bill_path(primary.bill), :alt=> 'Watch', :title => 'Watch', :class => 'unwatched' %>
+						<% end %>
+					</td>
+						<td width="45px">
 					<%= link_to primary.bill.number, bill_path( primary.bill.id ) %>
 					</td><td><%= primary.bill.short_title %>
 				</td></tr>
+				<tr><td>&nbsp;</td></tr>
 			<% end %>
 		</table>
 		<% end %>
-		</div>
+		</div>chuc#pin
 		
 		<div id="secbill" class="span-9 push-1 last">
 			<% if @member.sponsorships.secondary.count > 0 %>
 				<h3>Bills sponsored: Secondary</h3>
 
-				<table
+				<table>
 					<% @member.sponsorships.secondary.each do |secondary| %>
 					<tr>
+						<td width="28px">
+							<% if secondary.bill.is_watched_by_user?( current_user ) %>
+								<%= link_to image_tag("bt_sm_unwatch.png", :mouseover =>"bt_sm_unwatch_hvr.png"), unhot_bill_path(secondary.bill), :alt=> 'Un-watch', :title => 'Un-watch', :class => 'watched'  %>
+							<% else %>
+								<%= link_to  image_tag("bt_sm_watch.png", :mouseover => "bt_sm_watch_hvr.png"), hot_bill_path(secondary.bill), :alt=> 'Watch', :title => 'Watch', :class => 'unwatched' %>
+							<% end %>
+						</td>
 						<td width="45px"><%= link_to secondary.bill.number, bill_path( secondary.bill.id) %> </td><td> <%= secondary.bill.short_title %></td>
 					</tr>
+						<tr><td>&nbsp;</td></tr>
 					<% end %>
 				</table>
 
