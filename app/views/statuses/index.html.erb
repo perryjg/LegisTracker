@@ -51,7 +51,7 @@
 							<ul>
 							<% @events.each do |event| %>
 								<li class="event">
-									<div class="first span-1">
+									<div id="button" class="first span-1">
 										<% if event.bill.is_watched_by_user?( current_user ) %>
 											<%= link_to image_tag("bt_sm_unwatch.png", :mouseover =>"bt_sm_unwatch_hvr.png"), unhot_bill_path( event.bill ), :alt=> 'Un-watch', :title => 'Un-watch', :class => 'watched'  %>
 										<% else %>

@@ -71,7 +71,7 @@ input[type="submit"]:hover {
 
 
 /*HEADER*/
-#header {background:#3774A2;margin:0; padding-top:1em; height:60px; width:100%;}
+#header {background: -moz-linear-gradient(top, #3774A2, #234B69); background: -webkit-gradient(linear, left top, left bottom, from(#3774A2), to(#234B69));margin:0; padding-top:1em; height:60px; width:100%;}
 #header h1 {font-family: 'Orbitron', arial, serif; padding-left:.5em; color:white; text-shadow:0 1px 0 black;}
 #header a {text-decoration:none;color:white;}
 #header a:link {}
@@ -80,7 +80,7 @@ input[type="submit"]:hover {
 #search {float:right; horizontal-align:right; text-align:center;}
 
 /*NAV BAR AREA*/
-#navhed {background: #3774A2; background: -moz-linear-gradient(top, #3774A2, #2D5F85); background: -webkit-gradient(linear, left top, left bottom, from(#3774A2), to(#2D5F85));}
+#navhed {background: #234B69; }
 #nav {clear:both; float:left;}
 #user_nav {float:right; font-size:.9em; text-align:right; color:white; text-shadow: 0 1px 0 #162F42;}
 #user_nav a {color:white; font-weight:bold; text-shadow: 0 1px 0 #162F42;}
@@ -153,8 +153,8 @@ nav li a.current {
 	left:0px;
 	bottom:0px;
 	padding-top:1.5em;
-	background: #3774A2;
-	background: -moz-linear-gradient(top,  #234B69, #3774A2);
+	background: #3774A2;100%
+	background: -moz-linear-gradient(top,  #234B69, #3774A2);100%
 	background: -webkit-gradient(linear, left top, left bottom, from(#234B69), to(#3774A2));
 	}
 
@@ -171,7 +171,7 @@ nav li a.current {
 #vote_content {}
 #status {}
 #status_content {}
-#button {margin:0; padding-top:5px;  clear:both; float;left}
+#button {margin:0; margin-top:-0px; padding-top:0px;  clear:both; float;left; }
 #billdata {float:left;}
 
 
@@ -318,6 +318,9 @@ nav li a.current {
 #links { float:right; margin-top: -35px; margin-bottom: -5px; }
 /* END MEMBERS */
 
+/* STATUS */
+
+/* END STATUS */
 
 
 /* OTHER GLOBALS */
